@@ -2,7 +2,7 @@
 
 namespace Bee.GlobalHooks
 {
-    public class RawMouseEventArgs
+    public class RawMouseEvents
     {
 
         public MouseButtonTypes MessageType { get; set; } = MouseButtonTypes.None;

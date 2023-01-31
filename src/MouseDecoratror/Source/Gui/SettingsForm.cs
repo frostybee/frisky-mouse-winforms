@@ -2,7 +2,7 @@
 using Bee.MouseDecorator.Core;
 using System.Drawing;
 using System.Windows.Forms;
-using DecorationAppSettings = Bee.MouseHighlighter.Properties;
+//using DecorationAppSettings = Bee.MouseHighlighter.Properties;
 
 namespace Bee.MouseDecorator.UI
 {

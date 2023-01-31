@@ -22,6 +22,8 @@ namespace MouseDecoratror
         public MainForm()
         {
             InitializeComponent();
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new SizeF(96f, 96f);
             // Initialize MaterialSkinManager
             materialSkinManager = MaterialSkinManager.Instance;
             // Set this to false to disable backcolor enforcing on non-materialSkin components
@@ -30,7 +32,7 @@ namespace MouseDecoratror
 
             // MaterialSkinManager properties
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700,
                 Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
             // Internal events.

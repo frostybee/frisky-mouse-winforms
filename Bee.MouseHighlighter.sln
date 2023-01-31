@@ -3,15 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bee.MouseHighlighter", "Bee.MouseHighlighter\Bee.MouseHighlighter.csproj", "{A268A365-5089-4F5F-98D8-066BD81733B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win32CreateWindow", "src\Win32CreateWindow\Win32CreateWindow.csproj", "{5535E649-8AF0-4F31-BCE5-112748F99713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bee.GlobalHooks", "Bee.GlobalHooks\Bee.GlobalHooks.csproj", "{D3A1E9DA-DD8F-466B-9574-E963DBFCFC00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseDecoratror", "src\MouseDecoratror\MouseDecoratror.csproj", "{A52D203E-5667-4CDF-B243-64C82B77216F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win32CreateWindow", "Win32CreateWindow\Win32CreateWindow.csproj", "{5535E649-8AF0-4F31-BCE5-112748F99713}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseDecoratror", "MouseDecoratror\MouseDecoratror.csproj", "{A52D203E-5667-4CDF-B243-64C82B77216F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialSkin", "MaterialSkin\MaterialSkin.csproj", "{8EB7611B-68CD-4B8B-987A-11717E2B250C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialSkin", "src\MaterialSkin\MaterialSkin.csproj", "{8EB7611B-68CD-4B8B-987A-11717E2B250C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A268A365-5089-4F5F-98D8-066BD81733B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A268A365-5089-4F5F-98D8-066BD81733B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A268A365-5089-4F5F-98D8-066BD81733B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A268A365-5089-4F5F-98D8-066BD81733B3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D3A1E9DA-DD8F-466B-9574-E963DBFCFC00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3A1E9DA-DD8F-466B-9574-E963DBFCFC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3A1E9DA-DD8F-466B-9574-E963DBFCFC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3A1E9DA-DD8F-466B-9574-E963DBFCFC00}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5535E649-8AF0-4F31-BCE5-112748F99713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5535E649-8AF0-4F31-BCE5-112748F99713}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5535E649-8AF0-4F31-BCE5-112748F99713}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -55,7 +55,7 @@ namespace Bee.MouseDecorator.Core
              layeredWindow.Show();*/
         }
 
-        internal void DecorateLeftSingleClick(RawMouseEventArgs e)
+        internal void DecorateLeftSingleClick(RawMouseEvents e)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace Bee.MouseDecorator.Core
             bitmapInfo = clickStyle;
         }
 
-        internal void DecorateDoubleClick(RawMouseEventArgs e)
+        internal void DecorateDoubleClick(RawMouseEvents e)
         {
             BitmapStyleInfo doubleClickStyle = new BitmapStyleInfo { Size = 100, Color = Color.Green, Opacity = 250, PenSize = 6, Shape = BitmapStyleInfo.ShapeTypes.Circle, IsFilled = false };
             bitmapInfo = doubleClickStyle;

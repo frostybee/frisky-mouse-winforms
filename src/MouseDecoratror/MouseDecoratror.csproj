@@ -46,18 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\HighlighterTab.cs">
+    <Compile Include="Source\Core\BitmapStyleInfo.cs" />
+    <Compile Include="Source\Core\ClickDecorator.cs" />
+    <Compile Include="Source\Core\CursorDecorator.cs" />
+    <Compile Include="Source\Core\DecorationController.cs" />
+    <Compile Include="Source\Core\FramesManager.cs" />
+    <Compile Include="Source\Gui\Controls\HighlighterTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\HighlighterTab.Designer.cs">
+    <Compile Include="Source\Gui\Controls\HighlighterTab.Designer.cs">
       <DependentUpon>HighlighterTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\CustomCircle.cs" />
-    <Compile Include="Core\GraphicsExtensions.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Source\Core\CustomCircle.cs" />
+    <Compile Include="Source\Core\GraphicsExtensions.cs" />
+    <Compile Include="Source\Core\MouseHook\GlobalHookManager.cs" />
+    <Compile Include="Source\Core\MouseHook\RawMouseEvents.cs" />
+    <Compile Include="Source\Core\NativeApi\ExtendedWinStyles.cs" />
+    <Compile Include="Source\Core\NativeApi\HookHelper.cs" />
+    <Compile Include="Source\Core\NativeApi\MouseStructs.cs" />
+    <Compile Include="Source\Core\NativeApi\NativeMethods.cs" />
+    <Compile Include="Source\Core\NativeApi\WinApiTypes.cs" />
+    <Compile Include="Source\Gui\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Source\Gui\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -68,10 +80,18 @@
     <Compile Include="Tests\UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Controls\HighlighterTab.resx">
+    <Compile Include="Source\Gui\Helpers\DrawingHelper.cs" />
+    <Compile Include="Source\Gui\LayeredWindow.cs" />
+    <Compile Include="Source\Gui\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Gui\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Source\Gui\Controls\HighlighterTab.resx">
       <DependentUpon>HighlighterTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Source\Gui\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -86,6 +106,12 @@
     </Compile>
     <EmbeddedResource Include="Tests\UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Gui\LayeredWindow.resx">
+      <DependentUpon>LayeredWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Gui\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -112,6 +138,8 @@
     <Content Include="Resources\baseline_favorite_border_black_24dp.png" />
     <Content Include="Resources\baseline_fingerprint_black_24dp.png" />
     <Content Include="Resources\baseline_thumb_up_black_24dp.png" />
+    <None Include="Resources\bee-icon.png" />
+    <None Include="Resources\Martin-Berube-Animal-Bee.ico" />
     <Content Include="Resources\minus.png" />
     <Content Include="Resources\plus.png" />
     <Content Include="Resources\round_add_black_24dp.png" />
@@ -126,8 +154,6 @@
     <Content Include="Resources\round_report_problem_white_24dp.png" />
     <Content Include="Resources\round_swap_vert_white_24dp.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

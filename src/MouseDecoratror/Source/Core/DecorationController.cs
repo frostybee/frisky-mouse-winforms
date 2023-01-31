@@ -14,8 +14,8 @@ namespace Bee.MouseDecorator.Core
         private readonly CursorDecorator cursorDecorator;
         private readonly ClickDecorator clickDecorator;
         private GlobalHookManager globalHookManager;
-        private RawMouseEventArgs previousMouseUpEvent;
-        private RawMouseEventArgs previousMouseDownEvent;
+        private RawMouseEvents previousMouseUpEvent;
+        private RawMouseEvents previousMouseDownEvent;
         private bool isHookRunning;
         private bool disposedValue = false;
         private int systemDoubleClickTime;
@@ -25,8 +25,8 @@ namespace Bee.MouseDecorator.Core
             isHookRunning = false;
             systemDoubleClickTime = SystemInformation.DoubleClickTime;
             globalHookManager = GlobalHookManager.Instance;            
-            previousMouseUpEvent = new RawMouseEventArgs();
-            previousMouseDownEvent = new RawMouseEventArgs();            
+            previousMouseUpEvent = new RawMouseEvents();
+            previousMouseDownEvent = new RawMouseEvents();            
             clickDecorator = new ClickDecorator();
             cursorDecorator = new CursorDecorator();
             LoadDecorationSettings();
@@ -49,7 +49,7 @@ namespace Bee.MouseDecorator.Core
             //clickDecorator.SetDoubleClickStyle(doubleClickStyle);
         }
         //int previousClick = 0;
-        private void GlobalHookManager_MouseAction(object sender, RawMouseEventArgs e)
+        private void GlobalHookManager_MouseAction(object sender, RawMouseEvents e)
         {
             switch (e.MessageType)
             {
@@ -107,12 +107,12 @@ namespace Bee.MouseDecorator.Core
                     break;
             }
         }
-        private bool IsMouseDragged(RawMouseEventArgs e)
+        private bool IsMouseDragged(RawMouseEvents e)
         {
             //return (e.TimeStamp - previousMouseEvent.TimeStamp <= systemDoubleClickTime)
             return e.Point != previousMouseDownEvent.Point;
         }
-        private bool IsDoubleClick(RawMouseEventArgs e)
+        private bool IsDoubleClick(RawMouseEvents e)
         {
             return (e.TimeStamp - previousMouseUpEvent.TimeStamp <= systemDoubleClickTime)
                 && e.Point == previousMouseUpEvent.Point

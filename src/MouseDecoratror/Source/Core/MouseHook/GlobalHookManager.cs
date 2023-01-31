@@ -12,7 +12,7 @@ namespace Bee.GlobalHooks
         private static object syncRoot = new Object();
         private IntPtr hMouseHook = IntPtr.Zero;
         private NativeMethods.LowLevelMouseProc hookCallback = null;
-        public event EventHandler<RawMouseEventArgs> OnMouseAction;
+        public event EventHandler<RawMouseEvents> OnMouseAction;
         private GlobalHookManager() { }
 
         #region Private Methods
@@ -35,7 +35,7 @@ namespace Bee.GlobalHooks
                     case MouseButtonTypes.RightButtonDown:
                         //EventHandler<HookMouseEventArgs> handler = MouseAction;
                         OnMouseAction?.Invoke(this,
-                            new RawMouseEventArgs
+                            new RawMouseEvents
                             {
                                 MessageType = (MouseButtonTypes)wParam,
                                 Point = hookStruct.pt,
