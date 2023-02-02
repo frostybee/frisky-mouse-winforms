@@ -9,7 +9,7 @@ namespace MouseDecoratror.Core
 {
     internal static class GraphicsExtensions
     {
-        public static void DrawHighlighterPreview(this Graphics gr, HighlightCircle circle)
+        public static void DrawHighlighterPreview(this Graphics gr, CursorHighlighter circle)
         {
             // TODO: adjust the radius and settings
             // TODO: create a method that computes the required bounding rectangle. 
@@ -23,7 +23,14 @@ namespace MouseDecoratror.Core
             {
                 using (SolidBrush brush = new SolidBrush(selectedColor))
                 {
-                    gr.FillEllipse(brush, new Rectangle(20, 20, circle.Radius, circle.Radius));
+                    // TODO: move the rectangle code to Drawing helper class. 
+                    // make a method that creates a rectange.
+                    gr.FillEllipse(brush, new Rectangle(
+                        circle.CenterX - circle.Radius,
+                        circle.CenterY - circle.Radius,
+                        //circle.Radius *2, circle.Radius *2
+                        circle.Radius,  circle.Radius 
+                        ));
                 }
             }
             else
@@ -34,7 +41,7 @@ namespace MouseDecoratror.Core
                     gr.DrawEllipse(pen, new Rectangle(20, 20, circle.Radius, circle.Radius));
                 }
             }
-            
+
         }
         public static void DrawCircle(this Graphics g, Pen pen,
                                   float centerX, float centerY, float radius)

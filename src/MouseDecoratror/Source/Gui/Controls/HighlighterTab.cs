@@ -1,4 +1,5 @@
-﻿using MouseDecoratror.Core;
+﻿using Bee.MouseDecorator.Core;
+using MouseDecoratror.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace MouseDecoratror.Controls
     // the main form. 
     public partial class HighlighterTab : UserControl
     {
-        private readonly HighlightCircle highlighter = new HighlightCircle();
+        private readonly CursorHighlighter highlighter = new CursorHighlighter();
         private readonly Dictionary<String, DashStyle> outlineStyles = new Dictionary<String, DashStyle>() {
             { "Solid", DashStyle.Solid},
             { "Dash", DashStyle.Dash},
@@ -28,11 +29,13 @@ namespace MouseDecoratror.Controls
         public HighlighterTab()
         {
             InitializeComponent();
-            //--
+            //-- Sliders events
             sldRadius.onValueChanged += OpacityOrRadius_onValueChanged;
             sldOpacity.onValueChanged += OpacityOrRadius_onValueChanged;
             sldOutlineWidth.onValueChanged += SldOutlineWidth_onValueChanged;
+            // Switch events
             switchFilledColor.CheckedChanged += SwitchFilledColor_CheckedChanged;
+            switchHighlighter.CheckedChanged += SwitchHighlighter_CheckedChanged;
             cbOutlineStyle.SelectedValueChanged += CbOutlineStyle_SelectedValueChanged;
             pbPreview.Paint += PbPreview_Paint;
 
@@ -42,6 +45,21 @@ namespace MouseDecoratror.Controls
             // Enable the slider of the highlighter's outline width based 
             // on the status of the fill circle switch.
             ManageOutlineSettings();            
+        }
+
+        private void SwitchHighlighter_CheckedChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test");
+            if (switchHighlighter.Checked)
+            {
+                MessageBox.Show("Test");
+                MouseDecorationManager.Instance.DisableHook();
+            }
+            else
+            {
+                MouseDecorationManager.Instance.EnableHook();
+            }
+            
         }
 
         private void ManageOutlineSettings()
@@ -79,6 +97,8 @@ namespace MouseDecoratror.Controls
 
         private void UpdateHighlighterPreview()
         {
+            highlighter.CenterX = pbPreview.Width /2; 
+            highlighter.CenterY = pbPreview.Width/2;
             highlighter.IsFilled = switchFilledColor.Checked;
             highlighter.Radius = sldRadius.Value;
             highlighter.Opacity = sldOpacity.Value;

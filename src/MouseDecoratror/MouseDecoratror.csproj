@@ -32,6 +32,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,8 +57,8 @@
   <ItemGroup>
     <Compile Include="Source\Core\BitmapStyleInfo.cs" />
     <Compile Include="Source\Core\ClickDecorator.cs" />
-    <Compile Include="Source\Core\CursorDecorator.cs" />
-    <Compile Include="Source\Core\DecorationController.cs" />
+    <Compile Include="Source\Core\MouseHighlighter\CursorDecorator.cs" />
+    <Compile Include="Source\Core\MouseDecorationManager.cs" />
     <Compile Include="Source\Core\FramesManager.cs" />
     <Compile Include="Source\Gui\Controls\HighlighterTab.cs">
       <SubType>UserControl</SubType>
@@ -57,7 +66,7 @@
     <Compile Include="Source\Gui\Controls\HighlighterTab.Designer.cs">
       <DependentUpon>HighlighterTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Core\CustomCircle.cs" />
+    <Compile Include="Source\Core\MouseHighlighter\CursorHighlighter.cs" />
     <Compile Include="Source\Core\GraphicsExtensions.cs" />
     <Compile Include="Source\Core\MouseHook\GlobalHookManager.cs" />
     <Compile Include="Source\Core\MouseHook\RawMouseEvents.cs" />
@@ -113,6 +122,7 @@
     <EmbeddedResource Include="Source\Gui\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

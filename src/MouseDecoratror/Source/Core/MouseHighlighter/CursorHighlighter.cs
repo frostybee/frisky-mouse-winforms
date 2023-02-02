@@ -9,9 +9,9 @@ using MouseDecoratror.Core;
 
 namespace MouseDecoratror.Core
 {
-    internal class HighlightCircle
+    internal class CursorHighlighter
     {
-        public HighlightCircle()
+        public CursorHighlighter()
         {
             // Default settings. 
             Radius = 50;
@@ -19,7 +19,9 @@ namespace MouseDecoratror.Core
             Opacity = 200;
             IsFilled = true;
             OutlineWidth = 1f;
-            OutlineStyle = DashStyle.Solid;
+            OutlineStyle = DashStyle.Solid;            
+            CenterX= 0;
+            CenterY= 0;
         }
 
         // Draw the highlighter.
@@ -28,7 +30,8 @@ namespace MouseDecoratror.Core
             gr.DrawHighlighterPreview(this);
         }
         #region Properties
-        public PointF Center { get; set; }
+        public int CenterX { get; set; }
+        public int CenterY { get; set; }
         public int Radius { get; set; }
         public int Opacity { get; set; }
         public Color FillColor { get; set; }

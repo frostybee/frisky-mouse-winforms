@@ -1,4 +1,5 @@
-﻿using MaterialSkin;
+﻿using Bee.MouseDecorator.Core;
+using MaterialSkin;
 using MaterialSkin.Controls;
 using MouseDecoratror.Core;
 using System;
@@ -18,12 +19,21 @@ namespace MouseDecoratror
     public partial class MainForm : MaterialForm
     {
         private readonly MaterialSkinManager materialSkinManager;
-        private readonly HighlightCircle circle = new HighlightCircle();        
+        private readonly CursorHighlighter circle = new CursorHighlighter();
+        private MouseDecorationManager decorationManager;
         public MainForm()
         {
             InitializeComponent();
+            // TODO: find the best value to autoscale with.
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.AutoScaleDimensions = new SizeF(96f, 96f);
+            //-- Set up the form closing/loading events. They are required for ensuring that 
+            // the mouse hooks is properly installed/uninstalled.
+            this.FormClosing += MainForm_FormClosing;
+            this.Activated += MainForm_Load;
+            // Init members.
+            decorationManager = MouseDecorationManager.Instance;
+
             // Initialize MaterialSkinManager
             materialSkinManager = MaterialSkinManager.Instance;
             // Set this to false to disable backcolor enforcing on non-materialSkin components
@@ -38,6 +48,17 @@ namespace MouseDecoratror
             // Internal events.
             //pbPreview.Paint += PbPreview_Paint;
             //             
-        }               
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            decorationManager?.EnableHook();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            decorationManager?.DisableHook();
+            decorationManager?.Dispose();
+        }
     }
 }

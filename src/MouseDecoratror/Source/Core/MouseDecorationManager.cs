@@ -7,9 +7,9 @@ using System.Windows.Forms;
 namespace Bee.MouseDecorator.Core
 {
     //TODO: Dispose everything here.
-    internal class DecorationController : IDisposable
+    internal class MouseDecorationManager : IDisposable
     {
-        private static volatile DecorationController instance = null;
+        private static volatile MouseDecorationManager instance = null;
         private static object syncLock = new Object();
         private readonly CursorDecorator cursorDecorator;
         private readonly ClickDecorator clickDecorator;
@@ -20,7 +20,7 @@ namespace Bee.MouseDecorator.Core
         private bool disposedValue = false;
         private int systemDoubleClickTime;
 
-        private DecorationController()
+        private MouseDecorationManager()
         {
             isHookRunning = false;
             systemDoubleClickTime = SystemInformation.DoubleClickTime;
@@ -166,7 +166,7 @@ namespace Bee.MouseDecorator.Core
         }
 
         // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
-        // ~DecorationController()
+        // ~MouseDecorationManager()
         // {
         //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
         //     Dispose(disposing: false);
@@ -186,7 +186,7 @@ namespace Bee.MouseDecorator.Core
         /// This property is thread safe. 
         /// <see cref="https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff650316(v=pandp.10)?redirectedfrom=MSDN"/>
         /// </summary>
-        public static DecorationController Instance
+        public static MouseDecorationManager Instance
         {
             get
             {
@@ -196,7 +196,7 @@ namespace Bee.MouseDecorator.Core
                     {
                         if (instance == null)
                         {
-                            instance = new DecorationController();
+                            instance = new MouseDecorationManager();
                         }
                     }
                 }

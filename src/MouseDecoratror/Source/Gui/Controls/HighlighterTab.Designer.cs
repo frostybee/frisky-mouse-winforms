@@ -31,6 +31,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbOutlineStyle = new MaterialSkin.Controls.MaterialComboBox();
+            this.sldOutlineWidth = new MaterialSkin.Controls.MaterialSlider();
+            this.switchFilledColor = new MaterialSkin.Controls.MaterialSwitch();
+            this.siwtchHighlighter = new MaterialSkin.Controls.MaterialSwitch();
             this.btnColorPicker = new System.Windows.Forms.Button();
             this.lblColor = new MaterialSkin.Controls.MaterialLabel();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
@@ -42,10 +46,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pbPreview = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.siwtchHighlighter = new MaterialSkin.Controls.MaterialSwitch();
-            this.switchFilledColor = new MaterialSkin.Controls.MaterialSwitch();
-            this.sldOutlineWidth = new MaterialSkin.Controls.MaterialSlider();
-            this.cbOutlineStyle = new MaterialSkin.Controls.MaterialComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -72,9 +72,9 @@
             this.materialLabel26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel26.Name = "materialLabel26";
-            this.materialLabel26.Size = new System.Drawing.Size(298, 41);
+            this.materialLabel26.Size = new System.Drawing.Size(537, 41);
             this.materialLabel26.TabIndex = 62;
-            this.materialLabel26.Text = "Highlighter Settings";
+            this.materialLabel26.Text = "Mouse Cursor - Highlighter Settings";
             // 
             // panel2
             // 
@@ -95,6 +95,84 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(766, 344);
             this.panel2.TabIndex = 61;
+            // 
+            // cbOutlineStyle
+            // 
+            this.cbOutlineStyle.AutoResize = false;
+            this.cbOutlineStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbOutlineStyle.Depth = 0;
+            this.cbOutlineStyle.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbOutlineStyle.DropDownHeight = 174;
+            this.cbOutlineStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbOutlineStyle.DropDownWidth = 121;
+            this.cbOutlineStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.cbOutlineStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cbOutlineStyle.FormattingEnabled = true;
+            this.cbOutlineStyle.Hint = "Outline style";
+            this.cbOutlineStyle.IntegralHeight = false;
+            this.cbOutlineStyle.ItemHeight = 43;
+            this.cbOutlineStyle.Items.AddRange(new object[] {
+            "Solid",
+            "Dash",
+            "Dot",
+            "Dash Dot",
+            "Dash Dot Dot"});
+            this.cbOutlineStyle.Location = new System.Drawing.Point(25, 285);
+            this.cbOutlineStyle.Margin = new System.Windows.Forms.Padding(4);
+            this.cbOutlineStyle.MaxDropDownItems = 4;
+            this.cbOutlineStyle.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbOutlineStyle.Name = "cbOutlineStyle";
+            this.cbOutlineStyle.Size = new System.Drawing.Size(252, 49);
+            this.cbOutlineStyle.StartIndex = 0;
+            this.cbOutlineStyle.TabIndex = 72;
+            this.cbOutlineStyle.UseAccent = false;
+            // 
+            // sldOutlineWidth
+            // 
+            this.sldOutlineWidth.Depth = 0;
+            this.sldOutlineWidth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.sldOutlineWidth.Location = new System.Drawing.Point(25, 245);
+            this.sldOutlineWidth.MouseState = MaterialSkin.MouseState.HOVER;
+            this.sldOutlineWidth.Name = "sldOutlineWidth";
+            this.sldOutlineWidth.RangeMax = 15;
+            this.sldOutlineWidth.RangeMin = 1;
+            this.sldOutlineWidth.Size = new System.Drawing.Size(252, 40);
+            this.sldOutlineWidth.TabIndex = 15;
+            this.sldOutlineWidth.Text = "Outline Thickness";
+            this.sldOutlineWidth.Value = 1;
+            this.sldOutlineWidth.ValueSuffix = "px";
+            // 
+            // switchFilledColor
+            // 
+            this.switchFilledColor.AutoSize = true;
+            this.switchFilledColor.Checked = true;
+            this.switchFilledColor.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.switchFilledColor.Depth = 0;
+            this.switchFilledColor.Location = new System.Drawing.Point(12, 205);
+            this.switchFilledColor.Margin = new System.Windows.Forms.Padding(0);
+            this.switchFilledColor.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.switchFilledColor.MouseState = MaterialSkin.MouseState.HOVER;
+            this.switchFilledColor.Name = "switchFilledColor";
+            this.switchFilledColor.Ripple = true;
+            this.switchFilledColor.Size = new System.Drawing.Size(139, 37);
+            this.switchFilledColor.TabIndex = 14;
+            this.switchFilledColor.Text = "Filled Circle";
+            this.switchFilledColor.UseVisualStyleBackColor = true;
+            // 
+            // siwtchHighlighter
+            // 
+            this.siwtchHighlighter.AutoSize = true;
+            this.siwtchHighlighter.Depth = 0;
+            this.siwtchHighlighter.Location = new System.Drawing.Point(12, 4);
+            this.siwtchHighlighter.Margin = new System.Windows.Forms.Padding(0);
+            this.siwtchHighlighter.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.siwtchHighlighter.MouseState = MaterialSkin.MouseState.HOVER;
+            this.siwtchHighlighter.Name = "siwtchHighlighter";
+            this.siwtchHighlighter.Ripple = true;
+            this.siwtchHighlighter.Size = new System.Drawing.Size(233, 37);
+            this.siwtchHighlighter.TabIndex = 13;
+            this.siwtchHighlighter.Text = "Mouse CursorHighlighter";
+            this.siwtchHighlighter.UseVisualStyleBackColor = true;
             // 
             // btnColorPicker
             // 
@@ -126,7 +204,7 @@
             this.materialButton2.Depth = 0;
             this.materialButton2.HighEmphasis = true;
             this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(396, 226);
+            this.materialButton2.Location = new System.Drawing.Point(396, 281);
             this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
@@ -145,7 +223,7 @@
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(480, 226);
+            this.materialButton1.Location = new System.Drawing.Point(480, 281);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
@@ -203,9 +281,9 @@
             this.switchHighlighter.MouseState = MaterialSkin.MouseState.HOVER;
             this.switchHighlighter.Name = "switchHighlighter";
             this.switchHighlighter.Ripple = true;
-            this.switchHighlighter.Size = new System.Drawing.Size(135, 37);
+            this.switchHighlighter.Size = new System.Drawing.Size(181, 37);
             this.switchHighlighter.TabIndex = 0;
-            this.switchHighlighter.Text = "Highlighter";
+            this.switchHighlighter.Text = "CursorHighlighter";
             this.switchHighlighter.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -213,7 +291,7 @@
             this.groupBox1.Controls.Add(this.pbPreview);
             this.groupBox1.Location = new System.Drawing.Point(309, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(238, 152);
+            this.groupBox1.Size = new System.Drawing.Size(238, 198);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Preview";
@@ -222,87 +300,9 @@
             // 
             this.pbPreview.Location = new System.Drawing.Point(16, 28);
             this.pbPreview.Name = "pbPreview";
-            this.pbPreview.Size = new System.Drawing.Size(194, 103);
+            this.pbPreview.Size = new System.Drawing.Size(194, 149);
             this.pbPreview.TabIndex = 0;
             this.pbPreview.TabStop = false;
-            // 
-            // siwtchHighlighter
-            // 
-            this.siwtchHighlighter.AutoSize = true;
-            this.siwtchHighlighter.Depth = 0;
-            this.siwtchHighlighter.Location = new System.Drawing.Point(12, 4);
-            this.siwtchHighlighter.Margin = new System.Windows.Forms.Padding(0);
-            this.siwtchHighlighter.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.siwtchHighlighter.MouseState = MaterialSkin.MouseState.HOVER;
-            this.siwtchHighlighter.Name = "siwtchHighlighter";
-            this.siwtchHighlighter.Ripple = true;
-            this.siwtchHighlighter.Size = new System.Drawing.Size(187, 37);
-            this.siwtchHighlighter.TabIndex = 13;
-            this.siwtchHighlighter.Text = "Mouse Highlighter";
-            this.siwtchHighlighter.UseVisualStyleBackColor = true;
-            // 
-            // switchFilledColor
-            // 
-            this.switchFilledColor.AutoSize = true;
-            this.switchFilledColor.Checked = true;
-            this.switchFilledColor.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.switchFilledColor.Depth = 0;
-            this.switchFilledColor.Location = new System.Drawing.Point(12, 205);
-            this.switchFilledColor.Margin = new System.Windows.Forms.Padding(0);
-            this.switchFilledColor.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.switchFilledColor.MouseState = MaterialSkin.MouseState.HOVER;
-            this.switchFilledColor.Name = "switchFilledColor";
-            this.switchFilledColor.Ripple = true;
-            this.switchFilledColor.Size = new System.Drawing.Size(139, 37);
-            this.switchFilledColor.TabIndex = 14;
-            this.switchFilledColor.Text = "Filled Circle";
-            this.switchFilledColor.UseVisualStyleBackColor = true;
-            // 
-            // sldOutlineWidth
-            // 
-            this.sldOutlineWidth.Depth = 0;
-            this.sldOutlineWidth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.sldOutlineWidth.Location = new System.Drawing.Point(25, 245);
-            this.sldOutlineWidth.MouseState = MaterialSkin.MouseState.HOVER;
-            this.sldOutlineWidth.Name = "sldOutlineWidth";
-            this.sldOutlineWidth.RangeMax = 15;
-            this.sldOutlineWidth.RangeMin = 1;
-            this.sldOutlineWidth.Size = new System.Drawing.Size(242, 40);
-            this.sldOutlineWidth.TabIndex = 15;
-            this.sldOutlineWidth.Text = "Outline Width";
-            this.sldOutlineWidth.Value = 1;
-            this.sldOutlineWidth.ValueSuffix = "px";
-            // 
-            // cbOutlineStyle
-            // 
-            this.cbOutlineStyle.AutoResize = false;
-            this.cbOutlineStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbOutlineStyle.Depth = 0;
-            this.cbOutlineStyle.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbOutlineStyle.DropDownHeight = 174;
-            this.cbOutlineStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbOutlineStyle.DropDownWidth = 121;
-            this.cbOutlineStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.cbOutlineStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbOutlineStyle.FormattingEnabled = true;
-            this.cbOutlineStyle.Hint = "Outline style";
-            this.cbOutlineStyle.IntegralHeight = false;
-            this.cbOutlineStyle.ItemHeight = 43;
-            this.cbOutlineStyle.Items.AddRange(new object[] {
-            "Solid",
-            "Dash",
-            "Dot",
-            "Dash Dot",
-            "Dash Dot Dot"});
-            this.cbOutlineStyle.Location = new System.Drawing.Point(25, 285);
-            this.cbOutlineStyle.Margin = new System.Windows.Forms.Padding(4);
-            this.cbOutlineStyle.MaxDropDownItems = 4;
-            this.cbOutlineStyle.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbOutlineStyle.Name = "cbOutlineStyle";
-            this.cbOutlineStyle.Size = new System.Drawing.Size(252, 49);
-            this.cbOutlineStyle.StartIndex = 0;
-            this.cbOutlineStyle.TabIndex = 72;
-            this.cbOutlineStyle.UseAccent = false;
             // 
             // HighlighterTab
             // 

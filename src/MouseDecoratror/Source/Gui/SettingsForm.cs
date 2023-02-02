@@ -9,7 +9,7 @@ namespace Bee.MouseDecorator.UI
     public partial class MainForm : Form
     {
         
-        private DecorationController decorationController;
+        private MouseDecorationManager decorationController;
 
         public MainForm()
         {
@@ -17,7 +17,7 @@ namespace Bee.MouseDecorator.UI
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.AutoScaleDimensions = new SizeF(96f, 96f);
             //mHighlightForm = new HighlightForm(this);
-            decorationController = DecorationController.Instance;
+            decorationController = MouseDecorationManager.Instance;
             //mClickHighlightForm = new LeftClickForm(this);
             FormClosing += MainForm_FormClosing;
             base.Activated += MainForm_Activated;
