@@ -60,21 +60,22 @@
     <Compile Include="Source\Core\MouseHighlighter\CursorDecorator.cs" />
     <Compile Include="Source\Core\MouseDecorationManager.cs" />
     <Compile Include="Source\Core\FramesManager.cs" />
+    <Compile Include="Source\Core\SettingsManager.cs" />
     <Compile Include="Source\Gui\Controls\HighlighterTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Source\Gui\Controls\HighlighterTab.Designer.cs">
       <DependentUpon>HighlighterTab.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Core\MouseHighlighter\CursorHighlighter.cs" />
+    <Compile Include="Source\Core\MouseHighlighter\HighlighterSettings.cs" />
     <Compile Include="Source\Core\GraphicsExtensions.cs" />
     <Compile Include="Source\Core\MouseHook\GlobalHookManager.cs" />
     <Compile Include="Source\Core\MouseHook\RawMouseEvents.cs" />
-    <Compile Include="Source\Core\NativeApi\ExtendedWinStyles.cs" />
-    <Compile Include="Source\Core\NativeApi\HookHelper.cs" />
-    <Compile Include="Source\Core\NativeApi\MouseStructs.cs" />
-    <Compile Include="Source\Core\NativeApi\NativeMethods.cs" />
-    <Compile Include="Source\Core\NativeApi\WinApiTypes.cs" />
+    <Compile Include="Source\NativeApi\ExtendedWinStyles.cs" />
+    <Compile Include="Source\NativeApi\HookHelper.cs" />
+    <Compile Include="Source\NativeApi\MouseStructs.cs" />
+    <Compile Include="Source\NativeApi\NativeMethods.cs" />
+    <Compile Include="Source\NativeApi\WinApiTypes.cs" />
     <Compile Include="Source\Gui\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

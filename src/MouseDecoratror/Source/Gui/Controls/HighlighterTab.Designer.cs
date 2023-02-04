@@ -31,18 +31,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.switchHighlighter = new MaterialSkin.Controls.MaterialSwitch();
             this.cbOutlineStyle = new MaterialSkin.Controls.MaterialComboBox();
             this.sldOutlineWidth = new MaterialSkin.Controls.MaterialSlider();
             this.switchFilledColor = new MaterialSkin.Controls.MaterialSwitch();
-            this.siwtchHighlighter = new MaterialSkin.Controls.MaterialSwitch();
             this.btnColorPicker = new System.Windows.Forms.Button();
             this.lblColor = new MaterialSkin.Controls.MaterialLabel();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.btnApplySettings = new MaterialSkin.Controls.MaterialButton();
             this.label1 = new System.Windows.Forms.Label();
             this.sldRadius = new MaterialSkin.Controls.MaterialSlider();
             this.sldOpacity = new MaterialSkin.Controls.MaterialSlider();
-            this.switchHighlighter = new MaterialSkin.Controls.MaterialSwitch();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pbPreview = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -78,23 +77,39 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.switchHighlighter);
             this.panel2.Controls.Add(this.cbOutlineStyle);
             this.panel2.Controls.Add(this.sldOutlineWidth);
             this.panel2.Controls.Add(this.switchFilledColor);
-            this.panel2.Controls.Add(this.siwtchHighlighter);
             this.panel2.Controls.Add(this.btnColorPicker);
             this.panel2.Controls.Add(this.lblColor);
             this.panel2.Controls.Add(this.materialButton2);
-            this.panel2.Controls.Add(this.materialButton1);
+            this.panel2.Controls.Add(this.btnApplySettings);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.sldRadius);
             this.panel2.Controls.Add(this.sldOpacity);
-            this.panel2.Controls.Add(this.switchHighlighter);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Location = new System.Drawing.Point(0, 69);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(766, 344);
             this.panel2.TabIndex = 61;
+            // 
+            // switchHighlighter
+            // 
+            this.switchHighlighter.AutoSize = true;
+            this.switchHighlighter.Checked = true;
+            this.switchHighlighter.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.switchHighlighter.Depth = 0;
+            this.switchHighlighter.Location = new System.Drawing.Point(12, 7);
+            this.switchHighlighter.Margin = new System.Windows.Forms.Padding(0);
+            this.switchHighlighter.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.switchHighlighter.MouseState = MaterialSkin.MouseState.HOVER;
+            this.switchHighlighter.Name = "switchHighlighter";
+            this.switchHighlighter.Ripple = true;
+            this.switchHighlighter.Size = new System.Drawing.Size(237, 37);
+            this.switchHighlighter.TabIndex = 73;
+            this.switchHighlighter.Text = "Mouse Cursor Highlighter";
+            this.switchHighlighter.UseVisualStyleBackColor = true;
             // 
             // cbOutlineStyle
             // 
@@ -159,21 +174,6 @@
             this.switchFilledColor.Text = "Filled Circle";
             this.switchFilledColor.UseVisualStyleBackColor = true;
             // 
-            // siwtchHighlighter
-            // 
-            this.siwtchHighlighter.AutoSize = true;
-            this.siwtchHighlighter.Depth = 0;
-            this.siwtchHighlighter.Location = new System.Drawing.Point(12, 4);
-            this.siwtchHighlighter.Margin = new System.Windows.Forms.Padding(0);
-            this.siwtchHighlighter.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.siwtchHighlighter.MouseState = MaterialSkin.MouseState.HOVER;
-            this.siwtchHighlighter.Name = "siwtchHighlighter";
-            this.siwtchHighlighter.Ripple = true;
-            this.siwtchHighlighter.Size = new System.Drawing.Size(233, 37);
-            this.siwtchHighlighter.TabIndex = 13;
-            this.siwtchHighlighter.Text = "Mouse CursorHighlighter";
-            this.siwtchHighlighter.UseVisualStyleBackColor = true;
-            // 
             // btnColorPicker
             // 
             this.btnColorPicker.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -216,24 +216,25 @@
             this.materialButton2.UseAccentColor = true;
             this.materialButton2.UseVisualStyleBackColor = true;
             // 
-            // materialButton1
+            // btnApplySettings
             // 
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(480, 281);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(67, 36);
-            this.materialButton1.TabIndex = 9;
-            this.materialButton1.Text = "Apply";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = true;
+            this.btnApplySettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnApplySettings.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnApplySettings.Depth = 0;
+            this.btnApplySettings.HighEmphasis = true;
+            this.btnApplySettings.Icon = null;
+            this.btnApplySettings.Location = new System.Drawing.Point(480, 281);
+            this.btnApplySettings.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnApplySettings.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnApplySettings.Name = "btnApplySettings";
+            this.btnApplySettings.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnApplySettings.Size = new System.Drawing.Size(67, 36);
+            this.btnApplySettings.TabIndex = 9;
+            this.btnApplySettings.Text = "Apply";
+            this.btnApplySettings.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnApplySettings.UseAccentColor = false;
+            this.btnApplySettings.UseVisualStyleBackColor = true;
+            this.btnApplySettings.Click += new System.EventHandler(this.btnApplySettings_Click);
             // 
             // label1
             // 
@@ -270,21 +271,6 @@
             this.sldOpacity.Text = "Opacity  ";
             this.sldOpacity.Value = 100;
             this.sldOpacity.ValueSuffix = "%";
-            // 
-            // switchHighlighter
-            // 
-            this.switchHighlighter.AutoSize = true;
-            this.switchHighlighter.Depth = 0;
-            this.switchHighlighter.Location = new System.Drawing.Point(12, 4);
-            this.switchHighlighter.Margin = new System.Windows.Forms.Padding(0);
-            this.switchHighlighter.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.switchHighlighter.MouseState = MaterialSkin.MouseState.HOVER;
-            this.switchHighlighter.Name = "switchHighlighter";
-            this.switchHighlighter.Ripple = true;
-            this.switchHighlighter.Size = new System.Drawing.Size(181, 37);
-            this.switchHighlighter.TabIndex = 0;
-            this.switchHighlighter.Text = "CursorHighlighter";
-            this.switchHighlighter.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -329,17 +315,16 @@
         private System.Windows.Forms.Label label1;
         private MaterialSkin.Controls.MaterialSlider sldRadius;
         private MaterialSkin.Controls.MaterialSlider sldOpacity;
-        private MaterialSkin.Controls.MaterialSwitch switchHighlighter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pbPreview;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton btnApplySettings;
         private MaterialSkin.Controls.MaterialButton materialButton2;
         private MaterialSkin.Controls.MaterialLabel lblColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button btnColorPicker;
         private MaterialSkin.Controls.MaterialSwitch switchFilledColor;
-        private MaterialSkin.Controls.MaterialSwitch siwtchHighlighter;
         private MaterialSkin.Controls.MaterialSlider sldOutlineWidth;
         private MaterialSkin.Controls.MaterialComboBox cbOutlineStyle;
+        private MaterialSkin.Controls.MaterialSwitch switchHighlighter;
     }
 }

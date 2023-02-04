@@ -9,7 +9,7 @@ namespace MouseDecoratror.Core
 {
     internal static class GraphicsExtensions
     {
-        public static void DrawHighlighterPreview(this Graphics gr, CursorHighlighter circle)
+        public static void DrawHighlighterPreview(this Graphics gr, HighlighterSettings circle)
         {
             // TODO: adjust the radius and settings
             // TODO: create a method that computes the required bounding rectangle. 
@@ -17,7 +17,7 @@ namespace MouseDecoratror.Core
             gr.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             gr.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
 
-            // Apply the selected opacity on the color to be used in the highlighter. 
+            // Apply the selected opacity on the color to be used in the _highlighterSettings. 
             Color selectedColor = Color.FromArgb(circle.Opacity, circle.FillColor);
             if (circle.IsFilled)
             {
@@ -35,7 +35,7 @@ namespace MouseDecoratror.Core
             }
             else
             {
-                using (Pen pen = new Pen(selectedColor, circle.OutlineWidth))
+                using (Pen pen = new Pen(selectedColor, circle.OutlineThickness))
                 {
                     pen.DashStyle = circle.OutlineStyle;
                     gr.DrawEllipse(pen, new Rectangle(20, 20, circle.Radius, circle.Radius));

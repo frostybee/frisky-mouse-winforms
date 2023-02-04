@@ -33,7 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tbpHome = new System.Windows.Forms.TabPage();
-            this.highlighterTab1 = new MouseDecoratror.Controls.HighlighterTab();
+            this.tabHighlighterSettings = new MouseDecoratror.Controls.HighlighterTab();
             this.materialDrawer1 = new MaterialSkin.Controls.MaterialDrawer();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.materialSwitch1 = new MaterialSkin.Controls.MaterialSwitch();
@@ -64,7 +64,7 @@
             // tbpHome
             // 
             this.tbpHome.BackColor = System.Drawing.Color.White;
-            this.tbpHome.Controls.Add(this.highlighterTab1);
+            this.tbpHome.Controls.Add(this.tabHighlighterSettings);
             this.tbpHome.Controls.Add(this.materialDrawer1);
             this.tbpHome.ImageKey = "round_assessment_white_24dp.png";
             this.tbpHome.Location = new System.Drawing.Point(4, 31);
@@ -74,12 +74,12 @@
             this.tbpHome.TabIndex = 0;
             this.tbpHome.Text = "Home";
             // 
-            // highlighterTab1
+            // tabHighlighterSettings
             // 
-            this.highlighterTab1.Location = new System.Drawing.Point(0, 3);
-            this.highlighterTab1.Name = "highlighterTab1";
-            this.highlighterTab1.Size = new System.Drawing.Size(930, 547);
-            this.highlighterTab1.TabIndex = 2;
+            this.tabHighlighterSettings.Location = new System.Drawing.Point(0, 3);
+            this.tabHighlighterSettings.Name = "tabHighlighterSettings";
+            this.tabHighlighterSettings.Size = new System.Drawing.Size(930, 547);
+            this.tabHighlighterSettings.TabIndex = 2;
             // 
             // materialDrawer1
             // 
@@ -214,7 +214,7 @@
         private System.Windows.Forms.ImageList menuIconList;
         private MaterialSkin.Controls.MaterialDrawer materialDrawer1;
         private MaterialSkin.Controls.MaterialSwitch materialSwitch1;
-        private Controls.HighlighterTab highlighterTab1;
+        private Controls.HighlighterTab tabHighlighterSettings;
     }
 }
 

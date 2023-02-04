@@ -1,5 +1,6 @@
 ﻿using Bee.GlobalHooks;
 using Bee.GlobalHooks.NativeApi;
+using MouseDecoratror.Core;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -9,8 +10,9 @@ namespace Bee.MouseDecorator.Core
     //TODO: Dispose everything here.
     internal class MouseDecorationManager : IDisposable
     {
-        private static volatile MouseDecorationManager instance = null;
-        private static object syncLock = new Object();
+        private static readonly Lazy<MouseDecorationManager> _instance = new Lazy<MouseDecorationManager>(() => new MouseDecorationManager());
+        private readonly SettingsManager _settingsManager = new SettingsManager();
+        private object syncLock = new object();
         private readonly CursorDecorator cursorDecorator;
         private readonly ClickDecorator clickDecorator;
         private GlobalHookManager globalHookManager;
@@ -24,9 +26,9 @@ namespace Bee.MouseDecorator.Core
         {
             isHookRunning = false;
             systemDoubleClickTime = SystemInformation.DoubleClickTime;
-            globalHookManager = GlobalHookManager.Instance;            
+            globalHookManager = GlobalHookManager.Instance;
             previousMouseUpEvent = new RawMouseEvents();
-            previousMouseDownEvent = new RawMouseEvents();            
+            previousMouseDownEvent = new RawMouseEvents();
             clickDecorator = new ClickDecorator();
             cursorDecorator = new CursorDecorator();
             LoadDecorationSettings();
@@ -35,9 +37,15 @@ namespace Bee.MouseDecorator.Core
         #region Methods
         private void LoadDecorationSettings()
         {
-            // Configure cursor highlighter.
-            BitmapStyleInfo cursorHighlightStyle = new BitmapStyleInfo { 
-                Size = 40, Color = Color.Aqua, PenSize = 5, Opacity = 200, Shape = BitmapStyleInfo.ShapeTypes.Circle, IsFilled = true 
+            // Configure cursor _highlighterSettings.
+            BitmapStyleInfo cursorHighlightStyle = new BitmapStyleInfo
+            {
+                Size = 40,
+                Color = Color.Aqua,
+                PenSize = 5,
+                Opacity = 200,
+                Shape = BitmapStyleInfo.ShapeTypes.Circle,
+                IsFilled = true
             };
             cursorDecorator.SetupCursorDecorator(cursorHighlightStyle);
             // Configure single click decorator.
@@ -122,6 +130,8 @@ namespace Bee.MouseDecorator.Core
         public void EnableHook()
         {
             //TODO: handle hook return type/errors
+            // TODO: check if the _highlighterSettings is enabled in the settings or not. 
+            // TODO: check also if the click decorator is enabled.
             lock (syncLock)
             {
                 if (!isHookRunning)
@@ -178,29 +188,35 @@ namespace Bee.MouseDecorator.Core
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+
+        internal void ApplyHighlighterSettings()
+        {
+            // Save the newly editted settings.
+            _settingsManager.SaveHighlighterSettings();
+            
+            // TODO: Apply the new highlighter settings by updating the bitmap shown onto the layered window.
+
+        }
         #endregion
 
         #region Properties
         /// <summary>
         /// Gets the single instance of this class.
         /// This property is thread safe. 
-        /// <see cref="https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff650316(v=pandp.10)?redirectedfrom=MSDN"/>
         /// </summary>
         public static MouseDecorationManager Instance
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (syncLock)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new MouseDecorationManager();
-                        }
-                    }
-                }
-                return instance;
+                return _instance.Value;
+            }
+        }
+
+        public SettingsManager SettingsManager
+        {
+            get
+            {
+                return _settingsManager;
             }
         }
         #endregion

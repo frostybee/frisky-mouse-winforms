@@ -9,27 +9,30 @@ using MouseDecoratror.Core;
 
 namespace MouseDecoratror.Core
 {
-    internal class CursorHighlighter
+    internal class HighlighterSettings
     {
-        public CursorHighlighter()
+        public HighlighterSettings()
         {
             // Default settings. 
             Radius = 50;
             FillColor = Color.Yellow;
             Opacity = 200;
             IsFilled = true;
-            OutlineWidth = 1f;
-            OutlineStyle = DashStyle.Solid;            
-            CenterX= 0;
+            OutlineThickness = 1;
+            OutlineStyle = DashStyle.Solid;
+            OutlineColor = Color.Yellow;
+            CenterX = 0;
             CenterY= 0;
         }
 
-        // Draw the highlighter.
+        // Draw the _highlighterSettings.
+        // TODO: move to another class: need a centralized class that provides drawing services.
         public void Draw(Graphics gr)
         {
             gr.DrawHighlighterPreview(this);
         }
         #region Properties
+        public bool IsEnabled { get; set; }
         public int CenterX { get; set; }
         public int CenterY { get; set; }
         public int Radius { get; set; }
@@ -37,7 +40,7 @@ namespace MouseDecoratror.Core
         public Color FillColor { get; set; }
         public Color OutlineColor { get; set; }
         public bool IsFilled { get; set; }
-        public float OutlineWidth { get; set; }
+        public int OutlineThickness { get; set; }
         public DashStyle OutlineStyle { get; set; } 
         #endregion
     }

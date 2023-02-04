@@ -18,7 +18,8 @@ namespace MouseDecoratror.Controls
     // the main form. 
     public partial class HighlighterTab : UserControl
     {
-        private readonly CursorHighlighter highlighter = new CursorHighlighter();
+        private readonly HighlighterSettings _highlighterSettings;
+        private readonly MouseDecorationManager applicationManager;
         private readonly Dictionary<String, DashStyle> outlineStyles = new Dictionary<String, DashStyle>() {
             { "Solid", DashStyle.Solid},
             { "Dash", DashStyle.Dash},
@@ -29,11 +30,13 @@ namespace MouseDecoratror.Controls
         public HighlighterTab()
         {
             InitializeComponent();
+            applicationManager = MouseDecorationManager.Instance;
+            _highlighterSettings = applicationManager.SettingsManager.HighlighterSettings;
             //-- Sliders events
             sldRadius.onValueChanged += OpacityOrRadius_onValueChanged;
             sldOpacity.onValueChanged += OpacityOrRadius_onValueChanged;
             sldOutlineWidth.onValueChanged += SldOutlineWidth_onValueChanged;
-            // Switch events
+            //-- Switch events
             switchFilledColor.CheckedChanged += SwitchFilledColor_CheckedChanged;
             switchHighlighter.CheckedChanged += SwitchHighlighter_CheckedChanged;
             cbOutlineStyle.SelectedValueChanged += CbOutlineStyle_SelectedValueChanged;
@@ -42,24 +45,46 @@ namespace MouseDecoratror.Controls
             // TODO: 1) must load the saved settings first.
             //       2) Setup UI controls based on the loaded settings.
 
-            // Enable the slider of the highlighter's outline width based 
+            // Enable the slider of the _highlighterSettings's outline width based 
             // on the status of the fill circle switch.
-            ManageOutlineSettings();            
+            ManageOutlineSettings();
+        }
+        internal void InitHighlighterControls()
+        {
+            // Initialize the UI controls with the previously selected settings.            
+            switchFilledColor.Checked = _highlighterSettings.IsFilled;
+            sldRadius.Value = _highlighterSettings.Radius;
+            sldOpacity.Value = _highlighterSettings.Opacity;
+            sldOutlineWidth.Value = _highlighterSettings.OutlineThickness;
+            btnColorPicker.BackColor = _highlighterSettings.FillColor;
+            switchHighlighter.Checked = _highlighterSettings.IsEnabled ;
+            // TODO: init the outline style in the combo box.
+            // FIXME: 
+            // TODO: If highlighter disabled ===> Disable the controls. 
+
+            // TODO: draw the preview.
+            pbPreview.Invalidate();
+        }
+
+        private void btnApplySettings_Click(object sender, EventArgs e)
+        {
+            applicationManager.ApplyHighlighterSettings();
         }
 
         private void SwitchHighlighter_CheckedChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
+            _highlighterSettings.IsEnabled = switchHighlighter.Checked;
             if (switchHighlighter.Checked)
-            {
-                MessageBox.Show("Test");
-                MouseDecorationManager.Instance.DisableHook();
-            }
-            else
             {
                 MouseDecorationManager.Instance.EnableHook();
             }
-            
+            else
+            {
+                // TODO: upon disabling the hook,
+                // the layered window should be hidden.
+                MouseDecorationManager.Instance.DisableHook();
+            }
+
         }
 
         private void ManageOutlineSettings()
@@ -75,7 +100,7 @@ namespace MouseDecoratror.Controls
             // FIXME: the list should be saved in a dictionary.            
             var selectedStyle = DashStyle.Solid;
             outlineStyles.TryGetValue(cbOutlineStyle.SelectedItem.ToString(), out selectedStyle);
-            highlighter.OutlineStyle = selectedStyle;           
+            _highlighterSettings.OutlineStyle = selectedStyle;
             UpdateHighlighterPreview();
         }
 
@@ -85,7 +110,7 @@ namespace MouseDecoratror.Controls
         }
 
         private void SwitchFilledColor_CheckedChanged(object sender, EventArgs e)
-        {            
+        {
             ManageOutlineSettings();
             UpdateHighlighterPreview();
         }
@@ -97,17 +122,17 @@ namespace MouseDecoratror.Controls
 
         private void UpdateHighlighterPreview()
         {
-            highlighter.CenterX = pbPreview.Width /2; 
-            highlighter.CenterY = pbPreview.Width/2;
-            highlighter.IsFilled = switchFilledColor.Checked;
-            highlighter.Radius = sldRadius.Value;
-            highlighter.Opacity = sldOpacity.Value;
-            highlighter.OutlineWidth = sldOutlineWidth.Value;
+            _highlighterSettings.CenterX = pbPreview.Width / 2;
+            _highlighterSettings.CenterY = pbPreview.Width / 2;
+            _highlighterSettings.IsFilled = switchFilledColor.Checked;
+            _highlighterSettings.Radius = sldRadius.Value;
+            _highlighterSettings.Opacity = sldOpacity.Value;
+            _highlighterSettings.OutlineThickness = sldOutlineWidth.Value;
             pbPreview.Invalidate();
         }
         private void PbPreview_Paint(object sender, PaintEventArgs e)
         {
-            highlighter.Draw(e.Graphics);
+            _highlighterSettings.Draw(e.Graphics);
         }
 
         private void btnColorPicker_Click(object sender, EventArgs e)
@@ -124,10 +149,11 @@ namespace MouseDecoratror.Controls
             // Update the text box color if the user clicks OK 
             if (colorPicker.ShowDialog() == DialogResult.OK)
             {
-                highlighter.FillColor = colorPicker.Color;
+                _highlighterSettings.FillColor = colorPicker.Color;
                 UpdateHighlighterPreview();
                 btnColorPicker.BackColor = colorPicker.Color;
             }
         }
+
     }
 }

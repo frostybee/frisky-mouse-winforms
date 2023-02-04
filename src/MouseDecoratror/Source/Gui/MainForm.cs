@@ -19,8 +19,8 @@ namespace MouseDecoratror
     public partial class MainForm : MaterialForm
     {
         private readonly MaterialSkinManager materialSkinManager;
-        private readonly CursorHighlighter circle = new CursorHighlighter();
-        private MouseDecorationManager decorationManager;
+        private readonly MouseDecorationManager applicationManager;        
+        
         public MainForm()
         {
             InitializeComponent();
@@ -31,10 +31,8 @@ namespace MouseDecoratror
             // the mouse hooks is properly installed/uninstalled.
             this.FormClosing += MainForm_FormClosing;
             this.Activated += MainForm_Load;
-            // Init members.
-            decorationManager = MouseDecorationManager.Instance;
-
-            // Initialize MaterialSkinManager
+            // Init the managers.
+            applicationManager = MouseDecorationManager.Instance;               
             materialSkinManager = MaterialSkinManager.Instance;
             // Set this to false to disable backcolor enforcing on non-materialSkin components
             // This HAS to be set before the AddFormToManage()
@@ -52,13 +50,15 @@ namespace MouseDecoratror
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            decorationManager?.EnableHook();
+            applicationManager.SettingsManager.LoadAppSettings();
+            tabHighlighterSettings.InitHighlighterControls();
+            applicationManager?.EnableHook();            
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            decorationManager?.DisableHook();
-            decorationManager?.Dispose();
+            applicationManager.SettingsManager.SaveHighlighterSettings();
+            applicationManager?.DisableHook();            
         }
     }
 }
