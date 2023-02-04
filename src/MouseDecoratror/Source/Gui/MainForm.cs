@@ -50,9 +50,8 @@ namespace MouseDecoratror
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            applicationManager.SettingsManager.LoadAppSettings();
-            tabHighlighterSettings.InitHighlighterControls();
-            applicationManager?.EnableHook();            
+            applicationManager.BootstrapApp();                     
+            tabHighlighterSettings.InitHighlighterControls();                       
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

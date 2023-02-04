@@ -13,8 +13,8 @@ namespace Bee.MouseDecorator.Core
         private static readonly Lazy<MouseDecorationManager> _instance = new Lazy<MouseDecorationManager>(() => new MouseDecorationManager());
         private readonly SettingsManager _settingsManager = new SettingsManager();
         private object syncLock = new object();
-        private readonly CursorDecorator cursorDecorator;
-        private readonly ClickDecorator clickDecorator;
+        private MouseHighlighter mouseHighlighter;
+        private ClickDecorator clickDecorator;
         private GlobalHookManager globalHookManager;
         private RawMouseEvents previousMouseUpEvent;
         private RawMouseEvents previousMouseDownEvent;
@@ -29,25 +29,23 @@ namespace Bee.MouseDecorator.Core
             globalHookManager = GlobalHookManager.Instance;
             previousMouseUpEvent = new RawMouseEvents();
             previousMouseDownEvent = new RawMouseEvents();
-            clickDecorator = new ClickDecorator();
-            cursorDecorator = new CursorDecorator();
-            LoadDecorationSettings();
+            mouseHighlighter = new MouseHighlighter();
+            //LoadDecorationSettings();
         }
 
         #region Methods
+        private void ConfigMouseHighlighter()
+        {
+            if (mouseHighlighter == null)
+            {
+                mouseHighlighter = new MouseHighlighter();
+            }            
+            // Configure cursor _highlighterSettings.            
+            mouseHighlighter.SetupHighlighter(_settingsManager.HighlighterSettings);
+        }
         private void LoadDecorationSettings()
         {
-            // Configure cursor _highlighterSettings.
-            BitmapStyleInfo cursorHighlightStyle = new BitmapStyleInfo
-            {
-                Size = 40,
-                Color = Color.Aqua,
-                PenSize = 5,
-                Opacity = 200,
-                Shape = BitmapStyleInfo.ShapeTypes.Circle,
-                IsFilled = true
-            };
-            cursorDecorator.SetupCursorDecorator(cursorHighlightStyle);
+
             // Configure single click decorator.
             BitmapStyleInfo singleClickStyle = new BitmapStyleInfo { Size = 20, Color = Color.Red, PenSize = 3, Opacity = 200, Shape = BitmapStyleInfo.ShapeTypes.Circle, IsFilled = false };
             clickDecorator.SetClickStyle(singleClickStyle);
@@ -92,14 +90,14 @@ namespace Bee.MouseDecorator.Core
                         // Meaning? the current click's time is greater than the system double click time.
                         if (!IsDoubleClick(e) && !IsMouseDragged(e))
                         {
-                            clickDecorator.DecorateLeftSingleClick(e);
+                            //clickDecorator.DecorateLeftSingleClick(e);
                             Console.WriteLine("Decorate single click...");
                         }
                     }
                     previousMouseUpEvent = e;
                     break;
                 case MouseButtonTypes.MouseMove:
-                    cursorDecorator.DecorateMouseMove(e.Point);
+                    mouseHighlighter.DecorateMouseMove(e.Point);
                     break;
 
                 case MouseButtonTypes.LeftButtonDoubleClick:
@@ -165,7 +163,7 @@ namespace Bee.MouseDecorator.Core
             {
                 if (disposing)
                 {
-                    cursorDecorator?.Dispose();
+                    mouseHighlighter?.Dispose();
                     clickDecorator?.Dispose();
                 }
 
@@ -193,10 +191,24 @@ namespace Bee.MouseDecorator.Core
         {
             // Save the newly editted settings.
             _settingsManager.SaveHighlighterSettings();
-            
+
             // TODO: Apply the new highlighter settings by updating the bitmap shown onto the layered window.
+            ConfigMouseHighlighter();
 
         }
+
+        internal void BootstrapApp()
+        {
+            // First, we need to load the applications settings.
+            _settingsManager.LoadAppSettings();
+            // TODO: add check ==> Is click decorator enabled as well?
+            if (_settingsManager.HighlighterSettings.IsEnabled)
+            {
+                ConfigMouseHighlighter();
+                EnableHook();
+            }
+        }
+
         #endregion
 
         #region Properties

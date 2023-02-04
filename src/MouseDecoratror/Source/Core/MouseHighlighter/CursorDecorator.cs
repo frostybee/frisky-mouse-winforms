@@ -2,35 +2,38 @@
 using Bee.GlobalHooks.NativeApi;
 using Bee.MouseDecorator.Helpers;
 using Bee.MouseDecorator.UI;
+using MouseDecoratror.Core;
 using System;
 using System.Drawing;
 
 namespace Bee.MouseDecorator.Core
 {
-    internal class CursorDecorator : IDisposable
+    internal class MouseHighlighter : IDisposable
     {        
         private Bitmap highlightBitmap;
         private LayeredWindow highlightWindow;
         private bool disposed = false;
 
-        internal CursorDecorator()
+        internal MouseHighlighter()
         {
             highlightWindow = new LayeredWindow();
         }
 
-        internal void SetupCursorDecorator(BitmapStyleInfo decorationStyle)
-        {
-            StyleInfo = decorationStyle;            
-            highlightBitmap = DrawingHelper.DrawEllipseBitmap(StyleInfo);
-            highlightWindow.SetBitmap(highlightBitmap, StyleInfo.Opacity);
+        internal void SetupHighlighter(HighlighterSettings highlighterSettings)
+        {            
+            highlightBitmap = DrawingHelper.DrawEllipseBitmap(highlighterSettings);
+            highlightWindow.SetBitmap(highlightBitmap, highlighterSettings.Opacity);
             highlightWindow.Show();
         }
 
         internal void DecorateMouseMove(POINT point)
-        {           
-            highlightWindow.LeftCoordinate = point.X - highlightBitmap.Width / 2;
-            highlightWindow.TopCoordinate = point.Y - highlightBitmap.Height / 2;
-            highlightWindow.Move((point.X - highlightBitmap.Width / 2), (point.Y - highlightBitmap.Height / 2));
+        {
+            if (highlightBitmap != null)
+            {
+                highlightWindow.LeftCoordinate = point.X - highlightBitmap.Width / 2;
+                highlightWindow.TopCoordinate = point.Y - highlightBitmap.Height / 2;
+                highlightWindow.Move((point.X - highlightBitmap.Width / 2), (point.Y - highlightBitmap.Height / 2));
+            }                    
         }
 
        
@@ -51,15 +54,13 @@ namespace Bee.MouseDecorator.Core
                     highlightBitmap?.Dispose();
                     highlightBitmap = null;
                     highlightWindow?.Dispose();
+                    //TODO: properly termniate the layered window. Need to call a NativeApi method.
                     highlightWindow = null;
 
                 }
                 disposed = true;
             }
-        }       
-        
-        public BitmapStyleInfo StyleInfo { get; set; }
-
+        }                    
         
     }
 }

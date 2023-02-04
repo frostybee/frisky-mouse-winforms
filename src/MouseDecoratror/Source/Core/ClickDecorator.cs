@@ -41,8 +41,8 @@ namespace Bee.MouseDecorator.Core
             // Draw multiple frames.
             for (int i = 0; i < 15; i++)
             {
-                Bitmap ringBitmap = DrawingHelper.DrawEllipseBitmap(bitmapInfo);
-                framesCache.Add(ringBitmap);
+                //Bitmap ringBitmap = DrawingHelper.DrawEllipseBitmap(bitmapInfo);
+                //framesCache.Add(ringBitmap);
                 bitmapInfo.Size += dx;
             }
         }

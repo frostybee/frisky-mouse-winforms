@@ -1,4 +1,5 @@
 ﻿using Bee.MouseDecorator.Core;
+using MouseDecoratror.Core;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
@@ -6,9 +7,9 @@ namespace Bee.MouseDecorator.Helpers
 {
     internal class DrawingHelper
     {
-        public static Bitmap DrawEllipseBitmap(BitmapStyleInfo bitmapInfo)
+        public static Bitmap DrawEllipseBitmap(HighlighterSettings bitmapInfo)
         {
-            int size = bitmapInfo.Size;
+            int size = bitmapInfo.Radius;
             //Bitmap memoryBitmap = new Bitmap(size *2 +5, size*2+5, PixelFormat.Format32bppArgb);
             Bitmap memoryBitmap = new Bitmap(size * 2 + 5, size * 2 + 5);
 
@@ -17,14 +18,14 @@ namespace Bee.MouseDecorator.Helpers
             {
                 graphics.SmoothingMode = SmoothingMode.AntiAlias;
                 graphics.InterpolationMode = InterpolationMode.HighQualityBilinear;
-                using (Pen pen = new Pen(bitmapInfo.Color, bitmapInfo.PenSize))
+                using (Pen pen = new Pen(bitmapInfo.FillColor, bitmapInfo.OutlineThickness))
                 {
                     if (bitmapInfo.IsFilled)
                     {
                         // Draw a filled ellipse
-                        using (SolidBrush brush = new SolidBrush(bitmapInfo.Color))
+                        using (SolidBrush brush = new SolidBrush(bitmapInfo.FillColor))
                         {
-                            graphics.FillEllipse(brush, 0, 0, bitmapInfo.Size * 2, bitmapInfo.Size * 2);
+                            graphics.FillEllipse(brush, 0, 0, bitmapInfo.Radius * 2, bitmapInfo.Radius * 2);
                         }
                     }
                     else

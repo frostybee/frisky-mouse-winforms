@@ -62,9 +62,9 @@ namespace MouseDecoratror.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public int HighlighterOpacity {
+        public byte HighlighterOpacity {
             get {
-                return ((int)(this["HighlighterOpacity"]));
+                return ((byte)(this["HighlighterOpacity"]));
             }
             set {
                 this["HighlighterOpacity"] = value;
@@ -73,7 +73,7 @@ namespace MouseDecoratror.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("255, 255, 128")]
+        [global::System.Configuration.DefaultSettingValueAttribute("255, 128, 128")]
         public global::System.Drawing.Color HighlighterFillColor {
             get {
                 return ((global::System.Drawing.Color)(this["HighlighterFillColor"]));

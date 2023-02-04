@@ -15,7 +15,7 @@ namespace MouseDecoratror.Core
         {
             // Default settings. 
             Radius = 50;
-            FillColor = Color.Yellow;
+            FillColor = Color.Red;
             Opacity = 200;
             IsFilled = true;
             OutlineThickness = 1;
@@ -36,7 +36,7 @@ namespace MouseDecoratror.Core
         public int CenterX { get; set; }
         public int CenterY { get; set; }
         public int Radius { get; set; }
-        public int Opacity { get; set; }
+        public byte Opacity { get; set; }
         public Color FillColor { get; set; }
         public Color OutlineColor { get; set; }
         public bool IsFilled { get; set; }

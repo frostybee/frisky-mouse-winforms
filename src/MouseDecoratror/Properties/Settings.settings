@@ -11,11 +11,11 @@
     <Setting Name="HighlighterRadius" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">50</Value>
     </Setting>
-    <Setting Name="HighlighterOpacity" Type="System.Int32" Scope="User">
+    <Setting Name="HighlighterOpacity" Type="System.Byte" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="HighlighterFillColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">255, 255, 128</Value>
+      <Value Profile="(Default)">255, 128, 128</Value>
     </Setting>
     <Setting Name="HighlighterIsFilled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

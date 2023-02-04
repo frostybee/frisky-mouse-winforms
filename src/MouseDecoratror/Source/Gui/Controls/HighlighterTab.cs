@@ -76,13 +76,13 @@ namespace MouseDecoratror.Controls
             _highlighterSettings.IsEnabled = switchHighlighter.Checked;
             if (switchHighlighter.Checked)
             {
-                MouseDecorationManager.Instance.EnableHook();
+                //MouseDecorationManager.Instance.EnableHook();
             }
             else
             {
                 // TODO: upon disabling the hook,
                 // the layered window should be hidden.
-                MouseDecorationManager.Instance.DisableHook();
+                //MouseDecorationManager.Instance.DisableHook();
             }
 
         }
@@ -126,7 +126,7 @@ namespace MouseDecoratror.Controls
             _highlighterSettings.CenterY = pbPreview.Width / 2;
             _highlighterSettings.IsFilled = switchFilledColor.Checked;
             _highlighterSettings.Radius = sldRadius.Value;
-            _highlighterSettings.Opacity = sldOpacity.Value;
+            _highlighterSettings.Opacity = (byte)sldOpacity.Value;
             _highlighterSettings.OutlineThickness = sldOutlineWidth.Value;
             pbPreview.Invalidate();
         }
