@@ -31,7 +31,7 @@ namespace Bee.GlobalHooks.NativeApi
         /// <remarks>
         /// <see cref="https://docs.microsoft.com/en-us/previous-versions/windows/desktop/legacy/ms644986(v=vs.85)"/>        
         /// </remarks>
-        public delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);
+        public delegate IntPtr MouseHookProc(int nCode, IntPtr wParam, IntPtr lParam);
 
         /// <summary>
         /// The SetWindowsHookEx function installs an application-defined hook procedure into a hook chain.
@@ -44,7 +44,7 @@ namespace Bee.GlobalHooks.NativeApi
         /// <param name="dwThreadId">thread identifier</param>
         /// <returns>If the function succeeds, the return value is the handle to the hook procedure.</returns>
         [DllImport(USER32_DLL, SetLastError = true)]
-        internal static extern IntPtr SetWindowsHookEx(int idHook, LowLevelMouseProc lpfn, IntPtr hMod, uint dwThreadId);
+        internal static extern IntPtr SetWindowsHookEx(int idHook, MouseHookProc lpfn, IntPtr hMod, uint dwThreadId);
 
 
         /// <summary>
@@ -52,8 +52,9 @@ namespace Bee.GlobalHooks.NativeApi
         /// </summary>
         /// <param name="hhk">handle to hook procedure</param>
         /// <returns>If the function succeeds, the return value is true.</returns>
-        [DllImport(USER32_DLL, SetLastError = true)]
-        internal static extern Int32 UnhookWindowsHookEx(IntPtr hHook);
+        [DllImport(USER32_DLL, CharSet = CharSet.Auto,
+           CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+        internal static extern bool UnhookWindowsHookEx(IntPtr hHook);
 
         /// <summary>
         /// The CallNextHookEx function passes the hook information to the next hook procedure in the current hook chain.

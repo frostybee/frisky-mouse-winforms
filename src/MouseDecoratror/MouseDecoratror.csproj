@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -27,7 +27,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -57,9 +57,10 @@
   <ItemGroup>
     <Compile Include="Source\Core\BitmapStyleInfo.cs" />
     <Compile Include="Source\Core\ClickDecorator.cs" />
-    <Compile Include="Source\Core\MouseHighlighter\CursorDecorator.cs" />
+    <Compile Include="Source\Core\MouseHighlighter\MouseHighlighter.cs" />
     <Compile Include="Source\Core\MouseDecorationManager.cs" />
     <Compile Include="Source\Core\FramesManager.cs" />
+    <Compile Include="Source\Core\MouseHook\GlobalHookManager.cs" />
     <Compile Include="Source\Core\SettingsManager.cs" />
     <Compile Include="Source\Gui\Controls\HighlighterTab.cs">
       <SubType>UserControl</SubType>
@@ -68,8 +69,7 @@
       <DependentUpon>HighlighterTab.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Core\MouseHighlighter\HighlighterSettings.cs" />
-    <Compile Include="Source\Core\GraphicsExtensions.cs" />
-    <Compile Include="Source\Core\MouseHook\GlobalHookManager.cs" />
+    <Compile Include="Source\Core\Helpers\GraphicsExtensions.cs" />
     <Compile Include="Source\Core\MouseHook\RawMouseEvents.cs" />
     <Compile Include="Source\NativeApi\ExtendedWinStyles.cs" />
     <Compile Include="Source\NativeApi\HookHelper.cs" />

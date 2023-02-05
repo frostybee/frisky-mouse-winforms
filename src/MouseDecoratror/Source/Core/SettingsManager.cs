@@ -13,33 +13,35 @@ namespace MouseDecoratror.Core
 
         internal void LoadAppSettings()
         {
+            var settings = Properties.Settings.Default;
             // Load first the highlighter settings.
-            _highlighterSettings.CenterX = Properties.Settings.Default.HighlighterCenterX;
-            _highlighterSettings.CenterY = Properties.Settings.Default.HighlighterCenterY;
-            _highlighterSettings.Radius = Properties.Settings.Default.HighlighterRadius;
-            _highlighterSettings.Opacity = Properties.Settings.Default.HighlighterOpacity;
-            _highlighterSettings.FillColor = Properties.Settings.Default.HighlighterFillColor;
-            _highlighterSettings.OutlineColor = Properties.Settings.Default.HighlighterOutlineColor;
-            _highlighterSettings.IsFilled = Properties.Settings.Default.HighlighterIsFilled;
-            _highlighterSettings.OutlineThickness = Properties.Settings.Default.HighlighterOutlineThickness;
-            _highlighterSettings.OutlineStyle = Properties.Settings.Default.HighlighterOutlineStyle;
-            _highlighterSettings.IsEnabled = Properties.Settings.Default.IsHighlighterEnabled;
+            _highlighterSettings.CenterX = settings.HighlighterCenterX;
+            _highlighterSettings.CenterY = settings.HighlighterCenterY;
+            _highlighterSettings.Radius = settings.HighlighterRadius;
+            _highlighterSettings.Opacity = settings.HighlighterOpacity;
+            _highlighterSettings.FillColor = settings.HighlighterFillColor;
+            _highlighterSettings.OutlineColor = settings.HighlighterOutlineColor;
+            _highlighterSettings.IsFilled = settings.HighlighterIsFilled;
+            _highlighterSettings.OutlineThickness = settings.HighlighterOutlineThickness;
+            _highlighterSettings.OutlineStyle = settings.HighlighterOutlineStyle;
+            _highlighterSettings.IsEnabled = settings.IsHighlighterEnabled;
         }
 
         internal void SaveHighlighterSettings()
         {
-            Properties.Settings.Default.HighlighterCenterX = _highlighterSettings.CenterX;
-            Properties.Settings.Default.HighlighterCenterY = _highlighterSettings.CenterY;
-            Properties.Settings.Default.HighlighterRadius = _highlighterSettings.Radius;
-            Properties.Settings.Default.HighlighterOpacity = _highlighterSettings.Opacity;
-            Properties.Settings.Default.HighlighterFillColor = _highlighterSettings.FillColor;
-            Properties.Settings.Default.HighlighterOutlineColor = _highlighterSettings.OutlineColor;
-            Properties.Settings.Default.HighlighterIsFilled = _highlighterSettings.IsFilled;
-            Properties.Settings.Default.HighlighterOutlineThickness = _highlighterSettings.OutlineThickness;
-            Properties.Settings.Default.HighlighterOutlineStyle = _highlighterSettings.OutlineStyle;
-            Properties.Settings.Default.IsHighlighterEnabled = _highlighterSettings.IsEnabled;
+            var settings = Properties.Settings.Default;
+            settings.HighlighterCenterX = _highlighterSettings.CenterX;
+            settings.HighlighterCenterY = _highlighterSettings.CenterY;
+            settings.HighlighterRadius = _highlighterSettings.Radius;
+            settings.HighlighterOpacity = _highlighterSettings.Opacity;
+            settings.HighlighterFillColor = _highlighterSettings.FillColor;
+            settings.HighlighterOutlineColor = _highlighterSettings.OutlineColor;
+            settings.HighlighterIsFilled = _highlighterSettings.IsFilled;
+            settings.HighlighterOutlineThickness = _highlighterSettings.OutlineThickness;
+            settings.HighlighterOutlineStyle = _highlighterSettings.OutlineStyle;
+            settings.IsHighlighterEnabled = _highlighterSettings.IsEnabled;
             //throw new NotImplementedException();
-            Properties.Settings.Default.Save();
+            settings.Save();
         }
 
         #region Properties

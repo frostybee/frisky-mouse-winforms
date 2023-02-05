@@ -76,13 +76,13 @@ namespace MouseDecoratror.Controls
             _highlighterSettings.IsEnabled = switchHighlighter.Checked;
             if (switchHighlighter.Checked)
             {
-                //MouseDecorationManager.Instance.EnableHook();
+                MouseDecorationManager.Instance.EnableHook();
             }
             else
             {
                 // TODO: upon disabling the hook,
                 // the layered window should be hidden.
-                //MouseDecorationManager.Instance.DisableHook();
+                MouseDecorationManager.Instance.DisableHook();
             }
 
         }

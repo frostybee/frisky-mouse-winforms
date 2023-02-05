@@ -2,6 +2,7 @@
 using MouseDecoratror.Core;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace Bee.MouseDecorator.Helpers
 {
@@ -11,7 +12,7 @@ namespace Bee.MouseDecorator.Helpers
         {
             int size = bitmapInfo.Radius;
             //Bitmap memoryBitmap = new Bitmap(size *2 +5, size*2+5, PixelFormat.Format32bppArgb);
-            Bitmap memoryBitmap = new Bitmap(size * 2 + 5, size * 2 + 5);
+            Bitmap memoryBitmap = new Bitmap(size * 2 + 5, size * 2 + 5 , PixelFormat.Format32bppArgb);
 
             //Bitmap memoryBitmap = new Bitmap(200, 200, PixelFormat.Format32bppArgb);            
             using (Graphics graphics = Graphics.FromImage(memoryBitmap))

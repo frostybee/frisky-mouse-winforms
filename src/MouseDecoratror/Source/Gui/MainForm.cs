@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace MouseDecoratror
             //-- Set up the form closing/loading events. They are required for ensuring that 
             // the mouse hooks is properly installed/uninstalled.
             this.FormClosing += MainForm_FormClosing;
-            this.Activated += MainForm_Load;
+            this.Load += MainForm_Load;
             // Init the managers.
             applicationManager = MouseDecorationManager.Instance;               
             materialSkinManager = MaterialSkinManager.Instance;
@@ -51,7 +52,8 @@ namespace MouseDecoratror
         private void MainForm_Load(object sender, EventArgs e)
         {
             applicationManager.BootstrapApp();                     
-            tabHighlighterSettings.InitHighlighterControls();                       
+            tabHighlighterSettings.InitHighlighterControls();
+            Debug.WriteLine("MainForm_Load....");
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

@@ -42,6 +42,7 @@ namespace Bee.MouseDecorator.UI
 
             // Create the actual window
             this.CreateHandle(cp);
+            Hide();
         }        
 
         public void Move(int x, int y)
