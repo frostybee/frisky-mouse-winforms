@@ -15,13 +15,14 @@ namespace Bee.MouseDecorator.UI
         public const int SW_HIDE = 0;
         private const int ULW_ALPHA = 2;
         private const byte AC_SRC_OVER = 0x00;
-        private const byte AC_SRC_ALPHA = 0x01; 
+        private const byte AC_SRC_ALPHA = 0x01;
+        private const int WS_POPUP = 0x8000000;   
         #endregion
 
         // Handle of the main window.
         private int handle;
         private bool isDisposed;
-                   
+
         public LayeredWindow()
         {
             // TODO: fix scaling issue see winforms settings.
@@ -36,14 +37,15 @@ namespace Bee.MouseDecorator.UI
             cp.Width = Width;
             TopCoordinate = 300;
             LeftCoordinate = 300;
+            cp.Style = WS_POPUP;
             // Specify the form as the parent.
             //cp.Parent = parent.Handle;                        
-            cp.ExStyle = Convert.ToInt32(ExtendedWinStyles.WS_CUSTOM_TRASPARENT_WINDOW);
+            cp.ExStyle = (int)ExtendedWinStyles.WS_CUSTOM_LAYERED_WINDOW;
 
             // Create the actual window
             this.CreateHandle(cp);
             Hide();
-        }        
+        }
 
         public void Move(int x, int y)
         {
@@ -146,7 +148,7 @@ namespace Bee.MouseDecorator.UI
                 }
 
                 // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
+                // TODO: set large fields to null                
                 ReleaseHandle();
                 isDisposed = true;
             }

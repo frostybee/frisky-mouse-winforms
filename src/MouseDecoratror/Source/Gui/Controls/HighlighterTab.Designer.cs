@@ -251,10 +251,11 @@
             this.sldRadius.Location = new System.Drawing.Point(12, 111);
             this.sldRadius.MouseState = MaterialSkin.MouseState.HOVER;
             this.sldRadius.Name = "sldRadius";
+            this.sldRadius.RangeMax = 65;
             this.sldRadius.Size = new System.Drawing.Size(255, 40);
             this.sldRadius.TabIndex = 5;
             this.sldRadius.Text = "Radius  ";
-            this.sldRadius.Value = 100;
+            this.sldRadius.Value = 30;
             this.sldRadius.ValueSuffix = "px";
             // 
             // sldOpacity
@@ -264,12 +265,11 @@
             this.sldOpacity.Location = new System.Drawing.Point(12, 65);
             this.sldOpacity.MouseState = MaterialSkin.MouseState.HOVER;
             this.sldOpacity.Name = "sldOpacity";
-            this.sldOpacity.RangeMax = 255;
-            this.sldOpacity.RangeMin = 50;
+            this.sldOpacity.RangeMax = 200;
             this.sldOpacity.Size = new System.Drawing.Size(255, 40);
             this.sldOpacity.TabIndex = 4;
             this.sldOpacity.Text = "Opacity  ";
-            this.sldOpacity.Value = 100;
+            this.sldOpacity.Value = 120;
             this.sldOpacity.ValueSuffix = "%";
             // 
             // groupBox1

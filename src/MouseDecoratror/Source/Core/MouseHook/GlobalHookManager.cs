@@ -46,7 +46,7 @@ namespace Bee.MouseDecorator.Core
                     case MouseButtonTypes.LeftButtonUp:
                     case MouseButtonTypes.MouseMove:
                         //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
-                        _mouseHighlighter?.DecorateMouseMove(hookStruct.pt);                        
+                        _mouseHighlighter?.MoveSpotlight(hookStruct.pt);                        
                         break;
                     case MouseButtonTypes.RightButtonDown:
                         //EventHandler<HookMouseEventArgs> handler = MouseAction;

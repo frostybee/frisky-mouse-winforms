@@ -21,7 +21,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="HighlighterOutlineThickness" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)">3</Value>
     </Setting>
     <Setting Name="HighlighterOutlineStyle" Type="System.Drawing.Drawing2D.DashStyle" Scope="User">
       <Value Profile="(Default)">Solid</Value>

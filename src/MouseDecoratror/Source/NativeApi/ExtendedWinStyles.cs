@@ -44,9 +44,8 @@ namespace Bee.GlobalHooks.NativeApi
         WS_EX_LAYOUTRTL = 0x00400000,
         WS_EX_COMPOSITED = 0x02000000,
         WS_EX_NOACTIVATE = 0x08000000,
-        WS_CUSTOM_TRASPARENT_WINDOW = (ExtendedWinStyles.WS_EX_LAYERED |
-                                ExtendedWinStyles.WS_EX_TRANSPARENT | ExtendedWinStyles.WS_EX_TOPMOST
-                                | ExtendedWinStyles.WS_EX_NOACTIVATE | ExtendedWinStyles.WS_EX_NOPARENTNOTIFY
-                                | ExtendedWinStyles.WS_EX_NOINHERITLAYOUT | ExtendedWinStyles.WS_EX_TOOLWINDOW)
+        WS_CUSTOM_LAYERED_WINDOW = (WS_EX_LAYERED |WS_EX_TRANSPARENT | WS_EX_TOPMOST
+                                | WS_EX_NOACTIVATE | WS_EX_NOPARENTNOTIFY| WS_EX_NOINHERITLAYOUT
+                                    | WS_EX_NOREDIRECTIONBITMAP | WS_EX_TOOLWINDOW)           
     }
 }

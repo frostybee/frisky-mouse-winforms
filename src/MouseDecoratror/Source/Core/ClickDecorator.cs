@@ -50,8 +50,8 @@ namespace Bee.MouseDecorator.Core
         {
             bitmapInfo = clickStyle;
             LoadAnimationFrames();
-            /* highlightBitmap = DrawingHelper.DrawEllipseBitmap(BitmapInfo);
-             layeredWindow.SetBitmap(highlightBitmap, BitmapInfo.Opacity);
+            /* _spotlightBitmap = DrawingHelper.DrawEllipseBitmap(BitmapInfo);
+             layeredWindow.SetBitmap(_spotlightBitmap, BitmapInfo.Opacity);
              layeredWindow.Show();*/
         }
 
