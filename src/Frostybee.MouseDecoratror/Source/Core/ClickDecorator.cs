@@ -51,7 +51,7 @@ namespace Frostybee.MouseDecorator.Core
             bitmapInfo = clickStyle;
             LoadAnimationFrames();
             /* _spotlightBitmap = DrawingHelper.DrawEllipseBitmap(BitmapInfo);
-             layeredWindow.SetBitmap(_spotlightBitmap, BitmapInfo.Opacity);
+             layeredWindow.SetBitmap(_spotlightBitmap, BitmapInfo.OpacityPercentage);
              layeredWindow.Show();*/
         }
 

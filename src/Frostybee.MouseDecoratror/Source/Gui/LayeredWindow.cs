@@ -50,6 +50,9 @@ namespace Frostybee.MouseDecorator.UI
         public void Move(int x, int y)
         {
             NativeMethods.MoveWindow(Handle, x, y, Width, Height, false);
+            // FIXME: Somehow setting the TOPMOST doesn't seem to work when clicking on slider| 
+            // Should be done upon detecting a mouse click if the highlighter is enabled.
+            //NativeMethods.SetWindowPos(Handle, NativeMethods.HWND_TOPMOST, 0, 0, 0, 0, NativeMethods.SWP_NOMOVE | NativeMethods.SWP_NOSIZE);
         }
 
         public void Hide()

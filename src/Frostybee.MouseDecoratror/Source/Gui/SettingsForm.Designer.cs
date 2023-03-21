@@ -117,7 +117,7 @@ namespace Frostybee.MouseDecorator.UI
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 25);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Opacity:";
+            this.label4.Text = "OpacityPercentage:";
             // 
             // label1
             // 

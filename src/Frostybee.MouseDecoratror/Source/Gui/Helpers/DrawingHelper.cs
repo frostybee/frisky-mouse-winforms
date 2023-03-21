@@ -9,16 +9,19 @@ namespace Frostybee.MouseDecorator.Helpers
     {
         public static Bitmap DrawEllipseBitmap(HighlighterSettings settings)
         {
-            int size = settings.Radius;
-            //Bitmap memoryBitmap = new Bitmap(size *2 +5, size*2+5, PixelFormat.Format32bppArgb);
-            Bitmap memoryBitmap = new Bitmap(size * 2 + 5, size * 2 + 5 , PixelFormat.Format32bppArgb);
+            //TODO: clean this messy code.
+            int radius = settings.Radius;
+            int outline = (!settings.IsFilled ? settings.OutlineThickness +15: 5);
+            //Bitmap memoryBitmap = new Bitmap(radius *2 +5, radius*2+5, PixelFormat.Format32bppArgb);
+            Bitmap memoryBitmap = new Bitmap(radius * 2 + outline, radius * 2 + outline, PixelFormat.Format32bppArgb);
 
             //Bitmap memoryBitmap = new Bitmap(200, 200, PixelFormat.Format32bppArgb);            
             using (Graphics graphics = Graphics.FromImage(memoryBitmap))
             {
                 graphics.SmoothingMode = SmoothingMode.AntiAlias;
                 graphics.InterpolationMode = InterpolationMode.HighQualityBilinear;
-                graphics.DrawMouseHighlighter(settings);
+                //graphics.DrawSpotlight(settings, new Rectangle(0,0, settings.Radius *2, settings.Radius *2));
+                graphics.DrawSpotlight(settings);
                 /*using (Pen pen = new Pen(settings.FillColor, settings.OutlineThickness))
                 {
                     if (settings.IsFilled)
@@ -31,7 +34,7 @@ namespace Frostybee.MouseDecorator.Helpers
                     }
                     else
                     {
-                        graphics.DrawEllipse(pen, 2, 2, size * 2, size * 2);
+                        graphics.DrawEllipse(pen, 2, 2, radius * 2, radius * 2);
                     }
                 }*/
             }

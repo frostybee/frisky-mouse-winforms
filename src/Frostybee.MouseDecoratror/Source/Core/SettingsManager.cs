@@ -18,7 +18,7 @@ namespace Frostybee.MouseDecorator.Core
             _highlighterSettings.CenterX = settings.HighlighterCenterX;
             _highlighterSettings.CenterY = settings.HighlighterCenterY;
             _highlighterSettings.Radius = settings.HighlighterRadius;
-            _highlighterSettings.Opacity = settings.HighlighterOpacity;
+            _highlighterSettings.OpacityPercentage = settings.HighlighterOpacity;
             _highlighterSettings.FillColor = settings.HighlighterFillColor;
             _highlighterSettings.OutlineColor = settings.HighlighterOutlineColor;
             _highlighterSettings.IsFilled = settings.HighlighterIsFilled;
@@ -33,7 +33,7 @@ namespace Frostybee.MouseDecorator.Core
             settings.HighlighterCenterX = _highlighterSettings.CenterX;
             settings.HighlighterCenterY = _highlighterSettings.CenterY;
             settings.HighlighterRadius = _highlighterSettings.Radius;
-            settings.HighlighterOpacity = _highlighterSettings.Opacity;
+            settings.HighlighterOpacity = _highlighterSettings.OpacityPercentage;
             settings.HighlighterFillColor = _highlighterSettings.FillColor;
             settings.HighlighterOutlineColor = _highlighterSettings.OutlineColor;
             settings.HighlighterIsFilled = _highlighterSettings.IsFilled;

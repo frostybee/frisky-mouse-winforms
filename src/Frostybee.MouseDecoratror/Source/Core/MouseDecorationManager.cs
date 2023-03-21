@@ -30,7 +30,7 @@ namespace Frostybee.MouseDecorator.Core
         #region Methods
         private void ConfigMouseHighlighter()
         {
-            // Configure cursor _highlighterSettings.            
+            // Configure cursor _highlighterModel.            
             _mouseHighlighter.SetupHighlighter(_settingsManager.HighlighterSettings);
         }
         private void LoadDecorationSettings()
@@ -50,7 +50,7 @@ namespace Frostybee.MouseDecorator.Core
         public void EnableHighlighter()
         {
             //TODO: handle hook return type/errors
-            // TODO: check if the _highlighterSettings is enabled in the settings or not. 
+            // TODO: check if the _highlighterModel is enabled in the settings or not. 
             // TODO: check also if the click decorator is enabled.
             lock (_syncLock)
             {
@@ -74,7 +74,7 @@ namespace Frostybee.MouseDecorator.Core
 
         internal void ApplyHighlighterSettings()
         {
-            // Save the newly editted settings.
+            // Save the newly edited settings.
             _settingsManager.SaveHighlighterSettings();
 
             if (_settingsManager.HighlighterSettings.IsEnabled)

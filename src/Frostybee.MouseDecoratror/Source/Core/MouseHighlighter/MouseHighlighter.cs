@@ -6,11 +6,12 @@ using Frostybee.MouseDecorator.Core;
 using System;
 using System.Drawing;
 using System.Xml.Linq;
+using System.Reflection;
 
 namespace Frostybee.MouseDecorator.Core
 {
     internal class MouseHighlighter : IDisposable
-    {        
+    {
         private Bitmap _spotlightBitmap;
         private LayeredWindow _layeredWindow;
         private bool disposed = false;
@@ -21,23 +22,24 @@ namespace Frostybee.MouseDecorator.Core
         }
 
         internal void SetupHighlighter(HighlighterSettings highlighterSettings)
-        {            
+        {
+            highlighterSettings.IsForPreview = false;
             _spotlightBitmap = DrawingHelper.DrawEllipseBitmap(highlighterSettings);
             _layeredWindow.SetBitmap(_spotlightBitmap, highlighterSettings.Opacity);
             _layeredWindow.Show();
         }
 
-        internal void MoveSpotlight(POINT point)
+        internal void MoveSpotlight(POINT inPoint)
         {
             if (_spotlightBitmap != null)
             {
-                _layeredWindow.LeftCoordinate = point.X - _spotlightBitmap.Width / 2;
-                _layeredWindow.TopCoordinate = point.Y - _spotlightBitmap.Height / 2;
-                _layeredWindow.Move((point.X - _spotlightBitmap.Width / 2), (point.Y - _spotlightBitmap.Height / 2));
-            }                    
+                int pointX = inPoint.X - _spotlightBitmap.Width / 2;
+                int pointY = inPoint.Y - _spotlightBitmap.Height / 2;
+                _layeredWindow.LeftCoordinate = pointX;
+                _layeredWindow.TopCoordinate = pointY;
+                _layeredWindow.Move(pointX, pointY);
+            }
         }
-
-       
 
         public void Dispose()
         {
@@ -48,14 +50,13 @@ namespace Frostybee.MouseDecorator.Core
         {
             if (!disposed)
             {
-
                 if (disposing)
                 {
                     // Clean up resources.
                     _spotlightBitmap?.Dispose();
                     _spotlightBitmap = null;
                     _layeredWindow?.Dispose();
-                    //TODO: properly termniate the layered window. Need to call a NativeApi method.
+                    //TODO: properly terminate the layered window. Need to call a NativeApi method.
                     _layeredWindow = null;
 
                 }

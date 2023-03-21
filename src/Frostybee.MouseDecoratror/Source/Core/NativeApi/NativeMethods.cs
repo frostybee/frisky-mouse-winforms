@@ -21,6 +21,11 @@ namespace Frostybee.GlobalHooks.NativeApi
         public const string USER32_DLL = "user32.dll";
         public const string GDI32_DLL = "gdi32.dll";
 
+        public const int HWND_TOPMOST = -1;
+        public const int HWND_NOTOPMOST = -2;
+        public const int SWP_NOMOVE = 0x0002;
+        public const int SWP_NOSIZE = 0x0001;
+
         #region USER32 Native Methods
         /// <summary>
         /// An application-defined or library-defined callback function used with the SetWindowsHookEx function        
@@ -138,7 +143,11 @@ namespace Frostybee.GlobalHooks.NativeApi
 
         // MoveWindow moves a window or changes its size based on a window handle.
         [DllImport(USER32_DLL, SetLastError = true)]
-        public static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint); 
+        public static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+        [DllImport(USER32_DLL, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y,
+            int cx, int cy, int uFlags);
         #endregion
 
         #region Kernel32 Native Methods
