@@ -200,7 +200,7 @@
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mouse Decorator Settings UI";
+            this.Text = "Mouse Decorator";
             this.mainTabControl.ResumeLayout(false);
             this.tbpHighlighter.ResumeLayout(false);
             this.tbpClickDecorator.ResumeLayout(false);

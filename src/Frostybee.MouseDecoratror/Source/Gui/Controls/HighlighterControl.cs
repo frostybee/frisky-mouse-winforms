@@ -61,6 +61,7 @@ namespace Frostybee.MouseDecorator.Controls
             sldRadius.Value = _highlighterModel.Radius;
             sldOpacity.Value = _highlighterModel.OpacityPercentage;            
             sldOutlineWidth.Value = _highlighterModel.OutlineThickness;
+            //MessageBox.Show(sldOutlineWidth.Value.ToString());
             btnColorPicker.BackColor = _highlighterModel.FillColor;
             switchHighlighter.Checked = _highlighterModel.IsEnabled;
             // TODO: init the outline style in the combo box.

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Frostybee.MouseDecorator.Core
 {
@@ -37,7 +38,7 @@ namespace Frostybee.MouseDecorator.Core
             settings.HighlighterFillColor = _highlighterSettings.FillColor;
             settings.HighlighterOutlineColor = _highlighterSettings.OutlineColor;
             settings.HighlighterIsFilled = _highlighterSettings.IsFilled;
-            settings.HighlighterOutlineThickness = _highlighterSettings.OutlineThickness;
+            settings.HighlighterOutlineThickness = _highlighterSettings.OutlineThickness;            
             settings.HighlighterOutlineStyle = _highlighterSettings.OutlineStyle;
             settings.IsHighlighterEnabled = _highlighterSettings.IsEnabled;
             //throw new NotImplementedException();

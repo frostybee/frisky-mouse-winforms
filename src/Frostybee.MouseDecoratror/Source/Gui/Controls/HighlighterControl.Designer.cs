@@ -251,7 +251,7 @@
             this.sldRadius.Location = new System.Drawing.Point(12, 111);
             this.sldRadius.MouseState = MaterialSkin.MouseState.HOVER;
             this.sldRadius.Name = "sldRadius";
-            this.sldRadius.RangeMax = 65;
+            this.sldRadius.RangeMax = 80;
             this.sldRadius.Size = new System.Drawing.Size(255, 40);
             this.sldRadius.TabIndex = 5;
             this.sldRadius.Text = "Radius  ";
