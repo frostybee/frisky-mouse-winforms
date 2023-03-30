@@ -9,7 +9,7 @@ namespace Frostybee.MouseDecorator.UI
     public partial class MainForm : Form
     {
         
-        private MouseDecorationManager decorationController;
+        private DecorationController decorationController;
 
         public MainForm()
         {
@@ -17,7 +17,7 @@ namespace Frostybee.MouseDecorator.UI
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.AutoScaleDimensions = new SizeF(96f, 96f);
             //mHighlightForm = new HighlightForm(this);
-            decorationController = MouseDecorationManager.Instance;
+            decorationController = DecorationController.Instance;
             //mClickHighlightForm = new LeftClickForm(this);
             FormClosing += MainForm_FormClosing;
             base.Activated += MainForm_Activated;

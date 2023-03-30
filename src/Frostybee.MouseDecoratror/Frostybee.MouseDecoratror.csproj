@@ -38,6 +38,10 @@
   <PropertyGroup>
     <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>Martin-Berube-Animal-Bee.ico</ApplicationIcon>
+  </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
@@ -55,10 +59,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Source\Core\BitmapStyleInfo.cs" />
     <Compile Include="Source\Core\ClickDecorator.cs" />
     <Compile Include="Source\Core\MouseHighlighter\MouseHighlighter.cs" />
-    <Compile Include="Source\Core\MouseDecorationManager.cs" />
+    <Compile Include="Source\Core\DecorationController.cs" />
     <Compile Include="Source\Core\FramesManager.cs" />
     <Compile Include="Source\Core\MouseHook\GlobalHook.cs" />
     <Compile Include="Source\Core\MouseHook\MouseHookController.cs" />
@@ -118,14 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Tests\UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,27 +160,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\baseline_bluetooth_black_24dp.png" />
+    <None Include="Resources\sample-text.png" />
+    <EmbeddedResource Include="Martin-Berube-Animal-Bee.ico" />
     <Content Include="Resources\baseline_build_black_24dp.png" />
     <Content Include="Resources\baseline_favorite_border_black_24dp.png" />
-    <Content Include="Resources\baseline_fingerprint_black_24dp.png" />
     <Content Include="Resources\baseline_thumb_up_black_24dp.png" />
+    <None Include="Resources\spotlight-cursor-32.png" />
     <None Include="Resources\settings_24.png" />
     <None Include="Resources\bee-icon.png" />
     <None Include="Resources\Martin-Berube-Animal-Bee.ico" />
+    <None Include="Resources\circle-cursor-32.png" />
+    <None Include="Resources\icons8-click-64.png" />
+    <None Include="Resources\left-click-50.png" />
     <Content Include="Resources\minus.png" />
     <Content Include="Resources\plus.png" />
-    <Content Include="Resources\round_add_black_24dp.png" />
-    <Content Include="Resources\round_assessment_white_24dp.png" />
-    <Content Include="Resources\round_backup_white_24dp.png" />
-    <Content Include="Resources\round_bluetooth_white_24dp.png" />
-    <Content Include="Resources\round_bookmark_white_24dp.png" />
-    <Content Include="Resources\round_build_white_24dp.png" />
-    <Content Include="Resources\round_gps_fixed_white_24dp.png" />
-    <Content Include="Resources\round_http_white_24dp.png" />
-    <Content Include="Resources\round_phone_black_24dp.png" />
-    <Content Include="Resources\round_report_problem_white_24dp.png" />
-    <Content Include="Resources\round_swap_vert_white_24dp.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

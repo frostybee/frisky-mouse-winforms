@@ -119,7 +119,7 @@
         );
 
         /// <summary>
-        /// Constructer Setting up the Layout
+        /// Constructor Setting up the Layout
         /// </summary>
         public MaterialSnackBar(string Text, int Duration, bool ShowActionButton, string ActionButtonText, bool UseAccentColor)
         {

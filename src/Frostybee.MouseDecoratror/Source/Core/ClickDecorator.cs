@@ -61,7 +61,7 @@ namespace Frostybee.MouseDecorator.Core
             {
                 if (!isClickStyleEnabled)
                     return;
-                //TODO: optomize this.
+                //TODO: optimize this.
                 if (!isDrawing)
                 {
                     clickStylingWindow.LeftCoordinate = e.Point.X - (bitmapInfo.Size / 2);
@@ -89,7 +89,7 @@ namespace Frostybee.MouseDecorator.Core
             {
                 if (!isClickStyleEnabled)
                     return;
-                //TODO: optomize this.
+                //TODO: optimize this.
                 if (!isDrawing)
                 {
                     clickStylingWindow.LeftCoordinate = e.Point.X - bitmapInfo.Size / 2;
@@ -151,7 +151,7 @@ namespace Frostybee.MouseDecorator.Core
                     // TODO: dispose managed state (managed objects)
                     clickAnimationTimer.Elapsed -= TimerClickAnimation_Update;
                     clickAnimationTimer.Dispose();
-                    // Disopse the cached frames.                    
+                    // Dispose the cached frames.                    
                     // TODO: move to 
                     if (framesCache != null)
                     {

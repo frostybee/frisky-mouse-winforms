@@ -19,18 +19,19 @@ namespace Frostybee.MouseDecorator.Controls
     public partial class HighlighterControl : UserControl
     {
         private readonly HighlighterSettings _highlighterModel;
-        private readonly MouseDecorationManager _applicationManager;
+        private readonly DecorationController _applicationManager;
         private readonly Dictionary<String, DashStyle> _outlineStyles = new Dictionary<String, DashStyle>() {
             { "Solid", DashStyle.Solid},
             { "Dash", DashStyle.Dash},
             { "Dot", DashStyle.Dot},
             { "Dash Dot", DashStyle.DashDot},
             { "Dash Dot Dot", DashStyle.DashDotDot},
-        };
+        };           
+
         public HighlighterControl()
         {
             InitializeComponent();
-            _applicationManager = MouseDecorationManager.Instance;
+            _applicationManager = DecorationController.Instance;
             _highlighterModel = _applicationManager.SettingsManager.HighlighterSettings;
 
             // TODO: 1) must load the saved settings first.
@@ -48,20 +49,24 @@ namespace Frostybee.MouseDecorator.Controls
             sldOpacity.onValueChanged += OpacityOrRadius_onValueChanged;
             sldOutlineWidth.onValueChanged += OutlineThickness_onValueChanged;
             //-- Switch events
-            switchFilledColor.CheckedChanged += SwitchFilledColor_CheckedChanged;
+            switchFilledSpotlight.CheckedChanged += SwitchFilledColor_CheckedChanged;
             switchHighlighter.CheckedChanged += SwitchHighlighter_CheckedChanged;
             cmboxOutlineStyle.SelectedValueChanged += OutlineStyle_SelectedValueChanged;
             pboxPreview.Paint += HighlighterPreview_Paint;
+            pboxPreview.BackgroundImage = Properties.Resources.sample_text;
+
         }
 
         internal void InitHighlighterControls()
         {
             // Initialize the UI controls with the previously selected settings.            
-            switchFilledColor.Checked = _highlighterModel.IsFilled;
+            switchFilledSpotlight.Checked = _highlighterModel.IsFilled;
             sldRadius.Value = _highlighterModel.Radius;
-            sldOpacity.Value = _highlighterModel.OpacityPercentage;            
+            sldOpacity.Value = _highlighterModel.OpacityPercentage;
             sldOutlineWidth.Value = _highlighterModel.OutlineThickness;
-            //MessageBox.Show(sldOutlineWidth.Value.ToString());
+            //sldOutlineWidth.Value =  5;
+            //_highlighterModel.OutlineThickness = 15;
+            //MessageBox.Show(_highlighterModel.OutlineThickness.ToString());
             btnColorPicker.BackColor = _highlighterModel.FillColor;
             switchHighlighter.Checked = _highlighterModel.IsEnabled;
             // TODO: init the outline style in the combo box.
@@ -82,20 +87,20 @@ namespace Frostybee.MouseDecorator.Controls
             _highlighterModel.IsEnabled = switchHighlighter.Checked;
             if (switchHighlighter.Checked)
             {
-                MouseDecorationManager.Instance.EnableHighlighter();
+                DecorationController.Instance.EnableHighlighter();
             }
             else
             {
                 // TODO: upon disabling the hook,
                 // the layered window should be hidden.                
-                MouseDecorationManager.Instance.DisableHook();
+                DecorationController.Instance.DisableHook();
             }
         }
 
         private void ManageOutlineSettings()
         {
-            sldOutlineWidth.Enabled = !switchFilledColor.Checked;
-            cmboxOutlineStyle.Enabled = !switchFilledColor.Checked;
+            sldOutlineWidth.Enabled = !switchFilledSpotlight.Checked;
+            cmboxOutlineStyle.Enabled = !switchFilledSpotlight.Checked;
         }
 
         private void OutlineStyle_SelectedValueChanged(object sender, EventArgs e)
@@ -129,9 +134,9 @@ namespace Frostybee.MouseDecorator.Controls
         {
             _highlighterModel.CenterX = pboxPreview.Width / 2;
             _highlighterModel.CenterY = pboxPreview.Width / 2;
-            _highlighterModel.IsFilled = switchFilledColor.Checked;
+            _highlighterModel.IsFilled = switchFilledSpotlight.Checked;
             _highlighterModel.Radius = sldRadius.Value;
-            _highlighterModel.OpacityPercentage = (byte)sldOpacity.Value;            
+            _highlighterModel.OpacityPercentage = (byte)sldOpacity.Value;
             _highlighterModel.OutlineThickness = sldOutlineWidth.Value;
             pboxPreview.Invalidate();
         }
@@ -159,6 +164,26 @@ namespace Frostybee.MouseDecorator.Controls
                 UpdateHighlighterPreview();
                 btnColorPicker.BackColor = colorPicker.Color;
             }
+        }
+
+        /// <summary>
+        /// Resets the highlighter settings to predefined values.
+        /// The following spotlight settings will be changed:
+        /// - The spotlight radius will be reset to 30px.
+        /// - The color will be reset to yellow.        
+        /// - The color opacity will reset to 75%.        
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ResetSettings_Click(object sender, EventArgs e)
+        {
+            sldRadius.Value = 30;
+            sldOpacity.Value = 75;
+            btnColorPicker.BackColor = Color.Yellow;
+            _highlighterModel.FillColor = Color.Yellow;
+            switchFilledSpotlight.Checked = true;
+            UpdateHighlighterPreview();
+            _applicationManager.ApplyHighlighterSettings();            
         }
     }
 }

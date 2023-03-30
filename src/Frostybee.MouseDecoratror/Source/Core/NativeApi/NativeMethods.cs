@@ -73,12 +73,17 @@ namespace Frostybee.GlobalHooks.NativeApi
         [DllImport(USER32_DLL, SetLastError = true)]
         internal static extern IntPtr CallNextHookEx(IntPtr hHook, int code, IntPtr wParam, IntPtr lParam);
 
-
         [DllImport(USER32_DLL, SetLastError = true)]
         public static extern IntPtr GetDC(IntPtr hWnd);
 
         [DllImport(USER32_DLL, CharSet = CharSet.Auto, SetLastError = true)]
         public static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
+
+        [DllImport(USER32_DLL, SetLastError = true)]
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport(USER32_DLL, SetLastError = true)]
+        public static extern uint RegisterWindowMessage(string lpString);
 
         /// <summary>
         /// <see cref="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-updatelayeredwindow"/>

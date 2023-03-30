@@ -25,7 +25,7 @@ namespace Frostybee.MouseDecorator.Core
             _highlighterSettings.IsFilled = settings.HighlighterIsFilled;
             _highlighterSettings.OutlineThickness = settings.HighlighterOutlineThickness;
             _highlighterSettings.OutlineStyle = settings.HighlighterOutlineStyle;
-            _highlighterSettings.IsEnabled = settings.IsHighlighterEnabled;
+            _highlighterSettings.IsEnabled = settings.IsHighlighterEnabled;            
         }
 
         internal void SaveHighlighterSettings()
@@ -40,7 +40,7 @@ namespace Frostybee.MouseDecorator.Core
             settings.HighlighterIsFilled = _highlighterSettings.IsFilled;
             settings.HighlighterOutlineThickness = _highlighterSettings.OutlineThickness;            
             settings.HighlighterOutlineStyle = _highlighterSettings.OutlineStyle;
-            settings.IsHighlighterEnabled = _highlighterSettings.IsEnabled;
+            settings.IsHighlighterEnabled = _highlighterSettings.IsEnabled;            
             //throw new NotImplementedException();
             settings.Save();
         }

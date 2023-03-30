@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Frostybee.MouseDecorator.Core
 {
     //TODO: Dispose everything here.
-    internal class MouseDecorationManager : IDisposable
+    internal class DecorationController : IDisposable
     {
         private bool _disposed = false;
         // The user settings manager. 
@@ -20,8 +20,8 @@ namespace Frostybee.MouseDecorator.Core
         private readonly ClickDecorator _clickDecorator = new ClickDecorator();
         private MouseHookController _mouseHookController;        
         // The single instance of this class. 
-        private static readonly Lazy<MouseDecorationManager> _instance = new Lazy<MouseDecorationManager>(() => new MouseDecorationManager());
-        private MouseDecorationManager()
+        private static readonly Lazy<DecorationController> _instance = new Lazy<DecorationController>(() => new DecorationController());
+        private DecorationController()
         {
             _mouseHookController = new MouseHookController(_mouseHighlighter, _clickDecorator);
             //LoadDecorationSettings();
@@ -128,7 +128,7 @@ namespace Frostybee.MouseDecorator.Core
         /// Gets the single instance of this class.
         /// This property is thread safe. 
         /// </summary>
-        public static MouseDecorationManager Instance => _instance.Value;
+        public static DecorationController Instance => _instance.Value;
         public SettingsManager SettingsManager => _settingsManager;
         public MouseHighlighter MouseHighlighter => _mouseHighlighter;
         public ClickDecorator ClickDecorator => _clickDecorator;
