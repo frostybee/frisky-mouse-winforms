@@ -72,10 +72,10 @@
     <Compile Include="Source\Core\MouseHook\GlobalHook.cs" />
     <Compile Include="Source\Core\MouseHook\MouseHookController.cs" />
     <Compile Include="Source\Core\SettingsManager.cs" />
-    <Compile Include="Source\Gui\Controls\HighlighterControl.cs">
+    <Compile Include="Source\UI\Controls\HighlighterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\Gui\Controls\HighlighterControl.Designer.cs">
+    <Compile Include="Source\UI\Controls\HighlighterControl.Designer.cs">
       <DependentUpon>HighlighterControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Core\MouseHighlighter\HighlighterSettings.cs" />
@@ -88,16 +88,16 @@
     <Compile Include="Source\Core\NativeApi\NativeMethods.cs" />
     <Compile Include="Source\Core\NativeApi\POINT.cs" />
     <Compile Include="Source\Core\NativeApi\WinApiTypes.cs" />
-    <Compile Include="Source\Gui\Controls\SettingsControl.cs">
+    <Compile Include="Source\UI\Controls\SettingsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\Gui\Controls\SettingsControl.Designer.cs">
+    <Compile Include="Source\UI\Controls\SettingsControl.Designer.cs">
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Gui\MainForm.cs">
+    <Compile Include="Source\UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Gui\MainForm.Designer.cs">
+    <Compile Include="Source\UI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -108,21 +108,21 @@
     <Compile Include="Tests\UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Gui\Helpers\DrawingHelper.cs" />
-    <Compile Include="Source\Gui\LayeredWindow.cs" />
-    <Compile Include="Source\Gui\SettingsForm.cs">
+    <Compile Include="Source\UI\Helpers\DrawingHelper.cs" />
+    <Compile Include="Source\UI\LayeredWindow.cs" />
+    <Compile Include="Source\UI\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Gui\SettingsForm.Designer.cs">
+    <Compile Include="Source\UI\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Source\Gui\Controls\HighlighterControl.resx">
+    <EmbeddedResource Include="Source\UI\Controls\HighlighterControl.resx">
       <DependentUpon>HighlighterControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Gui\Controls\SettingsControl.resx">
+    <EmbeddedResource Include="Source\UI\Controls\SettingsControl.resx">
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Gui\MainForm.resx">
+    <EmbeddedResource Include="Source\UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -133,10 +133,10 @@
     <EmbeddedResource Include="Tests\UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Gui\LayeredWindow.resx">
+    <EmbeddedResource Include="Source\UI\LayeredWindow.resx">
       <DependentUpon>LayeredWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Gui\SettingsForm.resx">
+    <EmbeddedResource Include="Source\UI\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\app.manifest" />

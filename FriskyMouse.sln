@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win32CreateWindow", "src\Win32CreateWindow\Win32CreateWindow.csproj", "{5535E649-8AF0-4F31-BCE5-112748F99713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frostybee.MouseDecoratror", "src\Frostybee.MouseDecoratror\Frostybee.MouseDecoratror.csproj", "{A52D203E-5667-4CDF-B243-64C82B77216F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriskyMouse", "src\FriskyMouse\FriskyMouse.csproj", "{A52D203E-5667-4CDF-B243-64C82B77216F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialSkin", "src\MaterialSkin\MaterialSkin.csproj", "{8EB7611B-68CD-4B8B-987A-11717E2B250C}"
 EndProject

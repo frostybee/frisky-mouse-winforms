@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.switchHighlighter = new MaterialSkin.Controls.MaterialSwitch();
             this.cmboxOutlineStyle = new MaterialSkin.Controls.MaterialComboBox();
             this.sldOutlineWidth = new MaterialSkin.Controls.MaterialSlider();
@@ -43,9 +44,8 @@
             this.sldRadius = new MaterialSkin.Controls.MaterialSlider();
             this.sldOpacity = new MaterialSkin.Controls.MaterialSlider();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.label2 = new System.Windows.Forms.Label();
             this.pboxPreview = new System.Windows.Forms.PictureBox();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -72,9 +72,9 @@
             this.materialLabel26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel26.Name = "materialLabel26";
-            this.materialLabel26.Size = new System.Drawing.Size(537, 41);
+            this.materialLabel26.Size = new System.Drawing.Size(306, 41);
             this.materialLabel26.TabIndex = 62;
-            this.materialLabel26.Text = "Mouse Cursor - Highlighter Settings";
+            this.materialLabel26.Text = " Highlighter Settings";
             // 
             // panel2
             // 
@@ -95,6 +95,14 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(766, 344);
             this.panel2.TabIndex = 61;
+            // 
+            // label2
+            // 
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Location = new System.Drawing.Point(0, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(698, 2);
+            this.label2.TabIndex = 74;
             // 
             // switchHighlighter
             // 
@@ -284,14 +292,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Preview";
-            // 
-            // label2
-            // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(0, 1);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(698, 2);
-            this.label2.TabIndex = 74;
             // 
             // pboxPreview
             // 
