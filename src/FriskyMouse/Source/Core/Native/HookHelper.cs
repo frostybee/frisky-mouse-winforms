@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace Frostybee.GlobalHooks.Native
+namespace FriskyMouse.GlobalHooks.Native
 {
     internal class HookHelper
     {

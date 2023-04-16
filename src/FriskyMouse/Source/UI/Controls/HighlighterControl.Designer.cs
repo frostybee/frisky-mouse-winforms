@@ -1,4 +1,4 @@
-﻿namespace Frostybee.MouseDecorator.Controls
+﻿namespace FriskyMouse.UI.Controls
 {
     partial class HighlighterControl
     {

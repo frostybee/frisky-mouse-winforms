@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Frostybee.MouseDecorator.Core
+namespace FriskyMouse.MouseDecorator.Core
 {
     internal static class GraphicsExtensions
     {

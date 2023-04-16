@@ -1,4 +1,4 @@
-﻿namespace Frostybee.MouseDecorator
+﻿namespace FriskyMouse.UI
 {
     partial class MainForm
     {
@@ -44,8 +44,8 @@
             this.trayContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnShow = new System.Windows.Forms.ToolStripMenuItem();
             this.mnExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabHighlighterSettings = new Frostybee.MouseDecorator.Controls.HighlighterControl();
-            this.settingsControl1 = new Frostybee.MouseDecorator.Source.Gui.Controls.SettingsControl();
+            this.tabHighlighterSettings = new FriskyMouse.UI.Controls.HighlighterControl();
+            this.settingsControl1 = new FriskyMouse.UI.Controls.SettingsControl();
             mnAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTabControl.SuspendLayout();
             this.tbpHighlighter.SuspendLayout();
@@ -260,7 +260,7 @@
         private MaterialSkin.Controls.MaterialDrawer materialDrawer1;
         private Controls.HighlighterControl tabHighlighterSettings;
         private System.Windows.Forms.TabPage tbpSettings;
-        private Source.Gui.Controls.SettingsControl settingsControl1;
+        private FriskyMouse.UI.Controls.SettingsControl settingsControl1;
         private System.Windows.Forms.NotifyIcon appNotifyIcon;
         private System.Windows.Forms.ContextMenuStrip trayContextMenu;
         private System.Windows.Forms.ToolStripMenuItem mnShow;

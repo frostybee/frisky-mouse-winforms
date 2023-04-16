@@ -1,11 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Frostybee.GlobalHooks.NativeApi
-{
+namespace FriskyMouse.NativeApi
+{    
+    /// <summary>
+    /// Message types that are posted to the window that has caputred the mouse actions.
+    /// <see cref="https://docs.microsoft.com/en-us/windows/win32/inputdev/mouse-input-notifications"/>
+    /// </summary>
+    public enum NativeEnums
+    {
+        None = 0x0,
+        /// <summary>
+        /// The left mouse button is down.
+        /// </summary>
+        LeftButtonDown = 0x0201,
+        /// <summary>
+        /// The left mouse button is up.
+        /// </summary>
+        LeftButtonUp = 0x0202,
+        /// <summary>
+        /// Left mouse button double-click.
+        /// </summary>
+        LeftButtonDoubleClick = 0x0203,
+        /// <summary>
+        /// The mouse has been moved.
+        /// </summary>
+        MouseMove = 0x0200,
+        MouseWheel = 0x020A,
+        /// <summary>
+        /// The right mouse button is down.
+        /// </summary>
+        RightButtonDown = 0x0204,
+        /// <summary>
+        /// The right mouse button is up.
+        /// </summary>
+        RightButtonUp = 0x0205
+    }
+
     /// <summary>
     /// An enum containing the list of extended window styles as defined in window.h
     /// <see cref="https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles"/>
     /// </summary>
-    public enum ExtendedWinStyles : int
+    public enum WindowStyles : int
     {
         WS_EX_LEFT = 0x00000000,
         WS_EX_LTRREADING = 0x00000000,
@@ -44,8 +83,8 @@ namespace Frostybee.GlobalHooks.NativeApi
         WS_EX_LAYOUTRTL = 0x00400000,
         WS_EX_COMPOSITED = 0x02000000,
         WS_EX_NOACTIVATE = 0x08000000,
-        WS_CUSTOM_LAYERED_WINDOW = (WS_EX_LAYERED |WS_EX_TRANSPARENT | WS_EX_TOPMOST
-                                | WS_EX_NOACTIVATE | WS_EX_NOPARENTNOTIFY| WS_EX_NOINHERITLAYOUT
-                                    | WS_EX_NOREDIRECTIONBITMAP | WS_EX_TOOLWINDOW)           
+        WS_CUSTOM_LAYERED_WINDOW = (WS_EX_LAYERED | WS_EX_TRANSPARENT | WS_EX_TOPMOST
+                                | WS_EX_NOACTIVATE | WS_EX_NOPARENTNOTIFY | WS_EX_NOINHERITLAYOUT
+                                    | WS_EX_NOREDIRECTIONBITMAP | WS_EX_TOOLWINDOW)
     }
 }

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5535E649-8AF0-4F31-BCE5-112748F99713}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Win32CreateWindow</RootNamespace>
     <AssemblyName>Win32CreateWindow</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\RippleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RippleForm.Designer.cs">
+      <DependentUpon>RippleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NetStandard\LayeredWindow.cs" />
     <Compile Include="NetStandard\Win32\Kernel32.cs" />
     <Compile Include="Program.cs" />

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Frostybee.MouseDecorator.Core
+﻿namespace FriskyMouse.MouseDecorator.Core
 {
     internal class SettingsManager
     {
@@ -27,7 +20,7 @@ namespace Frostybee.MouseDecorator.Core
             _highlighterSettings.OutlineStyle = settings.HighlighterOutlineStyle;
             _highlighterSettings.IsEnabled = settings.IsHighlighterEnabled;            
         }
-
+        O
         internal void SaveHighlighterSettings()
         {
             var settings = Properties.Settings.Default;

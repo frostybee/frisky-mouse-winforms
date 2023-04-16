@@ -1,13 +1,12 @@
-﻿using Frostybee.GlobalHooks;
-using Frostybee.GlobalHooks.NativeApi;
-using Frostybee.MouseDecorator.UI;
-using Frostybee.MouseDecorator.Core;
+﻿using FriskyMouse.GlobalHooks;
+using FriskyMouse.MouseDecorator.UI;
+using FriskyMouse.MouseDecorator.Core;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Frostybee.MouseDecorator.Core
+namespace FriskyMouse.MouseDecorator.Core
 {
     //TODO: Dispose everything here.
     internal class DecorationController : IDisposable

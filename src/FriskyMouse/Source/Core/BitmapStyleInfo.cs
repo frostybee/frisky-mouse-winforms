@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Frostybee.MouseDecorator.Core
+namespace FriskyMouse.MouseDecorator.Core
 {
     internal class BitmapStyleInfo
     {

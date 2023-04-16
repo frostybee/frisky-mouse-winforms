@@ -1,4 +1,4 @@
-﻿using Frostybee.GlobalHooks.Native;
+﻿using FriskyMouse.GlobalHooks.Native;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -8,7 +8,7 @@ using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Frostybee.GlobalHooks.NativeApi
+namespace FriskyMouse.NativeApi
 {
 
     public static class NativeMethods

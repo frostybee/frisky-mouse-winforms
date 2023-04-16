@@ -1,5 +1,5 @@
-﻿using Frostybee.GlobalHooks;
-using Frostybee.GlobalHooks.NativeApi;
+﻿using FriskyMouse.GlobalHooks;
+using FriskyMouse.NativeApi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Frostybee.MouseDecorator.Core
+namespace FriskyMouse.MouseDecorator.Core
 {
     internal class MouseHookController : GlobalHook
     {
@@ -30,7 +30,7 @@ namespace Frostybee.MouseDecorator.Core
         #region Private Methods
         protected override IntPtr HookCallbackProcedure(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            MouseButtonTypes messageType = (MouseButtonTypes)wParam;
+            NativeEnums messageType = (NativeEnums)wParam;
             //Debug.WriteLine("wParam..." + wParam);
             if (nCode < 0)
             {
@@ -41,13 +41,13 @@ namespace Frostybee.MouseDecorator.Core
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
                 switch (messageType)
                 {
-                    case MouseButtonTypes.LeftButtonDown:
-                    case MouseButtonTypes.LeftButtonUp:
-                    case MouseButtonTypes.MouseMove:
+                    case NativeEnums.LeftButtonDown:
+                    case NativeEnums.LeftButtonUp:
+                    case NativeEnums.MouseMove:
                         //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         _mouseHighlighter?.MoveSpotlight(hookStruct.pt);                        
                         break;
-                    case MouseButtonTypes.RightButtonDown:
+                    case NativeEnums.RightButtonDown:
                         //EventHandler<HookMouseEventArgs> handler = MouseAction;
                         /*OnMouseAction?.Invoke(this,
                             new RawMouseEvents
@@ -59,7 +59,7 @@ namespace Frostybee.MouseDecorator.Core
                             });*/
                         //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         break;
-                    case MouseButtonTypes.LeftButtonDoubleClick:
+                    case NativeEnums.LeftButtonDoubleClick:
                         Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         break;
                     default:

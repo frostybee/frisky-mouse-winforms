@@ -1,17 +1,10 @@
-﻿using Frostybee.GlobalHooks.NativeApi;
-using Frostybee.MouseDecorator.Core;
+﻿using FriskyMouse.NativeApi;
+using FriskyMouse.UI;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Frostybee.MouseDecorator
+namespace FriskyMouse
 {
     internal static class Program
     {
@@ -43,6 +36,7 @@ namespace Frostybee.MouseDecorator
             }
             else
             {
+                // Send a message to the application's main window so that it gets shown to the user. 
                 NativeMethods.SendMessage((IntPtr)HWND_BROADCAST, WM_SHOW_MAIN_WINDOW, IntPtr.Zero, IntPtr.Zero);
             }            
         }

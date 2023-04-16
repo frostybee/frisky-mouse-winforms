@@ -3,8 +3,7 @@
   <assemblyIdentity version="1.0.0.0" name="MyApplication.app" />
   <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
     <security>
-      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
-		  <!--this is a note from frostybee-->
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">		  
         <!-- UAC Manifest Options
              If you want to change the Windows User Account Control level replace the 
              requestedExecutionLevel node with one of the following.

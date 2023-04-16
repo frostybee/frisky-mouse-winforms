@@ -1,4 +1,4 @@
-﻿using Frostybee.GlobalHooks.NativeApi;
+﻿using FriskyMouse.NativeApi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,9 +8,9 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using static Frostybee.GlobalHooks.NativeApi.NativeMethods;
 
-namespace Frostybee.MouseDecorator.Core
+
+namespace FriskyMouse.MouseDecorator.Core
 {
     public class GlobalHook
     {
@@ -37,7 +37,7 @@ namespace Frostybee.MouseDecorator.Core
                 {
                     // Make sure we keep a reference to this delegate!
                     // If not, GC randomly collects it, and a NullReference exception is thrown
-                    _hookCallback = new HookProc(HookCallbackProcedure);
+                    _hookCallback = new NativeMethods.HookProc(HookCallbackProcedure);
 
                     _handleToHook = NativeMethods.SetWindowsHookEx(
                         NativeMethods.WH_MOUSE_LL,
@@ -51,7 +51,7 @@ namespace Frostybee.MouseDecorator.Core
                     }
                 }
 
-                // Were we able to sucessfully start hook?
+                // Were we able to successfully start hook?
                 if (_handleToHook != IntPtr.Zero)
                 {
                     _isStarted = true;

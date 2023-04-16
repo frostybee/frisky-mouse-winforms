@@ -1,11 +1,11 @@
-﻿using Frostybee.GlobalHooks;
-using Frostybee.MouseDecorator.Helpers;
-using Frostybee.MouseDecorator.UI;
+﻿using FriskyMouse.GlobalHooks;
+using FriskyMouse.MouseDecorator.Helpers;
+using FriskyMouse.MouseDecorator.UI;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Frostybee.MouseDecorator.Core
+namespace FriskyMouse.MouseDecorator.Core
 {
     internal class ClickDecorator : IDisposable
     {

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Frostybee.MouseDecorator")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("FriskyMouse")]
+[assembly: AssemblyDescription("A mouse utility that provides mouse cursor highlighter and mouse click decorations.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MouseDecorator")]
+[assembly: AssemblyCompany("Frostybee")]
+[assembly: AssemblyProduct("FriskyMouse")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

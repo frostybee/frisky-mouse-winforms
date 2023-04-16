@@ -1,9 +1,9 @@
-﻿using Frostybee.MouseDecorator.Core;
+﻿using FriskyMouse.MouseDecorator.Core;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 
-namespace Frostybee.MouseDecorator.Helpers
+namespace FriskyMouse.MouseDecorator.Helpers
 {
     internal class DrawingHelper
     {

@@ -1,4 +1,4 @@
-﻿using Frostybee.MouseDecorator.Core;
+﻿using FriskyMouse.MouseDecorator.Core;
 
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Frostybee.MouseDecorator.Controls
+namespace FriskyMouse.UI.Controls
 {
     //TODO: might need to move all the controls back to the MainForm. 
     // Not sure if I can manage the hook from here since I need enable the hook upon loading 

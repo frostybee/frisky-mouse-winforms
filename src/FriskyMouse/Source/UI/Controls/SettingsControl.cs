@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Frostybee.MouseDecorator.Source.Gui.Controls
+namespace FriskyMouse.UI.Controls
 {
     public partial class SettingsControl : UserControl
     {

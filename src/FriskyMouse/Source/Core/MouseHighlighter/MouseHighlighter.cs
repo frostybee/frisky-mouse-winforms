@@ -1,14 +1,14 @@
-﻿using Frostybee.GlobalHooks;
-using Frostybee.GlobalHooks.NativeApi;
-using Frostybee.MouseDecorator.Helpers;
-using Frostybee.MouseDecorator.UI;
-using Frostybee.MouseDecorator.Core;
+﻿using FriskyMouse.GlobalHooks;
+using FriskyMouse.NativeApi;
+using FriskyMouse.MouseDecorator.Helpers;
+using FriskyMouse.MouseDecorator.UI;
+using FriskyMouse.MouseDecorator.Core;
 using System;
 using System.Drawing;
 using System.Xml.Linq;
 using System.Reflection;
 
-namespace Frostybee.MouseDecorator.Core
+namespace FriskyMouse.MouseDecorator.Core
 {
     internal class MouseHighlighter : IDisposable
     {

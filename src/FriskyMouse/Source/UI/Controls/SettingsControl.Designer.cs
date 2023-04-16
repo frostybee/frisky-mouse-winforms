@@ -1,4 +1,4 @@
-﻿namespace Frostybee.MouseDecorator.Source.Gui.Controls
+﻿namespace FriskyMouse.UI.Controls
 {
     partial class SettingsControl
     {

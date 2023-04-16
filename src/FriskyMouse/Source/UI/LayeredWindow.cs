@@ -1,24 +1,18 @@
-﻿using Frostybee.GlobalHooks.NativeApi;
-
+﻿using FriskyMouse.NativeApi;
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
-using WinApiTypes = Frostybee.GlobalHooks.NativeApi;
-namespace Frostybee.MouseDecorator.UI
+using System.Windows.Forms;   
+using NativeStructs = FriskyMouse.NativeApi;
+namespace FriskyMouse.MouseDecorator.UI
 {
+    /// <summary>
+    /// Represents a lightweight window used for creating a layered, transparent window.
+    /// It helps with drawing the mouse spotlight and other drawings for the sake of mouse behavior decoration such as right/left clicks,etc. 
+    /// </summary>
     internal class LayeredWindow : NativeWindow, IDisposable
-    {
-        #region Constants
-        public const int SW_SHOWNOACTIVATE = 4;
-        public const int SW_HIDE = 0;
-        private const int ULW_ALPHA = 2;
-        private const byte AC_SRC_OVER = 0x00;
-        private const byte AC_SRC_ALPHA = 0x01;
-        private const int WS_POPUP = 0x8000000;   
-        #endregion
-
+    {        
         // Handle of the main window.
         private int handle;
         private bool isDisposed;
@@ -37,16 +31,20 @@ namespace Frostybee.MouseDecorator.UI
             cp.Width = Width;
             TopCoordinate = 300;
             LeftCoordinate = 300;
-            cp.Style = WS_POPUP;
+            cp.Style = NativeConstants.WS_POPUP;
             // Specify the form as the parent.
             //cp.Parent = parent.Handle;                        
-            cp.ExStyle = (int)ExtendedWinStyles.WS_CUSTOM_LAYERED_WINDOW;
+            cp.ExStyle = (int)WindowStyles.WS_CUSTOM_LAYERED_WINDOW;
 
             // Create the actual window
             this.CreateHandle(cp);
             Hide();
         }
-
+        /// <summary>
+        /// Moves the layered window to the specified location.
+        /// </summary>
+        /// <param name="x">The X coordinate.</param>
+        /// <param name="y">The Y coordinate.</param>
         public void Move(int x, int y)
         {
             NativeMethods.MoveWindow(Handle, x, y, Width, Height, false);
@@ -54,12 +52,20 @@ namespace Frostybee.MouseDecorator.UI
             // Should be done upon detecting a mouse click if the highlighter is enabled.
             //NativeMethods.SetWindowPos(Handle, NativeMethods.HWND_TOPMOST, 0, 0, 0, 0, NativeMethods.SWP_NOMOVE | NativeMethods.SWP_NOSIZE);
         }
-
+        /// <summary>
+        /// Hides the current instance of this layered window. 
+        /// It should be called upon finishing decorating mouse clicks.
+        /// </summary>
         public void Hide()
         {
-            //CreateHandle(new CreateParams());
-            NativeMethods.ShowWindow(this.Handle, SW_HIDE);
+            if (Handle != IntPtr.Zero)
+            {
+                NativeMethods.ShowWindow(Handle, NativeConstants.SW_HIDE); 
+            }
         }
+        /// <summary>
+        /// Shows the current instance of this layered window. 
+        /// </summary>
         public void Show()
         {
             //User32.SetForegroundWindow(Handle);
@@ -67,7 +73,10 @@ namespace Frostybee.MouseDecorator.UI
             //BringWindowToTop
             //CreateHandle(new CreateParams());
             // Sets the specified window's show state.
-            NativeMethods.ShowWindow(this.Handle, SW_SHOWNOACTIVATE);
+            if (Handle != IntPtr.Zero )
+            {
+                NativeMethods.ShowWindow(Handle, NativeConstants.SW_SHOWNOACTIVATE);
+            }            
         }
         // Listen to when the handle changes to keep the variable in sync
         [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
@@ -107,16 +116,16 @@ namespace Frostybee.MouseDecorator.UI
                 hBitmap = newBitmap.GetHbitmap(Color.FromArgb(0));
                 hOldBitmap = NativeMethods.SelectObject(memoryDc, hBitmap);
 
-                WinApiTypes.Size newSize = new WinApiTypes.Size(newBitmap.Width, newBitmap.Height);
-                WinApiTypes.POINT sourceLocation = new WinApiTypes.POINT(0, 0);
-                WinApiTypes.POINT newLocation = new WinApiTypes.POINT(this.LeftCoordinate - newBitmap.Width / 2, this.TopCoordinate - newBitmap.Height / 2);
+                NativeStructs.Size newSize = new NativeStructs.Size(newBitmap.Width, newBitmap.Height);
+                NativeStructs.POINT sourceLocation = new NativeStructs.POINT(0, 0);
+                NativeStructs.POINT newLocation = new NativeStructs.POINT(this.LeftCoordinate - newBitmap.Width / 2, this.TopCoordinate - newBitmap.Height / 2);
 
                 // Set up the blend function.
-                WinApiTypes.BLENDFUNCTION pBlend = default(WinApiTypes.BLENDFUNCTION);
-                pBlend.BlendOp = AC_SRC_OVER;
+                NativeStructs.BLENDFUNCTION pBlend = default(NativeStructs.BLENDFUNCTION);
+                pBlend.BlendOp = NativeConstants.AC_SRC_OVER;
                 pBlend.BlendFlags = 0;
                 pBlend.SourceConstantAlpha = opacity;
-                pBlend.AlphaFormat = AC_SRC_ALPHA;
+                pBlend.AlphaFormat = NativeConstants.AC_SRC_ALPHA;
                 NativeMethods.UpdateLayeredWindow(
                     this.Handle,         // Handle to the layered window
                     screenDc,            // Handle to the screen DC
@@ -126,7 +135,7 @@ namespace Frostybee.MouseDecorator.UI
                     ref sourceLocation,  // Location of the layer in the DC
                     0,                   // Color key of the layered window
                     ref pBlend,          // Transparency of the layered window
-                    ULW_ALPHA // Use blend as the blend function
+                    NativeConstants.ULW_ALPHA // Use blend as the blend function
                   );
             }
             finally

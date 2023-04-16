@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A52D203E-5667-4CDF-B243-64C82B77216F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Frostybee.MouseDecorator</RootNamespace>
-    <AssemblyName>MouseDecorator</AssemblyName>
+    <RootNamespace>FriskyMouse</RootNamespace>
+    <AssemblyName>FriskyMouse</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -69,8 +69,9 @@
     <Compile Include="Source\Core\MouseHighlighter\MouseHighlighter.cs" />
     <Compile Include="Source\Core\DecorationController.cs" />
     <Compile Include="Source\Core\FramesManager.cs" />
-    <Compile Include="Source\Core\MouseHook\GlobalHook.cs" />
-    <Compile Include="Source\Core\MouseHook\MouseHookController.cs" />
+    <Compile Include="Source\Core\Input\GlobalHook.cs" />
+    <Compile Include="Source\Core\Input\MouseHookController.cs" />
+    <Compile Include="Source\Core\Native\NativeConstants.cs" />
     <Compile Include="Source\Core\SettingsManager.cs" />
     <Compile Include="Source\UI\Controls\HighlighterControl.cs">
       <SubType>UserControl</SubType>
@@ -80,24 +81,21 @@
     </Compile>
     <Compile Include="Source\Core\MouseHighlighter\HighlighterSettings.cs" />
     <Compile Include="Source\Core\Helpers\GraphicsExtensions.cs" />
-    <Compile Include="Source\Core\MouseHook\RawMouseEvents.cs" />
-    <Compile Include="Source\Core\NativeApi\ExtendedWinStyles.cs" />
-    <Compile Include="Source\Core\NativeApi\HookHelper.cs" />
-    <Compile Include="Source\Core\NativeApi\MouseButtonTypes.cs" />
-    <Compile Include="Source\Core\NativeApi\MouseHookStruct.cs" />
-    <Compile Include="Source\Core\NativeApi\NativeMethods.cs" />
-    <Compile Include="Source\Core\NativeApi\POINT.cs" />
-    <Compile Include="Source\Core\NativeApi\WinApiTypes.cs" />
+    <Compile Include="Source\Core\Input\RawMouseEvents.cs" />
+    <Compile Include="Source\Core\Native\HookHelper.cs" />
+    <Compile Include="Source\Core\Native\NativeEnums.cs" />
+    <Compile Include="Source\Core\Native\NativeStructs.cs" />
+    <Compile Include="Source\Core\Native\NativeMethods.cs" />
     <Compile Include="Source\UI\Controls\SettingsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Source\UI\Controls\SettingsControl.Designer.cs">
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\UI\MainForm.cs">
+    <Compile Include="Source\UI\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\UI\MainForm.Designer.cs">
+    <Compile Include="Source\UI\Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -110,19 +108,13 @@
     </Compile>
     <Compile Include="Source\UI\Helpers\DrawingHelper.cs" />
     <Compile Include="Source\UI\LayeredWindow.cs" />
-    <Compile Include="Source\UI\SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\UI\SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Source\UI\Controls\HighlighterControl.resx">
       <DependentUpon>HighlighterControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\UI\Controls\SettingsControl.resx">
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\UI\MainForm.resx">
+    <EmbeddedResource Include="Source\UI\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -135,9 +127,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\UI\LayeredWindow.resx">
       <DependentUpon>LayeredWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\UI\SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -175,6 +164,8 @@
     <Content Include="Resources\minus.png" />
     <Content Include="Resources\plus.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Source\Core\Drawing\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

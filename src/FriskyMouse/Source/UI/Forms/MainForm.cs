@@ -1,22 +1,12 @@
-﻿using Frostybee.MouseDecorator.Core;
-using Frostybee.MouseDecorator.Properties;
+﻿using FriskyMouse.MouseDecorator.Core;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static NativeTextRenderer;
 
-namespace Frostybee.MouseDecorator
+namespace FriskyMouse.UI
 {
     public partial class MainForm : MaterialForm
     {

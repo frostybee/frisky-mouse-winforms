@@ -1,4 +1,4 @@
-﻿namespace Frostybee.MouseDecorator.Tests
+﻿namespace FriskyMouse.MouseDecorator.Tests
 {
     partial class UserControl1
     {

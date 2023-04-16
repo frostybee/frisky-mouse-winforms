@@ -26,7 +26,7 @@ namespace Win32CreateWindow
             layered.Move();
             Thread.Sleep(3124);
             layered.Hide();*/
-            int s = SystemInformation.DoubleClickTime;
+            /*int s = SystemInformation.DoubleClickTime;
             Size ss = SystemInformation.DoubleClickSize;
             int now = System.Environment.TickCount;
             long noww = DateTime.UtcNow.Ticks;
@@ -35,7 +35,7 @@ namespace Win32CreateWindow
             Console.WriteLine("Tick count " + now);
             Console.WriteLine("Tick count " + noww);
             Console.ReadKey(true);
-            Console.WriteLine("Test");
+            Console.WriteLine("Test");*/
         }
     }
 }
