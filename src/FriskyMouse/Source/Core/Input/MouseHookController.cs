@@ -1,13 +1,7 @@
-﻿using FriskyMouse.GlobalHooks;
-using FriskyMouse.NativeApi;
+﻿using FriskyMouse.NativeApi;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FriskyMouse.MouseDecorator.Core
@@ -15,11 +9,11 @@ namespace FriskyMouse.MouseDecorator.Core
     internal class MouseHookController : GlobalHook
     {
         private int _systemDoubleClickTime;
-        private MouseHighlighter _mouseHighlighter;
+        private HighlighterController _mouseHighlighter;
         private ClickDecorator _clickDecorator;
         private static object _syncRoot = new Object();
         private IntPtr _mouseHookHandle = IntPtr.Zero;        
-        public MouseHookController(MouseHighlighter mouseHighlighter, ClickDecorator clickDecorator)
+        public MouseHookController(HighlighterController mouseHighlighter, ClickDecorator clickDecorator)
         {
             _mouseHighlighter = mouseHighlighter;
             _clickDecorator = clickDecorator;
@@ -30,7 +24,7 @@ namespace FriskyMouse.MouseDecorator.Core
         #region Private Methods
         protected override IntPtr HookCallbackProcedure(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            NativeEnums messageType = (NativeEnums)wParam;
+            MouseButtonTypes messageType = (MouseButtonTypes)wParam;
             //Debug.WriteLine("wParam..." + wParam);
             if (nCode < 0)
             {
@@ -41,13 +35,25 @@ namespace FriskyMouse.MouseDecorator.Core
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
                 switch (messageType)
                 {
-                    case NativeEnums.LeftButtonDown:
-                    case NativeEnums.LeftButtonUp:
-                    case NativeEnums.MouseMove:
+                    case MouseButtonTypes.LeftButtonDown:
+                    case MouseButtonTypes.LeftButtonUp:
+                        // Fix the issue when the highlighter is no longer top most.
+                        _mouseHighlighter.BringToFront(hookStruct.pt);
+                        break;
+                    case MouseButtonTypes.MouseMove:
                         //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         _mouseHighlighter?.MoveSpotlight(hookStruct.pt);                        
                         break;
-                    case NativeEnums.RightButtonDown:
+                    case MouseButtonTypes.RightButtonUp:
+                        // Fix the issue when the highlighter is no longer top most.
+                        _mouseHighlighter.BringToFront(hookStruct.pt);
+                        /*_clickDecorator?.DecorateLeftSingleClick(new RawMouseEvents
+                        {
+                            MessageType = (MouseButtonTypes)wParam,
+                            Point = hookStruct.pt,
+                            MouseData = hookStruct.mouseData,
+                            TimeStamp = hookStruct.time
+                        });*/
                         //EventHandler<HookMouseEventArgs> handler = MouseAction;
                         /*OnMouseAction?.Invoke(this,
                             new RawMouseEvents
@@ -59,7 +65,7 @@ namespace FriskyMouse.MouseDecorator.Core
                             });*/
                         //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         break;
-                    case NativeEnums.LeftButtonDoubleClick:
+                    case MouseButtonTypes.LeftButtonDoubleClick:
                         Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         break;
                     default:

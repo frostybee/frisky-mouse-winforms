@@ -81,8 +81,7 @@ namespace FriskyMouse.MouseDecorator.Core
 
         protected virtual IntPtr HookCallbackProcedure(int nCode, IntPtr wParam, IntPtr lParam)
         {
-
-            // This method must be overriden by each extending hook
+            // This method must be overridden by each extending hook
             return IntPtr.Zero;
 
         }

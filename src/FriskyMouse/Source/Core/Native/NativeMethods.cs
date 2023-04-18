@@ -21,10 +21,10 @@ namespace FriskyMouse.NativeApi
         public const string USER32_DLL = "user32.dll";
         public const string GDI32_DLL = "gdi32.dll";
 
-        public const int HWND_TOPMOST = -1;
-        public const int HWND_NOTOPMOST = -2;
-        public const int SWP_NOMOVE = 0x0002;
-        public const int SWP_NOSIZE = 0x0001;
+        /*public const int HWND_TOPMOST = -1;
+        public const int HWND_NOTOPMOST = -2;*/
+        /*public const int SWP_NOMOVE = 0x0002;
+        public const int SWP_NOSIZE = 0x0001;*/
 
         #region USER32 Native Methods
         /// <summary>

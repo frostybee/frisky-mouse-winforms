@@ -5,7 +5,7 @@ namespace FriskyMouse.GlobalHooks
     public class RawMouseEvents
     {
 
-        public NativeEnums MessageType { get; set; } = NativeEnums.None;
+        public MouseButtonTypes MessageType { get; set; } = MouseButtonTypes.None;
         public POINT Point { get; set; }
         public uint MouseData { get; set; } = 0;
         public uint TimeStamp { get; set; } = 0;

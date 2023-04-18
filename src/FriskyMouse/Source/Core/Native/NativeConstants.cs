@@ -9,7 +9,7 @@ namespace FriskyMouse.NativeApi
     internal class NativeConstants
     {
         #region Constants
-        public const int SW_SHOWNOACTIVATE = 4;
+        public const int SW_SHOWNOACTIVATE = 8;
         public const int SW_HIDE = 0;
         public const int ULW_ALPHA = 2;
         public const byte AC_SRC_OVER = 0x00;

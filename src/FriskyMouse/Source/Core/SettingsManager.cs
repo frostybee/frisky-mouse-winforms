@@ -20,7 +20,7 @@
             _highlighterSettings.OutlineStyle = settings.HighlighterOutlineStyle;
             _highlighterSettings.IsEnabled = settings.IsHighlighterEnabled;            
         }
-        O
+        
         internal void SaveHighlighterSettings()
         {
             var settings = Properties.Settings.Default;

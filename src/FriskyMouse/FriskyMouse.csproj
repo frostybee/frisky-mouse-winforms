@@ -66,7 +66,7 @@
     </Compile>
     <Compile Include="Source\Core\BitmapStyleInfo.cs" />
     <Compile Include="Source\Core\ClickDecorator.cs" />
-    <Compile Include="Source\Core\MouseHighlighter\MouseHighlighter.cs" />
+    <Compile Include="Source\Core\Highlighter\HighlighterController.cs" />
     <Compile Include="Source\Core\DecorationController.cs" />
     <Compile Include="Source\Core\FramesManager.cs" />
     <Compile Include="Source\Core\Input\GlobalHook.cs" />
@@ -79,7 +79,7 @@
     <Compile Include="Source\UI\Controls\HighlighterControl.Designer.cs">
       <DependentUpon>HighlighterControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Core\MouseHighlighter\HighlighterSettings.cs" />
+    <Compile Include="Source\Core\Highlighter\HighlighterSettings.cs" />
     <Compile Include="Source\Core\Helpers\GraphicsExtensions.cs" />
     <Compile Include="Source\Core\Input\RawMouseEvents.cs" />
     <Compile Include="Source\Core\Native\HookHelper.cs" />
@@ -100,12 +100,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Tests\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\UI\Helpers\DrawingHelper.cs" />
     <Compile Include="Source\UI\LayeredWindow.cs" />
     <EmbeddedResource Include="Source\UI\Controls\HighlighterControl.resx">
@@ -121,9 +115,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tests\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\UI\LayeredWindow.resx">
       <DependentUpon>LayeredWindow.cs</DependentUpon>

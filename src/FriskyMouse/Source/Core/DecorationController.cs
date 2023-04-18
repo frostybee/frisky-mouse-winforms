@@ -15,7 +15,7 @@ namespace FriskyMouse.MouseDecorator.Core
         // The user settings manager. 
         private readonly SettingsManager _settingsManager = new SettingsManager();
         private readonly object _syncLock = new object();
-        private readonly MouseHighlighter _mouseHighlighter = new MouseHighlighter();
+        private readonly HighlighterController _mouseHighlighter = new HighlighterController();
         private readonly ClickDecorator _clickDecorator = new ClickDecorator();
         private MouseHookController _mouseHookController;        
         // The single instance of this class. 
@@ -129,7 +129,7 @@ namespace FriskyMouse.MouseDecorator.Core
         /// </summary>
         public static DecorationController Instance => _instance.Value;
         public SettingsManager SettingsManager => _settingsManager;
-        public MouseHighlighter MouseHighlighter => _mouseHighlighter;
+        public HighlighterController MouseHighlighter => _mouseHighlighter;
         public ClickDecorator ClickDecorator => _clickDecorator;
 
         #endregion

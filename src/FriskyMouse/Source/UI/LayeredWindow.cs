@@ -1,5 +1,6 @@
 ﻿using FriskyMouse.NativeApi;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
@@ -149,6 +150,21 @@ namespace FriskyMouse.MouseDecorator.UI
                 NativeMethods.DeleteDC(memoryDc);
             }
         }
+        internal void SetTopMost(int x, int y)
+        {
+            // FIXME: this should be called in a delayed manner. 
+            // Upon detecting a mouse click, around 500 ms should be elapsed before calling this method.
+    
+            Debug.WriteLine("Setting top most window....");
+            if (Handle != IntPtr.Zero)
+            {
+                //NativeMethods.SetWindowPos(Handle, (IntPtr)SpecialWindowHandles.HWND_TOPMOST, position.X, position.Y, Config.Size.Width, Config.Size.Height,SetWindowPosFlags.SWP_NOACTIVATE);
+                
+                //NativeMethods.SetWindowPos(Handle, NativeMethods.HWND_TOPMOST, x, y, Width, Height, NativeMethods.SWP_NOMOVE | NativeMethods.SWP_NOSIZE);
+                NativeMethods.SetWindowPos(Handle, (int)SpecialWindowHandles.HWND_TOPMOST, x, y, Width, Height, NativeConstants.SW_SHOWNOACTIVATE);
+                //NativeConstants.SW_SHOWNOACTIVATE
+            }                        
+        }
 
         protected virtual void Dispose(bool disposing)
         {
@@ -177,7 +193,7 @@ namespace FriskyMouse.MouseDecorator.UI
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
-        }
+        }        
 
         /// <summary>
         /// The y coordinate

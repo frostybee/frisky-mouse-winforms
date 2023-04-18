@@ -3,6 +3,7 @@ using FriskyMouse.MouseDecorator.Helpers;
 using FriskyMouse.MouseDecorator.UI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 
 namespace FriskyMouse.MouseDecorator.Core
@@ -59,6 +60,8 @@ namespace FriskyMouse.MouseDecorator.Core
         {
             try
             {
+                Debug.WriteLine("Here.... ");
+                isClickStyleEnabled = true;
                 if (!isClickStyleEnabled)
                     return;
                 //TODO: optimize this.
