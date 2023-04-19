@@ -1,4 +1,4 @@
-﻿using FriskyMouse.MouseDecorator.Core;
+﻿using FriskyMouse.Core;
 
 using System;
 using System.Collections.Generic;

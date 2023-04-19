@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FriskyMouse.MouseDecorator.Core
+namespace FriskyMouse.Core
 {
     internal static class GraphicsExtensions
     {

@@ -1,4 +1,4 @@
-﻿namespace FriskyMouse.MouseDecorator.Core
+﻿namespace FriskyMouse.Core
 {
     internal class SettingsManager
     {

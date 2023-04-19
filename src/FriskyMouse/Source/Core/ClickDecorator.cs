@@ -1,12 +1,12 @@
 ﻿using FriskyMouse.GlobalHooks;
 using FriskyMouse.MouseDecorator.Helpers;
-using FriskyMouse.MouseDecorator.UI;
+using FriskyMouse.UI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 
-namespace FriskyMouse.MouseDecorator.Core
+namespace FriskyMouse.Core
 {
     internal class ClickDecorator : IDisposable
     {
@@ -67,9 +67,9 @@ namespace FriskyMouse.MouseDecorator.Core
                 //TODO: optimize this.
                 if (!isDrawing)
                 {
-                    clickStylingWindow.LeftCoordinate = e.Point.X - (bitmapInfo.Size / 2);
-                    clickStylingWindow.TopCoordinate = e.Point.Y - (bitmapInfo.Size / 2);
-                    clickStylingWindow.Move((e.Point.X - bitmapInfo.Size / 2), (e.Point.Y - bitmapInfo.Size / 2));
+                    clickStylingWindow.PositionX = e.Point.X - (bitmapInfo.Size / 2);
+                    clickStylingWindow.PositionY = e.Point.Y - (bitmapInfo.Size / 2);
+                    //clickStylingWindow.Move((e.Point.X - bitmapInfo.Size / 2), (e.Point.Y - bitmapInfo.Size / 2));
                     //mouseStylingForm.Show();
                     clickAnimationTimer.Start();
                 }
@@ -95,9 +95,9 @@ namespace FriskyMouse.MouseDecorator.Core
                 //TODO: optimize this.
                 if (!isDrawing)
                 {
-                    clickStylingWindow.LeftCoordinate = e.Point.X - bitmapInfo.Size / 2;
-                    clickStylingWindow.TopCoordinate = e.Point.Y - bitmapInfo.Size / 2;
-                    clickStylingWindow.Move((e.Point.X - bitmapInfo.Size / 2), (e.Point.Y - bitmapInfo.Size / 2));
+                    clickStylingWindow.PositionX = e.Point.X - bitmapInfo.Size / 2;
+                    clickStylingWindow.PositionY = e.Point.Y - bitmapInfo.Size / 2;
+                    //clickStylingWindow.Move((e.Point.X - bitmapInfo.Size / 2), (e.Point.Y - bitmapInfo.Size / 2));
                     //mouseStylingForm.Show();
                     clickAnimationTimer.Start();
                 }

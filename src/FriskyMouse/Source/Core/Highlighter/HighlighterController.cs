@@ -1,14 +1,14 @@
 ﻿using FriskyMouse.GlobalHooks;
 using FriskyMouse.NativeApi;
 using FriskyMouse.MouseDecorator.Helpers;
-using FriskyMouse.MouseDecorator.UI;
-using FriskyMouse.MouseDecorator.Core;
+using FriskyMouse.UI;
+using FriskyMouse.Core;
 using System;
 using System.Drawing;
 using System.Xml.Linq;
 using System.Reflection;
 
-namespace FriskyMouse.MouseDecorator.Core
+namespace FriskyMouse.Core
 {
     internal class HighlighterController : IDisposable
     {
@@ -28,6 +28,9 @@ namespace FriskyMouse.MouseDecorator.Core
             _spotlightBitmap?.Dispose();
             _spotlightBitmap = DrawingHelper.DrawEllipseBitmap(highlighterSettings);
             _layeredWindow.SetBitmap(_spotlightBitmap, highlighterSettings.Opacity);
+            // Set the highlighter's initial position after launching the application or
+            // changing the settings. 
+            MoveSpotlight(_layeredWindow.GetCursorPosition());
             _layeredWindow.Show();
         }
 
@@ -35,24 +38,26 @@ namespace FriskyMouse.MouseDecorator.Core
         {
             if (_spotlightBitmap != null)
             {
-                int pointX = inPoint.X - _spotlightBitmap.Width / 2;
-                int pointY = inPoint.Y - _spotlightBitmap.Height / 2;
-                _layeredWindow.LeftCoordinate = pointX;
-                _layeredWindow.TopCoordinate = pointY;
-                _layeredWindow.Move(pointX, pointY);
+                SetLayeredWindowCoordinates(inPoint);
+                _layeredWindow.Move();
             }
-        }
+        }        
+
         internal void BringToFront(POINT inPoint)
         {
             if (DecorationController.Instance.SettingsManager.HighlighterSettings.IsEnabled)
             {
                 // Adjust the coordinates of the layered window based on the spotlight's bitmap size.
-                int pointX = inPoint.X - _spotlightBitmap.Width / 2;
-                int pointY = inPoint.Y - _spotlightBitmap.Height / 2;
-                _layeredWindow.LeftCoordinate = pointX;
-                _layeredWindow.TopCoordinate = pointY;
-                _layeredWindow.SetTopMost(pointX, pointY);
+                SetLayeredWindowCoordinates(inPoint);
+                _layeredWindow.SetTopMost();
             }
+        }
+        private void SetLayeredWindowCoordinates(POINT inPoint)
+        {
+            int pointX = inPoint.X - _spotlightBitmap.Width / 2;
+            int pointY = inPoint.Y - _spotlightBitmap.Height / 2;
+            _layeredWindow.PositionX = pointX;
+            _layeredWindow.PositionY = pointY;
         }
 
         public void Dispose()
@@ -76,8 +81,8 @@ namespace FriskyMouse.MouseDecorator.Core
                 }
                 disposed = true;
             }
-        }        
+        }
 
-        public LayeredWindow LayeredWindow { get => _layeredWindow; }
+        public LayeredWindow LayeredWindow => _layeredWindow;
     }
 }

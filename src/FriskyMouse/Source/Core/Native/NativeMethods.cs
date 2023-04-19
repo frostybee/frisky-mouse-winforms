@@ -20,11 +20,7 @@ namespace FriskyMouse.NativeApi
         public const string KERNEL_32 = "kernel32.dll";
         public const string USER32_DLL = "user32.dll";
         public const string GDI32_DLL = "gdi32.dll";
-
-        /*public const int HWND_TOPMOST = -1;
-        public const int HWND_NOTOPMOST = -2;*/
-        /*public const int SWP_NOMOVE = 0x0002;
-        public const int SWP_NOSIZE = 0x0001;*/
+               
 
         #region USER32 Native Methods
         /// <summary>
@@ -37,6 +33,10 @@ namespace FriskyMouse.NativeApi
         /// <see cref="https://docs.microsoft.com/en-us/previous-versions/windows/desktop/legacy/ms644986(v=vs.85)"/>        
         /// </remarks>
         public delegate IntPtr HookProc(int nCode, IntPtr wParam, IntPtr lParam);
+
+        [DllImport(USER32_DLL, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetCursorPos(out POINT lpPoint);
 
         /// <summary>
         /// The SetWindowsHookEx function installs an application-defined hook procedure into a hook chain.
@@ -152,7 +152,7 @@ namespace FriskyMouse.NativeApi
         [DllImport(USER32_DLL, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y,
-            int cx, int cy, int uFlags);
+            int cx, int cy, SetWindowPosFlags uFlags);
         #endregion
 
         #region Kernel32 Native Methods

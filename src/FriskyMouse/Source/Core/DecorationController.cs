@@ -1,12 +1,12 @@
 ﻿using FriskyMouse.GlobalHooks;
-using FriskyMouse.MouseDecorator.UI;
-using FriskyMouse.MouseDecorator.Core;
+using FriskyMouse.UI;
+using FriskyMouse.Core;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace FriskyMouse.MouseDecorator.Core
+namespace FriskyMouse.Core
 {
     //TODO: Dispose everything here.
     internal class DecorationController : IDisposable

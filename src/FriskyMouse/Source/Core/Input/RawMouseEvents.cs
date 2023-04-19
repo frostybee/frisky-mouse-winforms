@@ -1,6 +1,6 @@
 ﻿using FriskyMouse.NativeApi;
 
-namespace FriskyMouse.GlobalHooks
+namespace FriskyMouse.Core
 {
     public class RawMouseEvents
     {

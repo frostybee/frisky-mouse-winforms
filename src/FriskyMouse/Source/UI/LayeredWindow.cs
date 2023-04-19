@@ -4,16 +4,16 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;   
+using System.Windows.Forms;
 using NativeStructs = FriskyMouse.NativeApi;
-namespace FriskyMouse.MouseDecorator.UI
+namespace FriskyMouse.UI
 {
     /// <summary>
     /// Represents a lightweight window used for creating a layered, transparent window.
     /// It helps with drawing the mouse spotlight and other drawings for the sake of mouse behavior decoration such as right/left clicks,etc. 
     /// </summary>
     internal class LayeredWindow : NativeWindow, IDisposable
-    {        
+    {
         // Handle of the main window.
         private int handle;
         private bool isDisposed;
@@ -30,8 +30,8 @@ namespace FriskyMouse.MouseDecorator.UI
             cp.Y = 100;
             cp.Height = Height;
             cp.Width = Width;
-            TopCoordinate = 300;
-            LeftCoordinate = 300;
+            PositionY = 300;
+            PositionX = 300;
             cp.Style = NativeConstants.WS_POPUP;
             // Specify the form as the parent.
             //cp.Parent = parent.Handle;                        
@@ -46,9 +46,9 @@ namespace FriskyMouse.MouseDecorator.UI
         /// </summary>
         /// <param name="x">The X coordinate.</param>
         /// <param name="y">The Y coordinate.</param>
-        public void Move(int x, int y)
+        public void Move()
         {
-            NativeMethods.MoveWindow(Handle, x, y, Width, Height, false);
+            NativeMethods.MoveWindow(Handle, PositionX, PositionY, Width, Height, false);
             // FIXME: Somehow setting the TOPMOST doesn't seem to work when clicking on slider| 
             // Should be done upon detecting a mouse click if the highlighter is enabled.
             //NativeMethods.SetWindowPos(Handle, NativeMethods.HWND_TOPMOST, 0, 0, 0, 0, NativeMethods.SWP_NOMOVE | NativeMethods.SWP_NOSIZE);
@@ -61,7 +61,7 @@ namespace FriskyMouse.MouseDecorator.UI
         {
             if (Handle != IntPtr.Zero)
             {
-                NativeMethods.ShowWindow(Handle, NativeConstants.SW_HIDE); 
+                NativeMethods.ShowWindow(Handle, NativeConstants.SW_HIDE);
             }
         }
         /// <summary>
@@ -74,16 +74,42 @@ namespace FriskyMouse.MouseDecorator.UI
             //BringWindowToTop
             //CreateHandle(new CreateParams());
             // Sets the specified window's show state.
-            if (Handle != IntPtr.Zero )
+            if (Handle != IntPtr.Zero)
             {
-                NativeMethods.ShowWindow(Handle, NativeConstants.SW_SHOWNOACTIVATE);
-            }            
+                // TODO: set the initial position of the layered window.
+                //POINT point = GetCursorPosition();
+                //SetWindowPosition(point.X, point.Y);
+                NativeMethods.ShowWindow(Handle, NativeConstants.SW_SHOWNOACTIVATE);                
+            }
         }
-        // Listen to when the handle changes to keep the variable in sync
-        [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
-        protected override void OnHandleChange()
+        internal void SetTopMost()
         {
-            handle = (int)this.Handle;
+            // FIXME: this should be called in a delayed manner. 
+            // Upon detecting a mouse click, around 500 ms should be elapsed before calling this method.
+
+            Debug.WriteLine("Setting top most window....");
+            if (Handle != IntPtr.Zero)
+            {
+                SetWindowPosition(PositionX, PositionY);
+                //NativeMethods.SetWindowPos(Handle, (IntPtr)SpecialWindowHandles.HWND_TOPMOST, position.X, position.Y, Config.Size.Width, Config.Size.Height,SetWindowPosFlags.SWP_NOACTIVATE);
+                //NativeMethods.SetWindowPos(Handle, NativeMethods.HWND_TOPMOST, x, y, Width, Height, NativeMethods.SWP_NOMOVE | NativeMethods.SWP_NOSIZE);
+                //NativeMethods.SetWindowPos(Handle, (int)SpecialWindowHandles.HWND_TOPMOST, x, y, Width, Height, SetWindowPosFlags.SWP_NOACTIVATE);
+                //NativeConstants.SW_SHOWNOACTIVATE
+            }
+        }
+        // TODO: move to a helper class.
+        private void SetWindowPosition(int x, int y)
+        {
+            NativeMethods.SetWindowPos(Handle, (int)SpecialWindowHandles.HWND_TOPMOST, x, y, Width, Height, SetWindowPosFlags.SWP_NOACTIVATE);
+        }
+        public POINT GetCursorPosition()
+        {
+            if (NativeMethods.GetCursorPos(out POINT point))
+            {
+                return point;
+            }
+
+            return POINT.Empty;
         }
         /// <summary>
         /// 
@@ -119,7 +145,7 @@ namespace FriskyMouse.MouseDecorator.UI
 
                 NativeStructs.Size newSize = new NativeStructs.Size(newBitmap.Width, newBitmap.Height);
                 NativeStructs.POINT sourceLocation = new NativeStructs.POINT(0, 0);
-                NativeStructs.POINT newLocation = new NativeStructs.POINT(this.LeftCoordinate - newBitmap.Width / 2, this.TopCoordinate - newBitmap.Height / 2);
+                NativeStructs.POINT newLocation = new NativeStructs.POINT(this.PositionX - newBitmap.Width / 2, this.PositionY - newBitmap.Height / 2);
 
                 // Set up the blend function.
                 NativeStructs.BLENDFUNCTION pBlend = default(NativeStructs.BLENDFUNCTION);
@@ -150,21 +176,6 @@ namespace FriskyMouse.MouseDecorator.UI
                 NativeMethods.DeleteDC(memoryDc);
             }
         }
-        internal void SetTopMost(int x, int y)
-        {
-            // FIXME: this should be called in a delayed manner. 
-            // Upon detecting a mouse click, around 500 ms should be elapsed before calling this method.
-    
-            Debug.WriteLine("Setting top most window....");
-            if (Handle != IntPtr.Zero)
-            {
-                //NativeMethods.SetWindowPos(Handle, (IntPtr)SpecialWindowHandles.HWND_TOPMOST, position.X, position.Y, Config.Size.Width, Config.Size.Height,SetWindowPosFlags.SWP_NOACTIVATE);
-                
-                //NativeMethods.SetWindowPos(Handle, NativeMethods.HWND_TOPMOST, x, y, Width, Height, NativeMethods.SWP_NOMOVE | NativeMethods.SWP_NOSIZE);
-                NativeMethods.SetWindowPos(Handle, (int)SpecialWindowHandles.HWND_TOPMOST, x, y, Width, Height, NativeConstants.SW_SHOWNOACTIVATE);
-                //NativeConstants.SW_SHOWNOACTIVATE
-            }                        
-        }
 
         protected virtual void Dispose(bool disposing)
         {
@@ -181,6 +192,12 @@ namespace FriskyMouse.MouseDecorator.UI
                 isDisposed = true;
             }
         }
+        // Listen to when the handle changes to keep the variable in sync
+        [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
+        protected override void OnHandleChange()
+        {
+            handle = (int)this.Handle;
+        }
 
         ~LayeredWindow()
         {
@@ -193,16 +210,16 @@ namespace FriskyMouse.MouseDecorator.UI
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
-        }        
+        }
 
         /// <summary>
         /// The y coordinate
         /// </summary>
-        public int TopCoordinate { get; set; }
+        public int PositionY { get; set; }
         /// <summary>
         /// The x coordinate
         /// </summary>
-        public int LeftCoordinate { get; set; }
+        public int PositionX { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
     }

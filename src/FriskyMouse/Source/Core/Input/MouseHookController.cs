@@ -4,18 +4,18 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace FriskyMouse.MouseDecorator.Core
+namespace FriskyMouse.Core
 {
     internal class MouseHookController : GlobalHook
     {
         private int _systemDoubleClickTime;
-        private HighlighterController _mouseHighlighter;
+        private HighlighterController _highlighter;
         private ClickDecorator _clickDecorator;
         private static object _syncRoot = new Object();
         private IntPtr _mouseHookHandle = IntPtr.Zero;        
         public MouseHookController(HighlighterController mouseHighlighter, ClickDecorator clickDecorator)
         {
-            _mouseHighlighter = mouseHighlighter;
+            _highlighter = mouseHighlighter;
             _clickDecorator = clickDecorator;
             _systemDoubleClickTime = SystemInformation.DoubleClickTime;
             _hookType = NativeMethods.WH_MOUSE_LL;
@@ -38,15 +38,15 @@ namespace FriskyMouse.MouseDecorator.Core
                     case MouseButtonTypes.LeftButtonDown:
                     case MouseButtonTypes.LeftButtonUp:
                         // Fix the issue when the highlighter is no longer top most.
-                        _mouseHighlighter.BringToFront(hookStruct.pt);
+                        _highlighter.BringToFront(hookStruct.pt);
                         break;
                     case MouseButtonTypes.MouseMove:
                         //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
-                        _mouseHighlighter?.MoveSpotlight(hookStruct.pt);                        
+                        _highlighter?.MoveSpotlight(hookStruct.pt);                        
                         break;
                     case MouseButtonTypes.RightButtonUp:
                         // Fix the issue when the highlighter is no longer top most.
-                        _mouseHighlighter.BringToFront(hookStruct.pt);
+                        _highlighter.BringToFront(hookStruct.pt);
                         /*_clickDecorator?.DecorateLeftSingleClick(new RawMouseEvents
                         {
                             MessageType = (MouseButtonTypes)wParam,
