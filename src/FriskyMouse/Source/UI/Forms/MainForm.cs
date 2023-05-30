@@ -105,7 +105,7 @@ namespace FriskyMouse.UI
         private void MainForm_Load(object sender, EventArgs e)
         {
             _applicationManager.BootstrapApp();
-            tabHighlighterSettings.InitHighlighterControls();
+            _tabHighlighterSettings.InitHighlighterControls();
             Debug.WriteLine("MainForm_Load....");
         }
         private void Restore()

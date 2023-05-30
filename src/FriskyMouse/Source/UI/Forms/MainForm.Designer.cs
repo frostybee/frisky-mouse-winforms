@@ -44,7 +44,7 @@
             this.trayContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnShow = new System.Windows.Forms.ToolStripMenuItem();
             this.mnExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabHighlighterSettings = new FriskyMouse.UI.Controls.HighlighterControl();
+            this._tabHighlighterSettings = new FriskyMouse.UI.Controls.HighlighterControl();
             this.settingsControl1 = new FriskyMouse.UI.Controls.SettingsControl();
             mnAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTabControl.SuspendLayout();
@@ -74,7 +74,7 @@
             // tbpHighlighter
             // 
             this.tbpHighlighter.BackColor = System.Drawing.Color.White;
-            this.tbpHighlighter.Controls.Add(this.tabHighlighterSettings);
+            this.tbpHighlighter.Controls.Add(this._tabHighlighterSettings);
             this.tbpHighlighter.Controls.Add(this.materialDrawer1);
             this.tbpHighlighter.ImageKey = "spotlight-cursor-32.png";
             this.tbpHighlighter.Location = new System.Drawing.Point(4, 31);
@@ -210,12 +210,12 @@
             mnAbout.Text = "About";
             mnAbout.Click += new System.EventHandler(this.MenuItemAbout_Click);
             // 
-            // tabHighlighterSettings
+            // _tabHighlighterSettings
             // 
-            this.tabHighlighterSettings.Location = new System.Drawing.Point(0, 3);
-            this.tabHighlighterSettings.Name = "tabHighlighterSettings";
-            this.tabHighlighterSettings.Size = new System.Drawing.Size(930, 547);
-            this.tabHighlighterSettings.TabIndex = 2;
+            this._tabHighlighterSettings.Location = new System.Drawing.Point(0, 3);
+            this._tabHighlighterSettings.Name = "_tabHighlighterSettings";
+            this._tabHighlighterSettings.Size = new System.Drawing.Size(930, 547);
+            this._tabHighlighterSettings.TabIndex = 2;
             // 
             // settingsControl1
             // 
@@ -258,7 +258,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.ImageList menuIconList;
         private MaterialSkin.Controls.MaterialDrawer materialDrawer1;
-        private Controls.HighlighterControl tabHighlighterSettings;
+        private Controls.HighlighterControl _tabHighlighterSettings;
         private System.Windows.Forms.TabPage tbpSettings;
         private FriskyMouse.UI.Controls.SettingsControl settingsControl1;
         private System.Windows.Forms.NotifyIcon appNotifyIcon;

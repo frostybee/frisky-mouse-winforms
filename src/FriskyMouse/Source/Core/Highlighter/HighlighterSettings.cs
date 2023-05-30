@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 
 
@@ -6,6 +7,7 @@ namespace FriskyMouse.Core
 {
     internal class HighlighterSettings
     {
+        // TODO: convert this into a ripple entry.
         public HighlighterSettings()
         {
             // Default settings. 
@@ -55,7 +57,7 @@ namespace FriskyMouse.Core
         {
             get
             {
-                return (byte)(OpacityPercentage * 255 / 100);
+                return (byte)(Math.Min(OpacityPercentage * 255 / 100, 255));
             }
         }
         public Color FillColor { get; set; }

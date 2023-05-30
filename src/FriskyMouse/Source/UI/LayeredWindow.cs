@@ -19,7 +19,7 @@ namespace FriskyMouse.UI
         private bool isDisposed;
 
         public LayeredWindow()
-        {
+        {            
             // TODO: fix scaling issue see winforms settings.
             CreateParams cp = new CreateParams();
             // 
@@ -212,6 +212,7 @@ namespace FriskyMouse.UI
             GC.SuppressFinalize(this);
         }
 
+        #region Properties
         /// <summary>
         /// The y coordinate
         /// </summary>
@@ -221,7 +222,8 @@ namespace FriskyMouse.UI
         /// </summary>
         public int PositionX { get; set; }
         public int Height { get; set; }
-        public int Width { get; set; }
+        public int Width { get; set; } 
+        #endregion
     }
 }
 

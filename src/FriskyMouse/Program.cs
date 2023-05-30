@@ -8,9 +8,11 @@ namespace FriskyMouse
 {
     internal static class Program
     {
+        /// <summary>
+        /// A named system-wide mutex used to ensure that only one instance of this application runs at once. 
+        /// </summary>
         private static string _mutexName = "FriskybeesAreTheBest";
-        private static Mutex _mutex = new Mutex(true, _mutexName);
-        public const int HWND_BROADCAST = 0xffff;
+        private static readonly Mutex _mutex = new Mutex(true, _mutexName);        
         public static readonly uint WM_SHOW_MAIN_WINDOW = NativeMethods.RegisterWindowMessage("WM_SHOW_MAIN_WINDOW");
 
         /// <summary>
@@ -35,9 +37,9 @@ namespace FriskyMouse
                 }
             }
             else
-            {
+            {                
                 // Send a message to the application's main window so that it gets shown to the user. 
-                NativeMethods.SendMessage((IntPtr)HWND_BROADCAST, WM_SHOW_MAIN_WINDOW, IntPtr.Zero, IntPtr.Zero);
+                NativeMethods.SendMessage((IntPtr)SpecialWindowHandles.HWND_BROADCAST, WM_SHOW_MAIN_WINDOW, IntPtr.Zero, IntPtr.Zero);
             }            
         }
     }

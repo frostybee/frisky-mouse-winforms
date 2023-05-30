@@ -108,7 +108,7 @@ namespace FriskyMouse.Core
         }
         private void TimerClickAnimation_Update(object sender, EventArgs e)
         {
-            //this.mClickHighlightForm.Hide();
+            //this.mClickHighlightForm.HideSpotlight();
             this.clickAnimationTimer.Stop();
             try
             {

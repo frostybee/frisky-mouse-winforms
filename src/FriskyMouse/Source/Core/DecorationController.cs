@@ -54,7 +54,7 @@ namespace FriskyMouse.Core
             lock (_syncLock)
             {
                 _mouseHookController.Install();
-                _mouseHighlighter.LayeredWindow?.Show();
+                _mouseHighlighter.SetupHighlighter(_settingsManager.HighlighterSettings);
                 //--
                 //LoadDecorationSettings();                    
             }
@@ -66,8 +66,8 @@ namespace FriskyMouse.Core
             {
                 //TODO: dispose bitmaps
                 _mouseHookController.Uninstall();
-                // Hide the layered window.
-                _mouseHighlighter.LayeredWindow?.Hide();
+                // HideSpotlight the layered window.
+                _mouseHighlighter.HideSpotlight();
             }
         }
 

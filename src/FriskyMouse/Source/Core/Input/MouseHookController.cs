@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FriskyMouse.Core
@@ -38,15 +39,16 @@ namespace FriskyMouse.Core
                     case MouseButtonTypes.LeftButtonDown:
                     case MouseButtonTypes.LeftButtonUp:
                         // Fix the issue when the highlighter is no longer top most.
-                        _highlighter.BringToFront(hookStruct.pt);
+                        Task.Delay(200).ContinueWith(t => _highlighter.BringToFront(hookStruct.pt));                        
                         break;
                     case MouseButtonTypes.MouseMove:
                         //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         _highlighter?.MoveSpotlight(hookStruct.pt);                        
                         break;
                     case MouseButtonTypes.RightButtonUp:
-                        // Fix the issue when the highlighter is no longer top most.
-                        _highlighter.BringToFront(hookStruct.pt);
+                        // Fix the issue when the highlighter is no longer top most.                        
+                        Task.Delay(200).ContinueWith(t => _highlighter.BringToFront(hookStruct.pt));
+                        //_highlighter.BringToFront(hookStruct.pt);
                         /*_clickDecorator?.DecorateLeftSingleClick(new RawMouseEvents
                         {
                             MessageType = (MouseButtonTypes)wParam,

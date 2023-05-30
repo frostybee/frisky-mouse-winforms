@@ -355,7 +355,8 @@ namespace FriskyMouse.NativeApi
         /// <summary>
         /// Places the window above all non-topmost windows. The window maintains its topmost position even when it is deactivated.
         /// </summary>
-        HWND_NOTOPMOST = -2
+        HWND_NOTOPMOST = -2,
+        HWND_BROADCAST = 0xffff
     }
 
     [Flags]
