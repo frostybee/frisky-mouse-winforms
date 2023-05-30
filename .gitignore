@@ -8,7 +8,7 @@ bck
 NOTES
 MouseRipple.ahk
 src/Win32CreateWindow
-src/waggly-ripples
+
 # User-specific files
 *.suo
 *.user
