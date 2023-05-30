@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -27,7 +27,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -76,8 +76,28 @@
     <Compile Include="Source\Animation\ValueAnimator.cs" />
     <Compile Include="Source\Attributes\ConstructableEnumAttribute.cs" />
     <Compile Include="Source\Attributes\DefaultSpeedAttribute.cs" />
+    <Compile Include="Source\Drawing\Enums\RippleEnums.cs" />
+    <Compile Include="Source\Drawing\Profiles\BaseProfile.cs" />
+    <Compile Include="Source\Drawing\Profiles\CircleProfile.cs" />
+    <Compile Include="Source\Drawing\Profiles\ConcentricProfile.cs" />
+    <Compile Include="Source\Drawing\Profiles\CrosshairProfile.cs" />
+    <Compile Include="Source\Drawing\Profiles\DiamondProfile.cs" />
+    <Compile Include="Source\Drawing\Profiles\HexagonProfile.cs" />
+    <Compile Include="Source\Drawing\Profiles\SingleProfile.cs" />
+    <Compile Include="Source\Drawing\Profiles\SonarPulseProfile.cs" />
+    <Compile Include="Source\Drawing\Profiles\SpotlightProfile.cs" />
+    <Compile Include="Source\Drawing\Profiles\SquaredPulseProfile.cs" />
+    <Compile Include="Source\Drawing\Profiles\SquareProfile.cs" />
+    <Compile Include="Source\Drawing\Profiles\StarProfile.cs" />
+    <Compile Include="Source\Drawing\Settings\ProfileOptions.cs" />
+    <Compile Include="Source\Drawing\Shapes\RippleEntry.cs" />
+    <Compile Include="Source\Extensions\ColorExtensions.cs" />
+    <Compile Include="Source\Extensions\ControlExtensions.cs" />
     <Compile Include="Source\Extensions\EnumExtensions.cs" />
+    <Compile Include="Source\Extensions\GraphicsExtensions.cs" />
     <Compile Include="Source\Helpers\ConstructableFactory.cs" />
+    <Compile Include="Source\Helpers\DrawingHelper.cs" />
+    <Compile Include="Source\Helpers\RandomFast.cs" />
     <Compile Include="Source\IConstructable.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

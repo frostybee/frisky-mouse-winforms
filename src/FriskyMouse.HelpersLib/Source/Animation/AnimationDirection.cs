@@ -8,9 +8,9 @@ namespace FriskyMouse.HelpersLib.Animation
     public enum AnimationDirection
     {
         [Description("In")]
-        In, //In. Stops if finished.
+        In, // The animation will progress outward.
         [Description("Out")]
-        Out, //Out. Stops if finished.
+        Out, // The animation will progress inward.
         [Description("In Out In")]
         InOutIn, //Same as In, but changes to InOutOut if finished.
         [Description("In Out Out")]

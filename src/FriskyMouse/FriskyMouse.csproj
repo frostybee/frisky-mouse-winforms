@@ -174,9 +174,7 @@
     <Content Include="Resources\minus.png" />
     <Content Include="Resources\plus.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\Core\Drawing\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
