@@ -2,13 +2,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FriskyMouse.UI.Controls
@@ -18,7 +13,7 @@ namespace FriskyMouse.UI.Controls
     // the main form. 
     public partial class HighlighterControl : UserControl
     {
-        private readonly HighlighterSettings _highlighterModel;
+        private readonly HighlighterInfo _highlighterModel;
         private readonly DecorationController _applicationManager;
         private readonly Dictionary<String, DashStyle> _outlineStyles = new Dictionary<String, DashStyle>() {
             { "Solid", DashStyle.Solid},
@@ -68,7 +63,7 @@ namespace FriskyMouse.UI.Controls
             //_highlighterModel.OutlineThickness = 15;
             //MessageBox.Show(_highlighterModel.OutlineThickness.ToString());
             btnColorPicker.BackColor = _highlighterModel.FillColor;
-            switchHighlighter.Checked = _highlighterModel.IsEnabled;
+            switchHighlighter.Checked = _highlighterModel.Enabled;
             // TODO: init the outline style in the combo box.
             // FIXME: 
             // TODO: If highlighter disabled ===> Disable the controls. 
@@ -84,7 +79,7 @@ namespace FriskyMouse.UI.Controls
 
         private void SwitchHighlighter_CheckedChanged(object sender, EventArgs e)
         {
-            _highlighterModel.IsEnabled = switchHighlighter.Checked;
+            _highlighterModel.Enabled = switchHighlighter.Checked;
             if (switchHighlighter.Checked)
             {
                 DecorationController.Instance.EnableHighlighter();
@@ -93,7 +88,8 @@ namespace FriskyMouse.UI.Controls
             {
                 // TODO: upon disabling the hook,
                 // the layered window should be hidden.                
-                DecorationController.Instance.DisableHook();
+                //DecorationController.Instance.DisableHook();
+                DecorationController.Instance.DisableHighlighter();
             }
         }
 

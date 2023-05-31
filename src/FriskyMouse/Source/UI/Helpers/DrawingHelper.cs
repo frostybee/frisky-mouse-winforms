@@ -7,7 +7,7 @@ namespace FriskyMouse.MouseDecorator.Helpers
 {
     internal class DrawingHelper
     {
-        public static Bitmap DrawEllipseBitmap(HighlighterSettings settings)
+        public static Bitmap DrawEllipseBitmap(HighlighterInfo settings)
         {
             //TODO: clean this messy code.
             int radius = settings.Radius;

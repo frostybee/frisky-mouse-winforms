@@ -1,4 +1,5 @@
 ﻿using FriskyMouse.NativeApi;
+using FrostyBee.FriskyRipples;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -11,10 +12,10 @@ namespace FriskyMouse.Core
     {
         private int _systemDoubleClickTime;
         private HighlighterController _highlighter;
-        private ClickDecorator _clickDecorator;
+        private RippleProfilesManager _clickDecorator;
         private static object _syncRoot = new Object();
         private IntPtr _mouseHookHandle = IntPtr.Zero;        
-        public MouseHookController(HighlighterController mouseHighlighter, ClickDecorator clickDecorator)
+        public MouseHookController(HighlighterController mouseHighlighter, RippleProfilesManager clickDecorator)
         {
             _highlighter = mouseHighlighter;
             _clickDecorator = clickDecorator;
@@ -36,10 +37,11 @@ namespace FriskyMouse.Core
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
                 switch (messageType)
                 {
-                    case MouseButtonTypes.LeftButtonDown:
+                    //case MouseButtonTypes.LeftButtonDown:
                     case MouseButtonTypes.LeftButtonUp:
+                        _clickDecorator.ShowRipplesAt();
                         // Fix the issue when the highlighter is no longer top most.
-                        Task.Delay(200).ContinueWith(t => _highlighter.BringToFront(hookStruct.pt));                        
+                        Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));                        
                         break;
                     case MouseButtonTypes.MouseMove:
                         //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
@@ -47,7 +49,7 @@ namespace FriskyMouse.Core
                         break;
                     case MouseButtonTypes.RightButtonUp:
                         // Fix the issue when the highlighter is no longer top most.                        
-                        Task.Delay(200).ContinueWith(t => _highlighter.BringToFront(hookStruct.pt));
+                        Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));
                         //_highlighter.BringToFront(hookStruct.pt);
                         /*_clickDecorator?.DecorateLeftSingleClick(new RawMouseEvents
                         {
@@ -68,7 +70,7 @@ namespace FriskyMouse.Core
                         //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         break;
                     case MouseButtonTypes.LeftButtonDoubleClick:
-                        Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
+                        Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);                        
                         break;
                     default:
                         break;

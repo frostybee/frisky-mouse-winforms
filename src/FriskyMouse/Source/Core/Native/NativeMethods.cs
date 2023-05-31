@@ -1,12 +1,5 @@
-﻿using FriskyMouse.GlobalHooks.Native;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System;
 using System.Runtime.InteropServices;
-using System.Runtime.Versioning;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FriskyMouse.NativeApi
 {

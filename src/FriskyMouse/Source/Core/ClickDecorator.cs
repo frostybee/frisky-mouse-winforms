@@ -1,6 +1,4 @@
-﻿using FriskyMouse.GlobalHooks;
-using FriskyMouse.MouseDecorator.Helpers;
-using FriskyMouse.UI;
+﻿using FriskyMouse.UI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

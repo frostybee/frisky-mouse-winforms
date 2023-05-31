@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
 using FriskyMouse.HelpersLib.Extensions;
 using FriskyMouse.HelpersLib.Helpers;
 

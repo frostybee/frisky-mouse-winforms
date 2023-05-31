@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 
 namespace FriskyMouse.HelpersLib.Extensions
 {
-    internal static class GraphicsExtensions
+    public static class GraphicsExtensions
     {
         public static void SetAntiAliasing(this Graphics graphics)
         {

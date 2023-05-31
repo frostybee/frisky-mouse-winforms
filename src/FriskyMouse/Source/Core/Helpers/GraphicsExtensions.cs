@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FriskyMouse.Core
 {
     internal static class GraphicsExtensions
     {
-        public static void DrawSpotlight(this Graphics gr, HighlighterSettings spotlightModel)
+        public static void DrawSpotlight(this Graphics gr, HighlighterInfo spotlightModel)
         {
             // TODO: adjust the radius and settings
             // TODO: create a method that computes the required bounding rectangle. 

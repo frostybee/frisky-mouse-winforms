@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FriskyMouse.NativeApi
-{    
+{
     /// <summary>
     /// Message types that are posted to the window that has captured the mouse actions.
     /// <see cref="https://docs.microsoft.com/en-us/windows/win32/inputdev/mouse-input-notifications"/>

@@ -7,7 +7,7 @@ namespace FriskyMouse.HelpersLib.Animation
     /// <summary>
     /// 
     /// </summary>
-    internal class ValueAnimator
+    public class ValueAnimator
     {
         #region Animation Properties
         private IValueInterpolatable _interpolator;

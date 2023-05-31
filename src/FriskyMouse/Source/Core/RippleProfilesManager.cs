@@ -6,7 +6,8 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using FriskyMouse.HelpersLib.Drawing;
 using FriskyMouse.HelpersLib.Extensions;
-using FriskyMouse.HelpersLib.UI;
+using FriskyMouse.UI;
+using FriskyMouse.HelpersLib;
 
 namespace FrostyBee.FriskyRipples
 {
@@ -22,14 +23,14 @@ namespace FrostyBee.FriskyRipples
 
         readonly LayeredWindow _layeredWindow;
         // NOTE: move those to the BaseProfile.
-        Bitmap _surface = null;
-        Bitmap _blankSurface = null;        
+        private Bitmap _surface = null;
+        private Bitmap _blankSurface = null;
         /// <summary>        
         /// The drawing canvas on which the mouse click ripples will be repeatedly drawn.
         /// </summary>
-        Graphics _graphics;
+        private Graphics _graphics;
         private readonly ValueAnimator _animationManager;
-        private BaseProfile _currentProfile;        
+        private BaseProfile _clickProfile;        
         public RippleProfileType RippleType { get; set; }
         public RippleProfilesManager()
         {
@@ -49,16 +50,18 @@ namespace FrostyBee.FriskyRipples
                 //Increment = 0.010,                
                 //InterpolationType = InterpolationType.EaseOut,                
                 //InterpolationType = InterpolationType.InElastic
-                Interpolation = InterpolationType.Linear
+                Interpolation = InterpolationType.OutBounce
 
             };            
             _animationManager.Progressed += RipplesAnimation_Progressed;
-            _animationManager.Completed += RipplesAnimation_Finished;            
+            _animationManager.Completed += RipplesAnimation_Finished;
+            _clickProfile = ConstructableFactory.GetInstanceOf<BaseProfile>(RippleProfileType.SquaredPulse);
+
         }
 
         public void SwitchProfile(BaseProfile inProfile)
         {            
-            _currentProfile = inProfile;
+            _clickProfile = inProfile;
         }
 
         private void RipplesAnimation_Progressed(object sender)
@@ -69,8 +72,8 @@ namespace FrostyBee.FriskyRipples
             Debug.WriteLine(_animationManager.GetProgress());
             var progress = _animationManager.GetProgress();
             _graphics.Clear(Color.Transparent);
-            _currentProfile.RenderRipples(_graphics, progress);
-            //RenderRipplesProfile(_currentProfile, progress);
+            _clickProfile.RenderRipples(_graphics, progress);
+            //RenderRipplesProfile(_clickProfile, progress);
             _layeredWindow.SetBitmap(_surface, 255);
         }
         
@@ -128,7 +131,7 @@ namespace FrostyBee.FriskyRipples
             if (!_animationManager.IsAnimating())
             {                
                 //_animationManager.StartNewAnimation(AnimationDirection.InOutIn);
-                _animationManager.StartNewAnimation(_currentProfile.Options.AnimationDirection);
+                _animationManager.StartNewAnimation(_clickProfile.Options.AnimationDirection);
             }
 
         }        

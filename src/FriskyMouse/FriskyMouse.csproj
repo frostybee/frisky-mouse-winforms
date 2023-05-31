@@ -87,6 +87,7 @@
     <Compile Include="Source\Core\Input\GlobalHook.cs" />
     <Compile Include="Source\Core\Input\MouseHookController.cs" />
     <Compile Include="Source\Core\Native\NativeConstants.cs" />
+    <Compile Include="Source\Core\RippleProfilesManager.cs" />
     <Compile Include="Source\Core\SettingsManager.cs" />
     <Compile Include="Source\UI\Controls\HighlighterControl.cs">
       <SubType>UserControl</SubType>
@@ -94,7 +95,7 @@
     <Compile Include="Source\UI\Controls\HighlighterControl.Designer.cs">
       <DependentUpon>HighlighterControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Core\Highlighter\HighlighterSettings.cs" />
+    <Compile Include="Source\Core\Highlighter\HighlighterInfo.cs" />
     <Compile Include="Source\Core\Helpers\GraphicsExtensions.cs" />
     <Compile Include="Source\Core\Input\RawMouseEvents.cs" />
     <Compile Include="Source\Core\Native\HookHelper.cs" />

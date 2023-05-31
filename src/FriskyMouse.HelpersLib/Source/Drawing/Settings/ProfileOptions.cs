@@ -12,7 +12,7 @@ namespace FriskyMouse.HelpersLib.Drawing
         #endregion        
 
         #region Visual Appearance
-        public bool IsColorTransition { get; set; } = false;
+        public bool CanFadeColor { get; set; } = false;
         public int InitialOpacity { get; set; } = 100;
         public int MaxRadius { get; set; }
         #endregion

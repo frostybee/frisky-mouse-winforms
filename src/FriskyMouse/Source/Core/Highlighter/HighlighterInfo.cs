@@ -5,10 +5,10 @@ using System.Drawing.Drawing2D;
 
 namespace FriskyMouse.Core
 {
-    internal class HighlighterSettings
+    internal class HighlighterInfo
     {
         // TODO: convert this into a ripple entry.
-        public HighlighterSettings()
+        public HighlighterInfo()
         {
             // Default settings. 
             Radius = 50;
@@ -47,7 +47,7 @@ namespace FriskyMouse.Core
         }
 
         #region Properties
-        public bool IsEnabled { get; set; }
+        public bool Enabled { get; set; }
         public bool IsForPreview { get; set; }
         public int CenterX { get; set; }
         public int CenterY { get; set; }

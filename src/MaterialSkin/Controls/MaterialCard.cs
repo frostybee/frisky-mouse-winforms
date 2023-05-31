@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
-using MaterialSkin;
 
 namespace MaterialSkin.Controls
 {

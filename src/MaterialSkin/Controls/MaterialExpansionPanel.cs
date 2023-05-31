@@ -1,7 +1,4 @@
-using MaterialSkin.Animations;
 using System;
-using System.Configuration;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;

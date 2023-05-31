@@ -2,7 +2,7 @@
 {
     internal class SettingsManager
     {
-        private readonly HighlighterSettings _highlighterSettings = new HighlighterSettings();
+        private readonly HighlighterInfo _highlighterSettings = new HighlighterInfo();
         internal SettingsManager() { }
 
         internal void LoadAppSettings()
@@ -18,7 +18,7 @@
             _highlighterSettings.IsFilled = settings.HighlighterIsFilled;
             _highlighterSettings.OutlineThickness = settings.HighlighterOutlineThickness;
             _highlighterSettings.OutlineStyle = settings.HighlighterOutlineStyle;
-            _highlighterSettings.IsEnabled = settings.IsHighlighterEnabled;            
+            _highlighterSettings.Enabled = settings.IsHighlighterEnabled;            
         }
         
         internal void SaveHighlighterSettings()
@@ -33,13 +33,13 @@
             settings.HighlighterIsFilled = _highlighterSettings.IsFilled;
             settings.HighlighterOutlineThickness = _highlighterSettings.OutlineThickness;            
             settings.HighlighterOutlineStyle = _highlighterSettings.OutlineStyle;
-            settings.IsHighlighterEnabled = _highlighterSettings.IsEnabled;            
+            settings.IsHighlighterEnabled = _highlighterSettings.Enabled;            
             //throw new NotImplementedException();
             settings.Save();
         }
 
         #region Properties
-        internal HighlighterSettings HighlighterSettings => _highlighterSettings;        
+        internal HighlighterInfo HighlighterSettings => _highlighterSettings;        
         #endregion
     }
 }
