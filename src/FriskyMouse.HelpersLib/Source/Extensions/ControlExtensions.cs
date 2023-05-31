@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace FriskyMouse.HelpersLib.Extensions
 {
-    internal static class ControlExtensions
+    public static class ControlExtensions
     {
         /// <summary>
         /// Populates a combobox control with the description and values parsed from 

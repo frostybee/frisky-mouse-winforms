@@ -6,7 +6,7 @@ using System.Drawing.Imaging;
 
 namespace FriskyMouse.HelpersLib.Helpers
 {
-    internal class DrawingHelper
+    public class DrawingHelper
     {
         public static Bitmap CreateBitmap(int width, int height, Color inColor)
         {
@@ -27,7 +27,7 @@ namespace FriskyMouse.HelpersLib.Helpers
         /// </summary>
         /// <param name="rippleRadius"></param>
         /// <returns></returns>
-        internal static Rectangle CreateRectangle(int width, int height, int radius)
+        public static Rectangle CreateRectangle(int width, int height, int radius)
         {
             return new Rectangle(width / 2 - radius, height / 2 - radius, radius * 2, radius * 2);
         }

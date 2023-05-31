@@ -89,6 +89,12 @@
     <Compile Include="Source\Core\Native\NativeConstants.cs" />
     <Compile Include="Source\Core\RippleProfilesManager.cs" />
     <Compile Include="Source\Core\SettingsManager.cs" />
+    <Compile Include="Source\UI\Controls\ClickDecorationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\UI\Controls\ClickDecorationControl.Designer.cs">
+      <DependentUpon>ClickDecorationControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\UI\Controls\HighlighterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\UI\Helpers\DrawingHelper.cs" />
     <Compile Include="Source\UI\LayeredWindow.cs" />
+    <EmbeddedResource Include="Source\UI\Controls\ClickDecorationControl.resx">
+      <DependentUpon>ClickDecorationControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\UI\Controls\HighlighterControl.resx">
       <DependentUpon>HighlighterControl.cs</DependentUpon>
     </EmbeddedResource>

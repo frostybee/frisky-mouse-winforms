@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace FriskyMouse.HelpersLib.Extensions
 {
-    internal static class EnumExtensions
+    public static class EnumExtensions
     {
         /// <summary>
         /// Retrieves an attribute associated with the supplied enum value by its type. 

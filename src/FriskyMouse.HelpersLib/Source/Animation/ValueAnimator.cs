@@ -59,20 +59,20 @@ namespace FriskyMouse.HelpersLib.Animation
         /// Holds the values that indicates the progress of the animation.
         /// The value ranges between 0 and 1. 
         /// </summary>
-        private double _animationProgress = 0;
+        private double _progress = 0;
 
         /// <summary>
         /// Defines the _animationDirections
         /// </summary>
-        private AnimationDirection _animationDirection = AnimationDirection.In;
+        private AnimationDirection _direction = AnimationDirection.In;
 
         /// <summary>
-        /// The lower bound of the animation.
+        /// The lower bound of the animation progress.
         /// </summary>
         private const double MIN_VALUE = 0.00;
 
         /// <summary>
-        /// The upper bound of the animation.
+        /// The upper bound of the animation progress.
         /// </summary>
         private const double MAX_VALUE = 1.00;
 
@@ -88,7 +88,7 @@ namespace FriskyMouse.HelpersLib.Animation
             Interpolation = InterpolationType.Linear;
             InterruptAnimation = true;
             // Set the animation direction to inward by default. 
-            _animationDirection = AnimationDirection.In;
+            _direction = AnimationDirection.In;
             _animationTimer.Tick += AnimationTimer_OnTick;
         }
 
@@ -101,10 +101,10 @@ namespace FriskyMouse.HelpersLib.Animation
         {
             if (!IsAnimating() || InterruptAnimation)
             {
-                _animationProgress =
+                _progress =
                     (direction == AnimationDirection.Out ||
-                    direction == AnimationDirection.InOutOut) ? 1 : 0;
-                _animationDirection = direction;
+                    direction == AnimationDirection.InOutOut) ? MAX_VALUE : MIN_VALUE;
+                _direction = direction;
                 _animationTimer.Start();
             }
         }
@@ -118,17 +118,17 @@ namespace FriskyMouse.HelpersLib.Animation
 
         private void ResetDirection()
         {
-            if ((_animationDirection == AnimationDirection.InOutIn && _animationProgress == MAX_VALUE))
+            if ((_direction == AnimationDirection.InOutIn && _progress == MAX_VALUE))
             {
-                _animationDirection = AnimationDirection.InOutOut;
+                _direction = AnimationDirection.InOutOut;
             }
-            else if ((_animationDirection == AnimationDirection.InOutRepeatingIn && _animationProgress == MAX_VALUE))
+            else if ((_direction == AnimationDirection.InOutRepeatingIn && _progress == MAX_VALUE))
             {
-                _animationDirection = AnimationDirection.InOutRepeatingOut;
+                _direction = AnimationDirection.InOutRepeatingOut;
             }
-            else if ((_animationDirection == AnimationDirection.InOutRepeatingOut && _animationProgress == MIN_VALUE))
+            else if ((_direction == AnimationDirection.InOutRepeatingOut && _progress == MIN_VALUE))
             {
-                _animationDirection = AnimationDirection.InOutRepeatingIn;
+                _direction = AnimationDirection.InOutRepeatingIn;
             }
         }
               
@@ -143,7 +143,7 @@ namespace FriskyMouse.HelpersLib.Animation
         /// </exception>
         private void UpdateProgress()
         {
-            switch (_animationDirection)
+            switch (_direction)
             {
                 case AnimationDirection.InOutRepeatingIn:
                 case AnimationDirection.InOutIn:
@@ -167,18 +167,18 @@ namespace FriskyMouse.HelpersLib.Animation
         /// </summary>
         private void IncrementProgress()
         {
-            _animationProgress += Increment;
-            if (_animationProgress > MAX_VALUE)
+            _progress += Increment;
+            if (_progress > MAX_VALUE)
             {
                 // The animation progressed outward and has reached 1. 
-                _animationProgress = MAX_VALUE;
+                _progress = MAX_VALUE;
                 if (IsLooping())
                 {
                     return;
                 }
-                if ((_animationDirection == AnimationDirection.InOutOut
-                    || _animationDirection == AnimationDirection.In)
-                    && _animationProgress != MAX_VALUE)
+                if ((_direction == AnimationDirection.InOutOut
+                    || _direction == AnimationDirection.In)
+                    && _progress != MAX_VALUE)
                 {
                     return;
                 }
@@ -193,20 +193,20 @@ namespace FriskyMouse.HelpersLib.Animation
         /// </summary>
         private void DecrementProgress()
         {
-            _animationProgress -= (_animationDirection == AnimationDirection.InOutOut ||
-                _animationDirection == AnimationDirection.InOutRepeatingOut) ? SecondaryIncrement : Increment;
-            if (_animationProgress < MIN_VALUE)
+            _progress -= (_direction == AnimationDirection.InOutOut ||
+                _direction == AnimationDirection.InOutRepeatingOut) ? SecondaryIncrement : Increment;
+            if (_progress < MIN_VALUE)
             {
                 // The animation progressed inward and has reached 0. 
-                _animationProgress = MIN_VALUE;
+                _progress = MIN_VALUE;
 
                 if (IsLooping())
                 {
                     return;
                 }
-                if ((_animationDirection == AnimationDirection.InOutOut
-                    || _animationDirection == AnimationDirection.Out)
-                    && _animationProgress != MIN_VALUE)
+                if ((_direction == AnimationDirection.InOutOut
+                    || _direction == AnimationDirection.Out)
+                    && _progress != MIN_VALUE)
                 {
                     return;
                 }
@@ -216,9 +216,9 @@ namespace FriskyMouse.HelpersLib.Animation
         }
         private bool IsLooping()
         {
-            return (_animationDirection == AnimationDirection.InOutIn
-                    || _animationDirection == AnimationDirection.InOutRepeatingIn
-                    || _animationDirection == AnimationDirection.InOutRepeatingOut);
+            return (_direction == AnimationDirection.InOutIn
+                    || _direction == AnimationDirection.InOutRepeatingIn
+                    || _direction == AnimationDirection.InOutRepeatingOut);
         }
         /// <summary>
         /// Determines whether the animation is running or not.
@@ -235,7 +235,7 @@ namespace FriskyMouse.HelpersLib.Animation
         /// <returns>An interpolated value between 0 and 1.</returns>
         public double GetProgress()
         {
-            return _interpolator.Interpolate(_animationProgress);
+            return _interpolator.Interpolate(_progress);
         }
 
         /// <summary>

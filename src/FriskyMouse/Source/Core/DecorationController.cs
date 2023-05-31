@@ -1,7 +1,6 @@
 ﻿using FrostyBee.FriskyRipples;
 using System;
 using System.Diagnostics;
-using System.Drawing;
 
 namespace FriskyMouse.Core
 {

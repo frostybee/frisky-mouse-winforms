@@ -46,7 +46,7 @@ namespace FriskyMouse.HelpersLib.Drawing
             _ripples.Add(newRipple);
         }
 
-        internal void ResetColorOpacity()
+        public void ResetColorOpacity()
         {
             // Reset the opacity of the color upon disabling color transition.
             _ripples.ForEach(ripple =>

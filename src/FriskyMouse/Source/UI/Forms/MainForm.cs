@@ -27,6 +27,7 @@ namespace FriskyMouse.UI
 
         private void InitializeControls()
         {
+            mainTabControl.SelectedIndex = 1;
             // Clean up resources on application exit.
             Application.ApplicationExit += Application_ApplicationExit;
             this.Icon = Properties.Resources.Martin_Berube_Animal_Bee;
@@ -49,10 +50,7 @@ namespace FriskyMouse.UI
             _materialSkinManager.AddFormToManage(this);
             _materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             _materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700,
-                Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
-            // Internal events.
-            //pbPreview.Paint += HighlighterPreview_Paint;
-            //             
+                Primary.Indigo100, Accent.Pink200, TextShade.WHITE);            
         }
 
         /// <summary>

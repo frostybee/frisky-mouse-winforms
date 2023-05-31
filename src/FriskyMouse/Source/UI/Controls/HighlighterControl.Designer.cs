@@ -44,8 +44,8 @@
             this.sldRadius = new MaterialSkin.Controls.MaterialSlider();
             this.sldOpacity = new MaterialSkin.Controls.MaterialSlider();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pboxPreview = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.pboxPreview = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -91,7 +91,7 @@
             this.panel2.Controls.Add(this.sldRadius);
             this.panel2.Controls.Add(this.sldOpacity);
             this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Location = new System.Drawing.Point(0, 69);
+            this.panel2.Location = new System.Drawing.Point(11, 71);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(766, 344);
             this.panel2.TabIndex = 61;

@@ -29,31 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Drawing.Drawing2D.GraphicsPath graphicsPath3 = new System.Drawing.Drawing2D.GraphicsPath();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             System.Windows.Forms.ToolStripMenuItem mnAbout;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tbpHighlighter = new System.Windows.Forms.TabPage();
+            this._tabHighlighterSettings = new FriskyMouse.UI.Controls.HighlighterControl();
             this.materialDrawer1 = new MaterialSkin.Controls.MaterialDrawer();
             this.tbpClickDecorator = new System.Windows.Forms.TabPage();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.clickDecorationControl1 = new FriskyMouse.UI.Controls.ClickDecorationControl();
             this.tbpSettings = new System.Windows.Forms.TabPage();
+            this.settingsControl1 = new FriskyMouse.UI.Controls.SettingsControl();
             this.menuIconList = new System.Windows.Forms.ImageList(this.components);
             this.appNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.trayContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnShow = new System.Windows.Forms.ToolStripMenuItem();
             this.mnExit = new System.Windows.Forms.ToolStripMenuItem();
-            this._tabHighlighterSettings = new FriskyMouse.UI.Controls.HighlighterControl();
-            this.settingsControl1 = new FriskyMouse.UI.Controls.SettingsControl();
             mnAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTabControl.SuspendLayout();
             this.tbpHighlighter.SuspendLayout();
             this.tbpClickDecorator.SuspendLayout();
-            this.materialCard1.SuspendLayout();
             this.tbpSettings.SuspendLayout();
             this.trayContextMenu.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // mnAbout
+            // 
+            mnAbout.Name = "mnAbout";
+            mnAbout.Size = new System.Drawing.Size(119, 24);
+            mnAbout.Text = "About";
+            mnAbout.Click += new System.EventHandler(this.MenuItemAbout_Click);
             // 
             // mainTabControl
             // 
@@ -84,6 +88,13 @@
             this.tbpHighlighter.TabIndex = 0;
             this.tbpHighlighter.Text = "Highlighter";
             // 
+            // _tabHighlighterSettings
+            // 
+            this._tabHighlighterSettings.Location = new System.Drawing.Point(0, 3);
+            this._tabHighlighterSettings.Name = "_tabHighlighterSettings";
+            this._tabHighlighterSettings.Size = new System.Drawing.Size(930, 547);
+            this._tabHighlighterSettings.TabIndex = 2;
+            // 
             // materialDrawer1
             // 
             this.materialDrawer1.AutoHide = false;
@@ -106,7 +117,7 @@
             // tbpClickDecorator
             // 
             this.tbpClickDecorator.BackColor = System.Drawing.Color.White;
-            this.tbpClickDecorator.Controls.Add(this.materialCard1);
+            this.tbpClickDecorator.Controls.Add(this.clickDecorationControl1);
             this.tbpClickDecorator.ImageKey = "left-click-50.png";
             this.tbpClickDecorator.Location = new System.Drawing.Point(4, 31);
             this.tbpClickDecorator.Name = "tbpClickDecorator";
@@ -115,35 +126,12 @@
             this.tbpClickDecorator.TabIndex = 1;
             this.tbpClickDecorator.Text = "Click Decorator";
             // 
-            // materialCard1
+            // clickDecorationControl1
             // 
-            this.materialCard1.Controls.Add(this.materialLabel1);
-            this.materialCard1.Depth = 0;
-            this.materialCard1.Elevation = 5;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.LargeTitle = false;
-            this.materialCard1.Location = new System.Drawing.Point(17, 14);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            graphicsPath3.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
-            this.materialCard1.ShadowBorder = graphicsPath3;
-            this.materialCard1.Size = new System.Drawing.Size(668, 164);
-            this.materialCard1.TabIndex = 0;
-            this.materialCard1.Title = null;
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(8, 7);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(163, 19);
-            this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "Click decoration effect:";
+            this.clickDecorationControl1.Location = new System.Drawing.Point(1, 0);
+            this.clickDecorationControl1.Name = "clickDecorationControl1";
+            this.clickDecorationControl1.Size = new System.Drawing.Size(927, 550);
+            this.clickDecorationControl1.TabIndex = 0;
             // 
             // tbpSettings
             // 
@@ -156,6 +144,13 @@
             this.tbpSettings.Size = new System.Drawing.Size(933, 556);
             this.tbpSettings.TabIndex = 2;
             this.tbpSettings.Text = "Settings";
+            // 
+            // settingsControl1
+            // 
+            this.settingsControl1.Location = new System.Drawing.Point(6, 6);
+            this.settingsControl1.Name = "settingsControl1";
+            this.settingsControl1.Size = new System.Drawing.Size(921, 470);
+            this.settingsControl1.TabIndex = 0;
             // 
             // menuIconList
             // 
@@ -187,42 +182,21 @@
             mnAbout,
             this.mnExit});
             this.trayContextMenu.Name = "trayContextMenu";
-            this.trayContextMenu.Size = new System.Drawing.Size(211, 104);
+            this.trayContextMenu.Size = new System.Drawing.Size(120, 76);
             // 
             // mnShow
             // 
             this.mnShow.Name = "mnShow";
-            this.mnShow.Size = new System.Drawing.Size(210, 24);
+            this.mnShow.Size = new System.Drawing.Size(119, 24);
             this.mnShow.Text = "Show";
             this.mnShow.Click += new System.EventHandler(this.MenuItemShow_Click);
             // 
             // mnExit
             // 
             this.mnExit.Name = "mnExit";
-            this.mnExit.Size = new System.Drawing.Size(210, 24);
+            this.mnExit.Size = new System.Drawing.Size(119, 24);
             this.mnExit.Text = "Exit";
             this.mnExit.Click += new System.EventHandler(this.MenuItemExit_Click);
-            // 
-            // mnAbout
-            // 
-            mnAbout.Name = "mnAbout";
-            mnAbout.Size = new System.Drawing.Size(210, 24);
-            mnAbout.Text = "About";
-            mnAbout.Click += new System.EventHandler(this.MenuItemAbout_Click);
-            // 
-            // _tabHighlighterSettings
-            // 
-            this._tabHighlighterSettings.Location = new System.Drawing.Point(0, 3);
-            this._tabHighlighterSettings.Name = "_tabHighlighterSettings";
-            this._tabHighlighterSettings.Size = new System.Drawing.Size(930, 547);
-            this._tabHighlighterSettings.TabIndex = 2;
-            // 
-            // settingsControl1
-            // 
-            this.settingsControl1.Location = new System.Drawing.Point(6, 6);
-            this.settingsControl1.Name = "settingsControl1";
-            this.settingsControl1.Size = new System.Drawing.Size(921, 470);
-            this.settingsControl1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -241,8 +215,6 @@
             this.mainTabControl.ResumeLayout(false);
             this.tbpHighlighter.ResumeLayout(false);
             this.tbpClickDecorator.ResumeLayout(false);
-            this.materialCard1.ResumeLayout(false);
-            this.materialCard1.PerformLayout();
             this.tbpSettings.ResumeLayout(false);
             this.trayContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -254,8 +226,6 @@
         private MaterialSkin.Controls.MaterialTabControl mainTabControl;
         private System.Windows.Forms.TabPage tbpHighlighter;
         private System.Windows.Forms.TabPage tbpClickDecorator;
-        private MaterialSkin.Controls.MaterialCard materialCard1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.ImageList menuIconList;
         private MaterialSkin.Controls.MaterialDrawer materialDrawer1;
         private Controls.HighlighterControl _tabHighlighterSettings;
@@ -265,6 +235,7 @@
         private System.Windows.Forms.ContextMenuStrip trayContextMenu;
         private System.Windows.Forms.ToolStripMenuItem mnShow;
         private System.Windows.Forms.ToolStripMenuItem mnExit;
+        private Controls.ClickDecorationControl clickDecorationControl1;
     }
 }
 
