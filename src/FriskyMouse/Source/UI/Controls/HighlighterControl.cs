@@ -164,7 +164,6 @@ namespace FriskyMouse.UI.Controls
 
         /// <summary>
         /// Resets the highlighter settings to predefined values.
-        /// The following spotlight settings will be changed:
         /// - The spotlight radius will be reset to 30px.
         /// - The color will be reset to yellow.        
         /// - The color opacity will reset to 75%.        

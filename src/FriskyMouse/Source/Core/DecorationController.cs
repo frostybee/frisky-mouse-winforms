@@ -1,6 +1,7 @@
 ﻿using FrostyBee.FriskyRipples;
 using System;
 using System.Diagnostics;
+using System.Threading;
 
 namespace FriskyMouse.Core
 {
@@ -8,17 +9,19 @@ namespace FriskyMouse.Core
     internal class DecorationController : IDisposable
     {
         // The single instance of this class. 
-        private static readonly Lazy<DecorationController> _instance = new Lazy<DecorationController>(() => new DecorationController());
-        private bool _disposed = false;
-        // The user settings manager. 
-        private readonly SettingsManager _settingsManager = new SettingsManager();
-        private readonly object _syncLock = new object();
+        private static readonly Lazy<DecorationController> _instance =
+            new Lazy<DecorationController>(() => new DecorationController());        
+        private readonly SettingsManager _settingsManager;        
         private readonly HighlighterController _mouseHighlighter;
-        private readonly RippleProfilesManager _clickDecorator = new RippleProfilesManager();
+        private readonly RippleProfilesManager _clickDecorator;
         private readonly MouseHookController _mouseHookController;
+        private readonly object _syncLock = new object();
+        private bool _disposed = false;
 
         private DecorationController()
         {
+            _settingsManager = new SettingsManager();
+            _clickDecorator = new RippleProfilesManager(_settingsManager);
             _mouseHighlighter = new HighlighterController(_settingsManager);
             _mouseHookController = new MouseHookController(_mouseHighlighter, _clickDecorator);
             //LoadDecorationSettings();                        
@@ -122,8 +125,7 @@ namespace FriskyMouse.Core
 
         #region Properties
         /// <summary>
-        /// Gets the single instance of this class.
-        /// This property is thread safe. 
+        /// Gets the single instance of the decoration engine.
         /// </summary>
         public static DecorationController Instance => _instance.Value;
         public SettingsManager SettingsManager => _settingsManager;

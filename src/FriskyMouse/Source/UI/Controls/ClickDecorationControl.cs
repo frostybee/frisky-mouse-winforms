@@ -1,13 +1,13 @@
-﻿using FriskyMouse.HelpersLib;
-using FriskyMouse.HelpersLib.Animation;
-using FriskyMouse.HelpersLib.Drawing;
-using FriskyMouse.HelpersLib.Extensions;
-
-using System;
-using System.Diagnostics;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using FriskyMouse.HelpersLib.Attributes;
+using FrostyBee.FriskyRipples;
+using FriskyMouse.Core;
+using FriskyMouse.HelpersLib;
+using FriskyMouse.HelpersLib.Animation;
+using FriskyMouse.HelpersLib.Drawing;
+using FriskyMouse.HelpersLib.Extensions;
 using DrawingHelper = FriskyMouse.HelpersLib.Helpers.DrawingHelper;
 
 namespace FriskyMouse.UI.Controls
@@ -15,24 +15,28 @@ namespace FriskyMouse.UI.Controls
     public partial class ClickDecorationControl : UserControl
     {
         private readonly ValueAnimator _rippleValueAnimator;
+        private readonly RippleProfilesManager _profilesManager;
+        private readonly ClickProfileOptions _clickOptions;
         private BaseProfile _currentProfile;
-        private Bitmap _canvas;
+        private Bitmap _canvas = null;
         Bitmap _blankCanvas = null;
         private Graphics _graphics;
         public ClickDecorationControl()
         {
             InitializeComponent();            
-            DoubleBuffered = true;            
-            cmbProfilesList.SelectedIndexChanged += CmbProfilesList_SelectedIndexChanged;
-            cmbAnimDirection.SelectedIndexChanged += CmbAnimDirection_SelectedIndexChanged;
-            cmbInterpolationMode.SelectedIndexChanged += CmbInterpolationMode_SelectedIndexChanged;
-            chkbColorTransition.CheckedChanged += ChkbColorTransition_CheckedChanged;
+            DoubleBuffered = true;                        
             _currentProfile = new SonarPulseProfile();
+            _profilesManager = DecorationController.Instance.ClickDecorator;
+            _clickOptions = DecorationController.Instance.SettingsManager.ClickProfileOptions;
             _rippleValueAnimator = new ValueAnimator()
             {
                 Increment = 0.010, // Control the animation duration.                                         
                 Interpolation = InterpolationType.Linear
             };
+            cmbProfilesList.SelectedIndexChanged += CmbProfilesList_SelectedIndexChanged;
+            cmbAnimDirection.SelectedIndexChanged += CmbAnimDirection_SelectedIndexChanged;
+            cmbInterpolationMode.SelectedIndexChanged += CmbInterpolationMode_SelectedIndexChanged;
+            chkbColorTransition.CheckedChanged += ChkbColorTransition_CheckedChanged;
             _rippleValueAnimator.Progressed += OnRipplesAnimation_Progressed;
             _rippleValueAnimator.Completed += OnRipplesAnimation_Completed;
             sliderAnimSpeed.onValueChanged += SliderAnimSpeed_onValueChanged;
@@ -61,11 +65,9 @@ namespace FriskyMouse.UI.Controls
         {
             pcbRipplePreview.Image = _canvas;
             //   StopAnimation();
-            _rippleValueAnimator.StartNewAnimation(_currentProfile.Options.AnimationDirection);
+            _rippleValueAnimator.StartNewAnimation(_clickOptions.AnimationDirection);
             if (!_rippleValueAnimator.IsAnimating())
-            {
-                //_animationManager.StartNewAnimation(_currentProfile.Options.AnimationDirection);
-                //_animationManager.StartNewAnimation(AnimationDirection.Out);
+            {                
             }
         }
         private void StopAnimation()
@@ -80,18 +82,15 @@ namespace FriskyMouse.UI.Controls
         {
             if (_rippleValueAnimator.IsAnimating())
             {
-                _graphics.Clear(Color.Transparent);
+                _graphics.Clear(Color.White);
                 // Draw and animate the selected profile. 
                 var progress = _rippleValueAnimator.GetProgress();
-                _currentProfile.RenderRipples(_graphics, progress);
-                //e.Graphics.DrawEllipse(new Pen(Brushes.Red), new Rectangle(pcbRipplePreview.Width / 2, pcbRipplePreview.Width / 2, 100, 100));
+                _currentProfile.RenderRipples(_graphics, _clickOptions, progress);                
             }
             pcbRipplePreview.Invalidate();
         }
         private void OnRipplesAnimation_Completed(object sender)
-        {
-            //-- Long lasting ripple: show it and hide on finish. 
-            Debug.WriteLine("Finished....");
+        {            
             // Clear the _surface that was previously drawn onto the _layeredWindow window.                                    
             pcbRipplePreview.Image = _blankCanvas;
         }
@@ -100,17 +99,17 @@ namespace FriskyMouse.UI.Controls
         {
             // Switch to the newly selected profile. 
             RippleProfileType profileType = cmbProfilesList.ParseEnumValue<RippleProfileType>();
-            BaseProfile _newProfile = ConstructableFactory.GetInstanceOf<BaseProfile>(profileType);
-            _newProfile.Options = _currentProfile.Options;
-            //_profilesManager.SwitchProfile(_newProfile);
+            BaseProfile _newProfile = ConstructableFactory.GetInstanceOf<BaseProfile>(profileType);            
             _currentProfile?.Dispose();
+            _profilesManager.SwitchProfile(_newProfile);            
             _currentProfile = _newProfile;
             StartAnimation();
         }
         private void CmbAnimDirection_SelectedIndexChanged(object sender, EventArgs e)
         {
             // The direction of the animation has been changed.                                     
-            _currentProfile.Options.AnimationDirection = cmbAnimDirection.ParseEnumValue<AnimationDirection>();
+            _clickOptions.AnimationDirection = cmbAnimDirection.ParseEnumValue<AnimationDirection>();
+            _profilesManager.ApplySettings(_clickOptions);
             StartAnimation();
         }
         private void CmbInterpolationMode_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,8 +117,8 @@ namespace FriskyMouse.UI.Controls
             // The animation's interpolation mode has been changed.                                     
             InterpolationType interpolation = cmbInterpolationMode.ParseEnumValue<InterpolationType>();
             _rippleValueAnimator.Interpolation = interpolation;
-            _currentProfile.Options.InterpolationType = interpolation;
-            //_profilesManager.ApplySettings(_currentProfile.Options);
+            _clickOptions.InterpolationType = interpolation;
+            _profilesManager.ApplySettings(_clickOptions);
             // Adjust the animation speed based on the recommended value associated with the selected 
             // interpolation mode. 
             DefaultSpeedAttribute speedAttribute = interpolation.GetEnumAttribute<DefaultSpeedAttribute>();
@@ -137,19 +136,19 @@ namespace FriskyMouse.UI.Controls
             // Increase the animation speed.
             double speedRate = (double)speed / 1000;
             _rippleValueAnimator.Increment = speedRate;
-            _currentProfile.Options.AnimationSpeed = speedRate;
-            //_profilesManager.ApplySettings(_currentProfile.Options);
+            _clickOptions.AnimationSpeed = speedRate;
+            _profilesManager.ApplySettings(_clickOptions);
         }
 
         private void BtnStopAnimation_Click(object sender, EventArgs e)
         {
             StopAnimation();
-            //_profilesManager.StopAnimation();
+            _profilesManager.StopAnimation();
         }
 
         private void ChkbColorTransition_CheckedChanged(object sender, EventArgs e)
         {
-            _currentProfile.Options.CanFadeColor = chkbColorTransition.Checked;
+            _clickOptions.CanFadeColor = chkbColorTransition.Checked;
             _currentProfile.ResetColorOpacity();
             StartAnimation();
         }
@@ -157,11 +156,6 @@ namespace FriskyMouse.UI.Controls
         private void BtnPreview_Click(object sender, EventArgs e)
         {
             StartAnimation();
-        }
-
-        private void BtnStopAnimation_Click_1(object sender, EventArgs e)
-        {
-            StopAnimation();
         }
     }
 }

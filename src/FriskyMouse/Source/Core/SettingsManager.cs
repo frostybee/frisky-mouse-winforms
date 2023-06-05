@@ -1,8 +1,11 @@
-﻿namespace FriskyMouse.Core
+﻿using FriskyMouse.HelpersLib.Drawing;
+
+namespace FriskyMouse.Core
 {
     internal class SettingsManager
     {
         private readonly HighlighterInfo _highlighterSettings = new HighlighterInfo();
+        private readonly ClickProfileOptions _clickProfileOptions = new ClickProfileOptions();
         internal SettingsManager() { }
 
         internal void LoadAppSettings()
@@ -40,6 +43,7 @@
 
         #region Properties
         internal HighlighterInfo HighlighterSettings => _highlighterSettings;        
+        internal ClickProfileOptions ClickProfileOptions=> _clickProfileOptions;        
         #endregion
     }
 }

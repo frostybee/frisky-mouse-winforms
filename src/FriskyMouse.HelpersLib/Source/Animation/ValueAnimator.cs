@@ -1,4 +1,5 @@
 ﻿
+using FrostyBee.FriskyRipples.Animation;
 using System;
 using System.Windows.Forms;
 
@@ -10,7 +11,7 @@ namespace FriskyMouse.HelpersLib.Animation
     public class ValueAnimator
     {
         #region Animation Properties
-        private IValueInterpolatable _interpolator;
+        private IEasing _interpolator;
         /// <summary>
         /// Gets or sets a value indicating whether InterruptAnimation
         /// </summary>
@@ -235,7 +236,7 @@ namespace FriskyMouse.HelpersLib.Animation
         /// <returns>An interpolated value between 0 and 1.</returns>
         public double GetProgress()
         {
-            return _interpolator.Interpolate(_progress);
+            return _interpolator.Ease(_progress);
         }
 
         /// <summary>
@@ -252,10 +253,10 @@ namespace FriskyMouse.HelpersLib.Animation
         /// </summary>
         /// <param name="pInterpolatorType">The type of interpolator to be instantiated.</param>
         private void SetInterpolator(InterpolationType pInterpolatorType)
-        {
-            IValueInterpolatable newInterpolator = ConstructableFactory.GetInstanceOf<IValueInterpolatable>(pInterpolatorType);
+        {            
+            IEasing newInterpolator = ConstructableFactory.GetInstanceOf<IEasing>(pInterpolatorType);
             // Create a linear interpolator if the dynamic instantiation fails.
-            _interpolator = newInterpolator ?? new InterpolatorLinear();
+            _interpolator = newInterpolator ?? new LinearEasing();
         }
     }
 }

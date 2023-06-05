@@ -17,7 +17,7 @@ namespace FriskyMouse.Core
         /// to show the mouse highlighter. 
         /// </summary>
         private LayeredWindow _layeredWindow;
-        private bool disposed = false;        
+        private bool disposed = false;
         private readonly SettingsManager _settingsManager;
         internal HighlighterController(SettingsManager pSettingsManager)
         {
@@ -73,9 +73,9 @@ namespace FriskyMouse.Core
         /// </summary>
         /// <param name="inPoint">A point containing the X and Y coordinates of the mouse cursor. </param>
         private void SetLayeredWindowCoordinates(POINT inPoint)
-        {            
-            _layeredWindow.PositionX = inPoint.X - _spotlightBitmap.Width / 2;
-            _layeredWindow.PositionY = inPoint.Y - _spotlightBitmap.Height / 2;
+        {
+            _layeredWindow.PositionX = (inPoint.X + 1) - _spotlightBitmap.Width / 2;
+            _layeredWindow.PositionY = (inPoint.Y + 1) - _spotlightBitmap.Height / 2;
         }
         internal void HideSpotlight()
         {
@@ -104,6 +104,6 @@ namespace FriskyMouse.Core
                 disposed = true;
             }
         }
-        
+
     }
 }

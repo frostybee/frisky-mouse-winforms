@@ -16,8 +16,7 @@ namespace FriskyMouse.HelpersLib.Drawing
         #region Properties
         public int Width { get; set; } = 200;
         public int Height { get; set; } = 200;
-        public int BaseRadius { get; set; } = 10;        
-        public ProfileOptions Options { get; set; } = new ProfileOptions();
+        public int BaseRadius { get; set; } = 10;                
         #endregion
         
         /// <summary>
@@ -25,14 +24,14 @@ namespace FriskyMouse.HelpersLib.Drawing
         /// </summary>
         /// <param name="inRippleProfile">The profile to be rendered.</param>
         /// <param name="progress">The interpolated value that indicates the progress of the currently running animation. </param>
-        public void RenderRipples(Graphics _graphics, double progress)
+        public void RenderRipples(Graphics _graphics, ClickProfileOptions options, double progress)
         {                                   
             // We adjust the ripple properties every animation frame. 
             _ripples.ForEach(ripple =>
             {                
-                if (Options.CanFadeColor)
+                if (options.CanFadeColor)
                 {
-                    Debug.WriteLine(Options.CanFadeColor.ToString());
+                    Debug.WriteLine(options.CanFadeColor.ToString());
                     // We fade the color of the ripple based on the current animation's progress value.
                     ripple.AdjustColorOpacity(progress);
                 }

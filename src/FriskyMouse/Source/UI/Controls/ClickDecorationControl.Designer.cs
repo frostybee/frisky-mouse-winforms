@@ -61,9 +61,9 @@
             // 
             this.panel1.Controls.Add(this.materialLabel26);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(8, 8);
+            this.panel1.Location = new System.Drawing.Point(3, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1058, 584);
+            this.panel1.Size = new System.Drawing.Size(924, 584);
             this.panel1.TabIndex = 1;
             // 
             // materialLabel26
@@ -93,7 +93,7 @@
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Location = new System.Drawing.Point(11, 62);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1025, 499);
+            this.panel2.Size = new System.Drawing.Size(861, 499);
             this.panel2.TabIndex = 61;
             // 
             // groupBox3
@@ -143,12 +143,6 @@
             this.cmbProfilesList.Hint = "Select Profile:";
             this.cmbProfilesList.IntegralHeight = false;
             this.cmbProfilesList.ItemHeight = 43;
-            this.cmbProfilesList.Items.AddRange(new object[] {
-            "Solid",
-            "Dash",
-            "Dot",
-            "Dash Dot",
-            "Dash Dot Dot"});
             this.cmbProfilesList.Location = new System.Drawing.Point(7, 37);
             this.cmbProfilesList.Margin = new System.Windows.Forms.Padding(4);
             this.cmbProfilesList.MaxDropDownItems = 4;
@@ -235,14 +229,9 @@
             this.cmbInterpolationMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.cmbInterpolationMode.FormattingEnabled = true;
             this.cmbInterpolationMode.Hint = "Interpolation";
+            this.cmbInterpolationMode.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.cmbInterpolationMode.IntegralHeight = false;
             this.cmbInterpolationMode.ItemHeight = 43;
-            this.cmbInterpolationMode.Items.AddRange(new object[] {
-            "Solid",
-            "Dash",
-            "Dot",
-            "Dash Dot",
-            "Dash Dot Dot"});
             this.cmbInterpolationMode.Location = new System.Drawing.Point(235, 83);
             this.cmbInterpolationMode.Margin = new System.Windows.Forms.Padding(4);
             this.cmbInterpolationMode.MaxDropDownItems = 4;
@@ -268,12 +257,6 @@
             this.cmbAnimDirection.Hint = "Direction";
             this.cmbAnimDirection.IntegralHeight = false;
             this.cmbAnimDirection.ItemHeight = 43;
-            this.cmbAnimDirection.Items.AddRange(new object[] {
-            "Solid",
-            "Dash",
-            "Dot",
-            "Dash Dot",
-            "Dash Dot Dot"});
             this.cmbAnimDirection.Location = new System.Drawing.Point(7, 83);
             this.cmbAnimDirection.Margin = new System.Windows.Forms.Padding(4);
             this.cmbAnimDirection.MaxDropDownItems = 4;
@@ -337,13 +320,13 @@
             this.btnStopAnimation.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnStopAnimation.Name = "btnStopAnimation";
             this.btnStopAnimation.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnStopAnimation.Size = new System.Drawing.Size(65, 36);
+            this.btnStopAnimation.Size = new System.Drawing.Size(64, 36);
             this.btnStopAnimation.TabIndex = 10;
             this.btnStopAnimation.Text = "Stop";
             this.btnStopAnimation.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnStopAnimation.UseAccentColor = true;
             this.btnStopAnimation.UseVisualStyleBackColor = true;
-            this.btnStopAnimation.Click += new System.EventHandler(this.BtnStopAnimation_Click_1);
+            this.btnStopAnimation.Click += new System.EventHandler(this.BtnStopAnimation_Click);
             // 
             // btnPreview
             // 
@@ -385,6 +368,7 @@
             // 
             // pcbRipplePreview
             // 
+            this.pcbRipplePreview.BackColor = System.Drawing.Color.White;
             this.pcbRipplePreview.Location = new System.Drawing.Point(13, 21);
             this.pcbRipplePreview.Name = "pcbRipplePreview";
             this.pcbRipplePreview.Size = new System.Drawing.Size(250, 250);
@@ -397,7 +381,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "ClickDecorationControl";
-            this.Size = new System.Drawing.Size(1179, 625);
+            this.Size = new System.Drawing.Size(970, 625);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -37,9 +37,10 @@ namespace FriskyMouse.Core
                 MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
                 switch (messageType)
                 {
-                    //case MouseButtonTypes.LeftButtonDown:
-                    case MouseButtonTypes.LeftButtonUp:
-                        _clickDecorator.ShowRipplesAt();
+                    case MouseButtonTypes.LeftButtonDown:
+                        _clickDecorator.ShowRipplesAt(hookStruct.pt.X, hookStruct.pt.Y);
+                        break; 
+                    case MouseButtonTypes.LeftButtonUp:                        
                         // Fix the issue when the highlighter is no longer top most.
                         Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));                        
                         break;

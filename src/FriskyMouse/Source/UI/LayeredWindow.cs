@@ -41,12 +41,18 @@ namespace FriskyMouse.UI
             this.CreateHandle(cp);
             Hide();
         }
+        internal void Move(int x, int y)
+        {
+            PositionX = x;
+            PositionY = y;
+            Move();
+        }
         /// <summary>
         /// Moves the layered window to the specified location.
         /// </summary>
         /// <param name="x">The X coordinate.</param>
         /// <param name="y">The Y coordinate.</param>
-        public void Move()
+        internal void Move()
         {
             NativeMethods.MoveWindow(Handle, PositionX, PositionY, Width, Height, false);
             // FIXME: Somehow setting the TOPMOST doesn't seem to work when clicking on slider| 
@@ -57,7 +63,7 @@ namespace FriskyMouse.UI
         /// Hides the current instance of this layered window. 
         /// It should be called upon finishing decorating mouse clicks.
         /// </summary>
-        public void Hide()
+        internal void Hide()
         {
             if (Handle != IntPtr.Zero)
             {
@@ -67,7 +73,7 @@ namespace FriskyMouse.UI
         /// <summary>
         /// Shows the current instance of this layered window. 
         /// </summary>
-        public void Show()
+        internal void Show()
         {
             //User32.SetForegroundWindow(Handle);
             //User32.BringWindowToTop(Handle);
@@ -102,7 +108,7 @@ namespace FriskyMouse.UI
         {
             NativeMethods.SetWindowPos(Handle, (int)SpecialWindowHandles.HWND_TOPMOST, x, y, Width, Height, SetWindowPosFlags.SWP_NOACTIVATE);
         }
-        public POINT GetCursorPosition()
+        internal POINT GetCursorPosition()
         {
             if (NativeMethods.GetCursorPos(out POINT point))
             {
@@ -124,7 +130,7 @@ namespace FriskyMouse.UI
         /// the SourceConstantAlpha value to 255 (opaque).
         /// </param>
         /// <exception cref="ApplicationException"></exception>
-        public void SetBitmap(Bitmap newBitmap, byte opacity)
+        internal void SetBitmap(Bitmap newBitmap, byte opacity)
         {
             // Does this bitmap contain an alpha channel?
             if (newBitmap.PixelFormat != PixelFormat.Format32bppArgb)
@@ -210,7 +216,7 @@ namespace FriskyMouse.UI
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
-        }
+        }        
 
         #region Properties
         /// <summary>

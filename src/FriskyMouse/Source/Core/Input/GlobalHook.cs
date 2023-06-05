@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 
 namespace FriskyMouse.Core
 {
-    public class GlobalHook
+    public abstract class GlobalHook
     {
         protected int _hookType;
         protected IntPtr _handleToHook;

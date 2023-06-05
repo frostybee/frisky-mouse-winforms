@@ -3,7 +3,7 @@
 
 namespace FriskyMouse.HelpersLib.Drawing
 {
-    public class ProfileOptions
+    public class ClickProfileOptions
     {
         #region Animation Settings
         public InterpolationType InterpolationType { get; set; } = InterpolationType.Linear;
@@ -13,8 +13,8 @@ namespace FriskyMouse.HelpersLib.Drawing
 
         #region Visual Appearance
         public bool CanFadeColor { get; set; } = false;
-        public int InitialOpacity { get; set; } = 100;
-        public int MaxRadius { get; set; }
+        public int InitialOpacity { get; set; } = 100;        
+        public int MaxRadius { get; set; } = 200;
         #endregion
     }
 }

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FriskyMouse")]
-[assembly: AssemblyDescription("A mouse utility that provides mouse cursor highlighter and mouse click decorations.")]
+[assembly: AssemblyDescription("An utility app that decorates mouse behaviors.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Frostybee")]
 [assembly: AssemblyProduct("FriskyMouse")]
