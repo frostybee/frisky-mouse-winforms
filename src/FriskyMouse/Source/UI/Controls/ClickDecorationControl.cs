@@ -40,8 +40,9 @@ namespace FriskyMouse.UI.Controls
             _rippleValueAnimator.Progressed += OnRipplesAnimation_Progressed;
             _rippleValueAnimator.Completed += OnRipplesAnimation_Completed;
             sliderAnimSpeed.onValueChanged += SliderAnimSpeed_onValueChanged;
-        }
-                
+            switchEnableClicker.CheckedChanged += SwitchEnableClicker_CheckedChanged;            
+        }        
+
         protected override void OnLoad(EventArgs e)
         {
             ConfigControls();
@@ -94,7 +95,11 @@ namespace FriskyMouse.UI.Controls
             // Clear the _surface that was previously drawn onto the _layeredWindow window.                                    
             pcbRipplePreview.Image = _blankCanvas;
         }
-        
+
+        private void SwitchEnableClicker_CheckedChanged(object sender, EventArgs e)
+        {
+            _clickOptions.Enabled = switchEnableClicker.Checked;
+        }
         private void CmbProfilesList_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Switch to the newly selected profile. 

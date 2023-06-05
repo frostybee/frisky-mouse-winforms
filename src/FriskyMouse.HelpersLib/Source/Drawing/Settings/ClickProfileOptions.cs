@@ -16,5 +16,6 @@ namespace FriskyMouse.HelpersLib.Drawing
         public int InitialOpacity { get; set; } = 100;        
         public int MaxRadius { get; set; } = 200;
         #endregion
+        public bool Enabled { get; set; } = true;
     }
 }

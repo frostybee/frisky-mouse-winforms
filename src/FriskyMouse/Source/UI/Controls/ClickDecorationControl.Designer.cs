@@ -42,7 +42,7 @@
             this.cmbInterpolationMode = new MaterialSkin.Controls.MaterialComboBox();
             this.cmbAnimDirection = new MaterialSkin.Controls.MaterialComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.switchHighlighter = new MaterialSkin.Controls.MaterialSwitch();
+            this.switchEnableClicker = new MaterialSkin.Controls.MaterialSwitch();
             this.sldOutlineWidth = new MaterialSkin.Controls.MaterialSlider();
             this.btnStopAnimation = new MaterialSkin.Controls.MaterialButton();
             this.btnPreview = new MaterialSkin.Controls.MaterialButton();
@@ -85,7 +85,7 @@
             this.panel2.Controls.Add(this.groupBox3);
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.switchHighlighter);
+            this.panel2.Controls.Add(this.switchEnableClicker);
             this.panel2.Controls.Add(this.sldOutlineWidth);
             this.panel2.Controls.Add(this.btnStopAnimation);
             this.panel2.Controls.Add(this.btnPreview);
@@ -275,22 +275,22 @@
             this.label2.Size = new System.Drawing.Size(698, 2);
             this.label2.TabIndex = 74;
             // 
-            // switchHighlighter
+            // switchEnableClicker
             // 
-            this.switchHighlighter.AutoSize = true;
-            this.switchHighlighter.Checked = true;
-            this.switchHighlighter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.switchHighlighter.Depth = 0;
-            this.switchHighlighter.Location = new System.Drawing.Point(12, 7);
-            this.switchHighlighter.Margin = new System.Windows.Forms.Padding(0);
-            this.switchHighlighter.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.switchHighlighter.MouseState = MaterialSkin.MouseState.HOVER;
-            this.switchHighlighter.Name = "switchHighlighter";
-            this.switchHighlighter.Ripple = true;
-            this.switchHighlighter.Size = new System.Drawing.Size(247, 37);
-            this.switchHighlighter.TabIndex = 73;
-            this.switchHighlighter.Text = "Enable/Disable Decoration";
-            this.switchHighlighter.UseVisualStyleBackColor = true;
+            this.switchEnableClicker.AutoSize = true;
+            this.switchEnableClicker.Checked = true;
+            this.switchEnableClicker.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.switchEnableClicker.Depth = 0;
+            this.switchEnableClicker.Location = new System.Drawing.Point(12, 7);
+            this.switchEnableClicker.Margin = new System.Windows.Forms.Padding(0);
+            this.switchEnableClicker.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.switchEnableClicker.MouseState = MaterialSkin.MouseState.HOVER;
+            this.switchEnableClicker.Name = "switchEnableClicker";
+            this.switchEnableClicker.Ripple = true;
+            this.switchEnableClicker.Size = new System.Drawing.Size(247, 37);
+            this.switchEnableClicker.TabIndex = 73;
+            this.switchEnableClicker.Text = "Enable/Disable Decoration";
+            this.switchEnableClicker.UseVisualStyleBackColor = true;
             // 
             // sldOutlineWidth
             // 
@@ -361,7 +361,7 @@
             this.groupBox1.Controls.Add(this.pcbRipplePreview);
             this.groupBox1.Location = new System.Drawing.Point(517, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(274, 281);
+            this.groupBox1.Size = new System.Drawing.Size(235, 237);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Preview";
@@ -369,9 +369,9 @@
             // pcbRipplePreview
             // 
             this.pcbRipplePreview.BackColor = System.Drawing.Color.White;
-            this.pcbRipplePreview.Location = new System.Drawing.Point(13, 21);
+            this.pcbRipplePreview.Location = new System.Drawing.Point(16, 21);
             this.pcbRipplePreview.Name = "pcbRipplePreview";
-            this.pcbRipplePreview.Size = new System.Drawing.Size(250, 250);
+            this.pcbRipplePreview.Size = new System.Drawing.Size(200, 200);
             this.pcbRipplePreview.TabIndex = 0;
             this.pcbRipplePreview.TabStop = false;
             // 
@@ -400,7 +400,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private MaterialSkin.Controls.MaterialSwitch switchHighlighter;
+        private MaterialSkin.Controls.MaterialSwitch switchEnableClicker;
         private System.Windows.Forms.Button btnColorPicker;
         private MaterialSkin.Controls.MaterialLabel lblColor;
         private MaterialSkin.Controls.MaterialButton btnStopAnimation;

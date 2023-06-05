@@ -21,7 +21,7 @@ namespace FriskyMouse.UI.Controls
             { "Dot", DashStyle.Dot},
             { "Dash Dot", DashStyle.DashDot},
             { "Dash Dot Dot", DashStyle.DashDotDot},
-        };           
+        };
 
         public HighlighterControl()
         {
@@ -178,7 +178,7 @@ namespace FriskyMouse.UI.Controls
             _highlighterModel.FillColor = Color.Yellow;
             switchFilledSpotlight.Checked = true;
             UpdateHighlighterPreview();
-            _applicationManager.ApplyHighlighterSettings();            
+            _applicationManager.ApplyHighlighterSettings();
         }
     }
 }

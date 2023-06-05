@@ -35,7 +35,7 @@ namespace FrostyBee.FriskyRipples
         private readonly ClickProfileOptions _clickOptions;
         public RippleProfileType RippleType { get; set; }
         public RippleProfilesManager(SettingsManager _settingsManager)
-        {            
+        {
             _clickOptions = _settingsManager.ClickProfileOptions;
             _layeredWindow = new LayeredWindow();
             RippleType = RippleProfileType.SonarPulse;
@@ -75,7 +75,7 @@ namespace FrostyBee.FriskyRipples
             // TODO: put this in a helper method.                                    
             double progress = _animationManager.GetProgress();
             _graphics.Clear(Color.Transparent);
-            _clickProfile.RenderRipples(_graphics, _clickOptions, progress);            
+            _clickProfile.RenderRipples(_graphics, _clickOptions, progress);
             // Update the layered window to show the current frame. 
             _layeredWindow.SetBitmap(_surface, 255);
         }
@@ -97,16 +97,19 @@ namespace FrostyBee.FriskyRipples
 
         internal void ShowRipplesAt(int x, int y)
         {
-            if (!_animationManager.IsAnimating())
+            if (_clickOptions.Enabled)
             {
-                _layeredWindow.Move(x + 1, y + 1);
-                _layeredWindow.Show();
-                StartAnimation();
+                if (!_animationManager.IsAnimating())
+                {
+                    _layeredWindow.Move(x + 1, y + 1);
+                    _layeredWindow.Show();
+                    StartAnimation();
+                }
             }
         }
 
         internal void StartAnimation()
-        {              
+        {
             // We perform the drawing here.            
             if (!_animationManager.IsAnimating())
             {

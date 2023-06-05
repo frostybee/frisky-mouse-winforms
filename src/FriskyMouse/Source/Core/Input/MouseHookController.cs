@@ -22,8 +22,7 @@ namespace FriskyMouse.Core
             _systemDoubleClickTime = SystemInformation.DoubleClickTime;
             _hookType = NativeMethods.WH_MOUSE_LL;
         }
-
-        #region Private Methods
+                
         protected override IntPtr HookCallbackProcedure(int nCode, IntPtr wParam, IntPtr lParam)
         {
             MouseButtonTypes messageType = (MouseButtonTypes)wParam;
@@ -79,13 +78,7 @@ namespace FriskyMouse.Core
 
             }
             return NativeMethods.CallNextHookEx(_mouseHookHandle, nCode, wParam, lParam);
-        }
-        #endregion
-
-        #region Public Methods
-       
-        #endregion
-        
+        }                   
     }
 }
 
