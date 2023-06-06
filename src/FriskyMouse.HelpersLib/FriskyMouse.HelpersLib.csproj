@@ -1,140 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CFDEDB57-F245-4C59-B4A9-399ABEE95A6E}</ProjectGuid>
+    <TargetFramework>net7.0-windows7.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <RootNamespace>FriskyMouse.HelpersLib</RootNamespace>
-    <AssemblyName>FriskyMouse.HelpersLib</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
     <OutputPath>..\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
     <OutputPath>..\bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
+    <AssemblyTitle>FriskyMouse HelpersLib</AssemblyTitle>
+    <Product>FriskyMouse.HelpersLib</Product>
+    <Copyright>Copyright ©  2023</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Animation\AnimationDirection.cs" />
-    <Compile Include="Source\Animation\Easings\BackEaseIn.cs" />
-    <Compile Include="Source\Animation\Easings\BackEaseInOut.cs" />
-    <Compile Include="Source\Animation\Easings\BackEaseOut.cs" />
-    <Compile Include="Source\Animation\Easings\BounceEaseIn.cs" />
-    <Compile Include="Source\Animation\Easings\BounceEaseInOut.cs" />
-    <Compile Include="Source\Animation\Easings\BounceEaseOut.cs" />
-    <Compile Include="Source\Animation\Easings\CircularEaseIn.cs" />
-    <Compile Include="Source\Animation\Easings\CircularEaseInOut.cs" />
-    <Compile Include="Source\Animation\Easings\CircularEaseOut.cs" />
-    <Compile Include="Source\Animation\Easings\CubicEaseIn.cs" />
-    <Compile Include="Source\Animation\Easings\CubicEaseInOut.cs" />
-    <Compile Include="Source\Animation\Easings\CubicEaseOut.cs" />
-    <Compile Include="Source\Animation\Easings\Easing.cs" />
-    <Compile Include="Source\Animation\Easings\ElasticEaseIn.cs" />
-    <Compile Include="Source\Animation\Easings\ElasticEaseInOut.cs" />
-    <Compile Include="Source\Animation\Easings\ElasticEaseOut.cs" />
-    <Compile Include="Source\Animation\Easings\ExponentialEaseIn.cs" />
-    <Compile Include="Source\Animation\Easings\ExponentialEaseInOut.cs" />
-    <Compile Include="Source\Animation\Easings\ExponentialEaseOut.cs" />
-    <Compile Include="Source\Animation\Easings\IEasing.cs" />
-    <Compile Include="Source\Animation\Easings\LinearEasing.cs" />
-    <Compile Include="Source\Animation\Easings\QuadraticEaseIn.cs" />
-    <Compile Include="Source\Animation\Easings\QuadraticEaseInOut.cs" />
-    <Compile Include="Source\Animation\Easings\QuadraticEaseOut.cs" />
-    <Compile Include="Source\Animation\Easings\QuarticEaseIn.cs" />
-    <Compile Include="Source\Animation\Easings\QuarticEaseInOut.cs" />
-    <Compile Include="Source\Animation\Easings\QuarticEaseOut.cs" />
-    <Compile Include="Source\Animation\Easings\QuinticEaseIn.cs" />
-    <Compile Include="Source\Animation\Easings\QuinticEaseInOut.cs" />
-    <Compile Include="Source\Animation\Easings\QuinticEaseOut.cs" />
-    <Compile Include="Source\Animation\Easings\SineEaseIn.cs" />
-    <Compile Include="Source\Animation\Easings\SineEaseInOut.cs" />
-    <Compile Include="Source\Animation\Easings\SineEaseOut.cs" />
-    <Compile Include="Source\Animation\InterpolationType.cs" />
-    <Compile Include="Source\Animation\Utils\BounceEaseUtils.cs" />
-    <Compile Include="Source\Animation\Utils\EasingUtils.cs" />
-    <Compile Include="Source\Animation\ValueAnimator.cs" />
-    <Compile Include="Source\Attributes\ConstructableEnumAttribute.cs" />
-    <Compile Include="Source\Attributes\DefaultSpeedAttribute.cs" />
-    <Compile Include="Source\Drawing\Enums\RippleEnums.cs" />
-    <Compile Include="Source\Drawing\Profiles\BaseProfile.cs" />
-    <Compile Include="Source\Drawing\Profiles\CircleProfile.cs" />
-    <Compile Include="Source\Drawing\Profiles\ConcentricProfile.cs" />
-    <Compile Include="Source\Drawing\Profiles\CrosshairProfile.cs" />
-    <Compile Include="Source\Drawing\Profiles\DiamondProfile.cs" />
-    <Compile Include="Source\Drawing\Profiles\HexagonProfile.cs" />
-    <Compile Include="Source\Drawing\Profiles\SingleProfile.cs" />
-    <Compile Include="Source\Drawing\Profiles\SonarPulseProfile.cs" />
-    <Compile Include="Source\Drawing\Profiles\SpotlightProfile.cs" />
-    <Compile Include="Source\Drawing\Profiles\SquaredPulseProfile.cs" />
-    <Compile Include="Source\Drawing\Profiles\SquareProfile.cs" />
-    <Compile Include="Source\Drawing\Profiles\StarProfile.cs" />
-    <Compile Include="Source\Drawing\Settings\ClickProfileOptions.cs" />
-    <Compile Include="Source\Drawing\Shapes\RippleEntry.cs" />
-    <Compile Include="Source\Extensions\ColorExtensions.cs" />
-    <Compile Include="Source\Extensions\ControlExtensions.cs" />
-    <Compile Include="Source\Extensions\EnumExtensions.cs" />
-    <Compile Include="Source\Extensions\GraphicsExtensions.cs" />
-    <Compile Include="Source\Helpers\ConstructableFactory.cs" />
-    <Compile Include="Source\Helpers\DrawingHelper.cs" />
-    <Compile Include="Source\Helpers\RandomFast.cs" />
-    <Compile Include="Source\IConstructable.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <Compile Remove="Source\Animation\Easings\SpringEasing.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

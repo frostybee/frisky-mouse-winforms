@@ -1,13 +1,12 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriskyMouse", "src\FriskyMouse\FriskyMouse.csproj", "{A52D203E-5667-4CDF-B243-64C82B77216F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialSkin", "src\MaterialSkin\MaterialSkin.csproj", "{8EB7611B-68CD-4B8B-987A-11717E2B250C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialSkin", "src\MaterialSkin\MaterialSkin.csproj", "{8EB7611B-68CD-4B8B-987A-11717E2B250C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriskyMouse.HelpersLib", "src\FriskyMouse.HelpersLib\FriskyMouse.HelpersLib.csproj", "{CFDEDB57-F245-4C59-B4A9-399ABEE95A6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriskyMouse.HelpersLib", "src\FriskyMouse.HelpersLib\FriskyMouse.HelpersLib.csproj", "{CFDEDB57-F245-4C59-B4A9-399ABEE95A6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriskyMouse", "src\FriskyMouse\FriskyMouse.csproj", "{6485BEA9-30E5-4109-8854-DDE377C0C76B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +14,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A52D203E-5667-4CDF-B243-64C82B77216F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A52D203E-5667-4CDF-B243-64C82B77216F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A52D203E-5667-4CDF-B243-64C82B77216F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A52D203E-5667-4CDF-B243-64C82B77216F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8EB7611B-68CD-4B8B-987A-11717E2B250C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8EB7611B-68CD-4B8B-987A-11717E2B250C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EB7611B-68CD-4B8B-987A-11717E2B250C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +22,10 @@ Global
 		{CFDEDB57-F245-4C59-B4A9-399ABEE95A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFDEDB57-F245-4C59-B4A9-399ABEE95A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFDEDB57-F245-4C59-B4A9-399ABEE95A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6485BEA9-30E5-4109-8854-DDE377C0C76B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6485BEA9-30E5-4109-8854-DDE377C0C76B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6485BEA9-30E5-4109-8854-DDE377C0C76B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6485BEA9-30E5-4109-8854-DDE377C0C76B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
