@@ -55,6 +55,7 @@
                 RobotoFontFamilies.Add(ff.Name.Replace(' ', '_'), ff);
             }
 
+            // TODO: DISPOSE ALL THE INSTANTIATED fonts.
             // create and save font handles for GDI
             logicalFonts = new Dictionary<string, IntPtr>(18);
             logicalFonts.Add("H1", createLogicalFont("Roboto Light", 96, NativeTextRenderer.logFontWeight.FW_LIGHT));

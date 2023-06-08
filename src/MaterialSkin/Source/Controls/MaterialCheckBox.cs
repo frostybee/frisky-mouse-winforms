@@ -170,7 +170,14 @@
             {
                 if (Enabled)
                 {
-                    using (Pen pen2 = new Pen(DrawHelper.BlendColor(Parent.BackColor, Enabled ? SkinManager.CheckboxOffColor : SkinManager.CheckBoxOffDisabledColor, backgroundAlpha), 2))
+                    using (Pen pen2 = 
+                        new Pen(
+                            DrawHelper.BlendColor(
+                                Parent.BackColor, 
+                                Enabled ?
+                                SkinManager.CheckboxOffColor : 
+                                SkinManager.CheckBoxOffDisabledColor, backgroundAlpha), 2)
+                        )
                     {
                         g.DrawPath(pen2, checkmarkPath);
                     }

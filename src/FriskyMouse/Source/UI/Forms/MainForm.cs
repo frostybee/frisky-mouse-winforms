@@ -17,12 +17,12 @@ namespace FriskyMouse.UI
         {
             InitializeComponent();
             // TODO: find the best value to auto-scale with.
-            this.AutoScaleMode = AutoScaleMode.Dpi;
+            this.AutoScaleMode = AutoScaleMode.Inherit;
             this.AutoScaleDimensions = new SizeF(96f, 96f);
             // Initialize the global managers.
             _applicationManager = DecorationController.Instance;
             _materialSkinManager = MaterialSkinManager.Instance;
-            InitializeControls();            
+            InitializeControls();
         }
 
         private void InitializeControls()
@@ -50,7 +50,7 @@ namespace FriskyMouse.UI
             _materialSkinManager.AddFormToManage(this);
             _materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             _materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700,
-                Primary.Indigo100, Accent.Pink200, TextShade.WHITE);            
+                Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
         }
 
         /// <summary>
@@ -107,11 +107,11 @@ namespace FriskyMouse.UI
             Debug.WriteLine("MainForm_Load....");
         }
         private void Restore()
-        {            
-            Show();            
-            ShowInTaskbar = true;            
+        {
+            Show();
+            ShowInTaskbar = true;
             this.WindowState = FormWindowState.Normal;
-            appNotifyIcon.Visible = false;            
+            appNotifyIcon.Visible = false;
             bool oldTopMost = TopMost;
             TopMost = true;
             TopMost = false;
@@ -140,7 +140,7 @@ namespace FriskyMouse.UI
         private void MenuItemExit_Click(object sender, EventArgs e)
         {
             Close();
-            Application.Exit();            
+            Application.Exit();
         }
     }
 }

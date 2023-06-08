@@ -23,8 +23,8 @@ namespace FriskyMouse.UI.Controls
         private Graphics _graphics;
         public ClickDecorationControl()
         {
-            InitializeComponent();            
-            DoubleBuffered = true;                        
+            InitializeComponent();
+            DoubleBuffered = true;
             _currentProfile = new SonarPulseProfile();
             _profilesManager = DecorationController.Instance.ClickDecorator;
             _clickOptions = DecorationController.Instance.SettingsManager.ClickProfileOptions;
@@ -40,8 +40,8 @@ namespace FriskyMouse.UI.Controls
             _rippleValueAnimator.Progressed += OnRipplesAnimation_Progressed;
             _rippleValueAnimator.Completed += OnRipplesAnimation_Completed;
             sliderAnimSpeed.onValueChanged += SliderAnimSpeed_onValueChanged;
-            switchEnableClicker.CheckedChanged += SwitchEnableClicker_CheckedChanged;            
-        }        
+            switchEnableClicker.CheckedChanged += SwitchEnableClicker_CheckedChanged;
+        }
 
         protected override void OnLoad(EventArgs e)
         {
@@ -68,7 +68,7 @@ namespace FriskyMouse.UI.Controls
             //   StopAnimation();
             _rippleValueAnimator.StartNewAnimation(_clickOptions.AnimationDirection);
             if (!_rippleValueAnimator.IsAnimating())
-            {                
+            {
             }
         }
         private void StopAnimation()
@@ -86,12 +86,12 @@ namespace FriskyMouse.UI.Controls
                 _graphics.Clear(Color.White);
                 // Draw and animate the selected profile. 
                 var progress = _rippleValueAnimator.GetProgress();
-                _currentProfile.RenderRipples(_graphics, _clickOptions, progress);                
+                _currentProfile.RenderRipples(_graphics, _clickOptions, progress);
             }
             pcbRipplePreview.Invalidate();
         }
         private void OnRipplesAnimation_Completed(object sender)
-        {            
+        {
             // Clear the _surface that was previously drawn onto the _layeredWindow window.                                    
             pcbRipplePreview.Image = _blankCanvas;
         }
@@ -104,9 +104,9 @@ namespace FriskyMouse.UI.Controls
         {
             // Switch to the newly selected profile. 
             RippleProfileType profileType = cmbProfilesList.ParseEnumValue<RippleProfileType>();
-            BaseProfile _newProfile = ConstructableFactory.GetInstanceOf<BaseProfile>(profileType);            
+            BaseProfile _newProfile = ConstructableFactory.GetInstanceOf<BaseProfile>(profileType);
             _currentProfile?.Dispose();
-            _profilesManager.SwitchProfile(_newProfile);            
+            _profilesManager.SwitchProfile(_newProfile);
             _currentProfile = _newProfile;
             StartAnimation();
         }

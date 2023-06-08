@@ -55,28 +55,24 @@ namespace FriskyMouse.HelpersLib.Helpers
 
         internal static PointF[] CreateHexagon(int x, int y, int radius)
         {
-            //Get the middle of the panel            
-            PointF[] shapes = new PointF[6];
-            //Create 6 points
-            for (int i = 0; i < 6; i++)
-            {  //- TODO: put this in a method. We need to create the shapes once and update the radius on animation progress.              
-                shapes[i] = new PointF(
-                    x + radius * (float)Math.Cos(i * 60 * Math.PI / 180f),
-                    y + radius * (float)Math.Sin(i * 60 * Math.PI / 180f));
-            }
-            return shapes;
+            return GetPolygonPoints(x, y, radius, 6, 180f);
         }
+
         internal static PointF[] CreateDiamond(int x, int y, int radius)
-        {            
-            var shapes = new PointF[8];                     
-            //Create 6 points
-            for (int angle = 0; angle < 8; angle++)
-            {  //- TODO: put this in a method. We need to create the shapes once and update the radius on animation progress.              
-                shapes[angle] = new PointF(
-                    x + radius * (float)Math.Cos(angle * 60 * Math.PI / 120f),
-                    y + radius * (float)Math.Sin(angle * 60 * Math.PI / 120f));
-            }            
-            return shapes;
+        {
+            return GetPolygonPoints(x, y, radius, 8, 120f);
+        }
+
+        internal static PointF[] GetPolygonPoints(int x, int y, int radius, int edgesCount, float degree)
+        {
+            PointF[] points = new PointF[edgesCount];
+            for (int i = 0; i < edgesCount; i++)
+            {
+                points[i] = new PointF(
+                    x + radius * (float)Math.Cos(i * 60 * Math.PI / degree),
+                    y + radius * (float)Math.Sin(i * 60 * Math.PI / degree));
+            }
+            return points;
         }
 
         public static void DrawShadow(Graphics G, GraphicsPath GP, int d, Color pBackColor)

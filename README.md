@@ -1,12 +1,11 @@
-# mouse-decorator
+# Frisky Mouse
 
-A mouse utility for Windows.
+Frisky Mouse is a mouse utility for Windows. It lets you decorate the mouse cursor by drawing a spotlight around it.
 
 **NOTE:** This repository is undergoing development...
 
 ## Settings
 
-The maximum opacity of the spotlight is set to 90%.
 
 ## Screenshots
 
