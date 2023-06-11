@@ -4,8 +4,8 @@ namespace FriskyMouse.HelpersLib.Drawing
 {
     internal class CrosshairProfile : BaseProfile
     {
-        SolidBrush _verticalBrush;
-        SolidBrush _horizontalBrush;
+        private SolidBrush _verticalBrush;
+        private SolidBrush _horizontalBrush;
         public CrosshairProfile()
         {
             InitProfileEntries();
@@ -14,9 +14,7 @@ namespace FriskyMouse.HelpersLib.Drawing
         private void InitProfileEntries()
         {            
             int width = 40;
-            int height = 8;
-            // TODO: Set the initial opacity here. 
-            //_verticalBrush = new SolidBrush(Color.CornflowerBlue);
+            int height = 8;            
             _verticalBrush = new SolidBrush(Color.DarkBlue);
             _horizontalBrush = new SolidBrush(Color.Crimson);            
             // 1) Make the outer most ripple.

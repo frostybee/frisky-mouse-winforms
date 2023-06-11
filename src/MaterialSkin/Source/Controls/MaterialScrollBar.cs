@@ -1,15 +1,14 @@
 
+using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Security;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
+
 namespace MaterialSkin.Controls
 {
-
-    using System;
-    using System.ComponentModel;
-    using System.Diagnostics;
-    using System.Drawing;
-    using System.Security;
-    using System.Windows.Forms;
-    using System.Runtime.InteropServices;
-    
     public enum MaterialScrollOrientation
     {
         Horizontal,

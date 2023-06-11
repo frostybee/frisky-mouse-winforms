@@ -24,8 +24,11 @@ namespace FriskyMouse.UI.Controls
         public ClickDecorationControl()
         {
             InitializeComponent();
+            // THE ISSUE IS HERE.
+            //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             DoubleBuffered = true;
-            _currentProfile = new SonarPulseProfile();
+            _currentProfile = new FilledSonarPulseProfile();
             _profilesManager = DecorationController.Instance.ClickDecorator;
             _clickOptions = DecorationController.Instance.SettingsManager.ClickProfileOptions;
             _rippleValueAnimator = new ValueAnimator()

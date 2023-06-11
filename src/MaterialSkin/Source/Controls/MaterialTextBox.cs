@@ -1,14 +1,14 @@
-﻿namespace MaterialSkin.Controls
-{
-    using MaterialSkin.Animations;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Drawing.Imaging;
-    using System.Runtime.InteropServices;
-    using System.Windows.Forms;
+﻿using MaterialSkin.Animations;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
+namespace MaterialSkin.Controls
+{
     [ToolboxItem(false), Description("This control has been replaced by MaterialTextBox2"), Obsolete("Use MaterialTextBox2 instead", false)]
     public class MaterialTextBox : RichTextBox, IMaterialControl
     {

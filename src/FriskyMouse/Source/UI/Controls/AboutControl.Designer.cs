@@ -1,4 +1,4 @@
-﻿namespace FriskyMouse.Source.UI.Controls
+﻿namespace FriskyMouse.UI.Controls
 {
     partial class AboutControl
     {
@@ -28,27 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            splitContainer1 = new SplitContainer();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.SuspendLayout();
             SuspendLayout();
-            // 
-            // splitContainer1
-            // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 0);
-            splitContainer1.Name = "splitContainer1";
-            splitContainer1.Orientation = Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            splitContainer1.Panel1.BackColor = SystemColors.Control;
-            splitContainer1.Panel1.Controls.Add(materialLabel26);
-            splitContainer1.Size = new Size(809, 549);
-            splitContainer1.SplitterDistance = 53;
-            splitContainer1.TabIndex = 0;
             // 
             // materialLabel26
             // 
@@ -56,8 +37,8 @@
             materialLabel26.Depth = 0;
             materialLabel26.Font = new Font("Roboto", 34F, FontStyle.Bold, GraphicsUnit.Pixel);
             materialLabel26.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            materialLabel26.Location = new Point(25, 6);
-            materialLabel26.Margin = new Padding(5, 0, 5, 0);
+            materialLabel26.Location = new Point(4, 0);
+            materialLabel26.Margin = new Padding(4, 0, 4, 0);
             materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel26.Name = "materialLabel26";
             materialLabel26.Size = new Size(91, 41);
@@ -66,21 +47,17 @@
             // 
             // AboutControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(splitContainer1);
+            Controls.Add(materialLabel26);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AboutControl";
-            Size = new Size(809, 549);
-            splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
+            Size = new Size(708, 412);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private SplitContainer splitContainer1;
         private MaterialSkin.Controls.MaterialLabel materialLabel26;
     }
 }

@@ -6,7 +6,7 @@ namespace FriskyMouse.HelpersLib.Drawing
 {
     internal class HexagonProfile : BaseProfile
     {
-        Pen _outlinePen;
+        private Pen _outlinePen;
         int _baseRadius = 10; // Needs to be parametrized.
 
         public HexagonProfile()

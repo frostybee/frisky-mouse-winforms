@@ -11,7 +11,9 @@ namespace FriskyMouse.MouseDecorator.Helpers
         {
             //TODO: clean this messy code.
             int radius = settings.Radius;
-            int outline = (!settings.IsFilled ? settings.OutlineThickness +15: 5);
+            //int outline = (!settings.IsFilled ? settings.OutlineThickness +15: 5);
+            settings.OutlineThickness = 1;
+            int outline = 1;
             //Bitmap memoryBitmap = new Bitmap(radius *2 +5, radius*2+5, PixelFormat.Format32bppArgb);
             Bitmap memoryBitmap = new Bitmap(radius * 2 + outline, radius * 2 + outline, PixelFormat.Format32bppArgb);
 

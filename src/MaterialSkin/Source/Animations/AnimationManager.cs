@@ -1,10 +1,10 @@
-﻿namespace MaterialSkin.Animations
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Drawing;
-    using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
+namespace MaterialSkin.Animations
+{
     /// <summary>
     /// Defines the <see cref="AnimationManager" />
     /// </summary>

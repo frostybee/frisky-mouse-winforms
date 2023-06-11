@@ -38,7 +38,7 @@ namespace FrostyBee.FriskyRipples
         {
             _clickOptions = _settingsManager.ClickProfileOptions;
             _layeredWindow = new LayeredWindow();
-            RippleType = RippleProfileType.SonarPulse;
+            RippleType = RippleProfileType.FilledSonarPulse;
 
             _animationManager = new ValueAnimator()
             {
@@ -99,6 +99,10 @@ namespace FrostyBee.FriskyRipples
         {
             if (_clickOptions.Enabled)
             {
+                if (_animationManager.IsAnimating())
+                {
+                    _animationManager.Stop();
+                }
                 if (!_animationManager.IsAnimating())
                 {
                     _layeredWindow.Move(x + 1, y + 1);

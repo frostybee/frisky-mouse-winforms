@@ -1,10 +1,10 @@
-﻿namespace MaterialSkin.Controls
-{
-    using System;
-    using System.ComponentModel;
-    using System.Runtime.InteropServices;
-    using System.Windows.Forms;
+﻿using System;
+using System.ComponentModel;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
+namespace MaterialSkin.Controls
+{
     public class MaterialMultiLineTextBox : RichTextBox, IMaterialControl
     {
         //Properties for managing the material design properties

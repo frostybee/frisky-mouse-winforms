@@ -1,15 +1,15 @@
-﻿namespace MaterialSkin
-{
-    using MaterialSkin.Controls;
-    using MaterialSkin.Properties;
-    using System;
-    using System.Collections.Generic;
-    using System.Drawing;
-    using System.Drawing.Text;
-    using System.Linq;
-    using System.Runtime.InteropServices;
-    using System.Windows.Forms;
+﻿using MaterialSkin.Controls;
+using MaterialSkin.Properties;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Text;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
+namespace MaterialSkin
+{
     public class MaterialSkinManager
     {
         private static MaterialSkinManager _instance;

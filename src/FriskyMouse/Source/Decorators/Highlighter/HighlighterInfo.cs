@@ -63,7 +63,7 @@ namespace FriskyMouse.Core
         public Color FillColor { get; set; }
         public Color OutlineColor { get; set; }
         public bool IsFilled { get; set; }
-        public int OutlineThickness { get; set; }
+        public int OutlineThickness { get; set; } = 1;
         public DashStyle OutlineStyle { get; set; }
         #endregion
     }

@@ -1,13 +1,13 @@
-﻿namespace MaterialSkin.Controls
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Drawing.Imaging;
-    using System.Windows.Forms;
-    using MaterialSkin.Animations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Windows.Forms;
+using MaterialSkin.Animations;
 
+namespace MaterialSkin.Controls
+{
     public class MaterialMaskedTextBox : Control, IMaterialControl
     {
 

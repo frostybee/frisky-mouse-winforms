@@ -1,9 +1,9 @@
-﻿namespace MaterialSkin
-{
-    using System;
-    using System.Drawing;
-    using System.Reflection;
+﻿using System;
+using System.Drawing;
+using System.Reflection;
 
+namespace MaterialSkin
+{
     /// <summary>
     /// Defines the <see cref="Extensions" />
     /// These add functions on default C# types and classes

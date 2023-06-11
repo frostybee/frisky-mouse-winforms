@@ -1,10 +1,10 @@
-﻿namespace MaterialSkin.Controls
-{
-    using System;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Windows.Forms;
+﻿using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
 
+namespace MaterialSkin.Controls
+{
     public class MaterialListView : ListView, IMaterialControl
     {
         [Browsable(false)]

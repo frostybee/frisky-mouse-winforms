@@ -5,18 +5,14 @@ namespace FriskyMouse.HelpersLib.Drawing
 {
     internal class StarProfile : BaseProfile
     {
-
-        Pen _outlinePen;
+        private Pen _outlinePen;
         public StarProfile()
         {
             InitProfileEntries();
         }
         private void InitProfileEntries()
-        {
-            //TODO: store in the settings the stroke width of the pen.
-            // And the style/dashed/dot
-            _outlinePen = new Pen(Color.Crimson, 4);
-            //_outlinePen.DashStyle = DashStyle.Dot;
+        {            
+            _outlinePen = new Pen(Color.Crimson, 4);            
 
             // 1) Make the outer most ripple.
             AddRipple(

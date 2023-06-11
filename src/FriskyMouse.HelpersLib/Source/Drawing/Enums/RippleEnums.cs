@@ -13,14 +13,16 @@ namespace FriskyMouse.HelpersLib.Drawing
         Hexagon,
         [Description("Diamond"), ConstructableEnum(typeof(DiamondProfile))]
         Diamond,
+        [Description("Sonar Pulse"), ConstructableEnum(typeof(SonarPulseProfile))]
+        SonarPulse,
         [Description("Cherry Blossom"), ConstructableEnum(typeof(SingleProfile))]
         Cherry,        
         [Description("Star ripple"), ConstructableEnum(typeof(StarProfile))]
         Star,        
         [Description("Fading Spotlight"), ConstructableEnum(typeof(SpotlightProfile))]
         Spotlight,
-        [Description("Sonar Pulse"), ConstructableEnum(typeof(SonarPulseProfile))]
-        SonarPulse,
+        [Description("Filled Sonar Pulse"), ConstructableEnum(typeof(FilledSonarPulseProfile))]
+        FilledSonarPulse,
         [Description("Squared Pulse"), ConstructableEnum(typeof(SquaredPulseProfile))]
         SquaredPulse,      
         [Description("Crosshair"), ConstructableEnum(typeof(CrosshairProfile))]

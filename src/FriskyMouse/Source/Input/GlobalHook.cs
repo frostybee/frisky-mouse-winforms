@@ -14,12 +14,6 @@ namespace FriskyMouse.Core
         protected bool _isStarted;
         private NativeMethods.HookProc _hookCallback = null;
 
-        #region Constructor
-
-        public GlobalHook() { }
-
-        #endregion
-
         #region Methods
 
         public void Install()

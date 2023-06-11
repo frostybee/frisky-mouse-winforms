@@ -5,9 +5,8 @@ using FriskyMouse.HelpersLib.Helpers;
 namespace FriskyMouse.HelpersLib.Drawing
 {
     internal class SpotlightProfile : BaseProfile
-    {
-        // TODO: dispose the drawing tools.
-        SolidBrush _innerBrush;
+    {        
+        private SolidBrush _innerBrush;
         public SpotlightProfile()
         {
             InitProfileEntries();

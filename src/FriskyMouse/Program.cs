@@ -1,4 +1,5 @@
 using FriskyMouse.NativeApi;
+using FriskyMouse.Source.UI.Forms;
 using FriskyMouse.UI;
 
 namespace FriskyMouse
@@ -14,7 +15,7 @@ namespace FriskyMouse
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
-        [STAThread]        
+        [STAThread]
         static void Main()
         {
             if (_mutex.WaitOne(TimeSpan.Zero, true))
@@ -24,10 +25,12 @@ namespace FriskyMouse
                     // To customize application configuration such as set high DPI settings or default font,
                     // see https://aka.ms/applicationconfiguration.
                     Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault(true);                    
+                    Application.SetCompatibleTextRenderingDefault(true);
                     Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
                     // TODO: add DPI awareness. @see: main project.                     
+                    //Application.Run(new Form1());
                     Application.Run(new MainForm());
+
                     _mutex.ReleaseMutex();
                 }
                 catch (Exception e)

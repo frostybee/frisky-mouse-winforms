@@ -1,10 +1,10 @@
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace MaterialSkin.Controls
 {
-    using System;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Windows.Forms;
-
     [ToolboxItem(false)]
     public class BaseTextBox : TextBox, IMaterialControl
     {

@@ -96,7 +96,7 @@ namespace FriskyMouse.UI
             Debug.WriteLine("Setting top most window....");
             if (Handle != IntPtr.Zero)
             {
-                SetWindowPosition(PositionX, PositionY);
+                 SetWindowPosition(PositionX, PositionY);
                 //NativeMethods.SetWindowPos(Handle, (IntPtr)SpecialWindowHandles.HWND_TOPMOST, position.X, position.Y, Config.Size.Width, Config.Size.Height,SetWindowPosFlags.SWP_NOACTIVATE);
                 //NativeMethods.SetWindowPos(Handle, NativeMethods.HWND_TOPMOST, x, y, Width, Height, NativeMethods.SWP_NOMOVE | NativeMethods.SWP_NOSIZE);
                 //NativeMethods.SetWindowPos(Handle, (int)SpecialWindowHandles.HWND_TOPMOST, x, y, Width, Height, SetWindowPosFlags.SWP_NOACTIVATE);

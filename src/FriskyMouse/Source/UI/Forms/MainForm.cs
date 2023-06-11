@@ -5,6 +5,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using FriskyMouse.UI.Controls;
 
 namespace FriskyMouse.UI
 {
@@ -17,8 +18,9 @@ namespace FriskyMouse.UI
         {
             InitializeComponent();
             // TODO: find the best value to auto-scale with.
-            this.AutoScaleMode = AutoScaleMode.Inherit;
+            this.AutoScaleMode = AutoScaleMode.Dpi;
             this.AutoScaleDimensions = new SizeF(96f, 96f);
+            DoubleBuffered = true;
             // Initialize the global managers.
             _applicationManager = DecorationController.Instance;
             _materialSkinManager = MaterialSkinManager.Instance;
@@ -103,6 +105,7 @@ namespace FriskyMouse.UI
         private void MainForm_Load(object sender, EventArgs e)
         {
             _applicationManager.BootstrapApp();
+            _applicationManager.MainForm = this;
             _tabHighlighterSettings.InitHighlighterControls();
             Debug.WriteLine("MainForm_Load....");
         }

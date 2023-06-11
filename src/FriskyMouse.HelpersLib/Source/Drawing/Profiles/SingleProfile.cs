@@ -9,11 +9,9 @@ namespace FriskyMouse.HelpersLib.Drawing
     /// </summary>
     internal class SingleProfile : BaseProfile
     {
-        // TODO: add IsFilled. Color Transition: enabled/disabled.
-        // Add random color?        
-        Pen _outlinePen;
-        SolidBrush _innerBrush;
-        SolidBrush _outerBrush;
+        private Pen _outlinePen;
+        private SolidBrush _innerBrush;
+        private SolidBrush _outerBrush;
 
         public SingleProfile()
         {

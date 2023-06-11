@@ -26,6 +26,8 @@ namespace FriskyMouse.UI.Controls
         public HighlighterControl()
         {
             InitializeComponent();
+            //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             _applicationManager = DecorationController.Instance;
             _highlighterModel = _applicationManager.SettingsManager.HighlighterSettings;
 
@@ -164,7 +166,7 @@ namespace FriskyMouse.UI.Controls
 
         /// <summary>
         /// Resets the highlighter settings to predefined values.
-        /// - The spotlight radius will be reset to 30px.
+        /// - The spotlight radius will be reset to 15px.
         /// - The color will be reset to yellow.        
         /// - The color opacity will reset to 75%.        
         /// </summary>
@@ -172,7 +174,7 @@ namespace FriskyMouse.UI.Controls
         /// <param name="e"></param>
         private void ResetSettings_Click(object sender, EventArgs e)
         {
-            sldRadius.Value = 30;
+            sldRadius.Value = 15;
             sldOpacity.Value = 75;
             btnColorPicker.BackColor = Color.Yellow;
             _highlighterModel.FillColor = Color.Yellow;

@@ -1,4 +1,5 @@
-﻿using FrostyBee.FriskyRipples;
+﻿using FriskyMouse.UI;
+using FrostyBee.FriskyRipples;
 using System;
 using System.Diagnostics;
 using System.Threading;
@@ -131,6 +132,8 @@ namespace FriskyMouse.Core
         public SettingsManager SettingsManager => _settingsManager;
         public HighlighterController MouseHighlighter => _mouseHighlighter;
         public RippleProfilesManager ClickDecorator => _clickDecorator;
+
+        public MainForm MainForm { get; internal set; }
 
         #endregion
     }

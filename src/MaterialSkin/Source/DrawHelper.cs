@@ -1,8 +1,8 @@
-﻿namespace MaterialSkin
-{
-    using System.Drawing;
-    using System.Drawing.Drawing2D;
+﻿using System.Drawing;
+using System.Drawing.Drawing2D;
 
+namespace MaterialSkin
+{
     /// <summary>
     /// Defines the <see cref="DrawHelper" />
     /// </summary>

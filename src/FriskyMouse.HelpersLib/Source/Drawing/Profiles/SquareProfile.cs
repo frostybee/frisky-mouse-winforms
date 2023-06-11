@@ -6,8 +6,8 @@ namespace FriskyMouse.HelpersLib.Drawing
 {
     internal class SquareProfile : BaseProfile
     {
-        SolidBrush brush;
-        Pen _outlinePen;
+        private SolidBrush brush;
+        private Pen _outlinePen;
         int _baseRadius = 10; // Needs to be parametrized.
         public SquareProfile()
         {

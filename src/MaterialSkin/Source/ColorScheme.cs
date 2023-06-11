@@ -1,7 +1,7 @@
+using System.Drawing;
+
 namespace MaterialSkin
 {
-    using System.Drawing;
-
     public class ColorScheme
     {
         public readonly Color PrimaryColor, DarkPrimaryColor, LightPrimaryColor, AccentColor, TextColor;

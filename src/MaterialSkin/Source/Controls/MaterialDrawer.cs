@@ -1,15 +1,15 @@
-﻿namespace MaterialSkin.Controls
-{
-    using MaterialSkin.Animations;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Drawing.Drawing2D;
-    using System.Drawing.Imaging;
-    using System.Drawing.Text;
-    using System.Windows.Forms;
+﻿using MaterialSkin.Animations;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Drawing.Text;
+using System.Windows.Forms;
 
+namespace MaterialSkin.Controls
+{
     public class MaterialDrawer : Control, IMaterialControl
     {
         // TODO: Invalidate when changing custom properties

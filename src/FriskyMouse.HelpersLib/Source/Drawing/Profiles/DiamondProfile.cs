@@ -6,7 +6,7 @@ namespace FriskyMouse.HelpersLib.Drawing
 {
     internal class DiamondProfile : BaseProfile
     {
-        Pen _outlinePen;
+        private Pen _outlinePen;
         int _baseRadius = 10; // Needs to be parametrized.
 
         public DiamondProfile()

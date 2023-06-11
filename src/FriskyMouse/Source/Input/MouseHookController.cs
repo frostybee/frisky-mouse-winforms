@@ -14,7 +14,7 @@ namespace FriskyMouse.Core
         private HighlighterController _highlighter;
         private RippleProfilesManager _clickDecorator;
         private static object _syncRoot = new Object();
-        private IntPtr _mouseHookHandle = IntPtr.Zero;        
+        private IntPtr _mouseHookHandle = IntPtr.Zero;
         public MouseHookController(HighlighterController mouseHighlighter, RippleProfilesManager clickDecorator)
         {
             _highlighter = mouseHighlighter;
@@ -22,7 +22,7 @@ namespace FriskyMouse.Core
             _systemDoubleClickTime = SystemInformation.DoubleClickTime;
             _hookType = NativeMethods.WH_MOUSE_LL;
         }
-                
+
         protected override IntPtr HookCallbackProcedure(int nCode, IntPtr wParam, IntPtr lParam)
         {
             MouseButtonTypes messageType = (MouseButtonTypes)wParam;
@@ -38,14 +38,14 @@ namespace FriskyMouse.Core
                 {
                     case MouseButtonTypes.LeftButtonDown:
                         _clickDecorator.ShowRipplesAt(hookStruct.pt.X, hookStruct.pt.Y);
-                        break; 
-                    case MouseButtonTypes.LeftButtonUp:                        
+                        break;
+                    case MouseButtonTypes.LeftButtonUp:
                         // Fix the issue when the highlighter is no longer top most.
-                        Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));                        
+                        // TODO: lock the involved objects. This is causing an InvalidOperationException.
+                        Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));
                         break;
                     case MouseButtonTypes.MouseMove:
-                        //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
-                        _highlighter?.MoveSpotlight(hookStruct.pt);                        
+                        _highlighter?.MoveSpotlight(hookStruct.pt);
                         break;
                     case MouseButtonTypes.RightButtonUp:
                         // Fix the issue when the highlighter is no longer top most.                        
@@ -70,7 +70,7 @@ namespace FriskyMouse.Core
                         //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         break;
                     case MouseButtonTypes.LeftButtonDoubleClick:
-                        Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);                        
+                        Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         break;
                     default:
                         break;
@@ -78,7 +78,7 @@ namespace FriskyMouse.Core
 
             }
             return NativeMethods.CallNextHookEx(_mouseHookHandle, nCode, wParam, lParam);
-        }                   
+        }
     }
 }
 

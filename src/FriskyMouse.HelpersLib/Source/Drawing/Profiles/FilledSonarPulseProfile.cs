@@ -7,21 +7,21 @@ namespace FriskyMouse.HelpersLib.Drawing
     /// <summary>
     /// Represents a single expanding ripple.
     /// </summary>
-    public class SonarPulseProfile : BaseProfile
+    public class FilledSonarPulseProfile : BaseProfile
     {
         private SolidBrush _innerBrush;
-        private Pen _outerPen;
+        private SolidBrush _outerBrush;
         private Pen _middlePen;
-        public SonarPulseProfile()
+        public FilledSonarPulseProfile()
         {
             InitProfileEntries();
         }
 
         private void InitProfileEntries()
         {
-            _innerBrush = new SolidBrush(Color.Crimson);
-            _outerPen = new Pen(Color.DarkRed.WithOpacity(250), 3);
-            _middlePen = new Pen(Color.Yellow, 3);
+            _innerBrush = new SolidBrush(Color.Green);
+            _outerBrush = new SolidBrush(Color.DarkGreen.WithOpacity(250));
+            _middlePen = new Pen(Color.White, 3);
 
             // 1) Make the outer ripple.
             AddRipple(
@@ -31,9 +31,9 @@ namespace FriskyMouse.HelpersLib.Drawing
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, 15),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = BaseRadius,
-                    RadiusMultiplier = 3,                    
-                    OutlinePen = _outerPen,
-                    IsFilled = false,
+                    RadiusMultiplier = 3,
+                    FillBrush = _outerBrush,
+                    IsFilled = true,
                 });
             // 2) Make the middle ripple. 
             AddRipple(   

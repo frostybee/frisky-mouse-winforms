@@ -1,13 +1,13 @@
-﻿namespace MaterialSkin.Controls
-{
-    using MaterialSkin.Animations;
-    using System;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Drawing.Drawing2D;
-    using System.Drawing.Text;
-    using System.Windows.Forms;
+﻿using MaterialSkin.Animations;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Text;
+using System.Windows.Forms;
 
+namespace MaterialSkin.Controls
+{
     public class MaterialRadioButton : RadioButton, IMaterialControl
     {
         [Browsable(false)]
