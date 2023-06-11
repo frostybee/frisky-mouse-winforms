@@ -90,9 +90,9 @@ namespace FrostyBee.FriskyRipples
         {
             //_layeredWindow.SetBitmap(new Bitmap(200, 200), 1);
             // Clear the _surface that was previously drawn onto the _layeredWindow window.
-            _layeredWindow.SetBitmap(_blankCanvas, 1);
             _graphics.Clear(Color.Transparent);
             _layeredWindow.Hide();
+            //_layeredWindow.SetBitmap(_blankCanvas, 0);            
         }
 
         internal void ShowRipplesAt(int x, int y)
@@ -104,7 +104,7 @@ namespace FrostyBee.FriskyRipples
                     _animationManager.Stop();
                 }
                 if (!_animationManager.IsAnimating())
-                {
+                {                    
                     _layeredWindow.Move(x + 1, y + 1);
                     _layeredWindow.Show();
                     StartAnimation();
@@ -117,6 +117,7 @@ namespace FrostyBee.FriskyRipples
             // We perform the drawing here.            
             if (!_animationManager.IsAnimating())
             {
+                _layeredWindow.SetBitmap(_blankCanvas, 1);
                 //_animationManager.StartNewAnimation(AnimationDirection.InOutIn);
                 _animationManager.StartNewAnimation(_clickOptions.AnimationDirection);
             }

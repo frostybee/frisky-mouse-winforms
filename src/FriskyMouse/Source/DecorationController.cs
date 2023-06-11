@@ -31,7 +31,7 @@ namespace FriskyMouse.Core
         #region Methods
         private void ConfigMouseHighlighter()
         {
-            // Configure cursor _highlighterModel.            
+            // Configure cursor _highlighter.            
             _mouseHighlighter.SetupHighlighter(_settingsManager.HighlighterSettings);
         }
         //int previousClick = 0;
@@ -39,7 +39,7 @@ namespace FriskyMouse.Core
         internal void EnableHighlighter()
         {
             //TODO: handle hook return type/errors
-            // TODO: check if the _highlighterModel is enabled in the settings or not. 
+            // TODO: check if the _highlighter is enabled in the settings or not. 
             // TODO: check also if the click decorator is enabled.
             _mouseHighlighter.SetupHighlighter(_settingsManager.HighlighterSettings);
             //--

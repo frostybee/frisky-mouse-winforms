@@ -78,7 +78,7 @@
             mainTabControl.Multiline = true;
             mainTabControl.Name = "mainTabControl";
             mainTabControl.SelectedIndex = 0;
-            mainTabControl.Size = new Size(736, 631);
+            mainTabControl.Size = new Size(842, 631);
             mainTabControl.TabIndex = 0;
             // 
             // tbpHighlighter
@@ -90,7 +90,7 @@
             tbpHighlighter.Location = new Point(4, 31);
             tbpHighlighter.Name = "tbpHighlighter";
             tbpHighlighter.Padding = new Padding(3);
-            tbpHighlighter.Size = new Size(728, 596);
+            tbpHighlighter.Size = new Size(834, 596);
             tbpHighlighter.TabIndex = 0;
             tbpHighlighter.Text = "Highlighter";
             // 
@@ -100,7 +100,7 @@
             _tabHighlighterSettings.Location = new Point(3, 3);
             _tabHighlighterSettings.Margin = new Padding(2, 3, 2, 3);
             _tabHighlighterSettings.Name = "_tabHighlighterSettings";
-            _tabHighlighterSettings.Size = new Size(722, 590);
+            _tabHighlighterSettings.Size = new Size(828, 590);
             _tabHighlighterSettings.TabIndex = 2;
             // 
             // materialDrawer1
@@ -244,7 +244,7 @@
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
-            ClientSize = new Size(744, 709);
+            ClientSize = new Size(850, 709);
             Controls.Add(mainTabControl);
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = mainTabControl;

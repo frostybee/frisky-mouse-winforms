@@ -39,7 +39,7 @@ namespace FriskyMouse.Core
             return new Rectangle(x, x, width, width);
         }
 
-        // Draw the _highlighterModel.
+        // Draw the _highlighter.
         // TODO: move to another class: need a centralized class that provides drawing services.
         public void Draw(Graphics gr)
         {

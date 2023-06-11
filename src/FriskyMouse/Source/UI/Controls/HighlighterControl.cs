@@ -13,7 +13,7 @@ namespace FriskyMouse.UI.Controls
     // the main form. 
     public partial class HighlighterControl : UserControl
     {
-        private readonly HighlighterInfo _highlighterModel;
+        private readonly HighlighterInfo _highlighter;
         private readonly DecorationController _applicationManager;
         private readonly Dictionary<String, DashStyle> _outlineStyles = new Dictionary<String, DashStyle>() {
             { "Solid", DashStyle.Solid},
@@ -29,12 +29,12 @@ namespace FriskyMouse.UI.Controls
             //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             _applicationManager = DecorationController.Instance;
-            _highlighterModel = _applicationManager.SettingsManager.HighlighterSettings;
+            _highlighter = _applicationManager.SettingsManager.HighlighterSettings;
 
             // TODO: 1) must load the saved settings first.
             //       2) Setup UI controls based on the loaded settings.
             InitControlsEvents();
-            // Enable the slider of the _highlighterModel's outline width based 
+            // Enable the slider of the _highlighter's outline width based 
             // on the status of the fill circle switch.
             ManageOutlineSettings();
         }
@@ -57,15 +57,16 @@ namespace FriskyMouse.UI.Controls
         internal void InitHighlighterControls()
         {
             // Initialize the UI controls with the previously selected settings.            
-            switchFilledSpotlight.Checked = _highlighterModel.IsFilled;
-            sldRadius.Value = _highlighterModel.Radius;
-            sldOpacity.Value = _highlighterModel.OpacityPercentage;
-            sldOutlineWidth.Value = _highlighterModel.OutlineThickness;
+            switchFilledSpotlight.Checked = _highlighter.IsFilled;
+            sldRadius.Value = _highlighter.Radius;
+            sldOpacity.Value = _highlighter.OpacityPercentage;
+            sldOutlineWidth.Value = _highlighter.OutlineThickness;
             //sldOutlineWidth.Value =  5;
-            //_highlighterModel.OutlineThickness = 15;
-            //MessageBox.Show(_highlighterModel.OutlineThickness.ToString());
-            btnColorPicker.BackColor = _highlighterModel.FillColor;
-            switchHighlighter.Checked = _highlighterModel.Enabled;
+            //_highlighter.OutlineThickness = 15;
+            //MessageBox.Show(_highlighter.OutlineThickness.ToString());
+            btnColorPicker.BackColor = _highlighter.FillColor;
+            switchHighlighter.Checked = _highlighter.Enabled;
+            UpdateHighlighterSwitchText();
             // TODO: init the outline style in the combo box.
             // FIXME: 
             // TODO: If highlighter disabled ===> Disable the controls. 
@@ -81,7 +82,9 @@ namespace FriskyMouse.UI.Controls
 
         private void SwitchHighlighter_CheckedChanged(object sender, EventArgs e)
         {
-            _highlighterModel.Enabled = switchHighlighter.Checked;
+            _highlighter.Enabled = switchHighlighter.Checked;
+            // Ajust the test of the switch.
+            UpdateHighlighterSwitchText();
             if (switchHighlighter.Checked)
             {
                 DecorationController.Instance.EnableHighlighter();
@@ -91,8 +94,13 @@ namespace FriskyMouse.UI.Controls
                 // TODO: upon disabling the hook,
                 // the layered window should be hidden.                
                 //DecorationController.Instance.DisableHook();
-                DecorationController.Instance.DisableHighlighter();
             }
+            DecorationController.Instance.DisableHighlighter();
+        }
+
+        private void UpdateHighlighterSwitchText()
+        {
+            switchHighlighter.Text = (switchHighlighter.Checked) ? "On" : "Off";
         }
 
         private void ManageOutlineSettings()
@@ -108,7 +116,7 @@ namespace FriskyMouse.UI.Controls
             // FIXME: the list should be saved in a dictionary.            
             var selectedStyle = DashStyle.Solid;
             _outlineStyles.TryGetValue(cmboxOutlineStyle.SelectedItem.ToString(), out selectedStyle);
-            _highlighterModel.OutlineStyle = selectedStyle;
+            _highlighter.OutlineStyle = selectedStyle;
             UpdateHighlighterPreview();
         }
 
@@ -130,18 +138,18 @@ namespace FriskyMouse.UI.Controls
 
         private void UpdateHighlighterPreview()
         {
-            _highlighterModel.CenterX = pboxPreview.Width / 2;
-            _highlighterModel.CenterY = pboxPreview.Width / 2;
-            _highlighterModel.IsFilled = switchFilledSpotlight.Checked;
-            _highlighterModel.Radius = sldRadius.Value;
-            _highlighterModel.OpacityPercentage = (byte)sldOpacity.Value;
-            _highlighterModel.OutlineThickness = sldOutlineWidth.Value;
+            _highlighter.CenterX = pboxPreview.Width / 2;
+            _highlighter.CenterY = pboxPreview.Width / 2;
+            _highlighter.IsFilled = switchFilledSpotlight.Checked;
+            _highlighter.Radius = sldRadius.Value;
+            _highlighter.OpacityPercentage = (byte)sldOpacity.Value;
+            _highlighter.OutlineThickness = sldOutlineWidth.Value;
             pboxPreview.Invalidate();
         }
         private void HighlighterPreview_Paint(object sender, PaintEventArgs e)
         {
-            _highlighterModel.IsForPreview = true;
-            _highlighterModel.Draw(e.Graphics);
+            _highlighter.IsForPreview = true;
+            _highlighter.Draw(e.Graphics);
         }
 
         private void ColorPicker_Click(object sender, EventArgs e)
@@ -158,7 +166,7 @@ namespace FriskyMouse.UI.Controls
             // Update the text box color if the user clicks OK 
             if (colorPicker.ShowDialog() == DialogResult.OK)
             {
-                _highlighterModel.FillColor = colorPicker.Color;
+                _highlighter.FillColor = colorPicker.Color;
                 UpdateHighlighterPreview();
                 btnColorPicker.BackColor = colorPicker.Color;
             }
@@ -177,7 +185,7 @@ namespace FriskyMouse.UI.Controls
             sldRadius.Value = 15;
             sldOpacity.Value = 75;
             btnColorPicker.BackColor = Color.Yellow;
-            _highlighterModel.FillColor = Color.Yellow;
+            _highlighter.FillColor = Color.Yellow;
             switchFilledSpotlight.Checked = true;
             UpdateHighlighterPreview();
             _applicationManager.ApplyHighlighterSettings();

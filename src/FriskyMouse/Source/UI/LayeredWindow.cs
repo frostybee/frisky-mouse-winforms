@@ -23,8 +23,8 @@ namespace FriskyMouse.UI
             // TODO: fix scaling issue see winforms settings.
             CreateParams cp = new CreateParams();
             // 
-            Height = 500;
-            Width = 500;
+            Height = 200;
+            Width = 200;
             // Set the position on the form
             cp.X = 100;
             cp.Y = 100;

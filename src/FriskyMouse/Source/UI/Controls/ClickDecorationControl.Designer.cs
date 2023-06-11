@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Drawing.Drawing2D.GraphicsPath graphicsPath1 = new System.Drawing.Drawing2D.GraphicsPath();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             groupBox3 = new GroupBox();
             chkbColorTransition = new MaterialSkin.Controls.MaterialSwitch();
@@ -43,20 +44,21 @@
             sldOutlineWidth = new MaterialSkin.Controls.MaterialSlider();
             btnStopAnimation = new MaterialSkin.Controls.MaterialButton();
             btnPreview = new MaterialSkin.Controls.MaterialButton();
-            groupBox1 = new GroupBox();
             pcbRipplePreview = new PictureBox();
             splitContainer1 = new SplitContainer();
             panel1 = new Panel();
+            materialCard1 = new MaterialSkin.Controls.MaterialCard();
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbRipplePreview).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             panel1.SuspendLayout();
+            materialCard1.SuspendLayout();
             SuspendLayout();
             // 
             // materialLabel26
@@ -286,7 +288,7 @@
             btnStopAnimation.Depth = 0;
             btnStopAnimation.HighEmphasis = true;
             btnStopAnimation.Icon = null;
-            btnStopAnimation.Location = new Point(556, 312);
+            btnStopAnimation.Location = new Point(556, 333);
             btnStopAnimation.Margin = new Padding(4, 6, 4, 6);
             btnStopAnimation.MouseState = MaterialSkin.MouseState.HOVER;
             btnStopAnimation.Name = "btnStopAnimation";
@@ -306,7 +308,7 @@
             btnPreview.Depth = 0;
             btnPreview.HighEmphasis = true;
             btnPreview.Icon = null;
-            btnPreview.Location = new Point(628, 312);
+            btnPreview.Location = new Point(628, 333);
             btnPreview.Margin = new Padding(4, 6, 4, 6);
             btnPreview.MouseState = MaterialSkin.MouseState.HOVER;
             btnPreview.Name = "btnPreview";
@@ -319,22 +321,12 @@
             btnPreview.UseVisualStyleBackColor = true;
             btnPreview.Click += BtnPreview_Click;
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(pcbRipplePreview);
-            groupBox1.Location = new Point(481, 76);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(230, 227);
-            groupBox1.TabIndex = 2;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Preview";
-            // 
             // pcbRipplePreview
             // 
             pcbRipplePreview.BackColor = Color.White;
-            pcbRipplePreview.Location = new Point(16, 28);
+            pcbRipplePreview.Location = new Point(10, 11);
             pcbRipplePreview.Name = "pcbRipplePreview";
-            pcbRipplePreview.Size = new Size(194, 178);
+            pcbRipplePreview.Size = new Size(173, 218);
             pcbRipplePreview.TabIndex = 0;
             pcbRipplePreview.TabStop = false;
             // 
@@ -359,10 +351,11 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(materialLabel2);
             panel1.Controls.Add(switchEnableClicker);
+            panel1.Controls.Add(materialCard1);
             panel1.Controls.Add(materialDivider1);
             panel1.Controls.Add(groupBox2);
-            panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(btnStopAnimation);
             panel1.Controls.Add(btnPreview);
             panel1.Controls.Add(groupBox3);
@@ -372,6 +365,22 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(813, 501);
             panel1.TabIndex = 3;
+            // 
+            // materialCard1
+            // 
+            materialCard1.Controls.Add(pcbRipplePreview);
+            materialCard1.Depth = 0;
+            materialCard1.Elevation = 5;
+            materialCard1.LargeTitle = false;
+            materialCard1.Location = new Point(494, 77);
+            materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCard1.Name = "materialCard1";
+            materialCard1.Padding = new Padding(5, 25, 5, 5);
+            graphicsPath1.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
+            materialCard1.ShadowBorder = graphicsPath1;
+            materialCard1.Size = new Size(194, 236);
+            materialCard1.TabIndex = 79;
+            materialCard1.Title = null;
             // 
             // materialDivider1
             // 
@@ -384,17 +393,28 @@
             materialDivider1.TabIndex = 77;
             materialDivider1.Text = "materialDivider1";
             // 
+            // materialLabel2
+            // 
+            materialLabel2.AutoSize = true;
+            materialLabel2.Depth = 0;
+            materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel2.Location = new Point(494, 39);
+            materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel2.Name = "materialLabel2";
+            materialLabel2.Size = new Size(56, 19);
+            materialLabel2.TabIndex = 82;
+            materialLabel2.Text = "Preview";
+            // 
             // ClickDecorationControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(splitContainer1);
             Name = "ClickDecorationControl";
-            Size = new Size(829, 553);
+            Size = new Size(1021, 755);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pcbRipplePreview).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
@@ -403,6 +423,7 @@
             splitContainer1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            materialCard1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -413,7 +434,6 @@
         private MaterialSkin.Controls.MaterialButton btnStopAnimation;
         private MaterialSkin.Controls.MaterialButton btnPreview;
         private MaterialSkin.Controls.MaterialSlider sldRadius;
-        private GroupBox groupBox1;
         private PictureBox pcbRipplePreview;
         private MaterialSkin.Controls.MaterialLabel materialLabel26;
         private GroupBox groupBox2;
@@ -427,5 +447,7 @@
         private SplitContainer splitContainer1;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private Panel panel1;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
     }
 }

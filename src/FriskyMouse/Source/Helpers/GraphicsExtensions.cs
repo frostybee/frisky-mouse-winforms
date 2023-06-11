@@ -15,7 +15,7 @@ namespace FriskyMouse.Core
             gr.InterpolationMode = InterpolationMode.HighQualityBilinear;
             int doubledRadius = spotlightModel.Radius * 2;
 
-            // Apply the selected opacity on the color to be used in the _highlighterModel. 
+            // Apply the selected opacity on the color to be used in the _highlighter. 
             Color selectedColor = Color.FromArgb(spotlightModel.Opacity, spotlightModel.FillColor);
             if (spotlightModel.IsFilled)
             {
