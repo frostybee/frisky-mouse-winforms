@@ -13,4 +13,8 @@
     <ProjectReference Include="..\MaterialSkin\MaterialSkin.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Source\UI\Helpers\" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,5 @@
 ﻿using FriskyMouse.Core;
-
+using FriskyMouse.HelpersLib.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -87,15 +87,12 @@ namespace FriskyMouse.UI.Controls
             UpdateHighlighterSwitchText();
             if (switchHighlighter.Checked)
             {
-                DecorationController.Instance.EnableHighlighter();
+                _applicationManager.EnableHighlighter();
             }
             else
             {
-                // TODO: upon disabling the hook,
-                // the layered window should be hidden.                
-                //DecorationController.Instance.DisableHook();
+                _applicationManager.DisableHighlighter();
             }
-            DecorationController.Instance.DisableHighlighter();
         }
 
         private void UpdateHighlighterSwitchText()
@@ -138,8 +135,6 @@ namespace FriskyMouse.UI.Controls
 
         private void UpdateHighlighterPreview()
         {
-            _highlighter.CenterX = pboxPreview.Width / 2;
-            _highlighter.CenterY = pboxPreview.Width / 2;
             _highlighter.IsFilled = switchFilledSpotlight.Checked;
             _highlighter.Radius = sldRadius.Value;
             _highlighter.OpacityPercentage = (byte)sldOpacity.Value;
@@ -149,7 +144,8 @@ namespace FriskyMouse.UI.Controls
         private void HighlighterPreview_Paint(object sender, PaintEventArgs e)
         {
             _highlighter.IsForPreview = true;
-            _highlighter.Draw(e.Graphics);
+            Rectangle rect = DrawingHelper.CreateRectangle(pboxPreview.Width, pboxPreview.Height, _highlighter.Radius);
+            e.Graphics.DrawSpotlight(rect, _highlighter);
         }
 
         private void ColorPicker_Click(object sender, EventArgs e)

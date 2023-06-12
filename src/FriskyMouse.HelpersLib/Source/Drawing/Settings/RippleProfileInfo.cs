@@ -3,12 +3,12 @@
 
 namespace FriskyMouse.HelpersLib.Drawing
 {
-    public class ClickProfileOptions
+    public class RippleProfileInfo
     {
         #region Animation Settings
         public InterpolationType InterpolationType { get; set; } = InterpolationType.Linear;
         public AnimationDirection AnimationDirection { get; set; } = AnimationDirection.In;
-        public double AnimationSpeed { get; set; } = 0.010;
+        public double AnimationSpeed { get; set; } = 0.020;
         #endregion        
 
         #region Visual Appearance

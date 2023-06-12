@@ -5,15 +5,13 @@ namespace FriskyMouse.Core
     internal class SettingsManager
     {
         private readonly HighlighterInfo _highlighterSettings = new HighlighterInfo();
-        private readonly ClickProfileOptions _clickProfileOptions = new ClickProfileOptions();
+        private readonly RippleProfileInfo _clickProfileOptions = new RippleProfileInfo();
         internal SettingsManager() { }
 
         internal void LoadAppSettings()
         {
             var settings = Properties.Settings.Default;
-            // Load first the highlighter settings.
-            _highlighterSettings.CenterX = settings.HighlighterCenterX;
-            _highlighterSettings.CenterY = settings.HighlighterCenterY;
+            // Load first the highlighter settings.            
             _highlighterSettings.Radius = settings.HighlighterRadius;
             _highlighterSettings.OpacityPercentage = settings.HighlighterOpacity;
             _highlighterSettings.FillColor = settings.HighlighterFillColor;
@@ -26,9 +24,7 @@ namespace FriskyMouse.Core
         
         internal void SaveHighlighterSettings()
         {
-            var settings = Properties.Settings.Default;
-            settings.HighlighterCenterX = _highlighterSettings.CenterX;
-            settings.HighlighterCenterY = _highlighterSettings.CenterY;
+            var settings = Properties.Settings.Default;            
             settings.HighlighterRadius = _highlighterSettings.Radius;
             settings.HighlighterOpacity = _highlighterSettings.OpacityPercentage;
             settings.HighlighterFillColor = _highlighterSettings.FillColor;
@@ -43,7 +39,7 @@ namespace FriskyMouse.Core
 
         #region Properties
         internal HighlighterInfo HighlighterSettings => _highlighterSettings;        
-        internal ClickProfileOptions ClickProfileOptions=> _clickProfileOptions;        
+        internal RippleProfileInfo ClickProfileOptions=> _clickProfileOptions;        
         #endregion
     }
 }

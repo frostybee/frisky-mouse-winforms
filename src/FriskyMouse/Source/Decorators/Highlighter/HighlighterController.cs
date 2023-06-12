@@ -1,5 +1,5 @@
-﻿using FriskyMouse.NativeApi;
-using FriskyMouse.MouseDecorator.Helpers;
+﻿using FriskyMouse.HelpersLib.Helpers;
+using FriskyMouse.NativeApi;
 using FriskyMouse.UI;
 using System;
 using System.Drawing;
@@ -17,29 +17,32 @@ namespace FriskyMouse.Core
         /// to show the mouse highlighter. 
         /// </summary>
         private LayeredWindow _layeredWindow;
-        private bool disposed = false;
+        private bool _disposed = false;
         private readonly SettingsManager _settingsManager;
         private int _width = 0;
         private int _height = 0;
+
         internal HighlighterController(SettingsManager pSettingsManager)
-        {
-            //TODO: need to refactor this messy code. We could inherit from LayeredWindow.
+        {            
             _layeredWindow = new LayeredWindow();
             _settingsManager = pSettingsManager;
         }
 
-        internal void SetupHighlighter(HighlighterInfo highlighterSettings)
+        internal void InitHighlighter(HighlighterInfo highlighterInfo)
         {
-            highlighterSettings.IsForPreview = false;
+            highlighterInfo.IsForPreview = false;
             // Clean up any previously generated bitmap.
-            _spotlightBitmap?.Dispose();
-            _spotlightBitmap = DrawingHelper.DrawEllipseBitmap(highlighterSettings);
+            _spotlightBitmap?.Dispose();            
+            _spotlightBitmap = DrawingHelper.CreateBitmap(200, 200, Color.Transparent);
+            Graphics graphics = Graphics.FromImage(_spotlightBitmap);
+            Rectangle rect = DrawingHelper.CreateRectangle(200, 200, highlighterInfo.Radius);
+            graphics.DrawSpotlight(rect, highlighterInfo);
             _width = _spotlightBitmap.Width;
             _height = _spotlightBitmap.Height;
-            _layeredWindow.SetBitmap(_spotlightBitmap, highlighterSettings.Opacity);
+            _layeredWindow.SetBitmap(_spotlightBitmap, highlighterInfo.Opacity);
             // Set the highlighter's initial position after launching the application or
             // applying new settings. 
-            MoveSpotlight(_layeredWindow.GetCursorPosition());
+            //MoveSpotlight(_layeredWindow.GetCursorPosition());
             _layeredWindow.Show();
         }
 
@@ -78,17 +81,17 @@ namespace FriskyMouse.Core
         /// <param name="inPoint">A point containing the X and Y coordinates of the mouse cursor. </param>
         private void SetLayeredWindowCoordinates(POINT inPoint)
         {
-            _layeredWindow.PositionX = (inPoint.X + 2) - (_width / 2);
-            _layeredWindow.PositionY = (inPoint.Y + 2) - (_height/ 2);
+            _layeredWindow.PositionX = (inPoint.X) - (_width / 2);
+            _layeredWindow.PositionY = (inPoint.Y) - (_height / 2);
         }
         internal void HideSpotlight()
         {
             _layeredWindow?.Hide();
         }
-        
+
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposed)
+            if (!_disposed)
             {
                 if (disposing)
                 {
@@ -100,7 +103,7 @@ namespace FriskyMouse.Core
                     _layeredWindow = null;
 
                 }
-                disposed = true;
+                _disposed = true;
             }
         }
         public void Dispose()

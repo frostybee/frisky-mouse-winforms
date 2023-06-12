@@ -17,40 +17,13 @@ namespace FriskyMouse.Core
             IsFilled = true;
             OutlineThickness = 3;
             OutlineStyle = DashStyle.Solid;
-            OutlineColor = Color.Yellow;
-            CenterX = 0;
-            CenterY = 0;
+            OutlineColor = Color.Yellow;            
         }
-
-        public Rectangle GetRectangle()
-        {
-            int x = (IsForPreview) ? CenterX - Radius : 0;
-            int y = (IsForPreview) ? CenterY - Radius : 0;
-            int width = Radius * 2;
-            if (!IsFilled)
-            {
-                // TODO: fix the issue with the not filled circle.
-                // If a not filled circle to be drawn, we need to consider
-                // the thickness of the outline when computing the size of the rectangle.
-                x += OutlineThickness;
-                //width += OutlineThickness;
-
-            }
-            return new Rectangle(x, x, width, width);
-        }
-
-        // Draw the _highlighter.
-        // TODO: move to another class: need a centralized class that provides drawing services.
-        public void Draw(Graphics gr)
-        {
-            gr.DrawSpotlight(this);
-        }
+            
 
         #region Properties
         public bool Enabled { get; set; }
-        public bool IsForPreview { get; set; }
-        public int CenterX { get; set; }
-        public int CenterY { get; set; }
+        public bool IsForPreview { get; set; }        
         public int Radius { get; set; }
         public byte OpacityPercentage { get; set; }
         public byte Opacity

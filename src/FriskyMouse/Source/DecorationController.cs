@@ -13,7 +13,7 @@ namespace FriskyMouse.Core
         private static readonly Lazy<DecorationController> _instance =
             new Lazy<DecorationController>(() => new DecorationController());        
         private readonly SettingsManager _settingsManager;        
-        private readonly HighlighterController _mouseHighlighter;
+        private readonly HighlighterController _highlighter;
         private readonly RippleProfilesManager _clickDecorator;
         private readonly MouseHookController _mouseHookController;
         private readonly object _syncLock = new object();
@@ -23,8 +23,8 @@ namespace FriskyMouse.Core
         {
             _settingsManager = new SettingsManager();
             _clickDecorator = new RippleProfilesManager(_settingsManager);
-            _mouseHighlighter = new HighlighterController(_settingsManager);
-            _mouseHookController = new MouseHookController(_mouseHighlighter, _clickDecorator);
+            _highlighter = new HighlighterController(_settingsManager);
+            _mouseHookController = new MouseHookController(_highlighter, _clickDecorator);
             //LoadDecorationSettings();                        
         }
 
@@ -32,7 +32,7 @@ namespace FriskyMouse.Core
         private void ConfigMouseHighlighter()
         {
             // Configure cursor _highlighter.            
-            _mouseHighlighter.SetupHighlighter(_settingsManager.HighlighterSettings);
+            _highlighter.InitHighlighter(_settingsManager.HighlighterSettings);
         }
         //int previousClick = 0;
 
@@ -41,14 +41,14 @@ namespace FriskyMouse.Core
             //TODO: handle hook return type/errors
             // TODO: check if the _highlighter is enabled in the settings or not. 
             // TODO: check also if the click decorator is enabled.
-            _mouseHighlighter.SetupHighlighter(_settingsManager.HighlighterSettings);
+            _highlighter.InitHighlighter(_settingsManager.HighlighterSettings);
             //--
             //LoadDecorationSettings();                                
         }
         internal void DisableHighlighter()
         {
             // HideSpotlight the layered window.
-            _mouseHighlighter.HideSpotlight();
+            _highlighter.HideSpotlight();
             if (_settingsManager.HighlighterSettings.Enabled)
             {
 
@@ -68,7 +68,7 @@ namespace FriskyMouse.Core
                 //TODO: dispose bitmaps
                 _mouseHookController?.Uninstall();
                 // HideSpotlight the layered window.
-                _mouseHighlighter?.HideSpotlight();
+                _highlighter?.HideSpotlight();
             }
         }
 
@@ -103,7 +103,7 @@ namespace FriskyMouse.Core
             {
                 if (disposing)
                 {
-                    _mouseHighlighter?.Dispose();
+                    _highlighter?.Dispose();
                     //TODO: implement Dispose in the ripple manager.
                     //_clickDecorator?.Dispose();
                     Debug.WriteLine("Disposed the manager....");
@@ -130,7 +130,7 @@ namespace FriskyMouse.Core
         /// </summary>
         public static DecorationController Instance => _instance.Value;
         public SettingsManager SettingsManager => _settingsManager;
-        public HighlighterController MouseHighlighter => _mouseHighlighter;
+        public HighlighterController MouseHighlighter => _highlighter;
         public RippleProfilesManager ClickDecorator => _clickDecorator;
 
         public MainForm MainForm { get; internal set; }

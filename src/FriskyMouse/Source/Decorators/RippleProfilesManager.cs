@@ -21,7 +21,7 @@ namespace FrostyBee.FriskyRipples
     {
         private readonly LayeredWindow _layeredWindow;
         // NOTE: move those to the BaseProfile.
-        private Bitmap _surface = null;
+        private Bitmap _canvas = null;
         /// <summary>
         /// Blank bitmap used to clear previous drawings 
         /// </summary>
@@ -32,7 +32,7 @@ namespace FrostyBee.FriskyRipples
         private Graphics _graphics;
         private readonly ValueAnimator _animationManager;
         private BaseProfile _clickProfile;
-        private readonly ClickProfileOptions _clickOptions;
+        private readonly RippleProfileInfo _clickOptions;
         public RippleProfileType RippleType { get; set; }
         public RippleProfilesManager(SettingsManager _settingsManager)
         {
@@ -54,11 +54,11 @@ namespace FrostyBee.FriskyRipples
 
         private void InitDrawingCanvas()
         {
-            if (_surface == null)
+            if (_canvas == null)
             {
-                _surface = new Bitmap(200, 200, PixelFormat.Format32bppArgb);
+                _canvas = new Bitmap(200, 200, PixelFormat.Format32bppArgb);
                 _blankCanvas = new Bitmap(200, 200, PixelFormat.Format32bppArgb);
-                _graphics = Graphics.FromImage(_surface);
+                _graphics = Graphics.FromImage(_canvas);
                 _graphics.SetAntiAliasing();
             }
         }
@@ -77,7 +77,7 @@ namespace FrostyBee.FriskyRipples
             _graphics.Clear(Color.Transparent);
             _clickProfile.RenderRipples(_graphics, _clickOptions, progress);
             // Update the layered window to show the current frame. 
-            _layeredWindow.SetBitmap(_surface, 255);
+            _layeredWindow.SetBitmap(_canvas, 255);
         }
 
         private BaseProfile MakeDrawingProfile(RippleProfileType inProfileType)
@@ -88,11 +88,10 @@ namespace FrostyBee.FriskyRipples
 
         private void RipplesAnimation_Finished(object sender)
         {
-            //_layeredWindow.SetBitmap(new Bitmap(200, 200), 1);
-            // Clear the _surface that was previously drawn onto the _layeredWindow window.
+                        // Clear the _canvas that was previously drawn onto the _layeredWindow window.
             _graphics.Clear(Color.Transparent);
             _layeredWindow.Hide();
-            //_layeredWindow.SetBitmap(_blankCanvas, 0);            
+            _layeredWindow.SetBitmap(_blankCanvas, 0);            
         }
 
         internal void ShowRipplesAt(int x, int y)
@@ -117,13 +116,12 @@ namespace FrostyBee.FriskyRipples
             // We perform the drawing here.            
             if (!_animationManager.IsAnimating())
             {
-                _layeredWindow.SetBitmap(_blankCanvas, 1);
-                //_animationManager.StartNewAnimation(AnimationDirection.InOutIn);
+                _layeredWindow.SetBitmap(_blankCanvas, 1);                
                 _animationManager.StartNewAnimation(_clickOptions.AnimationDirection);
             }
         }
 
-        internal void ApplySettings(ClickProfileOptions profileSettings)
+        internal void ApplySettings(RippleProfileInfo profileSettings)
         {
             _animationManager.Increment = profileSettings.AnimationSpeed;
             _animationManager.Interpolation = profileSettings.InterpolationType;

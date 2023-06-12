@@ -10,7 +10,7 @@
         /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true if managed resources should be _disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -47,9 +47,9 @@
             pcbRipplePreview = new PictureBox();
             splitContainer1 = new SplitContainer();
             panel1 = new Panel();
+            materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbRipplePreview).BeginInit();
@@ -288,7 +288,7 @@
             btnStopAnimation.Depth = 0;
             btnStopAnimation.HighEmphasis = true;
             btnStopAnimation.Icon = null;
-            btnStopAnimation.Location = new Point(556, 333);
+            btnStopAnimation.Location = new Point(533, 338);
             btnStopAnimation.Margin = new Padding(4, 6, 4, 6);
             btnStopAnimation.MouseState = MaterialSkin.MouseState.HOVER;
             btnStopAnimation.Name = "btnStopAnimation";
@@ -308,7 +308,7 @@
             btnPreview.Depth = 0;
             btnPreview.HighEmphasis = true;
             btnPreview.Icon = null;
-            btnPreview.Location = new Point(628, 333);
+            btnPreview.Location = new Point(605, 338);
             btnPreview.Margin = new Padding(4, 6, 4, 6);
             btnPreview.MouseState = MaterialSkin.MouseState.HOVER;
             btnPreview.Name = "btnPreview";
@@ -366,6 +366,18 @@
             panel1.Size = new Size(813, 501);
             panel1.TabIndex = 3;
             // 
+            // materialLabel2
+            // 
+            materialLabel2.AutoSize = true;
+            materialLabel2.Depth = 0;
+            materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel2.Location = new Point(494, 39);
+            materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel2.Name = "materialLabel2";
+            materialLabel2.Size = new Size(56, 19);
+            materialLabel2.TabIndex = 82;
+            materialLabel2.Text = "Preview";
+            // 
             // materialCard1
             // 
             materialCard1.Controls.Add(pcbRipplePreview);
@@ -392,18 +404,6 @@
             materialDivider1.Size = new Size(766, 2);
             materialDivider1.TabIndex = 77;
             materialDivider1.Text = "materialDivider1";
-            // 
-            // materialLabel2
-            // 
-            materialLabel2.AutoSize = true;
-            materialLabel2.Depth = 0;
-            materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(494, 39);
-            materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel2.Name = "materialLabel2";
-            materialLabel2.Size = new Size(56, 19);
-            materialLabel2.TabIndex = 82;
-            materialLabel2.Text = "Preview";
             // 
             // ClickDecorationControl
             // 

@@ -8,7 +8,7 @@ using FriskyMouse.HelpersLib;
 using FriskyMouse.HelpersLib.Animation;
 using FriskyMouse.HelpersLib.Drawing;
 using FriskyMouse.HelpersLib.Extensions;
-using DrawingHelper = FriskyMouse.HelpersLib.Helpers.DrawingHelper;
+using FriskyMouse.HelpersLib.Helpers;
 
 namespace FriskyMouse.UI.Controls
 {
@@ -16,11 +16,12 @@ namespace FriskyMouse.UI.Controls
     {
         private readonly ValueAnimator _rippleValueAnimator;
         private readonly RippleProfilesManager _profilesManager;
-        private readonly ClickProfileOptions _clickOptions;
+        private readonly RippleProfileInfo _clickOptions;
         private BaseProfile _currentProfile;
         private Bitmap _canvas = null;
-        Bitmap _blankCanvas = null;
+        private Bitmap _blankCanvas = null;
         private Graphics _graphics;
+
         public ClickDecorationControl()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace FriskyMouse.UI.Controls
             _clickOptions = DecorationController.Instance.SettingsManager.ClickProfileOptions;
             _rippleValueAnimator = new ValueAnimator()
             {
-                Increment = 0.010, // Control the animation duration.                                         
+                Increment = 0.010, // Control the animation speed.                                         
                 Interpolation = InterpolationType.Linear
             };
             cmbProfilesList.SelectedIndexChanged += CmbProfilesList_SelectedIndexChanged;
@@ -48,10 +49,10 @@ namespace FriskyMouse.UI.Controls
 
         protected override void OnLoad(EventArgs e)
         {
-            ConfigControls();
+            PopulateControls();
             base.OnLoad(e);
         }
-        private void ConfigControls()
+        private void PopulateControls()
         {
             // Populate the combo box with the ripple profiles descriptions.            
             cmbProfilesList.PopulateFromEnum(typeof(RippleProfileType));
@@ -95,7 +96,7 @@ namespace FriskyMouse.UI.Controls
         }
         private void OnRipplesAnimation_Completed(object sender)
         {
-            // Clear the _surface that was previously drawn onto the _layeredWindow window.                                    
+            // Clear the _canvas that was previously drawn onto the _layeredWindow window.                                    
             pcbRipplePreview.Image = _blankCanvas;
         }
 

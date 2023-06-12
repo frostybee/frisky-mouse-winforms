@@ -1,18 +1,16 @@
-﻿using System.Drawing;
+﻿using FriskyMouse.HelpersLib.Extensions;
+using FriskyMouse.HelpersLib.Helpers;
+using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Runtime.CompilerServices;
 
 namespace FriskyMouse.Core
 {
     internal static class GraphicsExtensions
     {
-        public static void DrawSpotlight(this Graphics gr, HighlighterInfo spotlightModel)
+        public static void DrawSpotlight(this Graphics gr, Rectangle rect, HighlighterInfo spotlightModel)
         {
-            // TODO: adjust the radius and settings
-            // TODO: create a method that computes the required bounding rectangle. 
-            // TODO: refactor this code. 
-            gr.SmoothingMode = SmoothingMode.AntiAlias;
-            gr.CompositingQuality = CompositingQuality.HighQuality;
-            gr.InterpolationMode = InterpolationMode.HighQualityBilinear;
+            gr.SetAntiAliasing();
             int doubledRadius = spotlightModel.Radius * 2;
 
             // Apply the selected opacity on the color to be used in the _highlighter. 
@@ -24,7 +22,8 @@ namespace FriskyMouse.Core
                     // TODO: move the rectangle code to Drawing helper class. 
                     // make a method that creates a rectangle.
                     //gr.FillEllipse(brush, new Rectangle(0, 0, doubledRadius, doubledRadius));
-                    gr.FillEllipse(brush, spotlightModel.GetRectangle());
+                    gr.FillEllipse(brush, rect);
+                    //gr.FillEllipse(brush, DrawingHelper.CreateRectangle(200, 200, spotlightModel.Radius));
                 }
             }
             else
@@ -32,11 +31,12 @@ namespace FriskyMouse.Core
                 // Draw just an outline --> empty spotlightModel.
                 using (Pen pen = new Pen(selectedColor, spotlightModel.OutlineThickness))
                 {
-                    pen.DashStyle = spotlightModel.OutlineStyle;                    
-                    gr.DrawEllipse(pen, spotlightModel.GetRectangle());
+                    pen.DashStyle = spotlightModel.OutlineStyle;
+                    gr.DrawEllipse(pen, rect);
                 }
             }
         }
+
 
         public static void DrawCircle(this Graphics g, Pen pen,
                                   float centerX, float centerY, float radius)
