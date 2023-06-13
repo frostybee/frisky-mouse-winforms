@@ -11,7 +11,7 @@ namespace FriskyMouse.HelpersLib.Drawing
     {
         public ShapeType ShapeType { get; set; } = ShapeType.Ellipse;
         public bool IsFilled { get; set; } = false;
-        public bool IsExpandable { get; set; } = true;
+        public bool Expandable { get; set; } = true;
         public bool IsFade { get; set; } = true;
         public float RadiusMultiplier { get; set; } = 2.2f;        
         public int InitialRadius { get; set; }
@@ -112,7 +112,7 @@ namespace FriskyMouse.HelpersLib.Drawing
 
         internal void ExpandRadius(double progress)
         {
-            if (IsExpandable)
+            if (Expandable)
             {
                 // TODO: Take into consideration the MaxRadius.
                 // TODO: Clamp the radius. 

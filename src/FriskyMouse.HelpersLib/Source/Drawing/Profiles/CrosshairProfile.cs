@@ -21,7 +21,7 @@ namespace FriskyMouse.HelpersLib.Drawing
             AddRipple(
                 new RippleEntry()
                 {
-                    IsExpandable = false,
+                    Expandable = false,
                     Bounds = new Rectangle((200/ 2) - 4, (200 / 2) - 20, height, width),
                     ShapeType = ShapeType.Crosshair,
                     InitialRadius = 10,
@@ -32,7 +32,7 @@ namespace FriskyMouse.HelpersLib.Drawing
             AddRipple(
              new RippleEntry()
              {
-                 IsExpandable = false,
+                 Expandable = false,
                  Bounds = new Rectangle((200 / 2) - 20, (200 / 2) - 4, width, height),
                  ShapeType = ShapeType.Crosshair,
                  InitialRadius = 10,

@@ -258,5 +258,11 @@ namespace FriskyMouse.HelpersLib.Animation
             // Create a linear interpolator if the dynamic instantiation fails.
             _interpolator = newInterpolator ?? new LinearEasing();
         }
+
+        public void Dispose()
+        {
+            _animationTimer?.Dispose();
+            _animationTimer.Tick -= AnimationTimer_OnTick;
+        }
     }
 }

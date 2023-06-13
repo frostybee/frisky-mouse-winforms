@@ -32,27 +32,28 @@
             ToolStripMenuItem mnAbout;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
-            tbpHighlighter = new TabPage();
+            tabHighlighter = new TabPage();
             _tabHighlighterSettings = new Controls.HighlighterControl();
-            materialDrawer1 = new MaterialSkin.Controls.MaterialDrawer();
-            tbpClickDecorator = new TabPage();
-            clickDecorationControl1 = new Controls.ClickDecorationControl();
+            materialDrawer = new MaterialSkin.Controls.MaterialDrawer();
+            tabClickDecorator = new TabPage();
+            clickDecorationControl = new Controls.ClickDecorationControl();
             tbpSettings = new TabPage();
-            appSettingsControl1 = new Controls.AppSettingsControl();
+            appSettingsControl = new Controls.AppSettingsControl();
+            tabAboutPage = new TabPage();
+            aboutControl = new Controls.AboutControl();
             menuIconList = new ImageList(components);
             appNotifyIcon = new NotifyIcon(components);
             trayContextMenu = new ContextMenuStrip(components);
             mnShow = new ToolStripMenuItem();
             mnExit = new ToolStripMenuItem();
-            tabAboutPage = new TabPage();
-            aboutControl2 = new Controls.AboutControl();
+            tabRightClick = new TabPage();
             mnAbout = new ToolStripMenuItem();
             mainTabControl.SuspendLayout();
-            tbpHighlighter.SuspendLayout();
-            tbpClickDecorator.SuspendLayout();
+            tabHighlighter.SuspendLayout();
+            tabClickDecorator.SuspendLayout();
             tbpSettings.SuspendLayout();
-            trayContextMenu.SuspendLayout();
             tabAboutPage.SuspendLayout();
+            trayContextMenu.SuspendLayout();
             SuspendLayout();
             // 
             // mnAbout
@@ -64,10 +65,11 @@
             // 
             // mainTabControl
             // 
-            mainTabControl.Controls.Add(tbpHighlighter);
-            mainTabControl.Controls.Add(tbpClickDecorator);
+            mainTabControl.Controls.Add(tabHighlighter);
+            mainTabControl.Controls.Add(tabClickDecorator);
+            mainTabControl.Controls.Add(tabRightClick);
             mainTabControl.Controls.Add(tbpSettings);
-            mainTabControl.Controls.Add(tabAboutPage);
+            mainTabControl.Controls.Add(tabAboutPage);            
             mainTabControl.Depth = 0;
             mainTabControl.Dock = DockStyle.Fill;
             mainTabControl.ImageList = menuIconList;
@@ -80,18 +82,18 @@
             mainTabControl.Size = new Size(842, 631);
             mainTabControl.TabIndex = 0;
             // 
-            // tbpHighlighter
+            // tabHighlighter
             // 
-            tbpHighlighter.BackColor = Color.White;
-            tbpHighlighter.Controls.Add(_tabHighlighterSettings);
-            tbpHighlighter.Controls.Add(materialDrawer1);
-            tbpHighlighter.ImageKey = "spotlight-cursor-32.png";
-            tbpHighlighter.Location = new Point(4, 31);
-            tbpHighlighter.Name = "tbpHighlighter";
-            tbpHighlighter.Padding = new Padding(3);
-            tbpHighlighter.Size = new Size(834, 596);
-            tbpHighlighter.TabIndex = 0;
-            tbpHighlighter.Text = "Highlighter";
+            tabHighlighter.BackColor = Color.White;
+            tabHighlighter.Controls.Add(_tabHighlighterSettings);
+            tabHighlighter.Controls.Add(materialDrawer);
+            tabHighlighter.ImageKey = "spotlight-cursor-32.png";
+            tabHighlighter.Location = new Point(4, 31);
+            tabHighlighter.Name = "tabHighlighter";
+            tabHighlighter.Padding = new Padding(3);
+            tabHighlighter.Size = new Size(834, 596);
+            tabHighlighter.TabIndex = 0;
+            tabHighlighter.Text = "Highlighter";
             // 
             // _tabHighlighterSettings
             // 
@@ -102,50 +104,50 @@
             _tabHighlighterSettings.Size = new Size(828, 590);
             _tabHighlighterSettings.TabIndex = 2;
             // 
-            // materialDrawer1
+            // materialDrawer
             // 
-            materialDrawer1.AutoHide = false;
-            materialDrawer1.AutoShow = false;
-            materialDrawer1.BackgroundWithAccent = false;
-            materialDrawer1.BaseTabControl = null;
-            materialDrawer1.Depth = 0;
-            materialDrawer1.HighlightWithAccent = true;
-            materialDrawer1.IndicatorWidth = 0;
-            materialDrawer1.IsOpen = false;
-            materialDrawer1.Location = new Point(-7, 101);
-            materialDrawer1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialDrawer1.Name = "materialDrawer1";
-            materialDrawer1.ShowIconsWhenHidden = false;
-            materialDrawer1.Size = new Size(7, 8);
-            materialDrawer1.TabIndex = 1;
-            materialDrawer1.Text = "materialDrawer1";
-            materialDrawer1.UseColors = false;
+            materialDrawer.AutoHide = false;
+            materialDrawer.AutoShow = false;
+            materialDrawer.BackgroundWithAccent = false;
+            materialDrawer.BaseTabControl = null;
+            materialDrawer.Depth = 0;
+            materialDrawer.HighlightWithAccent = true;
+            materialDrawer.IndicatorWidth = 0;
+            materialDrawer.IsOpen = false;
+            materialDrawer.Location = new Point(-7, 101);
+            materialDrawer.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDrawer.Name = "materialDrawer";
+            materialDrawer.ShowIconsWhenHidden = false;
+            materialDrawer.Size = new Size(7, 8);
+            materialDrawer.TabIndex = 1;
+            materialDrawer.Text = "materialDrawer";
+            materialDrawer.UseColors = false;
             // 
-            // tbpClickDecorator
+            // tabClickDecorator
             // 
-            tbpClickDecorator.BackColor = Color.White;
-            tbpClickDecorator.Controls.Add(clickDecorationControl1);
-            tbpClickDecorator.ImageKey = "left-click-50.png";
-            tbpClickDecorator.Location = new Point(4, 31);
-            tbpClickDecorator.Name = "tbpClickDecorator";
-            tbpClickDecorator.Padding = new Padding(3);
-            tbpClickDecorator.Size = new Size(834, 596);
-            tbpClickDecorator.TabIndex = 1;
-            tbpClickDecorator.Text = "Click Decorator";
+            tabClickDecorator.BackColor = Color.White;
+            tabClickDecorator.Controls.Add(clickDecorationControl);
+            tabClickDecorator.ImageKey = "left-click-50.png";
+            tabClickDecorator.Location = new Point(4, 31);
+            tabClickDecorator.Name = "tabClickDecorator";
+            tabClickDecorator.Padding = new Padding(3);
+            tabClickDecorator.Size = new Size(834, 596);
+            tabClickDecorator.TabIndex = 1;
+            tabClickDecorator.Text = "Click Decorator";
             // 
-            // clickDecorationControl1
+            // clickDecorationControl
             // 
-            clickDecorationControl1.Dock = DockStyle.Fill;
-            clickDecorationControl1.Location = new Point(3, 3);
-            clickDecorationControl1.Margin = new Padding(0);
-            clickDecorationControl1.Name = "clickDecorationControl1";
-            clickDecorationControl1.Size = new Size(828, 590);
-            clickDecorationControl1.TabIndex = 0;
+            clickDecorationControl.Dock = DockStyle.Fill;
+            clickDecorationControl.Location = new Point(3, 3);
+            clickDecorationControl.Margin = new Padding(0);
+            clickDecorationControl.Name = "clickDecorationControl";
+            clickDecorationControl.Size = new Size(828, 590);
+            clickDecorationControl.TabIndex = 0;
             // 
             // tbpSettings
             // 
             tbpSettings.BackColor = Color.White;
-            tbpSettings.Controls.Add(appSettingsControl1);
+            tbpSettings.Controls.Add(appSettingsControl);
             tbpSettings.ImageKey = "settings_24.png";
             tbpSettings.Location = new Point(4, 31);
             tbpSettings.Name = "tbpSettings";
@@ -154,12 +156,34 @@
             tbpSettings.TabIndex = 2;
             tbpSettings.Text = "Settings";
             // 
-            // appSettingsControl1
+            // appSettingsControl
             // 
-            appSettingsControl1.Location = new Point(0, 3);
-            appSettingsControl1.Name = "appSettingsControl1";
-            appSettingsControl1.Size = new Size(732, 594);
-            appSettingsControl1.TabIndex = 0;
+            appSettingsControl.Location = new Point(0, 3);
+            appSettingsControl.Name = "appSettingsControl";
+            appSettingsControl.Size = new Size(732, 594);
+            appSettingsControl.TabIndex = 0;
+            // 
+            // tabAboutPage
+            // 
+            tabAboutPage.BackColor = Color.White;
+            tabAboutPage.Controls.Add(aboutControl);
+            tabAboutPage.ImageKey = "about-50.png";
+            tabAboutPage.Location = new Point(4, 31);
+            tabAboutPage.Margin = new Padding(3, 2, 3, 2);
+            tabAboutPage.Name = "tabAboutPage";
+            tabAboutPage.Padding = new Padding(3, 2, 3, 2);
+            tabAboutPage.Size = new Size(834, 596);
+            tabAboutPage.TabIndex = 3;
+            tabAboutPage.Text = "About";
+            // 
+            // aboutControl
+            // 
+            aboutControl.Dock = DockStyle.Fill;
+            aboutControl.Location = new Point(3, 2);
+            aboutControl.Margin = new Padding(0);
+            aboutControl.Name = "aboutControl";
+            aboutControl.Size = new Size(828, 592);
+            aboutControl.TabIndex = 0;
             // 
             // menuIconList
             // 
@@ -171,6 +195,7 @@
             menuIconList.Images.SetKeyName(2, "spotlight-cursor-32.png");
             menuIconList.Images.SetKeyName(3, "left-click-50.png");
             menuIconList.Images.SetKeyName(4, "about-50.png");
+            menuIconList.Images.SetKeyName(5, "right-click-50.png");
             // 
             // appNotifyIcon
             // 
@@ -201,27 +226,16 @@
             mnExit.Text = "Exit";
             mnExit.Click += MenuItemExit_Click;
             // 
-            // tabAboutPage
+            // tabRightClick
             // 
-            tabAboutPage.BackColor = Color.White;
-            tabAboutPage.Controls.Add(aboutControl2);
-            tabAboutPage.ImageKey = "about-50.png";
-            tabAboutPage.Location = new Point(4, 31);
-            tabAboutPage.Margin = new Padding(3, 2, 3, 2);
-            tabAboutPage.Name = "tabAboutPage";
-            tabAboutPage.Padding = new Padding(3, 2, 3, 2);
-            tabAboutPage.Size = new Size(834, 596);
-            tabAboutPage.TabIndex = 3;
-            tabAboutPage.Text = "About";
-            // 
-            // aboutControl2
-            // 
-            aboutControl2.Dock = DockStyle.Fill;
-            aboutControl2.Location = new Point(3, 2);
-            aboutControl2.Margin = new Padding(0, 0, 0, 0);
-            aboutControl2.Name = "aboutControl2";
-            aboutControl2.Size = new Size(828, 592);
-            aboutControl2.TabIndex = 0;
+            tabRightClick.BackColor = Color.White;
+            tabRightClick.ImageKey = "right-click-50.png";
+            tabRightClick.Location = new Point(4, 31);
+            tabRightClick.Name = "tabRightClick";
+            tabRightClick.Padding = new Padding(3);
+            tabRightClick.Size = new Size(834, 596);
+            tabRightClick.TabIndex = 4;
+            tabRightClick.Text = "Right Click";
             // 
             // MainForm
             // 
@@ -238,32 +252,32 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Frisky Mouse";
             mainTabControl.ResumeLayout(false);
-            tbpHighlighter.ResumeLayout(false);
-            tbpClickDecorator.ResumeLayout(false);
+            tabHighlighter.ResumeLayout(false);
+            tabClickDecorator.ResumeLayout(false);
             tbpSettings.ResumeLayout(false);
-            trayContextMenu.ResumeLayout(false);
             tabAboutPage.ResumeLayout(false);
+            trayContextMenu.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private MaterialSkin.Controls.MaterialTabControl mainTabControl;
-        private TabPage tbpHighlighter;
-        private TabPage tbpClickDecorator;
+        private TabPage tabHighlighter;
+        private TabPage tabClickDecorator;
         private ImageList menuIconList;
-        private MaterialSkin.Controls.MaterialDrawer materialDrawer1;
+        private MaterialSkin.Controls.MaterialDrawer materialDrawer;
         private NotifyIcon appNotifyIcon;
         private ContextMenuStrip trayContextMenu;
         private ToolStripMenuItem mnShow;
-        private ToolStripMenuItem mnExit;
-        private Controls.AboutControl aboutControl1;
-        private Controls.ClickDecorationControl clickDecorationControl1;
+        private ToolStripMenuItem mnExit;        
+        private Controls.ClickDecorationControl clickDecorationControl;
         private Controls.HighlighterControl _tabHighlighterSettings;
         private TabPage tbpSettings;
-        private Controls.AppSettingsControl appSettingsControl1;
+        private Controls.AppSettingsControl appSettingsControl;
         private TabPage tabAboutPage;
-        private Controls.AboutControl aboutControl2;
+        private Controls.AboutControl aboutControl;
+        private TabPage tabRightClick;
     }
 }
 

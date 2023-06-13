@@ -6,9 +6,9 @@ namespace FriskyMouse.HelpersLib.Attributes
     internal class ConstructableEnumAttribute : Attribute
     {
         public Type Type { get; set; }
-        public ConstructableEnumAttribute(Type inType)
+        public ConstructableEnumAttribute(Type type)
         {
-            Type = inType;
+            Type = type;
         }
     }
 }

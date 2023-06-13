@@ -7,18 +7,18 @@ namespace FriskyMouse.HelpersLib.Drawing
     /// <summary>
     /// Represents a single expanding ripple.
     /// </summary>
-    internal class SingleProfile : BaseProfile
+    internal class CherryBlossomProfile : BaseProfile
     {
         private Pen _outlinePen;
         private SolidBrush _innerBrush;
         private SolidBrush _outerBrush;
 
-        public SingleProfile()
+        public CherryBlossomProfile()
         {
-            MakeSingleProfile();
+            InitProfileEntries();
         }
 
-        private void MakeSingleProfile()
+        private void InitProfileEntries()
         {
             int opacity = 10;
             _innerBrush = new SolidBrush(Color.Cyan);
@@ -29,7 +29,7 @@ namespace FriskyMouse.HelpersLib.Drawing
             AddRipple(
                 new RippleEntry()
                 {
-                    IsExpandable = true,
+                    Expandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = BaseRadius,
@@ -42,7 +42,7 @@ namespace FriskyMouse.HelpersLib.Drawing
             AddRipple(
                 new RippleEntry()
                 {
-                    IsExpandable = true,
+                    Expandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = BaseRadius,
@@ -54,7 +54,7 @@ namespace FriskyMouse.HelpersLib.Drawing
             AddRipple(
                 new RippleEntry()
                 {
-                    IsExpandable = false,
+                    Expandable = false,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, 6),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = 6,

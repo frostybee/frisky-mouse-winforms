@@ -5,6 +5,8 @@ namespace FriskyMouse.HelpersLib.Drawing
 {
     public enum RippleProfileType : uint
     {
+        [Description("Ice Cream"), ConstructableEnum(typeof(IceCreamProfile))]
+        IceCream,
         [Description("Expanding Ripple"), ConstructableEnum(typeof(CircleProfile))]
         Single,
         [Description("Expanding Square"), ConstructableEnum(typeof(SquareProfile))]
@@ -14,8 +16,8 @@ namespace FriskyMouse.HelpersLib.Drawing
         [Description("Diamond"), ConstructableEnum(typeof(DiamondProfile))]
         Diamond,
         [Description("Sonar Pulse"), ConstructableEnum(typeof(SonarPulseProfile))]
-        SonarPulse,
-        [Description("Cherry Blossom"), ConstructableEnum(typeof(SingleProfile))]
+        SonarPulse,        
+        [Description("Cherry Blossom"), ConstructableEnum(typeof(CherryBlossomProfile))]
         Cherry,        
         [Description("Star ripple"), ConstructableEnum(typeof(StarProfile))]
         Star,        

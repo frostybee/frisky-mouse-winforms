@@ -32,7 +32,7 @@ namespace FriskyMouse.HelpersLib.Drawing
             AddRipple(
                 new RippleEntry()
                 {
-                    IsExpandable = true,
+                    Expandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius+5),
                     ShapeType = ShapeType.Rectangle,
                     InitialRadius = BaseRadius+5,
@@ -46,7 +46,7 @@ namespace FriskyMouse.HelpersLib.Drawing
             AddRipple(
                 new RippleEntry()
                 {
-                    IsExpandable = false,
+                    Expandable = false,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, 7),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = 10,

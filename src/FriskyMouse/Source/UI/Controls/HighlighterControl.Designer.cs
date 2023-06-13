@@ -47,9 +47,9 @@
             sldRadius = new MaterialSkin.Controls.MaterialSlider();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             panel1 = new Panel();
+            materialSpinner1 = new MaterialSkin.Controls.MaterialSpinner();
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             splitContainer1 = new SplitContainer();
-            materialSpinner1 = new MaterialSkin.Controls.MaterialSpinner();
             grpOptions.SuspendLayout();
             materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pboxPreview).BeginInit();
@@ -277,7 +277,7 @@
             btnResetSettings.Depth = 0;
             btnResetSettings.HighEmphasis = true;
             btnResetSettings.Icon = null;
-            btnResetSettings.Location = new Point(397, 275);
+            btnResetSettings.Location = new Point(390, 275);
             btnResetSettings.Margin = new Padding(4, 6, 4, 6);
             btnResetSettings.MouseState = MaterialSkin.MouseState.HOVER;
             btnResetSettings.Name = "btnResetSettings";
@@ -332,6 +332,19 @@
             panel1.Size = new Size(754, 489);
             panel1.TabIndex = 64;
             // 
+            // materialSpinner1
+            // 
+            materialSpinner1.Depth = 0;
+            materialSpinner1.Location = new Point(140, 400);
+            materialSpinner1.MaxValue = 100;
+            materialSpinner1.MinValue = 0;
+            materialSpinner1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialSpinner1.Name = "materialSpinner1";
+            materialSpinner1.Size = new Size(345, 40);
+            materialSpinner1.TabIndex = 76;
+            materialSpinner1.Text = "materialSpinner1";
+            materialSpinner1.Value = 50;
+            // 
             // materialDivider1
             // 
             materialDivider1.BackColor = Color.FromArgb(30, 0, 0, 0);
@@ -360,19 +373,6 @@
             splitContainer1.Size = new Size(754, 534);
             splitContainer1.SplitterDistance = 41;
             splitContainer1.TabIndex = 65;
-            // 
-            // materialSpinner1
-            // 
-            materialSpinner1.Depth = 0;
-            materialSpinner1.Location = new Point(140, 400);
-            materialSpinner1.MaxValue = 100;
-            materialSpinner1.MinValue = 0;
-            materialSpinner1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialSpinner1.Name = "materialSpinner1";
-            materialSpinner1.Size = new Size(345, 40);
-            materialSpinner1.TabIndex = 76;
-            materialSpinner1.Text = "materialSpinner1";
-            materialSpinner1.Value = 50;
             // 
             // HighlighterControl
             // 

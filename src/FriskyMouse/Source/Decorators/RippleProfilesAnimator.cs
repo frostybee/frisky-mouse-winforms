@@ -17,7 +17,7 @@ namespace FrostyBee.FriskyRipples
     /// It maintains ripple instances corresponding to what the user has selected/enabled.
     /// The profiles maintained are left click, right click, and double click ripple profiles. 
     /// </summary>
-    internal class RippleProfilesManager
+    internal class RippleProfilesAnimator: IDisposable
     {
         private readonly LayeredWindow _layeredWindow;
         // NOTE: move those to the BaseProfile.
@@ -27,28 +27,31 @@ namespace FrostyBee.FriskyRipples
         /// </summary>
         private Bitmap _blankCanvas = null;
         /// <summary>        
-        /// The drawing canvas on which the mouse click ripples will be repeatedly drawn.
+        /// The drawing canvas on which the mouse click ripples will be animated.
         /// </summary>
         private Graphics _graphics;
         private readonly ValueAnimator _animationManager;
-        private BaseProfile _clickProfile;
+        private BaseProfile _currentRipplesProfile;
         private readonly RippleProfileInfo _clickOptions;
+        
+        private bool disposedValue;
         public RippleProfileType RippleType { get; set; }
-        public RippleProfilesManager(SettingsManager _settingsManager)
+
+        public RippleProfilesAnimator(SettingsManager _settingsManager)
         {
             _clickOptions = _settingsManager.ClickProfileOptions;
-            _layeredWindow = new LayeredWindow();
+            _layeredWindow = new LayeredWindow();                        
+            // Default ripple profile.
             RippleType = RippleProfileType.FilledSonarPulse;
-
+            _currentRipplesProfile = ConstructableFactory.GetInstanceOf<BaseProfile>(RippleProfileType.SquaredPulse);
             _animationManager = new ValueAnimator()
             {
-                Increment = 0.010,
-                Interpolation = InterpolationType.BounceEaseOut
+                Increment = 0.040,
+                Interpolation = InterpolationType.Linear
 
             };
             _animationManager.Progressed += RipplesAnimation_Progressed;
             _animationManager.Completed += RipplesAnimation_Finished;
-            _clickProfile = ConstructableFactory.GetInstanceOf<BaseProfile>(RippleProfileType.SquaredPulse);
             InitDrawingCanvas();
         }
 
@@ -65,7 +68,7 @@ namespace FrostyBee.FriskyRipples
 
         public void SwitchProfile(BaseProfile inProfile)
         {
-            _clickProfile = inProfile;
+            _currentRipplesProfile = inProfile;
         }
 
         private void RipplesAnimation_Progressed(object sender)
@@ -75,7 +78,7 @@ namespace FrostyBee.FriskyRipples
             // TODO: put this in a helper method.                                    
             double progress = _animationManager.GetProgress();
             _graphics.Clear(Color.Transparent);
-            _clickProfile.RenderRipples(_graphics, _clickOptions, progress);
+            _currentRipplesProfile.RenderRipples(_graphics, _clickOptions, progress);
             // Update the layered window to show the current frame. 
             _layeredWindow.SetBitmap(_canvas, 255);
         }
@@ -133,6 +136,41 @@ namespace FrostyBee.FriskyRipples
             {
                 _animationManager.Stop();
             }
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: dispose managed state (managed objects)
+                    _canvas?.Dispose();
+                    _blankCanvas?.Dispose();
+                    _animationManager.Dispose();
+                    _layeredWindow?.Dispose();                    
+                    _canvas = null;
+                    _blankCanvas = null;
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+                // TODO: set large fields to null
+                disposedValue = true;
+            }
+        }
+
+        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+        // ~RippleProfilesAnimator()
+        // {
+        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        //     Dispose(disposing: false);
+        // }
+
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace FriskyMouse.UI.Controls
     public partial class ClickDecorationControl : UserControl
     {
         private readonly ValueAnimator _rippleValueAnimator;
-        private readonly RippleProfilesManager _profilesManager;
+        private readonly RippleProfilesAnimator _profilesManager;
         private readonly RippleProfileInfo _clickOptions;
         private BaseProfile _currentProfile;
         private Bitmap _canvas = null;

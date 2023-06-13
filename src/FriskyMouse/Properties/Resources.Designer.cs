@@ -63,6 +63,16 @@ namespace FriskyMouse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap about_50 {
+            get {
+                object obj = ResourceManager.GetObject("about-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap circle_cursor_32 {
             get {
                 object obj = ResourceManager.GetObject("circle_cursor_32", resourceCulture);
@@ -87,6 +97,16 @@ namespace FriskyMouse.Properties {
             get {
                 object obj = ResourceManager.GetObject("Martin_Berube_Animal_Bee", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap right_click_50 {
+            get {
+                object obj = ResourceManager.GetObject("right_click_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

@@ -11,10 +11,11 @@ namespace FriskyMouse.Core
     {
         // The single instance of this class. 
         private static readonly Lazy<DecorationController> _instance =
-            new Lazy<DecorationController>(() => new DecorationController());        
-        private readonly SettingsManager _settingsManager;        
+            new Lazy<DecorationController>(() => new DecorationController());
+        private readonly SettingsManager _settingsManager;
         private readonly HighlighterController _highlighter;
-        private readonly RippleProfilesManager _clickDecorator;
+        private readonly RippleProfilesAnimator _leftClickDecorator;
+        private readonly RippleProfilesAnimator _rightClickDecorator;
         private readonly MouseHookController _mouseHookController;
         private readonly object _syncLock = new object();
         private bool _disposed = false;
@@ -22,10 +23,10 @@ namespace FriskyMouse.Core
         private DecorationController()
         {
             _settingsManager = new SettingsManager();
-            _clickDecorator = new RippleProfilesManager(_settingsManager);
+            _leftClickDecorator = new RippleProfilesAnimator(_settingsManager);
+            _rightClickDecorator = new RippleProfilesAnimator(_settingsManager);
             _highlighter = new HighlighterController(_settingsManager);
-            _mouseHookController = new MouseHookController(_highlighter, _clickDecorator);
-            //LoadDecorationSettings();                        
+            _mouseHookController = new MouseHookController(_highlighter, _leftClickDecorator, _rightClickDecorator);
         }
 
         #region Methods
@@ -92,7 +93,7 @@ namespace FriskyMouse.Core
             if (_settingsManager.HighlighterSettings.Enabled)
             {
                 ConfigMouseHighlighter();
-                EnableHighlighter();                
+                EnableHighlighter();
             }
             EnableHook();
         }
@@ -103,14 +104,11 @@ namespace FriskyMouse.Core
             {
                 if (disposing)
                 {
+                    Debug.WriteLine("Disposed the manager....");
                     _highlighter?.Dispose();
                     //TODO: implement Dispose in the ripple manager.
-                    //_clickDecorator?.Dispose();
-                    Debug.WriteLine("Disposed the manager....");
+                    _leftClickDecorator?.Dispose();
                 }
-
-                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
                 _disposed = true;
             }
         }
@@ -131,7 +129,7 @@ namespace FriskyMouse.Core
         public static DecorationController Instance => _instance.Value;
         public SettingsManager SettingsManager => _settingsManager;
         public HighlighterController MouseHighlighter => _highlighter;
-        public RippleProfilesManager ClickDecorator => _clickDecorator;
+        public RippleProfilesAnimator ClickDecorator => _leftClickDecorator;
 
         public MainForm MainForm { get; internal set; }
 

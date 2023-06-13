@@ -5,7 +5,7 @@ namespace FriskyMouse.HelpersLib.Animation
     /// <summary>
     /// Defines the direction of the animation.
     /// </summary>
-    public enum AnimationDirection
+    public enum AnimationDirection : uint
     {
         [Description("In")]
         In, // The animation will progress outward.
@@ -19,5 +19,5 @@ namespace FriskyMouse.HelpersLib.Animation
         InOutRepeatingIn, // Same as In, but changes to InOutRepeatingOut if finished.
         [Description("In Out Repeating Out ")]
         InOutRepeatingOut // Same as Out, but changes to InOutRepeatingIn if finished.
-    }    
+    }
 }

@@ -1,10 +1,7 @@
 ﻿using FriskyMouse.NativeApi;
 using FrostyBee.FriskyRipples;
-using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FriskyMouse.Core
 {
@@ -12,13 +9,16 @@ namespace FriskyMouse.Core
     {
         private int _systemDoubleClickTime;
         private HighlighterController _highlighter;
-        private RippleProfilesManager _clickDecorator;
+        private RippleProfilesAnimator _clickDecorator;
+        private RippleProfilesAnimator _rightClickDecorator;
         private static object _syncRoot = new Object();
         private IntPtr _mouseHookHandle = IntPtr.Zero;
-        public MouseHookController(HighlighterController mouseHighlighter, RippleProfilesManager clickDecorator)
+        public MouseHookController(HighlighterController highlighter, RippleProfilesAnimator clickDecorator, 
+            RippleProfilesAnimator rightClickDecorator)
         {
-            _highlighter = mouseHighlighter;
+            _highlighter = highlighter;
             _clickDecorator = clickDecorator;
+            _rightClickDecorator = rightClickDecorator;
             _systemDoubleClickTime = SystemInformation.DoubleClickTime;
             _hookType = NativeMethods.WH_MOUSE_LL;
         }
@@ -50,8 +50,9 @@ namespace FriskyMouse.Core
                     case MouseButtonTypes.RightButtonUp:
                         // Fix the issue when the highlighter is no longer top most.                        
                         Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));
+                        _rightClickDecorator.ShowRipplesAt(hookStruct.pt.X, hookStruct.pt.Y);
                         //_highlighter.BringToFront(hookStruct.pt);
-                        /*_clickDecorator?.DecorateLeftSingleClick(new RawMouseEvents
+                        /*_leftClickDecorator?.DecorateLeftSingleClick(new RawMouseEvents
                         {
                             MessageType = (MouseButtonTypes)wParam,
                             Point = hookStruct.pt,
