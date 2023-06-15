@@ -9,6 +9,9 @@ using FriskyMouse.HelpersLib.Animation;
 using FriskyMouse.HelpersLib.Drawing;
 using FriskyMouse.HelpersLib.Extensions;
 using FriskyMouse.HelpersLib.Helpers;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.ComponentModel;
+using static System.Windows.Forms.CheckedListBox;
 
 namespace FriskyMouse.UI.Controls
 {
@@ -16,22 +19,24 @@ namespace FriskyMouse.UI.Controls
     {
         private readonly ValueAnimator _rippleValueAnimator;
         private readonly RippleProfilesAnimator _profilesManager;
-        private readonly RippleProfileInfo _clickOptions;
+        private readonly RippleProfileOptions _clickOptions;
+        private readonly SettingsManager _settingsManager;
         private BaseProfile _currentProfile;
-        private Bitmap _canvas = null;
-        private Bitmap _blankCanvas = null;
-        private Graphics _graphics;
+        private Bitmap? _canvas = null;
+        private Bitmap? _blankCanvas = null;
+        private Graphics? _graphics;
 
         public ClickDecorationControl()
         {
             InitializeComponent();
-            // THE ISSUE IS HERE.
+            // THE UI scaling ISSUE IS HERE.
             //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             DoubleBuffered = true;
             _currentProfile = new FilledSonarPulseProfile();
             _profilesManager = DecorationController.Instance.ClickDecorator;
-            _clickOptions = DecorationController.Instance.SettingsManager.ClickProfileOptions;
+            _settingsManager = DecorationController.Instance.SettingsManager;
+            _clickOptions = DecorationController.Instance.SettingsManager.LeftClickOptions;
             _rippleValueAnimator = new ValueAnimator()
             {
                 Increment = 0.010, // Control the animation speed.                                         
@@ -47,17 +52,43 @@ namespace FriskyMouse.UI.Controls
             switchEnableClicker.CheckedChanged += SwitchEnableClicker_CheckedChanged;
         }
 
+        private void BtnColorPicker_Click(object? sender, EventArgs e)
+        {
+            ColorDialog colorPicker = new ColorDialog();
+            // Keeps the user from selecting a custom color.
+            colorPicker.AllowFullOpen = true;
+            colorPicker.FullOpen = true;
+            // Allows the user to get help. (The default is false.)
+            colorPicker.ShowHelp = true;
+            // Sets the initial color select to the current text color.
+            colorPicker.Color = btnColorPicker.BackColor;
+
+            // Update the text box color if the user clicks OK 
+            if (colorPicker.ShowDialog() == DialogResult.OK)
+            {
+                _clickOptions.FillColor = colorPicker.Color;
+                _currentProfile.ApplySelectedColor(_clickOptions);
+                //UpdateHighlighterPreview();
+                btnColorPicker.BackColor = colorPicker.Color;
+            }
+        }
+
         protected override void OnLoad(EventArgs e)
         {
             PopulateControls();
+            InitializeDrawingCanvas();
             base.OnLoad(e);
         }
         private void PopulateControls()
         {
             // Populate the combo box with the ripple profiles descriptions.            
-            cmbProfilesList.PopulateFromEnum(typeof(RippleProfileType));
-            cmbAnimDirection.PopulateFromEnum(typeof(AnimationDirection));
-            cmbInterpolationMode.PopulateFromEnum(typeof(InterpolationType));
+            cmbProfilesList.PopulateFromEnum<RippleProfileType>();
+            cmbAnimDirection.PopulateFromEnum<AnimationDirection>();
+            cmbInterpolationMode.PopulateFromEnum<InterpolationType>();            
+        }
+
+        private void InitializeDrawingCanvas()
+        {
             //-- Create the drawing canvas on which the ripples will be drawn.
             _canvas = DrawingHelper.CreateBitmap(pcbRipplePreview.Width, pcbRipplePreview.Height, Color.White);
             _blankCanvas = DrawingHelper.CreateBitmap(pcbRipplePreview.Width, pcbRipplePreview.Height, Color.White);
@@ -65,6 +96,14 @@ namespace FriskyMouse.UI.Controls
             pcbRipplePreview.BackColor = Color.White;
             _graphics = Graphics.FromImage(_canvas);
             _graphics.SetAntiAliasing(); // Need to set it once.
+        }
+
+        internal void InitControlsFromSettings()
+        {
+            sliderAnimSpeed.Value = (int)_clickOptions.AnimationSpeed * 1000;
+            cmbInterpolationMode.SelectedIndex = cmbInterpolationMode.GetItemIndexByEumValue(_clickOptions.InterpolationType);
+            cmbAnimDirection.SelectedIndex = cmbAnimDirection.GetItemIndexByEumValue(_clickOptions.AnimationDirection);
+            cmbProfilesList.SelectedIndex = cmbProfilesList.GetItemIndexByEumValue(_clickOptions.CurrentRippleProfile);
         }
         private void StartAnimation()
         {
@@ -87,7 +126,7 @@ namespace FriskyMouse.UI.Controls
         {
             if (_rippleValueAnimator.IsAnimating())
             {
-                _graphics.Clear(Color.White);
+                _graphics?.Clear(Color.White);
                 // Draw and animate the selected profile. 
                 var progress = _rippleValueAnimator.GetProgress();
                 _currentProfile.RenderRipples(_graphics, _clickOptions, progress);
@@ -112,6 +151,7 @@ namespace FriskyMouse.UI.Controls
             _currentProfile?.Dispose();
             _profilesManager.SwitchProfile(_newProfile);
             _currentProfile = _newProfile;
+            _clickOptions.CurrentRippleProfile = profileType;
             StartAnimation();
         }
         private void CmbAnimDirection_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,13 +163,13 @@ namespace FriskyMouse.UI.Controls
         }
         private void CmbInterpolationMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // The animation's interpolation mode has been changed.                                     
+            // The animation's savedEasing mode has been changed.                                     
             InterpolationType interpolation = cmbInterpolationMode.ParseEnumValue<InterpolationType>();
             _rippleValueAnimator.Interpolation = interpolation;
             _clickOptions.InterpolationType = interpolation;
             _profilesManager.ApplySettings(_clickOptions);
             // Adjust the animation speed based on the recommended value associated with the selected 
-            // interpolation mode. 
+            // savedEasing mode. 
             DefaultSpeedAttribute speedAttribute = interpolation.GetEnumAttribute<DefaultSpeedAttribute>();
             AdjustAnimationSpeed(speedAttribute.Speed);
             sliderAnimSpeed.Value = speedAttribute.Speed;

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace FriskyMouse.Core
 {
-    internal class MouseHookController : GlobalHook
+    internal class MouseHookController : GlobalInputsHook
     {
         private int _systemDoubleClickTime;
         private HighlighterController _highlighter;

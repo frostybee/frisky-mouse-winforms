@@ -6,7 +6,7 @@ namespace MaterialSkin
     /// <summary>
     /// Defines the <see cref="DrawHelper" />
     /// </summary>
-    internal static class DrawHelper
+    public static class DrawHelper
     {
         /// <summary>
         /// The CreateRoundRect

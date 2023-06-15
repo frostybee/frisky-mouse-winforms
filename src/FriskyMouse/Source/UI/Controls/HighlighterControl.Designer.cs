@@ -47,7 +47,6 @@
             sldRadius = new MaterialSkin.Controls.MaterialSlider();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             panel1 = new Panel();
-            materialSpinner1 = new MaterialSkin.Controls.MaterialSpinner();
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             splitContainer1 = new SplitContainer();
             grpOptions.SuspendLayout();
@@ -66,7 +65,7 @@
             switchHighlighter.Checked = true;
             switchHighlighter.CheckState = CheckState.Checked;
             switchHighlighter.Depth = 0;
-            switchHighlighter.Location = new Point(221, 4);
+            switchHighlighter.Location = new Point(494, 17);
             switchHighlighter.Margin = new Padding(0);
             switchHighlighter.MouseLocation = new Point(-1, -1);
             switchHighlighter.MouseState = MaterialSkin.MouseState.HOVER;
@@ -84,7 +83,7 @@
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel1.HighEmphasis = true;
-            materialLabel1.Location = new Point(23, 19);
+            materialLabel1.Location = new Point(296, 32);
             materialLabel1.Margin = new Padding(2, 0, 2, 0);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
@@ -105,7 +104,7 @@
             grpOptions.Controls.Add(cmboxOutlineStyle);
             grpOptions.Controls.Add(btnResetSettings);
             grpOptions.Controls.Add(sldRadius);
-            grpOptions.Location = new Point(23, 56);
+            grpOptions.Location = new Point(23, 63);
             grpOptions.Margin = new Padding(2);
             grpOptions.Name = "grpOptions";
             grpOptions.Padding = new Padding(2);
@@ -222,7 +221,7 @@
             btnColorPicker.TabIndex = 12;
             btnColorPicker.Text = "...";
             btnColorPicker.UseVisualStyleBackColor = true;
-            btnColorPicker.Click += ColorPicker_Click;
+            btnColorPicker.Click += BtnColorPicker_Click;
             // 
             // btnApplySettings
             // 
@@ -321,7 +320,6 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(materialSpinner1);
             panel1.Controls.Add(switchHighlighter);
             panel1.Controls.Add(materialLabel1);
             panel1.Controls.Add(grpOptions);
@@ -331,19 +329,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(754, 489);
             panel1.TabIndex = 64;
-            // 
-            // materialSpinner1
-            // 
-            materialSpinner1.Depth = 0;
-            materialSpinner1.Location = new Point(140, 400);
-            materialSpinner1.MaxValue = 100;
-            materialSpinner1.MinValue = 0;
-            materialSpinner1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialSpinner1.Name = "materialSpinner1";
-            materialSpinner1.Size = new Size(345, 40);
-            materialSpinner1.TabIndex = 76;
-            materialSpinner1.Text = "materialSpinner1";
-            materialSpinner1.Value = 50;
             // 
             // materialDivider1
             // 
@@ -417,6 +402,5 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private PictureBox pboxPreview;
-        private MaterialSkin.Controls.MaterialSpinner materialSpinner1;
     }
 }

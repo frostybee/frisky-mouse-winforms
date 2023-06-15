@@ -24,19 +24,17 @@ namespace FriskyMouse.HelpersLib.Drawing
         /// </summary>
         /// <param name="inRippleProfile">The profile to be rendered.</param>
         /// <param name="progress">The interpolated value that indicates the progress of the currently running animation. </param>
-        public void RenderRipples(Graphics _graphics, RippleProfileInfo options, double progress)
+        public void RenderRipples(Graphics _graphics, RippleProfileOptions options, double progress)
         {                                   
             // We adjust the ripple properties every animation frame. 
             _ripples.ForEach(ripple =>
             {                
                 if (options.CanFadeColor)
                 {
-                    Debug.WriteLine(options.CanFadeColor.ToString());
                     // We fade the color of the ripple based on the current animation's progress value.
                     ripple.AdjustColorOpacity(progress);
                 }
-                ripple.ExpandRadius(progress);                
-                // Draw the ripple.                
+                ripple.ExpandRadius(progress);                                
                 ripple.Draw(_graphics);
             });
         }
@@ -52,7 +50,14 @@ namespace FriskyMouse.HelpersLib.Drawing
             {            
                 ripple.ResetColor(255);
             });
-        }        
+        }
+        public void ApplySelectedColor(RippleProfileOptions clickOptions)
+        {
+            _ripples.ForEach(ripple =>
+            {
+                ripple.ChangeColor(clickOptions);
+            });
+        }
 
         private void DisposeDrawingTools()
         {

@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace FriskyMouse.HelpersLib.Animation
 {
-    public enum InterpolationType
+    public enum InterpolationType : uint
     {
         [Description("Linear Easing"), ConstructableEnum(typeof(LinearEasing)), DefaultSpeed(25)]
         Linear,

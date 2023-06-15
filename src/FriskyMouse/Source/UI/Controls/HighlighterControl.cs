@@ -29,7 +29,7 @@ namespace FriskyMouse.UI.Controls
             //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             _applicationManager = DecorationController.Instance;
-            _highlighter = _applicationManager.SettingsManager.HighlighterSettings;
+            _highlighter = _applicationManager.SettingsManager.HighlighterOptions;
 
             // TODO: 1) must load the saved settings first.
             //       2) Setup UI controls based on the loaded settings.
@@ -54,7 +54,7 @@ namespace FriskyMouse.UI.Controls
 
         }
 
-        internal void InitHighlighterControls()
+        internal void InitControlsFromSettings()
         {
             // Initialize the UI controls with the previously selected settings.            
             switchFilledSpotlight.Checked = _highlighter.IsFilled;
@@ -70,7 +70,6 @@ namespace FriskyMouse.UI.Controls
             // TODO: init the outline style in the combo box.
             // FIXME: 
             // TODO: If highlighter disabled ===> Disable the controls. 
-
             // TODO: draw the preview.
             pboxPreview.Invalidate();
         }
@@ -82,8 +81,7 @@ namespace FriskyMouse.UI.Controls
 
         private void SwitchHighlighter_CheckedChanged(object sender, EventArgs e)
         {
-            _highlighter.Enabled = switchHighlighter.Checked;
-            // Ajust the test of the switch.
+            _highlighter.Enabled = switchHighlighter.Checked;            
             UpdateHighlighterSwitchText();
             if (switchHighlighter.Checked)
             {
@@ -148,7 +146,7 @@ namespace FriskyMouse.UI.Controls
             e.Graphics.DrawSpotlight(rect, _highlighter);
         }
 
-        private void ColorPicker_Click(object sender, EventArgs e)
+        private void BtnColorPicker_Click(object sender, EventArgs e)
         {
             ColorDialog colorPicker = new ColorDialog();
             // Keeps the user from selecting a custom color.

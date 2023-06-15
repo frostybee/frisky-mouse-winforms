@@ -32,14 +32,14 @@ namespace FrostyBee.FriskyRipples
         private Graphics _graphics;
         private readonly ValueAnimator _animationManager;
         private BaseProfile _currentRipplesProfile;
-        private readonly RippleProfileInfo _clickOptions;
+        private readonly RippleProfileOptions _clickOptions;
         
         private bool disposedValue;
         public RippleProfileType RippleType { get; set; }
 
         public RippleProfilesAnimator(SettingsManager _settingsManager)
         {
-            _clickOptions = _settingsManager.ClickProfileOptions;
+            _clickOptions = _settingsManager.LeftClickOptions;
             _layeredWindow = new LayeredWindow();                        
             // Default ripple profile.
             RippleType = RippleProfileType.FilledSonarPulse;
@@ -124,10 +124,10 @@ namespace FrostyBee.FriskyRipples
             }
         }
 
-        internal void ApplySettings(RippleProfileInfo profileSettings)
+        internal void ApplySettings(RippleProfileOptions options)
         {
-            _animationManager.Increment = profileSettings.AnimationSpeed;
-            _animationManager.Interpolation = profileSettings.InterpolationType;
+            _animationManager.Increment = options.AnimationSpeed;
+            _animationManager.Interpolation = options.InterpolationType;
         }
 
         internal void StopAnimation()

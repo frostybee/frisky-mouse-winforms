@@ -1,16 +1,18 @@
 ﻿using FriskyMouse.HelpersLib.Extensions;
 using FriskyMouse.HelpersLib.Helpers;
+using MaterialSkin;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace FriskyMouse.Core
 {
     internal static class GraphicsExtensions
     {
-        public static void DrawSpotlight(this Graphics gr, Rectangle rect, HighlighterInfo spotlightModel)
+        public static void DrawSpotlight(this Graphics graphics, Rectangle rect, HighlighterInfo spotlightModel)
         {
-            gr.SetAntiAliasing();
+            graphics.SetAntiAliasing();
             int doubledRadius = spotlightModel.Radius * 2;
 
             // Apply the selected opacity on the color to be used in the _highlighter. 
@@ -21,9 +23,14 @@ namespace FriskyMouse.Core
                 {
                     // TODO: move the rectangle code to Drawing helper class. 
                     // make a method that creates a rectangle.
-                    //gr.FillEllipse(brush, new Rectangle(0, 0, doubledRadius, doubledRadius));
-                    gr.FillEllipse(brush, rect);
-                    //gr.FillEllipse(brush, DrawingHelper.CreateRectangle(200, 200, spotlightModel.Radius));
+                    //graphics.FillEllipse(brush, new Rectangle(0, 0, doubledRadius, doubledRadius));
+                    graphics.FillEllipse(brush, rect);
+                    /*//DrawHelper.DrawRoundShadow(graphics, rect);                    
+                    using (Pen pen = new Pen(Color.FromArgb(200, Color.Blue), 6))
+                    {
+                        graphics.DrawEllipse(pen, rect);
+                    }*/
+                    //graphics.FillEllipse(brush, DrawingHelper.CreateRectangle(200, 200, spotlightModel.Radius));
                 }
             }
             else
@@ -32,7 +39,7 @@ namespace FriskyMouse.Core
                 using (Pen pen = new Pen(selectedColor, spotlightModel.OutlineThickness))
                 {
                     pen.DashStyle = spotlightModel.OutlineStyle;
-                    gr.DrawEllipse(pen, rect);
+                    graphics.DrawEllipse(pen, rect);
                 }
             }
         }

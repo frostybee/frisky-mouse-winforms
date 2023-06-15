@@ -16,8 +16,7 @@ namespace FriskyMouse.HelpersLib.Drawing
         private void InitProfileEntries()
         {
             int opacity = 10;            
-            _outlinePen = new Pen(Color.Crimson.ReduceOpacity(opacity), 4);
-            // 1) Make the outer most ripple.
+            _outlinePen = new Pen(Color.Crimson.ReduceOpacity(opacity), 6);                        
             AddRipple(
                 new RippleEntry()
                 {

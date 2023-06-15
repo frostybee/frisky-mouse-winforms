@@ -44,4 +44,12 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="D:\Dev\my-repos\FriskyMouse\src\FriskyMouse\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="D:\Dev\my-repos\FriskyMouse\src\FriskyMouse\.editorconfig" />
+  </ItemGroup>
+
 </Project>

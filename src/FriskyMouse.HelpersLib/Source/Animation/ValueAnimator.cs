@@ -261,8 +261,8 @@ namespace FriskyMouse.HelpersLib.Animation
 
         public void Dispose()
         {
-            _animationTimer?.Dispose();
             _animationTimer.Tick -= AnimationTimer_OnTick;
+            _animationTimer?.Dispose();            
         }
     }
 }

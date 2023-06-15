@@ -33,14 +33,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             tabHighlighter = new TabPage();
-            _tabHighlighterSettings = new Controls.HighlighterControl();
+            ctrlHighlighter = new Controls.HighlighterControl();
             materialDrawer = new MaterialSkin.Controls.MaterialDrawer();
             tabClickDecorator = new TabPage();
-            clickDecorationControl = new Controls.ClickDecorationControl();
+            ctrClickDecoration = new Controls.ClickDecorationControl();
             tbpSettings = new TabPage();
-            appSettingsControl = new Controls.AppSettingsControl();
+            ctrlAppSettings = new Controls.AppSettingsControl();
             tabAboutPage = new TabPage();
-            aboutControl = new Controls.AboutControl();
+            ctrlAbout = new Controls.AboutControl();
             menuIconList = new ImageList(components);
             appNotifyIcon = new NotifyIcon(components);
             trayContextMenu = new ContextMenuStrip(components);
@@ -85,7 +85,7 @@
             // tabHighlighter
             // 
             tabHighlighter.BackColor = Color.White;
-            tabHighlighter.Controls.Add(_tabHighlighterSettings);
+            tabHighlighter.Controls.Add(ctrlHighlighter);
             tabHighlighter.Controls.Add(materialDrawer);
             tabHighlighter.ImageKey = "spotlight-cursor-32.png";
             tabHighlighter.Location = new Point(4, 31);
@@ -95,14 +95,14 @@
             tabHighlighter.TabIndex = 0;
             tabHighlighter.Text = "Highlighter";
             // 
-            // _tabHighlighterSettings
+            // ctrlHighlighter
             // 
-            _tabHighlighterSettings.Dock = DockStyle.Fill;
-            _tabHighlighterSettings.Location = new Point(3, 3);
-            _tabHighlighterSettings.Margin = new Padding(2, 3, 2, 3);
-            _tabHighlighterSettings.Name = "_tabHighlighterSettings";
-            _tabHighlighterSettings.Size = new Size(828, 590);
-            _tabHighlighterSettings.TabIndex = 2;
+            ctrlHighlighter.Dock = DockStyle.Fill;
+            ctrlHighlighter.Location = new Point(3, 3);
+            ctrlHighlighter.Margin = new Padding(2, 3, 2, 3);
+            ctrlHighlighter.Name = "ctrlHighlighter";
+            ctrlHighlighter.Size = new Size(828, 590);
+            ctrlHighlighter.TabIndex = 2;
             // 
             // materialDrawer
             // 
@@ -126,7 +126,7 @@
             // tabClickDecorator
             // 
             tabClickDecorator.BackColor = Color.White;
-            tabClickDecorator.Controls.Add(clickDecorationControl);
+            tabClickDecorator.Controls.Add(ctrClickDecoration);
             tabClickDecorator.ImageKey = "left-click-50.png";
             tabClickDecorator.Location = new Point(4, 31);
             tabClickDecorator.Name = "tabClickDecorator";
@@ -135,19 +135,19 @@
             tabClickDecorator.TabIndex = 1;
             tabClickDecorator.Text = "Click Decorator";
             // 
-            // clickDecorationControl
+            // ctrClickDecoration
             // 
-            clickDecorationControl.Dock = DockStyle.Fill;
-            clickDecorationControl.Location = new Point(3, 3);
-            clickDecorationControl.Margin = new Padding(0);
-            clickDecorationControl.Name = "clickDecorationControl";
-            clickDecorationControl.Size = new Size(828, 590);
-            clickDecorationControl.TabIndex = 0;
+            ctrClickDecoration.Dock = DockStyle.Fill;
+            ctrClickDecoration.Location = new Point(3, 3);
+            ctrClickDecoration.Margin = new Padding(0);
+            ctrClickDecoration.Name = "ctrClickDecoration";
+            ctrClickDecoration.Size = new Size(828, 590);
+            ctrClickDecoration.TabIndex = 0;
             // 
             // tbpSettings
             // 
             tbpSettings.BackColor = Color.White;
-            tbpSettings.Controls.Add(appSettingsControl);
+            tbpSettings.Controls.Add(ctrlAppSettings);
             tbpSettings.ImageKey = "settings_24.png";
             tbpSettings.Location = new Point(4, 31);
             tbpSettings.Name = "tbpSettings";
@@ -156,17 +156,17 @@
             tbpSettings.TabIndex = 2;
             tbpSettings.Text = "Settings";
             // 
-            // appSettingsControl
+            // ctrlAppSettings
             // 
-            appSettingsControl.Location = new Point(0, 3);
-            appSettingsControl.Name = "appSettingsControl";
-            appSettingsControl.Size = new Size(732, 594);
-            appSettingsControl.TabIndex = 0;
+            ctrlAppSettings.Location = new Point(0, 3);
+            ctrlAppSettings.Name = "ctrlAppSettings";
+            ctrlAppSettings.Size = new Size(732, 594);
+            ctrlAppSettings.TabIndex = 0;
             // 
             // tabAboutPage
             // 
             tabAboutPage.BackColor = Color.White;
-            tabAboutPage.Controls.Add(aboutControl);
+            tabAboutPage.Controls.Add(ctrlAbout);
             tabAboutPage.ImageKey = "about-50.png";
             tabAboutPage.Location = new Point(4, 31);
             tabAboutPage.Margin = new Padding(3, 2, 3, 2);
@@ -176,14 +176,14 @@
             tabAboutPage.TabIndex = 3;
             tabAboutPage.Text = "About";
             // 
-            // aboutControl
+            // ctrlAbout
             // 
-            aboutControl.Dock = DockStyle.Fill;
-            aboutControl.Location = new Point(3, 2);
-            aboutControl.Margin = new Padding(0);
-            aboutControl.Name = "aboutControl";
-            aboutControl.Size = new Size(828, 592);
-            aboutControl.TabIndex = 0;
+            ctrlAbout.Dock = DockStyle.Fill;
+            ctrlAbout.Location = new Point(3, 2);
+            ctrlAbout.Margin = new Padding(0);
+            ctrlAbout.Name = "ctrlAbout";
+            ctrlAbout.Size = new Size(828, 592);
+            ctrlAbout.TabIndex = 0;
             // 
             // menuIconList
             // 
@@ -270,13 +270,13 @@
         private NotifyIcon appNotifyIcon;
         private ContextMenuStrip trayContextMenu;
         private ToolStripMenuItem mnShow;
-        private ToolStripMenuItem mnExit;        
-        private Controls.ClickDecorationControl clickDecorationControl;
-        private Controls.HighlighterControl _tabHighlighterSettings;
-        private TabPage tbpSettings;
-        private Controls.AppSettingsControl appSettingsControl;
-        private TabPage tabAboutPage;
-        private Controls.AboutControl aboutControl;
+        private ToolStripMenuItem mnExit;       
+        private Controls.ClickDecorationControl ctrClickDecoration;
+        private Controls.HighlighterControl ctrlHighlighter;
+        private Controls.AboutControl ctrlAbout;
+        private Controls.AppSettingsControl ctrlAppSettings;
+        private TabPage tbpSettings;        
+        private TabPage tabAboutPage;        
         private TabPage tabRightClick;
     }
 }

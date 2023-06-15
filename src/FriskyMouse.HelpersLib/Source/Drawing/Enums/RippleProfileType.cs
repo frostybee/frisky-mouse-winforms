@@ -8,7 +8,7 @@ namespace FriskyMouse.HelpersLib.Drawing
         [Description("Ice Cream"), ConstructableEnum(typeof(IceCreamProfile))]
         IceCream,
         [Description("Expanding Ripple"), ConstructableEnum(typeof(CircleProfile))]
-        Single,
+        Ripple,
         [Description("Expanding Square"), ConstructableEnum(typeof(SquareProfile))]
         Square,
         [Description("Hexagon"), ConstructableEnum(typeof(HexagonProfile))]
@@ -29,7 +29,7 @@ namespace FriskyMouse.HelpersLib.Drawing
         SquaredPulse,      
         [Description("Crosshair"), ConstructableEnum(typeof(CrosshairProfile))]
         Crosshair,
-        [Description("Concentric Circles"), ConstructableEnum(typeof(ConcentricProfile))]
+        [Description("Lollipop"), ConstructableEnum(typeof(ConcentricProfile))]
         Concentric // Core circle in the middle.          
     }
 

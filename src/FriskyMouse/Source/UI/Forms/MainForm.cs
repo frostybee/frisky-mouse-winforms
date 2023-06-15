@@ -44,10 +44,14 @@ namespace FriskyMouse.UI
             // the mouse hooks is properly installed/uninstalled.
             this.Load += MainForm_Load;
 
+            SetUpMaterialForm();           
+        }
+
+        private void SetUpMaterialForm()
+        {
             // Set this to false to disable backcolor enforcing on non-materialSkin components
             // This HAS to be set before the AddFormToManage()
-            _materialSkinManager.EnforceBackcolorOnAllComponents = true;
-
+            _materialSkinManager.EnforceBackcolorOnAllComponents = false;
             // MaterialSkinManager properties
             _materialSkinManager.AddFormToManage(this);
             _materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -83,18 +87,8 @@ namespace FriskyMouse.UI
             {
                 appNotifyIcon.Visible = false;
             }
-        }
-        /// <summary>
-        /// Saves the mouse decoration settings upon shutting down the application. 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Application_ApplicationExit(object sender, EventArgs e)
-        {
-            _applicationManager.SettingsManager.SaveHighlighterSettings();
-            _applicationManager?.DisableHook();
-            _applicationManager?.Dispose();
-        }
+        }        
+
         /// <summary>
         /// Initializes the custom user controls of the mouse highlighter and click decorator features. 
         /// If both features are enabled, the mouse hook will be installed.
@@ -104,10 +98,22 @@ namespace FriskyMouse.UI
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _applicationManager.BootstrapApp();
             _applicationManager.MainForm = this;
-            _tabHighlighterSettings.InitHighlighterControls();
-            Debug.WriteLine("MainForm_Load....");
+            _applicationManager.BootstrapApp();            
+            ctrlHighlighter.InitControlsFromSettings();
+            ctrClickDecoration.InitControlsFromSettings();            
+        }
+
+        /// <summary>
+        /// Saves the mouse decoration settings upon shutting down the application. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            _applicationManager.SettingsManager.SaveDecorationSettings();
+            _applicationManager?.DisableHook();
+            _applicationManager?.Dispose();
         }
         private void Restore()
         {
@@ -138,6 +144,7 @@ namespace FriskyMouse.UI
         private void MenuItemAbout_Click(object sender, EventArgs e)
         {
             // Show the about page. Focus the about tab.
+            //MessageBox.Show("About page!");
         }
 
         private void MenuItemExit_Click(object sender, EventArgs e)

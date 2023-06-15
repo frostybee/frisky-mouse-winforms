@@ -48,8 +48,8 @@
             splitContainer1 = new SplitContainer();
             panel1 = new Panel();
             materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            materialCard1 = new MaterialSkin.Controls.MaterialCard();
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            materialCard1 = new MaterialSkin.Controls.MaterialCard();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbRipplePreview).BeginInit();
@@ -71,9 +71,9 @@
             materialLabel26.Margin = new Padding(4, 0, 4, 0);
             materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel26.Name = "materialLabel26";
-            materialLabel26.Size = new Size(208, 29);
+            materialLabel26.Size = new Size(226, 29);
             materialLabel26.TabIndex = 62;
-            materialLabel26.Text = "Right Click Settings";
+            materialLabel26.Text = "Left Click Decoration";
             // 
             // groupBox3
             // 
@@ -83,7 +83,7 @@
             groupBox3.Controls.Add(btnColorPicker);
             groupBox3.Controls.Add(lblColor);
             groupBox3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox3.Location = new Point(23, 56);
+            groupBox3.Location = new Point(23, 77);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(441, 130);
             groupBox3.TabIndex = 78;
@@ -157,6 +157,7 @@
             btnColorPicker.TabIndex = 12;
             btnColorPicker.Text = "...";
             btnColorPicker.UseVisualStyleBackColor = true;
+            btnColorPicker.Click += BtnColorPicker_Click;
             // 
             // lblColor
             // 
@@ -175,8 +176,8 @@
             groupBox2.Controls.Add(sliderAnimSpeed);
             groupBox2.Controls.Add(cmbInterpolationMode);
             groupBox2.Controls.Add(cmbAnimDirection);
-            groupBox2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(23, 195);
+            groupBox2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox2.Location = new Point(23, 216);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(441, 137);
             groupBox2.TabIndex = 75;
@@ -254,7 +255,7 @@
             switchEnableClicker.Checked = true;
             switchEnableClicker.CheckState = CheckState.Checked;
             switchEnableClicker.Depth = 0;
-            switchEnableClicker.Location = new Point(23, 11);
+            switchEnableClicker.Location = new Point(445, 13);
             switchEnableClicker.Margin = new Padding(0);
             switchEnableClicker.MouseLocation = new Point(-1, -1);
             switchEnableClicker.MouseState = MaterialSkin.MouseState.HOVER;
@@ -269,7 +270,7 @@
             // 
             sldOutlineWidth.Depth = 0;
             sldOutlineWidth.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            sldOutlineWidth.Location = new Point(23, 338);
+            sldOutlineWidth.Location = new Point(23, 359);
             sldOutlineWidth.MouseState = MaterialSkin.MouseState.HOVER;
             sldOutlineWidth.Name = "sldOutlineWidth";
             sldOutlineWidth.RangeMax = 10;
@@ -288,7 +289,7 @@
             btnStopAnimation.Depth = 0;
             btnStopAnimation.HighEmphasis = true;
             btnStopAnimation.Icon = null;
-            btnStopAnimation.Location = new Point(533, 338);
+            btnStopAnimation.Location = new Point(533, 359);
             btnStopAnimation.Margin = new Padding(4, 6, 4, 6);
             btnStopAnimation.MouseState = MaterialSkin.MouseState.HOVER;
             btnStopAnimation.Name = "btnStopAnimation";
@@ -308,7 +309,7 @@
             btnPreview.Depth = 0;
             btnPreview.HighEmphasis = true;
             btnPreview.Icon = null;
-            btnPreview.Location = new Point(605, 338);
+            btnPreview.Location = new Point(605, 359);
             btnPreview.Margin = new Padding(4, 6, 4, 6);
             btnPreview.MouseState = MaterialSkin.MouseState.HOVER;
             btnPreview.Name = "btnPreview";
@@ -324,7 +325,7 @@
             // pcbRipplePreview
             // 
             pcbRipplePreview.BackColor = Color.White;
-            pcbRipplePreview.Location = new Point(10, 11);
+            pcbRipplePreview.Location = new Point(8, 10);
             pcbRipplePreview.Name = "pcbRipplePreview";
             pcbRipplePreview.Size = new Size(173, 218);
             pcbRipplePreview.TabIndex = 0;
@@ -353,13 +354,13 @@
             // 
             panel1.Controls.Add(materialLabel2);
             panel1.Controls.Add(switchEnableClicker);
-            panel1.Controls.Add(materialCard1);
             panel1.Controls.Add(materialDivider1);
             panel1.Controls.Add(groupBox2);
             panel1.Controls.Add(btnStopAnimation);
             panel1.Controls.Add(btnPreview);
             panel1.Controls.Add(groupBox3);
             panel1.Controls.Add(sldOutlineWidth);
+            panel1.Controls.Add(materialCard1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -371,28 +372,12 @@
             materialLabel2.AutoSize = true;
             materialLabel2.Depth = 0;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(494, 39);
+            materialLabel2.Location = new Point(494, 60);
             materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
             materialLabel2.Size = new Size(56, 19);
             materialLabel2.TabIndex = 82;
             materialLabel2.Text = "Preview";
-            // 
-            // materialCard1
-            // 
-            materialCard1.Controls.Add(pcbRipplePreview);
-            materialCard1.Depth = 0;
-            materialCard1.Elevation = 5;
-            materialCard1.LargeTitle = false;
-            materialCard1.Location = new Point(494, 77);
-            materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialCard1.Name = "materialCard1";
-            materialCard1.Padding = new Padding(5, 25, 5, 5);
-            graphicsPath1.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
-            materialCard1.ShadowBorder = graphicsPath1;
-            materialCard1.Size = new Size(194, 236);
-            materialCard1.TabIndex = 79;
-            materialCard1.Title = null;
             // 
             // materialDivider1
             // 
@@ -405,13 +390,29 @@
             materialDivider1.TabIndex = 77;
             materialDivider1.Text = "materialDivider1";
             // 
+            // materialCard1
+            // 
+            materialCard1.Controls.Add(pcbRipplePreview);
+            materialCard1.Depth = 0;
+            materialCard1.Elevation = 5;
+            materialCard1.LargeTitle = false;
+            materialCard1.Location = new Point(494, 98);
+            materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCard1.Name = "materialCard1";
+            materialCard1.Padding = new Padding(5, 25, 5, 5);
+            graphicsPath1.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
+            materialCard1.ShadowBorder = graphicsPath1;
+            materialCard1.Size = new Size(194, 236);
+            materialCard1.TabIndex = 79;
+            materialCard1.Title = null;
+            // 
             // ClickDecorationControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(splitContainer1);
             Name = "ClickDecorationControl";
-            Size = new Size(1021, 755);
+            Size = new Size(879, 614);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);

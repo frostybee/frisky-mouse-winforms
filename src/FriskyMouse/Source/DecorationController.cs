@@ -30,27 +30,16 @@ namespace FriskyMouse.Core
         }
 
         #region Methods
-        private void ConfigMouseHighlighter()
-        {
-            // Configure cursor _highlighter.            
-            _highlighter.InitHighlighter(_settingsManager.HighlighterSettings);
-        }
-        //int previousClick = 0;
-
+        
         internal void EnableHighlighter()
-        {
-            //TODO: handle hook return type/errors
-            // TODO: check if the _highlighter is enabled in the settings or not. 
-            // TODO: check also if the click decorator is enabled.
-            _highlighter.InitHighlighter(_settingsManager.HighlighterSettings);
-            //--
-            //LoadDecorationSettings();                                
-        }
+        {            
+            _highlighter.InitHighlighter(_settingsManager.HighlighterOptions);        
+        }         
         internal void DisableHighlighter()
         {
             // HideSpotlight the layered window.
             _highlighter.HideSpotlight();
-            if (_settingsManager.HighlighterSettings.Enabled)
+            if (_settingsManager.HighlighterOptions.Enabled)
             {
 
             }
@@ -76,26 +65,32 @@ namespace FriskyMouse.Core
         internal void ApplyHighlighterSettings()
         {
             // Save the newly edited settings.
-            _settingsManager.SaveHighlighterSettings();
+            _settingsManager.SaveDecorationSettings();
 
-            if (_settingsManager.HighlighterSettings.Enabled)
-            {
-                // TODO: Apply the new highlighter settings by updating the bitmap shown onto the layered window.
-                ConfigMouseHighlighter();
+            if (_settingsManager.HighlighterOptions.Enabled)
+            {                
+                EnableHighlighter();
             }
         }
 
         internal void BootstrapApp()
-        {
-            // First, we need to load the applications settings.
+        {            
             _settingsManager.LoadAppSettings();
             // TODO: add check ==> Is click decorator enabled as well?
-            if (_settingsManager.HighlighterSettings.Enabled)
+            //EnableHook();
+            if (_mouseHookController.Started)
             {
-                ConfigMouseHighlighter();
-                EnableHighlighter();
+                if (_settingsManager.HighlighterOptions.Enabled)
+                {
+                    // Set the initial coordinates of the spotlight upon starting the application.
+                    _highlighter.SetInitialPosition();
+                    EnableHighlighter();
+                }
             }
-            EnableHook();
+            else 
+            {
+                // TODO: Failed to install the mouse hook... Raise an error.
+            }                    
         }
 
         protected virtual void Dispose(bool disposing)
@@ -103,11 +98,10 @@ namespace FriskyMouse.Core
             if (!_disposed)
             {
                 if (disposing)
-                {
-                    Debug.WriteLine("Disposed the manager....");
-                    _highlighter?.Dispose();
-                    //TODO: implement Dispose in the ripple manager.
+                {                    
+                    _highlighter?.Dispose();                    
                     _leftClickDecorator?.Dispose();
+                    _rightClickDecorator?.Dispose();    
                 }
                 _disposed = true;
             }

@@ -370,7 +370,7 @@ namespace MaterialSkin.Controls
                     new float[] {   l,   l,   l,   0,  1}};// offset
 
 
-            ColorMatrix colorMatrixGray = new ColorMatrix(matrixGray);
+            ColorMatrix colorMatrixGray = new(matrixGray);
 
             ImageAttributes grayImageAttributes = new ImageAttributes();
 

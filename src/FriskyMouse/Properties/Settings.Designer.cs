@@ -145,6 +145,18 @@ namespace FriskyMouse.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public uint ClickRippleAnimDirection {
+            get {
+                return ((uint)(this["ClickRippleAnimDirection"]));
+            }
+            set {
+                this["ClickRippleAnimDirection"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("20")]
         public double ClickRippleSpeed {
             get {
@@ -158,12 +170,48 @@ namespace FriskyMouse.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public uint ClickRippleAnimDirection {
+        public uint ClickRippleEasingType {
             get {
-                return ((uint)(this["ClickRippleAnimDirection"]));
+                return ((uint)(this["ClickRippleEasingType"]));
             }
             set {
-                this["ClickRippleAnimDirection"] = value;
+                this["ClickRippleEasingType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ClickRippleFadeColor {
+            get {
+                return ((bool)(this["ClickRippleFadeColor"]));
+            }
+            set {
+                this["ClickRippleFadeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ClickRippleEnabled {
+            get {
+                return ((bool)(this["ClickRippleEnabled"]));
+            }
+            set {
+                this["ClickRippleEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public uint ClickRippleProfile {
+            get {
+                return ((uint)(this["ClickRippleProfile"]));
+            }
+            set {
+                this["ClickRippleProfile"] = value;
             }
         }
     }

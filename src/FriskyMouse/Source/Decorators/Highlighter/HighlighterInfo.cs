@@ -7,25 +7,11 @@ namespace FriskyMouse.Core
 {
     internal class HighlighterInfo
     {
-        // TODO: convert this into a ripple entry.
-        public HighlighterInfo()
-        {
-            // Default settings. 
-            Radius = 50;
-            FillColor = Color.Red;
-            OpacityPercentage = 50;
-            IsFilled = true;
-            OutlineThickness = 3;
-            OutlineStyle = DashStyle.Solid;
-            OutlineColor = Color.Yellow;            
-        }
-            
-
         #region Properties
-        public bool Enabled { get; set; }
-        public bool IsForPreview { get; set; }        
-        public int Radius { get; set; }
-        public byte OpacityPercentage { get; set; }
+        public bool Enabled { get; set; } = true;
+        public bool IsForPreview { get; set; } = false;
+        public int Radius { get; set; } = 50;
+        public byte OpacityPercentage { get; set; } = 50;
         public byte Opacity
         {
             get
@@ -33,11 +19,11 @@ namespace FriskyMouse.Core
                 return (byte)(Math.Min(OpacityPercentage * 255 / 100, 255));
             }
         }
-        public Color FillColor { get; set; }
-        public Color OutlineColor { get; set; }
-        public bool IsFilled { get; set; }
+        public Color FillColor { get; set; } = Color.Yellow;
+        public Color OutlineColor { get; set; } = Color.Red;
+        public bool IsFilled { get; set; } = true;
         public int OutlineThickness { get; set; } = 1;
-        public DashStyle OutlineStyle { get; set; }
+        public DashStyle OutlineStyle { get; set; } = DashStyle.Solid;
         #endregion
     }
 }

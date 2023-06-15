@@ -23,7 +23,7 @@ namespace FriskyMouse.Core
         private int _height = 0;
 
         internal HighlighterController(SettingsManager pSettingsManager)
-        {            
+        {
             _layeredWindow = new LayeredWindow();
             _settingsManager = pSettingsManager;
         }
@@ -32,7 +32,7 @@ namespace FriskyMouse.Core
         {
             highlighterInfo.IsForPreview = false;
             // Clean up any previously generated bitmap.
-            _spotlightBitmap?.Dispose();            
+            _spotlightBitmap?.Dispose();
             _spotlightBitmap = DrawingHelper.CreateBitmap(200, 200, Color.Transparent);
             Graphics graphics = Graphics.FromImage(_spotlightBitmap);
             Rectangle rect = DrawingHelper.CreateRectangle(200, 200, highlighterInfo.Radius);
@@ -52,7 +52,7 @@ namespace FriskyMouse.Core
         /// <param name="inPoint">A point containing the current X and Y coordinates of the mouse cursor.</param>
         internal void MoveSpotlight(POINT inPoint)
         {
-            if (_settingsManager.HighlighterSettings.Enabled)
+            if (_settingsManager.HighlighterOptions.Enabled)
             {
                 if (_spotlightBitmap != null)
                 {
@@ -67,8 +67,7 @@ namespace FriskyMouse.Core
         /// <param name="inPoint"></param>
         internal void BringToFront(POINT inPoint)
         {
-
-            if (_settingsManager.HighlighterSettings.Enabled)
+            if (_settingsManager.HighlighterOptions.Enabled)
             {
                 // Adjust the coordinates of the layered window based on the spotlight's bitmap size.
                 SetLayeredWindowCoordinates(inPoint);
@@ -78,11 +77,19 @@ namespace FriskyMouse.Core
         /// <summary>
         /// Repositions the layered window where the cursor is currently pointing on the screen.
         /// </summary>
-        /// <param name="inPoint">A point containing the X and Y coordinates of the mouse cursor. </param>
-        private void SetLayeredWindowCoordinates(POINT inPoint)
+        /// <param name="point">A point containing the X and Y coordinates of the mouse cursor. </param>
+        private void SetLayeredWindowCoordinates(POINT point)
         {
-            _layeredWindow.PositionX = (inPoint.X) - (_width / 2);
-            _layeredWindow.PositionY = (inPoint.Y) - (_height / 2);
+            _layeredWindow.PositionX = (point.X) - (_width / 2);
+            _layeredWindow.PositionY = (point.Y) - (_height / 2);
+        }
+        internal void SetInitialPosition()
+        {
+            POINT coordinates = _layeredWindow.GetCursorPosition();
+            if (coordinates != POINT.Empty)
+            {
+                SetLayeredWindowCoordinates(coordinates);
+            }
         }
         internal void HideSpotlight()
         {
@@ -110,6 +117,6 @@ namespace FriskyMouse.Core
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-        }
+        }        
     }
 }
