@@ -5,7 +5,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "member", Target = "~M:FriskyMouse.HelpersLib.Drawing.BaseProfile.DisposeDrawingTools")]
+[assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "member", Target = "~M:FriskyMouse.HelpersLib.Drawing.RippleProfile.DisposeDrawingTools")]
 [assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "member", Target = "~M:FriskyMouse.HelpersLib.Drawing.CherryBlossomProfile.InitProfileEntries")]
 [assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "member", Target = "~M:FriskyMouse.HelpersLib.Drawing.CircleProfile.InitProfileEntries")]
 [assembly: SuppressMessage("Interoperability", "CA1416:Validate platform compatibility", Justification = "<Pending>", Scope = "member", Target = "~M:FriskyMouse.HelpersLib.Drawing.ConcentricProfile.InitProfileEntries")]

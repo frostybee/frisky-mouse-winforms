@@ -8,7 +8,7 @@ namespace FriskyMouse.HelpersLib.Drawing
     /// <summary>
     /// Each profile maintains its list of ripples. 
     /// </summary>
-    public abstract class BaseProfile :  IDisposable, IConstructable
+    public abstract class RippleProfile :  IDisposable, IConstructable
     {
         private bool disposedValue;
         private readonly List<RippleEntry> _ripples = new List<RippleEntry>();

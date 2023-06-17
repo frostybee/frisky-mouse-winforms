@@ -1,5 +1,4 @@
 ﻿using FriskyMouse.NativeApi;
-using FrostyBee.FriskyRipples;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -51,7 +50,7 @@ namespace FriskyMouse.Core
                         // Fix the issue when the highlighter is no longer top most.                        
                         Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));
                         _rightClickDecorator.ShowRipplesAt(hookStruct.pt.X, hookStruct.pt.Y);
-                        //_highlighter.BringToFront(hookStruct.pt);
+                        //_settings.BringToFront(hookStruct.pt);
                         /*_leftClickDecorator?.DecorateLeftSingleClick(new RawMouseEvents
                         {
                             MessageType = (MouseButtonTypes)wParam,

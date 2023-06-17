@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Drawing.Drawing2D.GraphicsPath graphicsPath1 = new System.Drawing.Drawing2D.GraphicsPath();
+            System.Drawing.Drawing2D.GraphicsPath graphicsPath2 = new System.Drawing.Drawing2D.GraphicsPath();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             groupBox3 = new GroupBox();
-            chkbColorTransition = new MaterialSkin.Controls.MaterialSwitch();
+            switchColorTransition = new MaterialSkin.Controls.MaterialSwitch();
             cmbProfilesList = new MaterialSkin.Controls.MaterialComboBox();
             sldRadius = new MaterialSkin.Controls.MaterialSlider();
             btnColorPicker = new Button();
@@ -77,7 +77,7 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(chkbColorTransition);
+            groupBox3.Controls.Add(switchColorTransition);
             groupBox3.Controls.Add(cmbProfilesList);
             groupBox3.Controls.Add(sldRadius);
             groupBox3.Controls.Add(btnColorPicker);
@@ -90,22 +90,22 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Ripple Profile Options";
             // 
-            // chkbColorTransition
+            // switchColorTransition
             // 
-            chkbColorTransition.AutoSize = true;
-            chkbColorTransition.Checked = true;
-            chkbColorTransition.CheckState = CheckState.Checked;
-            chkbColorTransition.Depth = 0;
-            chkbColorTransition.Location = new Point(258, 31);
-            chkbColorTransition.Margin = new Padding(0);
-            chkbColorTransition.MouseLocation = new Point(-1, -1);
-            chkbColorTransition.MouseState = MaterialSkin.MouseState.HOVER;
-            chkbColorTransition.Name = "chkbColorTransition";
-            chkbColorTransition.Ripple = true;
-            chkbColorTransition.Size = new Size(167, 47);
-            chkbColorTransition.TabIndex = 79;
-            chkbColorTransition.Text = "Color Transition";
-            chkbColorTransition.UseVisualStyleBackColor = true;
+            switchColorTransition.AutoSize = true;
+            switchColorTransition.Checked = true;
+            switchColorTransition.CheckState = CheckState.Checked;
+            switchColorTransition.Depth = 0;
+            switchColorTransition.Location = new Point(258, 31);
+            switchColorTransition.Margin = new Padding(0);
+            switchColorTransition.MouseLocation = new Point(-1, -1);
+            switchColorTransition.MouseState = MaterialSkin.MouseState.HOVER;
+            switchColorTransition.Name = "switchColorTransition";
+            switchColorTransition.Ripple = true;
+            switchColorTransition.Size = new Size(167, 47);
+            switchColorTransition.TabIndex = 79;
+            switchColorTransition.Text = "Color Transition";
+            switchColorTransition.UseVisualStyleBackColor = true;
             // 
             // cmbProfilesList
             // 
@@ -400,8 +400,8 @@
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(5, 25, 5, 5);
-            graphicsPath1.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
-            materialCard1.ShadowBorder = graphicsPath1;
+            graphicsPath2.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
+            materialCard1.ShadowBorder = graphicsPath2;
             materialCard1.Size = new Size(194, 236);
             materialCard1.TabIndex = 79;
             materialCard1.Title = null;
@@ -443,7 +443,7 @@
         private MaterialSkin.Controls.MaterialSlider sliderAnimSpeed;
         private GroupBox groupBox3;
         private MaterialSkin.Controls.MaterialComboBox cmbProfilesList;
-        private MaterialSkin.Controls.MaterialSwitch chkbColorTransition;
+        private MaterialSkin.Controls.MaterialSwitch switchColorTransition;
         private MaterialSkin.Controls.MaterialSlider sldOutlineWidth;
         private SplitContainer splitContainer1;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;

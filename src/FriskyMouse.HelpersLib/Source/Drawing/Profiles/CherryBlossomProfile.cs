@@ -7,7 +7,7 @@ namespace FriskyMouse.HelpersLib.Drawing
     /// <summary>
     /// Represents a single expanding ripple.
     /// </summary>
-    internal class CherryBlossomProfile : BaseProfile
+    internal class CherryBlossomProfile : RippleProfile
     {
         private Pen _outlinePen;
         private SolidBrush _innerBrush;

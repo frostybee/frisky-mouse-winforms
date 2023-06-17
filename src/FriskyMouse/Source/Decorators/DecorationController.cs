@@ -1,9 +1,5 @@
 ﻿using FriskyMouse.Settings;
 using FriskyMouse.UI;
-using FrostyBee.FriskyRipples;
-using System;
-using System.Diagnostics;
-using System.Threading;
 
 namespace FriskyMouse.Core
 {
@@ -13,7 +9,7 @@ namespace FriskyMouse.Core
         // The single instance of this class. 
         private static readonly Lazy<DecorationController> _instance =
             new Lazy<DecorationController>(() => new DecorationController());        
-        private ApplicationSettings _settings;        
+        private readonly ApplicationSettings _settings;        
         private readonly HighlighterController _highlighter;
         private readonly RippleProfilesAnimator _leftClickDecorator;
         private readonly RippleProfilesAnimator _rightClickDecorator;
@@ -26,8 +22,8 @@ namespace FriskyMouse.Core
             //_settingsManager = new ApplicationSettings();
             // TODO: if the loading fails, load the default settings.
             _settings = SettingsManager.Settings;
-            _leftClickDecorator = new RippleProfilesAnimator(_settings);
-            _rightClickDecorator = new RippleProfilesAnimator(_settings);
+            _leftClickDecorator = new RippleProfilesAnimator(_settings.LeftClickOptions);
+            _rightClickDecorator = new RippleProfilesAnimator(_settings.RightClickOptions);
             _highlighter = new HighlighterController(_settings);
             _mouseHookController = new MouseHookController(_highlighter, _leftClickDecorator, _rightClickDecorator);
         }
@@ -126,8 +122,7 @@ namespace FriskyMouse.Core
         /// <summary>
         /// Gets the single instance of the decoration engine.
         /// </summary>
-        public static DecorationController Instance => _instance.Value;
-        public ApplicationSettings ApplicationSettings => _settings;
+        public static DecorationController Instance => _instance.Value;        
         public HighlighterController MouseHighlighter => _highlighter;
         public RippleProfilesAnimator ClickDecorator => _leftClickDecorator;
 

@@ -4,7 +4,7 @@ using FriskyMouse.HelpersLib.Helpers;
 
 namespace FriskyMouse.HelpersLib.Drawing
 {
-    internal class ConcentricProfile : BaseProfile
+    internal class ConcentricProfile : RippleProfile
     {
         private SolidBrush _brushInnerRipple;
         private Pen _penOutline;

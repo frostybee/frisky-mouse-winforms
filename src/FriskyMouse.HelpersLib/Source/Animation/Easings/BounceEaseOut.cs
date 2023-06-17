@@ -1,4 +1,4 @@
-namespace FrostyBee.FriskyRipples.Animation
+namespace FriskyMouse.HelpersLib.Animation
 {
     /// <summary>
     /// Eases out a <see cref="double"/> value 

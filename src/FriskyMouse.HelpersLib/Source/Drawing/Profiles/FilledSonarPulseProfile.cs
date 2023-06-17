@@ -7,7 +7,7 @@ namespace FriskyMouse.HelpersLib.Drawing
     /// <summary>
     /// Represents a single expanding ripple.
     /// </summary>
-    public class FilledSonarPulseProfile : BaseProfile
+    public class FilledSonarPulseProfile : RippleProfile
     {
         private SolidBrush _innerBrush;
         private SolidBrush _outerBrush;

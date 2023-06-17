@@ -1,8 +1,6 @@
 ﻿using FriskyMouse.HelpersLib.Helpers;
 using FriskyMouse.NativeApi;
 using FriskyMouse.UI;
-using System;
-using System.Drawing;
 
 namespace FriskyMouse.Core
 {
@@ -28,7 +26,7 @@ namespace FriskyMouse.Core
             _settingsManager = pSettingsManager;
         }
 
-        internal void InitHighlighter(HighlighterInfo highlighterInfo)
+        internal void InitHighlighter(HighlighterOptions highlighterInfo)
         {
             highlighterInfo.IsForPreview = false;
             // Clean up any previously generated bitmap.

@@ -1,4 +1,4 @@
-namespace FrostyBee.FriskyRipples.Animation
+namespace FriskyMouse.HelpersLib.Animation
 {
     /// <summary>
     /// Linearly eases a <see cref="double"/> value.

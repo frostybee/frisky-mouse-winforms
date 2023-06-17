@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FrostyBee.FriskyRipples.Animation
+namespace FriskyMouse.HelpersLib.Animation
 {
     /// <summary>
     /// Helper static class for easing mathematical constants.

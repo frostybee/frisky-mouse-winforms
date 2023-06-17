@@ -4,7 +4,7 @@ using FriskyMouse.HelpersLib.Helpers;
 
 namespace FriskyMouse.HelpersLib.Drawing
 {
-    internal class DiamondProfile : BaseProfile
+    internal class DiamondProfile : RippleProfile
     {
         private Pen _outlinePen;
         int _baseRadius = 10; // Needs to be parametrized.

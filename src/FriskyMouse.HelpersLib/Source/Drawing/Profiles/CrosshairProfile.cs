@@ -2,7 +2,7 @@
 
 namespace FriskyMouse.HelpersLib.Drawing
 {
-    internal class CrosshairProfile : BaseProfile
+    internal class CrosshairProfile : RippleProfile
     {
         private SolidBrush _verticalBrush;
         private SolidBrush _horizontalBrush;

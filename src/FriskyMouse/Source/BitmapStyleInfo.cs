@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace FriskyMouse.Core
+﻿namespace FriskyMouse.Core
 {
     internal class BitmapStyleInfo
     {

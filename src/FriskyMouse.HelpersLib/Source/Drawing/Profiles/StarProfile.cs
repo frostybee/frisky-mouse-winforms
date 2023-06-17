@@ -3,7 +3,7 @@ using FriskyMouse.HelpersLib.Helpers;
 
 namespace FriskyMouse.HelpersLib.Drawing
 {
-    internal class StarProfile : BaseProfile
+    internal class StarProfile : RippleProfile
     {
         private Pen _outlinePen;
         public StarProfile()

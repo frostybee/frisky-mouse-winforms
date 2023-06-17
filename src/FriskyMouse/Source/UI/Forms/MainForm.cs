@@ -1,11 +1,6 @@
 ﻿using FriskyMouse.Core;
 using MaterialSkin;
 using MaterialSkin.Controls;
-using System;
-using System.Diagnostics;
-using System.Drawing;
-using System.Windows.Forms;
-using FriskyMouse.UI.Controls;
 
 namespace FriskyMouse.UI
 {

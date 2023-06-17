@@ -1,6 +1,6 @@
 using System;
 
-namespace FrostyBee.FriskyRipples.Animation
+namespace FriskyMouse.HelpersLib.Animation
 {
     /// <summary>
     /// Eases a <see cref="double"/> value 

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
+﻿using System.Drawing.Drawing2D;
 
 
 namespace FriskyMouse.Core
 {
-    public class HighlighterInfo
+    public class HighlighterOptions
     {
         #region Properties
         public bool Enabled { get; set; } = true;

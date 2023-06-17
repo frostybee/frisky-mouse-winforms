@@ -4,7 +4,7 @@ using FriskyMouse.HelpersLib.Helpers;
 
 namespace FriskyMouse.HelpersLib.Drawing
 {
-    internal class SquareProfile : BaseProfile
+    internal class SquareProfile : RippleProfile
     {
         private SolidBrush brush;
         private Pen _outlinePen;

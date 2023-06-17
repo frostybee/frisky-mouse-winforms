@@ -1,6 +1,5 @@
 using FriskyMouse.Settings;
 using FriskyMouse.NativeApi;
-using FriskyMouse.Source.UI.Forms;
 using FriskyMouse.UI;
 
 namespace FriskyMouse

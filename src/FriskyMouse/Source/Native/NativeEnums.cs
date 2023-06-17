@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FriskyMouse.NativeApi
+﻿namespace FriskyMouse.NativeApi
 {
     /// <summary>
     /// Message types that are posted to the window that has captured the mouse actions.

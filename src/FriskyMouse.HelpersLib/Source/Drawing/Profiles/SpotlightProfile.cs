@@ -4,7 +4,7 @@ using FriskyMouse.HelpersLib.Helpers;
 
 namespace FriskyMouse.HelpersLib.Drawing
 {
-    internal class SpotlightProfile : BaseProfile
+    internal class SpotlightProfile : RippleProfile
     {        
         private SolidBrush _innerBrush;
         public SpotlightProfile()

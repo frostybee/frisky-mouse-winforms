@@ -1,21 +1,15 @@
 ﻿using FriskyMouse.HelpersLib.Extensions;
-using FriskyMouse.HelpersLib.Helpers;
-using MaterialSkin;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
 
 namespace FriskyMouse.Core
 {
     internal static class GraphicsExtensions
     {
-        public static void DrawSpotlight(this Graphics graphics, Rectangle rect, HighlighterInfo spotlightModel)
+        public static void DrawSpotlight(this Graphics graphics, Rectangle rect, HighlighterOptions spotlightModel)
         {
             graphics.SetAntiAliasing();
             int doubledRadius = spotlightModel.Radius * 2;
 
-            // Apply the selected opacity on the color to be used in the _highlighter. 
+            // Apply the selected opacity on the color to be used in the _settings. 
             Color selectedColor = Color.FromArgb(spotlightModel.Opacity, spotlightModel.FillColor);
             if (spotlightModel.IsFilled)
             {

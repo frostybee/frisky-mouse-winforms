@@ -4,7 +4,7 @@ using FriskyMouse.HelpersLib.Helpers;
 
 namespace FriskyMouse.HelpersLib.Drawing
 {
-    internal class CircleProfile : BaseProfile 
+    internal class CircleProfile : RippleProfile 
     {
         private Pen _outlinePen;
         int _baseRadius = 10; // Needs to be parametrized.

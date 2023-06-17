@@ -1,8 +1,4 @@
-﻿using FriskyMouse.Settings;
-using System.Diagnostics;
-using System.Text;
-
-namespace FriskyMouse.Helpers
+﻿namespace FriskyMouse.Helpers
 {
     public static class FileHelpers
     {

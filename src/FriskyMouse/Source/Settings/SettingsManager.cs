@@ -1,11 +1,6 @@
 ﻿using FriskyMouse.Helpers;
 using System.Text.Json;
-using FriskyMouse.Settings;
 using FriskyMouse.Core;
-using Microsoft.VisualBasic;
-using System.Text.Json.Serialization;
-using System.Security.AccessControl;
-using FriskyMouse;
 
 namespace FriskyMouse.Settings
 {
@@ -40,9 +35,8 @@ namespace FriskyMouse.Settings
                 return Path.Combine(SettingsFolder, SettingsFileName);
             }
         }
-        public static async void SaveSettings()
+        public static void SaveSettings()
         {
-            bool isSuccess = false;
             try
             {
                 _jsonMutex.WaitOne();
@@ -54,8 +48,8 @@ namespace FriskyMouse.Settings
                     // Create the directory that will hold the settings file if it doesn't exist.
                     FileHelpers.CreateDirectoryFromFilePath(filePath);
                     using FileStream createStream = File.Create(filePath);
-                    await JsonSerializer.SerializeAsync(createStream, Settings, GetJsonSerializerOptions());
-                    await createStream.DisposeAsync();
+                    JsonSerializer.SerializeAsync(createStream, Settings, GetJsonSerializerOptions());
+                    createStream.DisposeAsync();
                     Console.WriteLine(File.ReadAllText(filePath));
                     //TODO: verify if JSON file is not corrupted.
                 }
@@ -67,28 +61,35 @@ namespace FriskyMouse.Settings
             }
             finally
             {
-                _jsonMutex.ReleaseMutex();
-                string status = isSuccess ? "successful" : "failed";
+                _jsonMutex.ReleaseMutex();                
             }
         }
 
         public static void LoadSettings()
         {
             string settingFilePath = ApplicationSettingsFilePath;
-            if (!File.Exists(settingFilePath))
+            try
             {
-                // Reading the settings file has failed. Fallback/load the default settings.
-                LoadDefaultSettings();
-            }
-            else
-            {
-                using FileStream openStream = File.OpenRead(settingFilePath);
-                //TODO: check if can read from stream. 
-                if (openStream.CanRead)
+                if (!File.Exists(settingFilePath))
                 {
-                    Settings = JsonSerializer.Deserialize<ApplicationSettings>(openStream, GetJsonSerializerOptions());
-                    //TODO: verify if JSON file is not corrupted.
+                    // Reading the settings file has failed. Fallback/load the default settings.
+                    LoadDefaultSettings();
                 }
+                else
+                {
+                    using FileStream openStream = File.OpenRead(settingFilePath);
+                    //TODO: check if can read from stream. 
+                    if (openStream.CanRead)
+                    {
+                        Settings = JsonSerializer.Deserialize<ApplicationSettings>(openStream, GetJsonSerializerOptions());
+                        //TODO: verify if JSON file is not corrupted.
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                // Failed to load the settings... Load the default ones.
+                LoadDefaultSettings();
             }
         }
 

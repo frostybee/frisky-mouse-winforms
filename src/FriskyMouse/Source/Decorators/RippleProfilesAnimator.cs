@@ -4,11 +4,9 @@ using FriskyMouse.HelpersLib.Animation;
 using FriskyMouse.HelpersLib.Drawing;
 using FriskyMouse.HelpersLib.Extensions;
 using FriskyMouse.UI;
-using System.Diagnostics;
-using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace FrostyBee.FriskyRipples
+namespace FriskyMouse.Core
 {
     /// <summary>
     /// Responsible for creating, switching and animating ripple profiles. 
@@ -20,7 +18,7 @@ namespace FrostyBee.FriskyRipples
     internal class RippleProfilesAnimator: IDisposable
     {
         private readonly LayeredWindow _layeredWindow;
-        // NOTE: move those to the BaseProfile.
+        // NOTE: move those to the RippleProfile.
         private Bitmap _canvas = null;
         /// <summary>
         /// Blank bitmap used to clear previous drawings 
@@ -31,19 +29,19 @@ namespace FrostyBee.FriskyRipples
         /// </summary>
         private Graphics _graphics;
         private readonly ValueAnimator _animationManager;
-        private BaseProfile _currentRipplesProfile;
-        private readonly RippleProfileOptions _clickOptions;
+        private RippleProfile _currentRipplesProfile;
+        private readonly RippleProfileOptions _settings;
         
         private bool disposedValue;
         public RippleProfileType RippleType { get; set; }
 
-        public RippleProfilesAnimator(ApplicationSettings settings)
+        public RippleProfilesAnimator(RippleProfileOptions settings)
         {
-            _clickOptions = settings.LeftClickOptions;
+            _settings = settings;
             _layeredWindow = new LayeredWindow();                        
             // Default ripple profile.
             RippleType = RippleProfileType.FilledSonarPulse;
-            _currentRipplesProfile = ConstructableFactory.GetInstanceOf<BaseProfile>(RippleProfileType.SquaredPulse);
+            _currentRipplesProfile = ConstructableFactory.GetInstanceOf<RippleProfile>(RippleProfileType.SquaredPulse);
             _animationManager = new ValueAnimator()
             {
                 Increment = 0.040,
@@ -66,9 +64,9 @@ namespace FrostyBee.FriskyRipples
             }
         }
 
-        public void SwitchProfile(BaseProfile inProfile)
+        public void SwitchProfile(RippleProfile ripplesProfile)
         {
-            _currentRipplesProfile = inProfile;
+            _currentRipplesProfile = ripplesProfile;
         }
 
         private void RipplesAnimation_Progressed(object sender)
@@ -78,14 +76,14 @@ namespace FrostyBee.FriskyRipples
             // TODO: put this in a helper method.                                    
             double progress = _animationManager.GetProgress();
             _graphics.Clear(Color.Transparent);
-            _currentRipplesProfile.RenderRipples(_graphics, _clickOptions, progress);
+            _currentRipplesProfile.RenderRipples(_graphics, _settings, progress);
             // Update the layered window to show the current frame. 
             _layeredWindow.SetBitmap(_canvas, 255);
         }
 
-        private BaseProfile MakeDrawingProfile(RippleProfileType inProfileType)
+        private RippleProfile MakeDrawingProfile(RippleProfileType inProfileType)
         {
-            BaseProfile rippleProfile = ConstructableFactory.GetInstanceOf<BaseProfile>(inProfileType);
+            RippleProfile rippleProfile = ConstructableFactory.GetInstanceOf<RippleProfile>(inProfileType);
             return rippleProfile;
         }
 
@@ -99,7 +97,7 @@ namespace FrostyBee.FriskyRipples
 
         internal void ShowRipplesAt(int x, int y)
         {
-            if (_clickOptions.Enabled)
+            if (_settings.Enabled)
             {
                 if (_animationManager.IsAnimating())
                 {
@@ -120,7 +118,7 @@ namespace FrostyBee.FriskyRipples
             if (!_animationManager.IsAnimating())
             {
                 _layeredWindow.SetBitmap(_blankCanvas, 1);                
-                _animationManager.StartNewAnimation(_clickOptions.AnimationDirection);
+                _animationManager.StartNewAnimation(_settings.AnimationDirection);
             }
         }
 

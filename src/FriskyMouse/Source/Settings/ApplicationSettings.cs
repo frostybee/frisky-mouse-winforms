@@ -1,6 +1,4 @@
-﻿using FriskyMouse.HelpersLib.Animation;
-using FriskyMouse.HelpersLib.Drawing;
-using System.ComponentModel;
+﻿using FriskyMouse.HelpersLib.Drawing;
 
 namespace FriskyMouse.Core
 {
@@ -9,7 +7,7 @@ namespace FriskyMouse.Core
         #region Properties        
         public string ApplicationName { get; set; }
         public string Version { get; set; }
-        public HighlighterInfo HighlighterOptions { get; set; } = new HighlighterInfo();
+        public HighlighterOptions HighlighterOptions { get; set; } = new HighlighterOptions();
         public RippleProfileOptions LeftClickOptions { get; set; } = new RippleProfileOptions();
         public RippleProfileOptions RightClickOptions { get; set; } = new RippleProfileOptions();   
 

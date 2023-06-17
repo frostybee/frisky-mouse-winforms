@@ -7,7 +7,7 @@ namespace FriskyMouse.HelpersLib.Drawing
     /// <summary>
     /// Represents a single expanding ripple.
     /// </summary>
-    internal class SquaredPulseProfile : BaseProfile
+    internal class SquaredPulseProfile : RippleProfile
     {
         // TODO: add IsFilled. Color Transition: enabled/disabled.
         // Add random color?        

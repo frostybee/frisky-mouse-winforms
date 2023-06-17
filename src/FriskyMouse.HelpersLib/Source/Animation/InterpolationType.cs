@@ -1,5 +1,5 @@
 ﻿using FriskyMouse.HelpersLib.Attributes;
-using FrostyBee.FriskyRipples.Animation;
+using FriskyMouse.HelpersLib.Animation;
 using System.ComponentModel;
 
 namespace FriskyMouse.HelpersLib.Animation

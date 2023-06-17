@@ -1,4 +1,4 @@
-namespace FrostyBee.FriskyRipples.Animation
+namespace FriskyMouse.HelpersLib.Animation
 {
     /// <summary>
     /// Helper static class for BounceEase classes.
