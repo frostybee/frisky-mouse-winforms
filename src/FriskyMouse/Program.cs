@@ -1,3 +1,4 @@
+using FriskyMouse.Settings;
 using FriskyMouse.NativeApi;
 using FriskyMouse.Source.UI.Forms;
 using FriskyMouse.UI;
@@ -12,6 +13,7 @@ namespace FriskyMouse
         private static string _mutexName = "FriskybeesAreTheBest";
         private static readonly Mutex _mutex = new Mutex(true, _mutexName);
         public static readonly uint WM_SHOW_MAIN_WINDOW = NativeMethods.RegisterWindowMessage("WM_SHOW_MAIN_WINDOW");
+        public static bool IsPortable { get; private set; }
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -22,6 +24,8 @@ namespace FriskyMouse
             {
                 try
                 {
+                    IsPortable = true;
+                    SettingsManager.LoadSettings();
                     // To customize application configuration such as set high DPI settings or default font,
                     // see https://aka.ms/applicationconfiguration.
                     Application.EnableVisualStyles();

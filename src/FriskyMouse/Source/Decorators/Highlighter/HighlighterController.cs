@@ -18,11 +18,11 @@ namespace FriskyMouse.Core
         /// </summary>
         private LayeredWindow _layeredWindow;
         private bool _disposed = false;
-        private readonly SettingsManager _settingsManager;
+        private readonly ApplicationSettings _settingsManager;
         private int _width = 0;
         private int _height = 0;
 
-        internal HighlighterController(SettingsManager pSettingsManager)
+        internal HighlighterController(ApplicationSettings pSettingsManager)
         {
             _layeredWindow = new LayeredWindow();
             _settingsManager = pSettingsManager;

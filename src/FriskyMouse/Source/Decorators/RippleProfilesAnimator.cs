@@ -37,9 +37,9 @@ namespace FrostyBee.FriskyRipples
         private bool disposedValue;
         public RippleProfileType RippleType { get; set; }
 
-        public RippleProfilesAnimator(SettingsManager _settingsManager)
+        public RippleProfilesAnimator(ApplicationSettings settings)
         {
-            _clickOptions = _settingsManager.LeftClickOptions;
+            _clickOptions = settings.LeftClickOptions;
             _layeredWindow = new LayeredWindow();                        
             // Default ripple profile.
             RippleType = RippleProfileType.FilledSonarPulse;

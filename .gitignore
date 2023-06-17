@@ -8,7 +8,7 @@ bck
 NOTES
 MouseRipple.ahk
 src/Win32CreateWindow
-
+src/AppSettings
 # User-specific files
 *.suo
 *.user

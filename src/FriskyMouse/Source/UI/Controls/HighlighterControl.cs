@@ -29,7 +29,7 @@ namespace FriskyMouse.UI.Controls
             //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             _applicationManager = DecorationController.Instance;
-            _highlighter = _applicationManager.SettingsManager.HighlighterOptions;
+            _highlighter = _applicationManager.ApplicationSettings.HighlighterOptions;
 
             // TODO: 1) must load the saved settings first.
             //       2) Setup UI controls based on the loaded settings.

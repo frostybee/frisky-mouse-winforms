@@ -6,7 +6,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialSkin", "src\Materia
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriskyMouse.HelpersLib", "src\FriskyMouse.HelpersLib\FriskyMouse.HelpersLib.csproj", "{CFDEDB57-F245-4C59-B4A9-399ABEE95A6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriskyMouse", "src\FriskyMouse\FriskyMouse.csproj", "{6485BEA9-30E5-4109-8854-DDE377C0C76B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriskyMouse", "src\FriskyMouse\FriskyMouse.csproj", "{6485BEA9-30E5-4109-8854-DDE377C0C76B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -20,7 +20,7 @@ namespace FriskyMouse.UI.Controls
         private readonly ValueAnimator _rippleValueAnimator;
         private readonly RippleProfilesAnimator _profilesManager;
         private readonly RippleProfileOptions _clickOptions;
-        private readonly SettingsManager _settingsManager;
+        private readonly ApplicationSettings _settingsManager;
         private BaseProfile _currentProfile;
         private Bitmap? _canvas = null;
         private Bitmap? _blankCanvas = null;
@@ -35,8 +35,8 @@ namespace FriskyMouse.UI.Controls
             DoubleBuffered = true;
             _currentProfile = new FilledSonarPulseProfile();
             _profilesManager = DecorationController.Instance.ClickDecorator;
-            _settingsManager = DecorationController.Instance.SettingsManager;
-            _clickOptions = DecorationController.Instance.SettingsManager.LeftClickOptions;
+            _settingsManager = DecorationController.Instance.ApplicationSettings;
+            _clickOptions = DecorationController.Instance.ApplicationSettings.LeftClickOptions;
             _rippleValueAnimator = new ValueAnimator()
             {
                 Increment = 0.010, // Control the animation speed.                                         
@@ -100,10 +100,11 @@ namespace FriskyMouse.UI.Controls
 
         internal void InitControlsFromSettings()
         {
-            sliderAnimSpeed.Value = (int)_clickOptions.AnimationSpeed * 1000;
+            sliderAnimSpeed.Value = (int)(_clickOptions.AnimationSpeed * 1000);
             cmbInterpolationMode.SelectedIndex = cmbInterpolationMode.GetItemIndexByEumValue(_clickOptions.InterpolationType);
             cmbAnimDirection.SelectedIndex = cmbAnimDirection.GetItemIndexByEumValue(_clickOptions.AnimationDirection);
             cmbProfilesList.SelectedIndex = cmbProfilesList.GetItemIndexByEumValue(_clickOptions.CurrentRippleProfile);
+            //_profilesManager.SwitchProfile()
         }
         private void StartAnimation()
         {
@@ -172,7 +173,8 @@ namespace FriskyMouse.UI.Controls
             // savedEasing mode. 
             DefaultSpeedAttribute speedAttribute = interpolation.GetEnumAttribute<DefaultSpeedAttribute>();
             AdjustAnimationSpeed(speedAttribute.Speed);
-            sliderAnimSpeed.Value = speedAttribute.Speed;
+            // TODO: Display the recommended speed in a label instead.
+            //sliderAnimSpeed.Value = speedAttribute.Speed;
         }
         private void SliderAnimSpeed_onValueChanged(object sender, int newValue)
         {
@@ -181,7 +183,8 @@ namespace FriskyMouse.UI.Controls
         private void AdjustAnimationSpeed(int speed)
         {
             //lblAnimSpeed.Text = speed.ToString();
-            sliderAnimSpeed.Value = speed;
+            //sliderAnimSpeed.Value = speed;
+            _clickOptions.AnimationSpeed = speed;
             // Increase the animation speed.
             double speedRate = (double)speed / 1000;
             _rippleValueAnimator.Increment = speedRate;

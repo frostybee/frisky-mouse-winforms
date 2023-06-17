@@ -111,7 +111,7 @@ namespace FriskyMouse.UI
         /// <param name="e"></param>
         private void Application_ApplicationExit(object sender, EventArgs e)
         {
-            _applicationManager.SettingsManager.SaveDecorationSettings();
+            _applicationManager.SaveDecorationSettings();
             _applicationManager?.DisableHook();
             _applicationManager?.Dispose();
         }

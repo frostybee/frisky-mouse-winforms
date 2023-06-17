@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 
 namespace FriskyMouse.Core
 {
-    internal class HighlighterInfo
+    public class HighlighterInfo
     {
         #region Properties
         public bool Enabled { get; set; } = true;

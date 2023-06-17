@@ -1,63 +1,111 @@
-﻿using FriskyMouse.HelpersLib.Animation;
-using FriskyMouse.HelpersLib.Drawing;
+﻿using FriskyMouse.Helpers;
+using System.Text.Json;
+using FriskyMouse.Settings;
+using FriskyMouse.Core;
+using Microsoft.VisualBasic;
+using System.Text.Json.Serialization;
+using System.Security.AccessControl;
+using FriskyMouse;
 
-namespace FriskyMouse.Core
+namespace FriskyMouse.Settings
 {
-    internal class SettingsManager
+    internal static class SettingsManager
     {
-        private readonly HighlighterInfo _highlighterSettings = new();
-        private readonly RippleProfileOptions _leftClickOptions = new();
-        private readonly RippleProfileOptions _rightClickOptions = new();
-        internal SettingsManager() { }
-
-        internal void LoadAppSettings()
+        private static string SettingsFileName = "settings.json";
+        private const string ApplicationName = "FriskyMouse";
+        // Used to synchronize access to the settings.json file
+        private static Mutex _jsonMutex = new Mutex();
+        public static ApplicationSettings? Settings { get; private set; }
+        // I guess this is the path of the folder holding the executable of this application. 
+        private static readonly string PortablePersonalFolder = FileHelpers.GetAbsolutePath();
+        private static readonly string DefaultPersonalFolder =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), ApplicationName);
+        private static string SettingsFolder
         {
-            var settings = Properties.Settings.Default;
-            // Load first the highlighter settings.            
-            _highlighterSettings.Radius = settings.HighlighterRadius;
-            _highlighterSettings.OpacityPercentage = settings.HighlighterOpacity;
-            _highlighterSettings.FillColor = settings.HighlighterFillColor;
-            _highlighterSettings.OutlineColor = settings.HighlighterOutlineColor;
-            _highlighterSettings.IsFilled = settings.HighlighterIsFilled;
-            _highlighterSettings.OutlineThickness = settings.HighlighterOutlineThickness;
-            _highlighterSettings.OutlineStyle = settings.HighlighterOutlineStyle;
-            _highlighterSettings.Enabled = settings.IsHighlighterEnabled;
-            // Load the left click decoration settings.
-            _leftClickOptions.AnimationDirection = (AnimationDirection)settings.ClickRippleAnimDirection;
-            _leftClickOptions.AnimationSpeed = settings.ClickRippleSpeed;
-            _leftClickOptions.InterpolationType = (InterpolationType)settings.ClickRippleEasingType;
-            _leftClickOptions.Enabled = settings.ClickRippleEnabled;
-            _leftClickOptions.CanFadeColor = settings.ClickRippleFadeColor;
-            _leftClickOptions.CurrentRippleProfile = (RippleProfileType)settings.ClickRippleProfile;
+            get
+            {
+                return DefaultPersonalFolder;
+            }
         }
 
-        internal void SaveDecorationSettings()
+        private static string ApplicationSettingsFilePath
         {
-            var settings = Properties.Settings.Default;
-            settings.HighlighterRadius = _highlighterSettings.Radius;
-            settings.HighlighterOpacity = _highlighterSettings.OpacityPercentage;
-            settings.HighlighterFillColor = _highlighterSettings.FillColor;
-            settings.HighlighterOutlineColor = _highlighterSettings.OutlineColor;
-            settings.HighlighterIsFilled = _highlighterSettings.IsFilled;
-            settings.HighlighterOutlineThickness = _highlighterSettings.OutlineThickness;
-            settings.HighlighterOutlineStyle = _highlighterSettings.OutlineStyle;
-            settings.IsHighlighterEnabled = _highlighterSettings.Enabled;
-            // Save the left click decoration settings.
-            settings.ClickRippleAnimDirection = (uint)_leftClickOptions.AnimationDirection;
-            settings.ClickRippleSpeed = _leftClickOptions.AnimationSpeed;
-            settings.ClickRippleEasingType = (uint)_leftClickOptions.InterpolationType;
-            settings.ClickRippleEnabled = _leftClickOptions.Enabled;
-            settings.ClickRippleFadeColor = _leftClickOptions.CanFadeColor;
-            settings.ClickRippleProfile= (uint)_leftClickOptions.CurrentRippleProfile;
-            settings.Save();
+            get
+            {
+                // TODO: check if it's portable or not.
+                if (Program.IsPortable)
+                {
+                    return Path.Combine(PortablePersonalFolder, SettingsFileName);
+                };
+                return Path.Combine(SettingsFolder, SettingsFileName);
+            }
+        }
+        public static async void SaveSettings()
+        {
+            bool isSuccess = false;
+            try
+            {
+                _jsonMutex.WaitOne();
+                string filePath = ApplicationSettingsFilePath;
+                if (!string.IsNullOrEmpty(filePath))
+                {
+                    LoadDefaultSettings();
+                    Settings.ApplicationName = ApplicationName;
+                    // Create the directory that will hold the settings file if it doesn't exist.
+                    FileHelpers.CreateDirectoryFromFilePath(filePath);
+                    using FileStream createStream = File.Create(filePath);
+                    await JsonSerializer.SerializeAsync(createStream, Settings, GetJsonSerializerOptions());
+                    await createStream.DisposeAsync();
+                    Console.WriteLine(File.ReadAllText(filePath));
+                    //TODO: verify if JSON file is not corrupted.
+                }
+            }
+            catch (Exception e)
+            {
+                DebugHelper.WriteException(e);
+                //OnSettingsSaveFailed(e);
+            }
+            finally
+            {
+                _jsonMutex.ReleaseMutex();
+                string status = isSuccess ? "successful" : "failed";
+            }
         }
 
-        #region Properties
-        internal HighlighterInfo HighlighterOptions => _highlighterSettings;
-        internal RippleProfileOptions LeftClickOptions => _leftClickOptions;
-        internal RippleProfileOptions RightClickOptions => _rightClickOptions;
+        public static void LoadSettings()
+        {
+            string settingFilePath = ApplicationSettingsFilePath;
+            if (!File.Exists(settingFilePath))
+            {
+                // Reading the settings file has failed. Fallback/load the default settings.
+                LoadDefaultSettings();
+            }
+            else
+            {
+                using FileStream openStream = File.OpenRead(settingFilePath);
+                //TODO: check if can read from stream. 
+                if (openStream.CanRead)
+                {
+                    Settings = JsonSerializer.Deserialize<ApplicationSettings>(openStream, GetJsonSerializerOptions());
+                    //TODO: verify if JSON file is not corrupted.
+                }
+            }
+        }
 
-        #endregion
+        private static void LoadDefaultSettings()
+        {
+            Settings ??= new ApplicationSettings();
+        }
+        private static JsonSerializerOptions GetJsonSerializerOptions()
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                IncludeFields = true,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                Converters = { new ColorJsonConverter() }
+            };
+            return options;
+        }
     }
 }
-
