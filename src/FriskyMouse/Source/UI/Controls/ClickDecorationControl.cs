@@ -1,10 +1,10 @@
-﻿using FriskyMouse.HelpersLib.Attributes;
+﻿using FriskyMouse.Drawing.Attributes;
 using FriskyMouse.Core;
-using FriskyMouse.HelpersLib;
-using FriskyMouse.HelpersLib.Animation;
-using FriskyMouse.HelpersLib.Drawing;
-using FriskyMouse.HelpersLib.Extensions;
-using FriskyMouse.HelpersLib.Helpers;
+using FriskyMouse.Drawing;
+using FriskyMouse.Drawing.Animation;
+using FriskyMouse.Drawing.Ripples;
+using FriskyMouse.Drawing.Extensions;
+using FriskyMouse.Drawing.Helpers;
 using FriskyMouse.Settings;
 
 namespace FriskyMouse.UI.Controls
@@ -14,7 +14,7 @@ namespace FriskyMouse.UI.Controls
         private readonly ValueAnimator _rippleValueAnimator;
         private readonly RippleProfilesAnimator _profileManager;
         private readonly RippleProfileOptions _settings;
-        private RippleProfile _currentProfile;
+        private BaseRippleProfile _currentProfile;
         private Bitmap? _canvas = null;
         private Bitmap? _blankCanvas = null;
         private Graphics? _graphics;
@@ -34,6 +34,8 @@ namespace FriskyMouse.UI.Controls
                 Increment = 0.010, // Control the animation speed.                                         
                 Interpolation = InterpolationType.Linear
             };
+            _rippleValueAnimator.Progressed += OnRipplesAnimation_Progressed;
+            _rippleValueAnimator.Completed += OnRipplesAnimation_Completed;
         }
         private void InitControlsEvents()
         {
@@ -41,23 +43,23 @@ namespace FriskyMouse.UI.Controls
             cmbAnimDirection.SelectedIndexChanged += CmbAnimDirection_SelectedIndexChanged;
             cmbInterpolationMode.SelectedIndexChanged += CmbInterpolationMode_SelectedIndexChanged;
             switchColorTransition.CheckedChanged += SwitchColorTransition_CheckedChanged;
-            _rippleValueAnimator.Progressed += OnRipplesAnimation_Progressed;
-            _rippleValueAnimator.Completed += OnRipplesAnimation_Completed;
             sliderAnimSpeed.onValueChanged += SliderAnimSpeed_onValueChanged;
             switchEnableClicker.CheckedChanged += SwitchEnableClicker_CheckedChanged;
         }
 
-        internal void InitControlsFromSettings()
+        internal void UpdateControlsFromSettings()
         {
             sliderAnimSpeed.Value = (int)(_settings.AnimationSpeed * 1000);
             cmbInterpolationMode.SelectedIndex = cmbInterpolationMode.GetItemIndexByEumValue(_settings.InterpolationType);
             cmbAnimDirection.SelectedIndex = cmbAnimDirection.GetItemIndexByEumValue(_settings.AnimationDirection);
             cmbProfilesList.SelectedIndex = cmbProfilesList.GetItemIndexByEumValue(_settings.CurrentRippleProfile);
             switchColorTransition.Checked = _settings.CanFadeColor;
+            switchEnableClicker.Checked = _settings.IsEnabled;
             SwitchRippleProfile(_settings.CurrentRippleProfile);
             AdjustAnimationSpeed((int)(_settings.AnimationSpeed * 1000));
             //_profileManager.SwitchProfile()
             InitControlsEvents();
+            StartAnimation();
         }
         private void AdjustAnimationSpeed(int speed)
         {
@@ -73,10 +75,10 @@ namespace FriskyMouse.UI.Controls
 
         private void SwitchRippleProfile(RippleProfileType profileType)
         {
-            RippleProfile _newProfile = ConstructableFactory.GetInstanceOf<RippleProfile>(profileType);
+            BaseRippleProfile _newProfile = ConstructableFactory.GetInstanceOf<BaseRippleProfile>(profileType);
             _currentProfile?.Dispose();
-            _profileManager.SwitchProfile(_newProfile);
             _currentProfile = _newProfile;
+            _profileManager.SwitchProfile(_newProfile);
             _settings.CurrentRippleProfile = profileType;
         }
         private void BtnColorPicker_Click(object? sender, EventArgs e)
@@ -94,8 +96,7 @@ namespace FriskyMouse.UI.Controls
             if (colorPicker.ShowDialog() == DialogResult.OK)
             {
                 _settings.FillColor = colorPicker.Color;
-                _currentProfile.ApplySelectedColor(_settings);
-                //UpdateHighlighterPreview();
+                _currentProfile.ApplySelectedColor(_settings);                
                 btnColorPicker.BackColor = colorPicker.Color;
             }
         }
@@ -156,12 +157,12 @@ namespace FriskyMouse.UI.Controls
         private void OnRipplesAnimation_Completed(object sender)
         {
             // Clear the _canvas that was previously drawn onto the _layeredWindow window.                                    
-            pcbRipplePreview.Image = _blankCanvas;
+            //pcbRipplePreview.Image = _blankCanvas;
         }
 
         private void SwitchEnableClicker_CheckedChanged(object sender, EventArgs e)
         {
-            _settings.Enabled = switchEnableClicker.Checked;
+            _settings.IsEnabled = switchEnableClicker.Checked;
         }
         private void CmbProfilesList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -170,7 +171,7 @@ namespace FriskyMouse.UI.Controls
             SwitchRippleProfile(profileType);
             StartAnimation();
         }
-               
+
 
         private void CmbAnimDirection_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -197,7 +198,7 @@ namespace FriskyMouse.UI.Controls
         {
             AdjustAnimationSpeed(newValue);
         }
-        
+
         private void BtnStopAnimation_Click(object sender, EventArgs e)
         {
             StopAnimation();

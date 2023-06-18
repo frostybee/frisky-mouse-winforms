@@ -1,5 +1,5 @@
 ﻿using FriskyMouse.Core;
-using FriskyMouse.HelpersLib.Helpers;
+using FriskyMouse.Drawing.Helpers;
 using FriskyMouse.Settings;
 using System.Drawing.Drawing2D;
 
@@ -26,10 +26,10 @@ namespace FriskyMouse.UI.Controls
             //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             _applicationManager = DecorationController.Instance;
-            _settings = SettingsManager.Settings.HighlighterOptions;                       
+            _settings = SettingsManager.Settings.HighlighterOptions;
             // Enable the slider of the _settings's outline width based 
             // on the status of the fill circle switch.
-            ManageOutlineSettings();
+            UpdateOutlineSettings();
         }
 
         private void InitControlsEvents()
@@ -47,7 +47,7 @@ namespace FriskyMouse.UI.Controls
 
         }
 
-        internal void InitControlsFromSettings()
+        internal void UpdateControls()
         {
             // Initialize the UI controls with the previously selected settings.            
             switchFilledSpotlight.Checked = _settings.IsFilled;
@@ -77,7 +77,7 @@ namespace FriskyMouse.UI.Controls
 
         private void SwitchHighlighter_CheckedChanged(object sender, EventArgs e)
         {
-            _settings.Enabled = switchHighlighter.Checked;            
+            _settings.Enabled = switchHighlighter.Checked;
             UpdateHighlighterSwitchText();
             if (switchHighlighter.Checked)
             {
@@ -94,7 +94,7 @@ namespace FriskyMouse.UI.Controls
             switchHighlighter.Text = (switchHighlighter.Checked) ? "On" : "Off";
         }
 
-        private void ManageOutlineSettings()
+        private void UpdateOutlineSettings()
         {
             sldOutlineWidth.Enabled = !switchFilledSpotlight.Checked;
             cmboxOutlineStyle.Enabled = !switchFilledSpotlight.Checked;
@@ -118,7 +118,7 @@ namespace FriskyMouse.UI.Controls
 
         private void SwitchFilledColor_CheckedChanged(object sender, EventArgs e)
         {
-            ManageOutlineSettings();
+            UpdateOutlineSettings();
             UpdateHighlighterPreview();
         }
 

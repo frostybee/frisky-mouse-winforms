@@ -1,4 +1,5 @@
 ﻿using FriskyMouse.Core;
+using FriskyMouse.Settings;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
@@ -7,7 +8,7 @@ namespace FriskyMouse.UI
     public partial class MainForm : MaterialForm
     {
         private readonly MaterialSkinManager _materialSkinManager;
-        private readonly DecorationController _applicationManager;
+        private readonly DecorationController _decorationController;
 
         public MainForm()
         {
@@ -17,7 +18,7 @@ namespace FriskyMouse.UI
             this.AutoScaleDimensions = new SizeF(96f, 96f);
             DoubleBuffered = true;
             // Initialize the global managers.
-            _applicationManager = DecorationController.Instance;
+            _decorationController = DecorationController.Instance;
             _materialSkinManager = MaterialSkinManager.Instance;
             InitializeControls();
         }
@@ -39,7 +40,7 @@ namespace FriskyMouse.UI
             // the mouse hooks is properly installed/uninstalled.
             this.Load += MainForm_Load;
 
-            SetUpMaterialForm();           
+            SetUpMaterialForm();
         }
 
         private void SetUpMaterialForm()
@@ -54,15 +55,6 @@ namespace FriskyMouse.UI
                 Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
         }
 
-        /// <summary>
-        /// Restores the main application's window from the system tray.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AppNotifyIcon_DoubleClick(object sender, EventArgs e)
-        {
-            Restore();
-        }
 
         /// <summary>
         /// Minimizes the main application's window to the system tray.
@@ -82,7 +74,7 @@ namespace FriskyMouse.UI
             {
                 appNotifyIcon.Visible = false;
             }
-        }        
+        }
 
         /// <summary>
         /// Initializes the custom user controls of the mouse highlighter and click decorator features. 
@@ -93,10 +85,10 @@ namespace FriskyMouse.UI
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _applicationManager.MainForm = this;
-            _applicationManager.BootstrapApp();            
-            ctrlHighlighter.InitControlsFromSettings();
-            ctrClickDecoration.InitControlsFromSettings();            
+            _decorationController.MainForm = this;
+            _decorationController.BootstrapApp();
+            ctrlHighlighter.UpdateControls();
+            ctrClickDecoration.UpdateControlsFromSettings();
         }
 
         /// <summary>
@@ -106,9 +98,19 @@ namespace FriskyMouse.UI
         /// <param name="e"></param>
         private void Application_ApplicationExit(object sender, EventArgs e)
         {
-            _applicationManager.SaveDecorationSettings();
-            _applicationManager?.DisableHook();
-            _applicationManager?.Dispose();
+            SettingsManager.SaveSettings();
+            _decorationController?.DisableHook();
+            _decorationController?.Dispose();
+        }
+
+        /// <summary>
+        /// Restores the main application's window from the system tray.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AppNotifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            Restore();
         }
         private void Restore()
         {

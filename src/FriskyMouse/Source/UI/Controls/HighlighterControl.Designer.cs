@@ -65,7 +65,7 @@
             switchHighlighter.Checked = true;
             switchHighlighter.CheckState = CheckState.Checked;
             switchHighlighter.Depth = 0;
-            switchHighlighter.Location = new Point(494, 17);
+            switchHighlighter.Location = new Point(167, 9);
             switchHighlighter.Margin = new Padding(0);
             switchHighlighter.MouseLocation = new Point(-1, -1);
             switchHighlighter.MouseState = MaterialSkin.MouseState.HOVER;
@@ -83,13 +83,13 @@
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel1.HighEmphasis = true;
-            materialLabel1.Location = new Point(296, 32);
+            materialLabel1.Location = new Point(23, 23);
             materialLabel1.Margin = new Padding(2, 0, 2, 0);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
-            materialLabel1.Size = new Size(182, 19);
+            materialLabel1.Size = new Size(130, 19);
             materialLabel1.TabIndex = 74;
-            materialLabel1.Text = "Enable Mouse Highlighter";
+            materialLabel1.Text = "Mouse Highlighter";
             // 
             // grpOptions
             // 

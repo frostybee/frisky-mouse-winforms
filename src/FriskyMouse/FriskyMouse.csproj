@@ -6,11 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>..\bin</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FriskyMouse.HelpersLib\FriskyMouse.HelpersLib.csproj" />
-    <ProjectReference Include="..\MaterialSkin\MaterialSkin.csproj" />
+    <ProjectReference Include="..\FriskyMouse.Drawing\FriskyMouse.Drawing.csproj" />
+    <ProjectReference Include="..\FriskyMouse.MaterialSkin\FriksyMouse.MaterialSkin.csproj" />
   </ItemGroup>
 
   <ItemGroup>

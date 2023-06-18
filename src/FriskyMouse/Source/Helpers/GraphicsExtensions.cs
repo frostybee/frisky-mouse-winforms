@@ -1,4 +1,4 @@
-﻿using FriskyMouse.HelpersLib.Extensions;
+﻿using FriskyMouse.Drawing.Extensions;
 
 namespace FriskyMouse.Core
 {

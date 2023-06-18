@@ -8,9 +8,8 @@ namespace FriskyMouse.Settings
     {
         private static string SettingsFileName = "settings.json";
         private const string ApplicationName = "FriskyMouse";
-        // Used to synchronize access to the settings.json file
         private static Mutex _jsonMutex = new Mutex();
-        public static ApplicationSettings? Settings { get; private set; }
+        public static ApplicationSettings Settings { get; private set; } = new ApplicationSettings();
         // I guess this is the path of the folder holding the executable of this application. 
         private static readonly string PortablePersonalFolder = FileHelpers.GetAbsolutePath();
         private static readonly string DefaultPersonalFolder =
@@ -61,7 +60,7 @@ namespace FriskyMouse.Settings
             }
             finally
             {
-                _jsonMutex.ReleaseMutex();                
+                _jsonMutex.ReleaseMutex();
             }
         }
 
@@ -70,15 +69,9 @@ namespace FriskyMouse.Settings
             string settingFilePath = ApplicationSettingsFilePath;
             try
             {
-                if (!File.Exists(settingFilePath))
+                if (File.Exists(settingFilePath))
                 {
-                    // Reading the settings file has failed. Fallback/load the default settings.
-                    LoadDefaultSettings();
-                }
-                else
-                {
-                    using FileStream openStream = File.OpenRead(settingFilePath);
-                    //TODO: check if can read from stream. 
+                    using FileStream openStream = File.OpenRead(settingFilePath);                    
                     if (openStream.CanRead)
                     {
                         Settings = JsonSerializer.Deserialize<ApplicationSettings>(openStream, GetJsonSerializerOptions());
@@ -88,8 +81,7 @@ namespace FriskyMouse.Settings
             }
             catch (Exception)
             {
-                // Failed to load the settings... Load the default ones.
-                LoadDefaultSettings();
+                // Failed to load the settings... Load the default ones.                
             }
         }
 

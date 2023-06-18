@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Drawing.Drawing2D.GraphicsPath graphicsPath2 = new System.Drawing.Drawing2D.GraphicsPath();
+            System.Drawing.Drawing2D.GraphicsPath graphicsPath1 = new System.Drawing.Drawing2D.GraphicsPath();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             groupBox3 = new GroupBox();
             switchColorTransition = new MaterialSkin.Controls.MaterialSwitch();
@@ -255,7 +255,7 @@
             switchEnableClicker.Checked = true;
             switchEnableClicker.CheckState = CheckState.Checked;
             switchEnableClicker.Depth = 0;
-            switchEnableClicker.Location = new Point(445, 13);
+            switchEnableClicker.Location = new Point(23, 18);
             switchEnableClicker.Margin = new Padding(0);
             switchEnableClicker.MouseLocation = new Point(-1, -1);
             switchEnableClicker.MouseState = MaterialSkin.MouseState.HOVER;
@@ -400,8 +400,8 @@
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(5, 25, 5, 5);
-            graphicsPath2.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
-            materialCard1.ShadowBorder = graphicsPath2;
+            graphicsPath1.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
+            materialCard1.ShadowBorder = graphicsPath1;
             materialCard1.Size = new Size(194, 236);
             materialCard1.TabIndex = 79;
             materialCard1.Title = null;
