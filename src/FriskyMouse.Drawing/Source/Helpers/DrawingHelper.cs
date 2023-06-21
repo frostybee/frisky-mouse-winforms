@@ -7,7 +7,7 @@ using System.Drawing.Imaging;
 namespace FriskyMouse.Drawing.Helpers
 {
     public class DrawingHelper
-    {
+    {        
         public static Bitmap CreateBitmap(int width, int height, Color inColor)
         {
             if (width > 0 && height > 0)
@@ -15,7 +15,7 @@ namespace FriskyMouse.Drawing.Helpers
                 Bitmap bmp = new Bitmap(width, height, PixelFormat.Format32bppArgb);                
                 using (Graphics graphics = Graphics.FromImage(bmp))
                 {
-                    graphics.Clear(inColor);
+                    graphics.Clear(inColor);                    
                 }
                 return bmp;
             }

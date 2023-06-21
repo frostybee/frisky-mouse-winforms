@@ -148,11 +148,11 @@
             sldRadius.Value = 30;
             sldRadius.ValueSuffix = "px";
             // 
-            // btnColorPicker
+            // btnFillColor
             // 
             btnColorPicker.FlatStyle = FlatStyle.Flat;
             btnColorPicker.Location = new Point(312, 87);
-            btnColorPicker.Name = "btnColorPicker";
+            btnColorPicker.Name = "btnFillColor";
             btnColorPicker.Size = new Size(76, 26);
             btnColorPicker.TabIndex = 12;
             btnColorPicker.Text = "...";

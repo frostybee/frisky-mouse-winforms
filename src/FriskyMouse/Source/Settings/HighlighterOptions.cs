@@ -6,8 +6,7 @@ namespace FriskyMouse.Core
     public class HighlighterOptions
     {
         #region Properties
-        public bool Enabled { get; set; } = true;
-        public bool IsForPreview { get; set; } = false;
+        public bool Enabled { get; set; } = true;        
         public int Radius { get; set; } = 50;
         public byte OpacityPercentage { get; set; } = 50;
         public byte Opacity
@@ -20,7 +19,7 @@ namespace FriskyMouse.Core
         public Color FillColor { get; set; } = Color.Yellow;
         public Color OutlineColor { get; set; } = Color.Red;
         public bool IsFilled { get; set; } = true;
-        public int OutlineThickness { get; set; } = 1;
+        public int OutlineWidth { get; set; } = 1;
         public DashStyle OutlineStyle { get; set; } = DashStyle.Solid;
         #endregion
     }

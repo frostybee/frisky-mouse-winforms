@@ -204,12 +204,12 @@
             sldOutlineWidth.ValueMax = 10;
             sldOutlineWidth.ValueSuffix = "px";
             // 
-            // btnColorPicker
+            // btnFillColor
             // 
             btnColorPicker.FlatStyle = FlatStyle.Flat;
             btnColorPicker.Location = new Point(185, 121);
             btnColorPicker.Margin = new Padding(2, 3, 2, 3);
-            btnColorPicker.Name = "btnColorPicker";
+            btnColorPicker.Name = "btnFillColor";
             btnColorPicker.Size = new Size(70, 28);
             btnColorPicker.TabIndex = 12;
             btnColorPicker.Text = "...";

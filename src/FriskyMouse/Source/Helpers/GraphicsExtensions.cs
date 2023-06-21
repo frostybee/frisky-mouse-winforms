@@ -1,55 +1,35 @@
 ﻿using FriskyMouse.Drawing.Extensions;
+using FriskyMouse.Drawing.Helpers;
 
 namespace FriskyMouse.Core
 {
     internal static class GraphicsExtensions
     {
-        public static void DrawSpotlight(this Graphics graphics, Rectangle rect, HighlighterOptions spotlightModel)
+        public static void DrawHighlighter(this Graphics graphics, Rectangle rect, HighlighterOptions options)
         {
             graphics.SetAntiAliasing();
-            int doubledRadius = spotlightModel.Radius * 2;
+            int doubledRadius = options.Radius * 2;
 
             // Apply the selected opacity on the color to be used in the _settings. 
-            Color selectedColor = Color.FromArgb(spotlightModel.Opacity, spotlightModel.FillColor);
-            if (spotlightModel.IsFilled)
+            Color selectedColor = Color.FromArgb(options.Opacity, options.FillColor);
+            if (options.IsFilled)
             {
-                using (SolidBrush brush = new SolidBrush(selectedColor))
-                {
-                    // TODO: move the rectangle code to Drawing helper class. 
-                    // make a method that creates a rectangle.
-                    //graphics.FillEllipse(brush, new Rectangle(0, 0, doubledRadius, doubledRadius));
-                    graphics.FillEllipse(brush, rect);
-                    /*//DrawHelper.DrawRoundShadow(graphics, rect);                    
-                    using (Pen pen = new Pen(Color.FromArgb(200, Color.Blue), 6))
-                    {
-                        graphics.DrawEllipse(pen, rect);
-                    }*/
-                    //graphics.FillEllipse(brush, DrawingHelper.CreateRectangle(200, 200, spotlightModel.Radius));
-                }
+                Rectangle outlineRect = DrawingHelper.CreateRectangle(200, 200, options.Radius + options.OutlineWidth-2);
+                using SolidBrush brush = new SolidBrush(selectedColor);
+                graphics.FillEllipse(brush, rect);
+                // Draw just an outline --> empty options.
+                //using Pen pen = new Pen(Color.Red, options.OutlineWidth);
+                using Pen pen = new Pen(options.OutlineColor, options.OutlineWidth);
+                pen.DashStyle = options.OutlineStyle;
+                graphics.DrawEllipse(pen, outlineRect);
             }
             else
             {
-                // Draw just an outline --> empty spotlightModel.
-                using (Pen pen = new Pen(selectedColor, spotlightModel.OutlineThickness))
-                {
-                    pen.DashStyle = spotlightModel.OutlineStyle;
-                    graphics.DrawEllipse(pen, rect);
-                }
+                // Draw just an outline --> empty options.
+                using Pen pen = new Pen(selectedColor, options.OutlineWidth);
+                pen.DashStyle = options.OutlineStyle;
+                graphics.DrawEllipse(pen, rect);
             }
-        }
-
-
-        public static void DrawCircle(this Graphics g, Pen pen,
-                                  float centerX, float centerY, float radius)
-        {
-            g.DrawEllipse(pen, centerX - radius, centerY - radius,
-                          radius + radius, radius + radius);
-        }
-        public static void FillCircle(this Graphics g, Brush brush,
-                                  float centerX, float centerY, float radius)
-        {
-            g.FillEllipse(brush, centerX - radius, centerY - radius,
-                          radius + radius, radius + radius);
         }
     }
 }

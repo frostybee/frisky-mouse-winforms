@@ -147,18 +147,17 @@ namespace FriskyMouse.Drawing.Ripples
             }
         }
 
-        internal void ChangeColor(RippleProfileOptions clickOptions)
+        internal void ChangeColor(RippleProfileOptions options)
         {
             if (IsFilled)
             {
-                //FillBrush.Color = FillBrush.Color.WithOpacity(initialOpacity);
-                FillBrush.Color = Color.FromArgb(FillBrush.Color.A, clickOptions.FillColor);
-                //FillBrush.Color = DrawingHelper.RandomColor().ReduceOpacity(opacity);
+                FillBrush.Color = Color.FromArgb(FillBrush.Color.A, options.FillColor);
+                
             }
             else
             {
                 //OutlinePen.Color = OutlinePen.Color.WithOpacity(initialOpacity);
-                OutlinePen.Color = Color.FromArgb(OutlinePen.Color.A, clickOptions.FillColor);
+                OutlinePen.Color = Color.FromArgb(OutlinePen.Color.A, options.FillColor);
             }
         }
     }

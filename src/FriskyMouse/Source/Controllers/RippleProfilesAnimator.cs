@@ -114,6 +114,12 @@ namespace FriskyMouse.Core
             }
         }
 
+        internal void SetTopMost(int x, int y)
+        {
+            _layeredWindow.PositionX = x ;
+            _layeredWindow.PositionY = y ;
+            _layeredWindow.SetTopMost();
+        }
         internal void StartAnimation()
         {
             // We perform the drawing here.            

@@ -1,4 +1,6 @@
 ﻿
+using System.Runtime;
+
 namespace FriskyMouse.Helpers
 {
     public static class Helpers
@@ -65,6 +67,28 @@ namespace FriskyMouse.Helpers
         public static Version NormalizeVersion(string version)
         {
             return Version.Parse(version).Normalize();
+        }
+
+        internal static Color GetUserSelectedColor(Color initialColor)
+        {
+            ColorDialog colorPicker = new()
+            {
+                // Keeps the user from selecting a custom color.
+                AllowFullOpen = true,
+                FullOpen = true,
+                // Allows the user to get help. (The default is false.)
+                ShowHelp = true,
+                // Sets the initial color select to the current text color.
+                Color = initialColor                              
+            };
+            
+            // Update the text box color if the user clicks OK 
+            if (colorPicker.ShowDialog() == DialogResult.OK)
+            {
+                return colorPicker.Color;                
+            }
+            colorPicker?.Dispose(); 
+            return initialColor;
         }
     }
 }

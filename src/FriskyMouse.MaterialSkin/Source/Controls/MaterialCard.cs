@@ -56,7 +56,7 @@ namespace MaterialSkin.Controls
         }
         public MaterialCard()
         {
-            //SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             Height = 1;
             Padding = new Padding(5, 25, 5, 5);
             Elevation = 5;

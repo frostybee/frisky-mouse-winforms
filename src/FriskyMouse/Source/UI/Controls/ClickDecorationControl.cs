@@ -6,6 +6,7 @@ using FriskyMouse.Drawing.Ripples;
 using FriskyMouse.Drawing.Extensions;
 using FriskyMouse.Drawing.Helpers;
 using FriskyMouse.Settings;
+using FriskyMouse.Helpers;
 
 namespace FriskyMouse.UI.Controls
 {
@@ -49,18 +50,27 @@ namespace FriskyMouse.UI.Controls
 
         internal void UpdateControlsFromSettings()
         {
-            sliderAnimSpeed.Value = (int)(_settings.AnimationSpeed * 1000);
             cmbInterpolationMode.SelectedIndex = cmbInterpolationMode.GetItemIndexByEumValue(_settings.InterpolationType);
             cmbAnimDirection.SelectedIndex = cmbAnimDirection.GetItemIndexByEumValue(_settings.AnimationDirection);
             cmbProfilesList.SelectedIndex = cmbProfilesList.GetItemIndexByEumValue(_settings.CurrentRippleProfile);
+            sliderAnimSpeed.Value = (int)(_settings.AnimationSpeed * 1000);            
             switchColorTransition.Checked = _settings.CanFadeColor;
             switchEnableClicker.Checked = _settings.IsEnabled;
-            SwitchRippleProfile(_settings.CurrentRippleProfile);
-            AdjustAnimationSpeed((int)(_settings.AnimationSpeed * 1000));
+            btnColorPicker.BackColor = _settings.FillColor;
+            //--> 
+            LoadRipplesProfile();            
             //_profileManager.SwitchProfile()
             InitControlsEvents();
             StartAnimation();
         }
+
+        private void LoadRipplesProfile()
+        {
+            ChangeRippleProfile(_settings.CurrentRippleProfile);
+            _currentProfile.UpdateRipplesStyle(_settings);
+            AdjustAnimationSpeed((int)(_settings.AnimationSpeed * 1000));
+        }
+
         private void AdjustAnimationSpeed(int speed)
         {
             //lblAnimSpeed.Text = speed.ToString();
@@ -73,7 +83,7 @@ namespace FriskyMouse.UI.Controls
             _profileManager.ApplySettings(_settings);
         }
 
-        private void SwitchRippleProfile(RippleProfileType profileType)
+        private void ChangeRippleProfile(RippleProfileType profileType)
         {
             BaseRippleProfile _newProfile = ConstructableFactory.GetInstanceOf<BaseRippleProfile>(profileType);
             _currentProfile?.Dispose();
@@ -83,21 +93,22 @@ namespace FriskyMouse.UI.Controls
         }
         private void BtnColorPicker_Click(object? sender, EventArgs e)
         {
-            ColorDialog colorPicker = new ColorDialog();
-            // Keeps the user from selecting a custom color.
-            colorPicker.AllowFullOpen = true;
-            colorPicker.FullOpen = true;
-            // Allows the user to get help. (The default is false.)
-            colorPicker.ShowHelp = true;
-            // Sets the initial color select to the current text color.
-            colorPicker.Color = btnColorPicker.BackColor;
-
-            // Update the text box color if the user clicks OK 
+            ColorDialog colorPicker = new()
+            {
+                // Keeps the user from selecting a custom color.
+                AllowFullOpen = true,
+                FullOpen = true,
+                // Allows the user to get help. (The default is false.)
+                ShowHelp = true,
+                // Sets the initial color select to the current text color.
+                Color = btnColorPicker.BackColor
+            };            
             if (colorPicker.ShowDialog() == DialogResult.OK)
             {
                 _settings.FillColor = colorPicker.Color;
-                _currentProfile.ApplySelectedColor(_settings);                
+                _currentProfile.UpdateRipplesStyle(_settings);                
                 btnColorPicker.BackColor = colorPicker.Color;
+                StartAnimation();         
             }
         }
 
@@ -168,7 +179,7 @@ namespace FriskyMouse.UI.Controls
         {
             // Switch to the newly selected profile. 
             RippleProfileType profileType = cmbProfilesList.GetEnumValue<RippleProfileType>();
-            SwitchRippleProfile(profileType);
+            ChangeRippleProfile(profileType);
             StartAnimation();
         }
 

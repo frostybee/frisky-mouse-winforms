@@ -154,7 +154,7 @@ namespace FriskyMouse.UI
                 NativeStructs.BLENDFUNCTION pBlend = default(NativeStructs.BLENDFUNCTION);
                 pBlend.BlendOp = NativeConstants.AC_SRC_OVER;
                 pBlend.BlendFlags = 0;
-                pBlend.SourceConstantAlpha = opacity;
+                pBlend.SourceConstantAlpha = 255;
                 pBlend.AlphaFormat = NativeConstants.AC_SRC_ALPHA;
                 NativeMethods.UpdateLayeredWindow(
                     this.Handle,         // Handle to the layered window

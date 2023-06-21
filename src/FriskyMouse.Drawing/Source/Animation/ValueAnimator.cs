@@ -1,5 +1,4 @@
-﻿
-using FriskyMouse.Drawing.Animation;
+﻿using FriskyMouse.Drawing.Animation;
 using System;
 using System.Windows.Forms;
 
@@ -80,7 +79,7 @@ namespace FriskyMouse.Drawing.Animation
         /// <summary>
         /// Controls the animation progress within the specified interval. 
         /// </summary>
-        private readonly Timer _animationTimer = new Timer { Interval = 5, Enabled = false };
+        private readonly System.Windows.Forms.Timer _animationTimer = new System.Windows.Forms.Timer { Interval = 5, Enabled = false };
 
         public ValueAnimator()
         {

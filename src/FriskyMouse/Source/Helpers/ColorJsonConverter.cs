@@ -5,10 +5,6 @@ namespace FriskyMouse.Settings
 {
     internal class ColorJsonConverter : JsonConverter<Color>
     {
-        public override bool CanConvert(Type objectType)
-        {
-            return (objectType == typeof(Color));
-        }
         public override Color Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             return ColorTranslator.FromHtml(reader.GetString());
