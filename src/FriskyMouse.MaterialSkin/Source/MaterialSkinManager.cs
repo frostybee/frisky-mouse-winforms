@@ -176,7 +176,9 @@ namespace MaterialSkin
 
         // Generic back colors - for user controls
         private static readonly Color BACKGROUND_LIGHT = Color.FromArgb(255, 255, 255, 255);
+        //private static readonly Color BACKGROUND_LIGHT = Color.FromArgb(200, 155, 155, 155);
         private static readonly Brush BACKGROUND_LIGHT_BRUSH = new SolidBrush(BACKGROUND_LIGHT);
+        //private static readonly Color BACKGROUND_DARK = Color.FromArgb(255, 80, 80, 80);
         private static readonly Color BACKGROUND_DARK = Color.FromArgb(255, 80, 80, 80);
         private static readonly Brush BACKGROUND_DARK_BRUSH = new SolidBrush(BACKGROUND_DARK);
         private static readonly Color BACKGROUND_ALTERNATIVE_LIGHT = Color.FromArgb(10, 0, 0, 0);
@@ -209,7 +211,7 @@ namespace MaterialSkin
         // Backdrop colors - for containers, like forms or panels
         private static readonly Color BACKDROP_LIGHT = Color.FromArgb(255, 242, 242, 242);
         private static readonly Brush BACKDROP_LIGHT_BRUSH = new SolidBrush(BACKGROUND_LIGHT);
-        private static readonly Color BACKDROP_DARK = Color.FromArgb(255, 50, 50, 50);
+        private static readonly Color BACKDROP_DARK = Color.FromArgb(255, 50, 50, 50);        
         private static readonly Brush BACKDROP_DARK_BRUSH = new SolidBrush(BACKGROUND_DARK);
 
         //Other colors

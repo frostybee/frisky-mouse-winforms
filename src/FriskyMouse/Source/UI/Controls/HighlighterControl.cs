@@ -2,6 +2,7 @@
 using FriskyMouse.Drawing.Helpers;
 using FriskyMouse.Settings;
 using System.Drawing.Drawing2D;
+using System.Runtime;
 
 namespace FriskyMouse.UI.Controls
 {
@@ -42,7 +43,9 @@ namespace FriskyMouse.UI.Controls
             switchFilledSpotlight.CheckedChanged += SwitchFilledColor_CheckedChanged;
             switchHighlighter.CheckedChanged += SwitchHighlighter_CheckedChanged;
             cmboxOutlineStyle.SelectedValueChanged += OutlineStyle_SelectedValueChanged;
+            switchShowOutline.CheckedChanged += SwitchShowOutline_CheckedChanged;
             pboxPreview.Paint += HighlighterPreview_Paint;
+            switchShadow.CheckedChanged += SwitchShadow_CheckedChanged;
             pboxPreview.BackgroundImage = Properties.Resources.sample_text;
 
         }
@@ -57,6 +60,8 @@ namespace FriskyMouse.UI.Controls
             btnFillColorBck.BackColor = _settings.FillColor;
             btnOutlineColorCk.BackColor = _settings.OutlineColor;
             switchHighlighter.Checked = _settings.Enabled;
+            switchShowOutline.Checked = _settings.IsOutlined;
+            switchShadow.Checked = _settings.HasShadow;
             InitControlsEvents();
             UpdateOutlineSettings();
             UpdateHighlighterSwitchText();
@@ -126,6 +131,7 @@ namespace FriskyMouse.UI.Controls
             _settings.Radius = sldRadius.Value;
             _settings.OpacityPercentage = (byte)sldOpacity.Value;
             _settings.OutlineWidth = sldOutlineWidth.Value;
+            _settings.IsOutlined = switchShowOutline.Checked;
             pboxPreview.Invalidate();
         }
         private void HighlighterPreview_Paint(object sender, PaintEventArgs e)
@@ -149,6 +155,17 @@ namespace FriskyMouse.UI.Controls
             UpdateHighlighterPreview();
             btnOutlineColorCk.BackColor = selectedColor;
         }
+        private void SwitchShadow_CheckedChanged(object sender, EventArgs e)
+        {
+            _settings.HasShadow = switchShadow.Checked;
+            UpdateHighlighterPreview();
+        }
+
+        private void SwitchShowOutline_CheckedChanged(object sender, EventArgs e)
+        {
+            _settings.IsOutlined = switchShowOutline.Checked;
+            UpdateHighlighterPreview();
+        }
 
         /// <summary>
         /// Resets the highlighter settings to predefined values.
@@ -158,12 +175,14 @@ namespace FriskyMouse.UI.Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ResetSettings_Click(object sender, EventArgs e)
+        private void ResetHighlighter_Click(object sender, EventArgs e)
         {
             sldRadius.Value = 15;
             sldOpacity.Value = 75;
             btnFillColorBck.BackColor = Color.Yellow;
             _settings.FillColor = Color.Yellow;
+            _settings.OutlineColor = Color.Red;
+            _settings.OutlineStyle = DashStyle.Solid;
             switchFilledSpotlight.Checked = true;
             UpdateHighlighterPreview();
             _applicationManager.ApplyHighlighterSettings();

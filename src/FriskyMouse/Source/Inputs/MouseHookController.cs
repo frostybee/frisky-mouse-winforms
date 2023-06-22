@@ -8,12 +8,12 @@ namespace FriskyMouse.Core
     {
         private int _systemDoubleClickTime;
         private HighlighterController _highlighter;
-        private RippleProfilesAnimator _clickDecorator;
-        private RippleProfilesAnimator _rightClickDecorator;
+        private ClickEffectController _clickDecorator;
+        private ClickEffectController _rightClickDecorator;
         private static object _syncRoot = new Object();
         private IntPtr _mouseHookHandle = IntPtr.Zero;
-        public MouseHookController(HighlighterController highlighter, RippleProfilesAnimator clickDecorator, 
-            RippleProfilesAnimator rightClickDecorator)
+        public MouseHookController(HighlighterController highlighter, ClickEffectController clickDecorator, 
+            ClickEffectController rightClickDecorator)
         {
             _highlighter = highlighter;
             _clickDecorator = clickDecorator;

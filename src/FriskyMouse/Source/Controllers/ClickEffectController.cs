@@ -15,7 +15,7 @@ namespace FriskyMouse.Core
     /// It maintains ripple instances corresponding to what the user has selected/enabled.
     /// The profiles maintained are left click, right click, and double click ripple profiles. 
     /// </summary>
-    internal class RippleProfilesAnimator: IDisposable
+    internal class ClickEffectController: IDisposable
     {
         private readonly LayeredWindow _layeredWindow;
         // NOTE: move those to the BaseRippleProfile.
@@ -35,7 +35,7 @@ namespace FriskyMouse.Core
         private bool disposedValue;
         public RippleProfileType RippleType { get; set; }
 
-        public RippleProfilesAnimator(RippleProfileOptions settings)
+        public ClickEffectController(RippleProfileOptions settings)
         {
             _settings = settings;
             _layeredWindow = new LayeredWindow();                        
@@ -105,9 +105,9 @@ namespace FriskyMouse.Core
                     _animationManager.Stop();
                 }
                 if (!_animationManager.IsAnimating())
-                {                    
-                    _layeredWindow.Move(x + 1, y + 1);
-                    //_layeredWindow.Move(x, y );
+                {
+                    _layeredWindow.Move(x, y );
+                    //_layeredWindow.Move(x + 1, y + 1);
                     _layeredWindow.Show();
                     StartAnimation();
                 }
@@ -166,7 +166,7 @@ namespace FriskyMouse.Core
         }
 
         // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
-        // ~RippleProfilesAnimator()
+        // ~ClickEffectController()
         // {
         //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
         //     Dispose(disposing: false);

@@ -10,8 +10,8 @@ namespace FriskyMouse.Core
             new Lazy<DecorationController>(() => new DecorationController());        
         private readonly ApplicationSettings _settings;        
         private readonly HighlighterController _highlighter;
-        private readonly RippleProfilesAnimator _leftClickDecorator;
-        private readonly RippleProfilesAnimator _rightClickDecorator;
+        private readonly ClickEffectController _leftClickDecorator;
+        private readonly ClickEffectController _rightClickDecorator;
         private readonly MouseHookController _mouseHookController;
         private readonly object _syncLock = new object();
         private bool _disposed = false;
@@ -19,8 +19,8 @@ namespace FriskyMouse.Core
         private DecorationController()
         {
             _settings = SettingsManager.Settings;
-            _leftClickDecorator = new RippleProfilesAnimator(_settings.LeftClickOptions);
-            _rightClickDecorator = new RippleProfilesAnimator(_settings.RightClickOptions);
+            _leftClickDecorator = new ClickEffectController(_settings.LeftClickOptions);
+            _rightClickDecorator = new ClickEffectController(_settings.RightClickOptions);
             _highlighter = new HighlighterController(_settings);
             _mouseHookController = new MouseHookController(_highlighter, _leftClickDecorator, _rightClickDecorator);
         }
@@ -116,7 +116,7 @@ namespace FriskyMouse.Core
         /// </summary>
         public static DecorationController Instance => _instance.Value;        
         public HighlighterController MouseHighlighter => _highlighter;
-        public RippleProfilesAnimator ClickDecorator => _leftClickDecorator;
+        public ClickEffectController ClickDecorator => _leftClickDecorator;
 
         public MainForm MainForm { get; internal set; }
 

@@ -25,7 +25,7 @@ namespace FriskyMouse.UI
 
         private void InitializeControls()
         {
-            mainTabControl.SelectedIndex = 1;
+            mainTabControl.SelectedIndex = 0;
             // Clean up resources on application exit.
             Application.ApplicationExit += Application_ApplicationExit;
             this.Icon = Properties.Resources.Martin_Berube_Animal_Bee;
@@ -98,9 +98,17 @@ namespace FriskyMouse.UI
         /// <param name="e"></param>
         private void Application_ApplicationExit(object sender, EventArgs e)
         {
-            SettingsManager.SaveSettings();
-            _decorationController?.DisableHook();
-            _decorationController?.Dispose();
+            try
+            {
+                SettingsManager.SaveSettings();
+                appNotifyIcon?.Icon.Dispose();
+                appNotifyIcon?.Dispose();
+                _decorationController?.DisableHook();
+                _decorationController?.Dispose();
+            }
+            catch (Exception)
+            {                
+            }
         }
 
         /// <summary>

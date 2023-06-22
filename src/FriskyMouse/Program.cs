@@ -1,6 +1,7 @@
 using FriskyMouse.Settings;
 using FriskyMouse.NativeApi;
 using FriskyMouse.UI;
+using FriskyMouse.Core;
 
 namespace FriskyMouse
 {
@@ -29,7 +30,7 @@ namespace FriskyMouse
                     // see https://aka.ms/applicationconfiguration.
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(true);
-                    Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
+                    Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);                    
                     // TODO: add DPI awareness. @see: main project.                     
                     //Application.Run(new Form1());
                     Application.Run(new MainForm());
@@ -46,6 +47,6 @@ namespace FriskyMouse
                 // Send a message to the application's main window so that it gets shown to the user. 
                 NativeMethods.SendMessage((IntPtr)SpecialWindowHandles.HWND_BROADCAST, WM_SHOW_MAIN_WINDOW, IntPtr.Zero, IntPtr.Zero);
             }
-        }
+        }        
     }
 }

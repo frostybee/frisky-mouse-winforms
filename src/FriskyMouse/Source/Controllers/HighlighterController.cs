@@ -32,8 +32,9 @@ namespace FriskyMouse.Core
             _spotlightBitmap?.Dispose();
             _spotlightBitmap = DrawingHelper.CreateBitmap(200, 200, Color.Transparent);
             Graphics graphics = Graphics.FromImage(_spotlightBitmap);
+            graphics.Clear(Color.Transparent);
             Rectangle rect = DrawingHelper.CreateRectangle(200, 200, highlighterInfo.Radius);
-            graphics.DrawHighlighter(rect, highlighterInfo);
+            graphics.DrawHighlighter(rect, highlighterInfo);            
             _width = _spotlightBitmap.Width;
             _height = _spotlightBitmap.Height;
             _layeredWindow.SetBitmap(_spotlightBitmap, highlighterInfo.Opacity);
@@ -78,7 +79,9 @@ namespace FriskyMouse.Core
         private void SetLayeredWindowCoordinates(POINT point)
         {
             _layeredWindow.PositionX = (point.X) - (_width / 2);
+            //_layeredWindow.PositionX = (point.X) ;
             _layeredWindow.PositionY = (point.Y) - (_height / 2);            
+            //_layeredWindow.PositionY = (point.Y) ;            
         }
         internal void SetInitialPosition()
         {
