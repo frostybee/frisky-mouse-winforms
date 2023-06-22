@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 
 public class MouseWheelRedirector : IMessageFilter
 {

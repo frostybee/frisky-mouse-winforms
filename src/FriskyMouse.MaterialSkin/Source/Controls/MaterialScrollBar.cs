@@ -1,10 +1,6 @@
-
-using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.Security;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
 namespace MaterialSkin.Controls
@@ -114,7 +110,7 @@ namespace MaterialSkin.Controls
 
         private int trackPosition;
 
-        private readonly Timer progressTimer = new Timer();
+        private readonly System.Windows.Forms.Timer progressTimer = new System.Windows.Forms.Timer();
 
         private int mouseWheelBarPartitions = 10;
         [DefaultValue(10)]
@@ -331,7 +327,7 @@ namespace MaterialSkin.Controls
 
                     if (autoHoverTimer == null)
                     {
-                        autoHoverTimer = new Timer();
+                        autoHoverTimer = new System.Windows.Forms.Timer();
                         autoHoverTimer.Interval = 1000;
                         autoHoverTimer.Tick += new EventHandler(autoHoverTimer_Tick);
                         autoHoverTimer.Start();
@@ -358,7 +354,7 @@ namespace MaterialSkin.Controls
             autoHoverTimer.Stop();
         }
 
-        private Timer autoHoverTimer = null;
+        private System.Windows.Forms.Timer autoHoverTimer = null;
 
         #endregion
 

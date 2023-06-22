@@ -1,5 +1,4 @@
 ﻿using FriskyMouse.Drawing.Attributes;
-using FriskyMouse.Drawing.Animation;
 using System.ComponentModel;
 
 namespace FriskyMouse.Drawing.Animation

@@ -6,7 +6,6 @@ using FriskyMouse.Drawing.Ripples;
 using FriskyMouse.Drawing.Extensions;
 using FriskyMouse.Drawing.Helpers;
 using FriskyMouse.Settings;
-using FriskyMouse.Helpers;
 
 namespace FriskyMouse.UI.Controls
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FriskyMouse.Drawing.Animation
+﻿namespace FriskyMouse.Drawing.Animation
 {
     /// <summary>
     /// Helper static class for easing mathematical constants.

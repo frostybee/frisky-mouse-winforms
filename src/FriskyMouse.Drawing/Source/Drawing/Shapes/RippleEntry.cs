@@ -1,8 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using FriskyMouse.Drawing.Extensions;
+﻿using FriskyMouse.Drawing.Extensions;
 using FriskyMouse.Drawing.Helpers;
 
 namespace FriskyMouse.Drawing.Ripples
@@ -25,43 +21,29 @@ namespace FriskyMouse.Drawing.Ripples
         private int _expandedRadius = 1;
 
 
+        /// <summary>
+        /// Draws a ripple entry.
+        /// </summary>
+        /// <param name="graphics">The canvas on which the ripple/shape will be drawn.</param>
         internal void Draw(Graphics graphics)
         {
-            // Expand the radius of the current ripple to be rendered. 
-            //FIXME: ripple.ExpandRadius(animationProgress);
-            //ExpandRadius(progress);
-            //-- Get the opacity value for animating a fade-like color transition.
-            //AdjustColorOpacity(progress);
-            //Debug.WriteLine("Opacity: " + opacity);
-            //-- Draw this ripple entry.
             switch (ShapeType)
             {
                 case ShapeType.Crosshair:
                     graphics.FillRectangle(FillBrush, Bounds);
                     break;
                 case ShapeType.Ellipse:
-                    // DrawCircle();
                     if (IsFilled)
                     {
                         graphics.FillEllipse(FillBrush, Bounds);
                     }
                     else
                     {
-                        //OutlinePen.Color = OutlinePen.Color.ReduceOpacity(opacity);
                         graphics.DrawEllipse(OutlinePen, Bounds);
                     }
                     break;
                 case ShapeType.Rectangle:
-                    //OutlinePen.Color = OutlinePen.Color.ReduceOpacity(opacity);                    
-                    /*if (IsFilled)
-                    {
-                        graphics.FillRectangle(FillBrush, Bounds);
-                        
-                    }
-                    else
-                    {*/
                     graphics.DrawRectangle(OutlinePen, Bounds);
-
                     break;
                 case ShapeType.Polygon:
                     var x = 200 / 2;
@@ -80,9 +62,6 @@ namespace FriskyMouse.Drawing.Ripples
                         default:
                             break;
                     }
-
-                    //PolyPoints = DrawingHelper.CreateHexagon(x, y, newRadius);
-                    //PolyPoints = DrawingHelper.CreateStarShape(200, newRadius);
                     graphics.DrawPolygon(OutlinePen, PolyPoints.ToArray());
                     break;
             }
@@ -103,8 +82,7 @@ namespace FriskyMouse.Drawing.Ripples
                     //FillBrush.Color = DrawingHelper.RandomColor().ReduceOpacity(opacity);
                 }
                 else
-                {
-                    Debug.WriteLine("opacity: " + opacity);
+                {                    
                     OutlinePen.Color = OutlinePen.Color.ReduceOpacity(opacity);
                 }
             }
@@ -152,7 +130,7 @@ namespace FriskyMouse.Drawing.Ripples
             if (IsFilled)
             {
                 FillBrush.Color = Color.FromArgb(FillBrush.Color.A, options.FillColor);
-                
+
             }
             else
             {

@@ -113,9 +113,9 @@ namespace FriskyMouse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sample_text {
+        internal static System.Drawing.Bitmap Sample_Text_IMG {
             get {
-                object obj = ResourceManager.GetObject("sample_text", resourceCulture);
+                object obj = ResourceManager.GetObject("Sample_Text_IMG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

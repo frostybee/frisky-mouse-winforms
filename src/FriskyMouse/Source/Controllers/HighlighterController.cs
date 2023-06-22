@@ -40,8 +40,9 @@ namespace FriskyMouse.Core
             _layeredWindow.SetBitmap(_spotlightBitmap, highlighterInfo.Opacity);
             // Set the highlighter's initial position after launching the application or
             // applying new settings. 
-            //MoveSpotlight(_layeredWindow.GetCursorPosition());
+            MoveSpotlight(_layeredWindow.GetCursorPosition());
             _layeredWindow.Show();
+            graphics?.Dispose();
         }
 
         /// <summary>

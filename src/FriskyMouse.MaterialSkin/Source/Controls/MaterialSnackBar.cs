@@ -1,9 +1,6 @@
 ﻿using MaterialSkin.Animations;
-using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
 namespace MaterialSkin.Controls
@@ -17,7 +14,8 @@ namespace MaterialSkin.Controls
         private const int BUTTON_HEIGHT = 36;
 
         private MaterialButton _actionButton = new MaterialButton();
-        private Timer _duration = new Timer();      // Timer that checks when the drop down is fully visible
+        // Timer that checks when the drop down is fully visible
+        private System.Windows.Forms.Timer _duration = new System.Windows.Forms.Timer();      
 
         private AnimationManager _AnimationManager;
         private bool _closingAnimationDone = false;

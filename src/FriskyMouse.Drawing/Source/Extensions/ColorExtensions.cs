@@ -1,7 +1,4 @@
-﻿using System;
-using System.Drawing;
-
-namespace FriskyMouse.Drawing.Extensions
+﻿namespace FriskyMouse.Drawing.Extensions
 {
     internal static class ColorExtensions
     {

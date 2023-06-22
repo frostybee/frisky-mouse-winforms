@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FriskyMouse.Drawing.Helpers
+﻿namespace FriskyMouse.Drawing.Helpers
 {
     public static class RandomFast
     {

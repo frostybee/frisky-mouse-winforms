@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
+﻿using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 
 namespace FriskyMouse.Drawing.Helpers
@@ -73,22 +70,22 @@ namespace FriskyMouse.Drawing.Helpers
             }
             return points;
         }
-
-        public static void DrawShadow(Graphics G, GraphicsPath GP, int d, Color pBackColor)
+        public static void DrawShadow(Graphics graphics, GraphicsPath gp, int d, Color pBackColor)
         {
-            Color[] colors = GetColorVector(Color.Black, pBackColor, d).ToArray();
+            Color[] colors = GetColorVector(Color.Yellow, pBackColor, d).ToArray();
             for (int i = 0; i < d; i++)
             {
-                G.TranslateTransform(1f, 0.75f);                // <== shadow vector!
-                using (Pen pen = new Pen(colors[i], 1.75f))  // <== pen width (*)
-                    G.DrawPath(pen, GP);
+                graphics.TranslateTransform(0.9f, 0.10f);                // <== shadow vector!
+                using (Pen pen = new Pen(colors[i], 2.75f))  // <== pen width (*)
+                    graphics.DrawPath(pen, gp);
             }
-            G.ResetTransform();
+            graphics.ResetTransform();
         }
-        public static GraphicsPath CreateCircle(float x, float y, float radius)
+        public static GraphicsPath CreateCircle(float x, float y, int radius)
         {
             GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(x, y, radius * 2, radius * 2);
+            //gp.AddEllipse(x, y, radius * 2, radius * 2);
+            gp.AddEllipse(CreateRectangle(200, 200, radius));
             return gp;
         }
 
@@ -103,6 +100,7 @@ namespace FriskyMouse.Drawing.Helpers
                   (int)(fc.G + dGreen * d), (int)(fc.B + dBlue * d)));
             return cv;
         }
+
         public static Color RandomColor()
         {
             return Color.FromArgb(RandomFast.Next(255), RandomFast.Next(255), RandomFast.Next(255));

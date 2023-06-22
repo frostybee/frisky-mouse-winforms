@@ -1,8 +1,6 @@
-﻿using FriskyMouse.Core;
-using FriskyMouse.Drawing;
+﻿using FriskyMouse.Drawing;
 using FriskyMouse.Drawing.Animation;
 using FriskyMouse.Drawing.Ripples;
-using FriskyMouse.Drawing.Extensions;
 using FriskyMouse.UI;
 using System.Drawing.Imaging;
 

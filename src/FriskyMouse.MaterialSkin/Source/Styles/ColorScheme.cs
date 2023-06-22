@@ -1,6 +1,3 @@
-using System;
-using System.Drawing;
-
 namespace MaterialSkin
 {
     public class ColorScheme : IDisposable

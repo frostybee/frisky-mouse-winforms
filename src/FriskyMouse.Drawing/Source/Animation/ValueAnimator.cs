@@ -1,8 +1,4 @@
-﻿using FriskyMouse.Drawing.Animation;
-using System;
-using System.Windows.Forms;
-
-namespace FriskyMouse.Drawing.Animation
+﻿namespace FriskyMouse.Drawing.Animation
 {
     /// <summary>
     /// 

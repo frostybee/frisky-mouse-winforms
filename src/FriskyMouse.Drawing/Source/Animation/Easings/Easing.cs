@@ -1,5 +1,3 @@
-using FriskyMouse.Drawing;
-
 namespace FriskyMouse.Drawing.Animation
 {
     /// <summary>

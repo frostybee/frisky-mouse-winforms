@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FriskyMouse.Drawing.Attributes
+﻿namespace FriskyMouse.Drawing.Attributes
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class DefaultSpeedAttribute : Attribute

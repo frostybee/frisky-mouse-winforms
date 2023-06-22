@@ -1,7 +1,4 @@
-﻿
-using System.Runtime;
-
-namespace FriskyMouse.Helpers
+﻿namespace FriskyMouse.Helpers
 {
     public static class Helpers
     {

@@ -1,17 +1,13 @@
 using MaterialSkin.Animations;
-using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Drawing.Text;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace MaterialSkin.Controls
 {
-    #if NETFRAMEWORK
+#if NETFRAMEWORK
     using System.Runtime.Remoting.Channels;
-    #endif
+#endif
 
     public class MaterialForm : Form, IMaterialControl
     {

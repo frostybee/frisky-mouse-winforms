@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
-
-namespace MaterialSkin.Animations
+﻿namespace MaterialSkin.Animations
 {
     /// <summary>
     /// Defines the <see cref="AnimationManager" />
@@ -90,7 +85,7 @@ namespace MaterialSkin.Animations
         /// <summary>
         /// Defines the _animationTimer
         /// </summary>
-        private readonly Timer _animationTimer = new Timer { Interval = 5, Enabled = false };
+        private readonly System.Windows.Forms.Timer _animationTimer = new System.Windows.Forms.Timer { Interval = 5, Enabled = false };
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AnimationManager"/> class.

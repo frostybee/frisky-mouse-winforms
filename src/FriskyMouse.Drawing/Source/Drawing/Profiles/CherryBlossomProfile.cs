@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using FriskyMouse.Drawing.Extensions;
+﻿using FriskyMouse.Drawing.Extensions;
 using FriskyMouse.Drawing.Helpers;
 
 namespace FriskyMouse.Drawing.Ripples

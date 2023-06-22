@@ -1,6 +1,5 @@
 ﻿using FriskyMouse.Drawing.Attributes;
 using FriskyMouse.Drawing.Extensions;
-using System;
 
 namespace FriskyMouse.Drawing
 {

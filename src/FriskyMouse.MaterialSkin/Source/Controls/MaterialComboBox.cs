@@ -1,10 +1,6 @@
 ﻿using MaterialSkin.Animations;
-using System;
 using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
 using System.Data;
-using System.Windows.Forms;
 
 namespace MaterialSkin.Controls
 {

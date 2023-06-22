@@ -37,18 +37,21 @@
             sldOpacity = new MaterialSkin.Controls.MaterialSlider();
             switchFilledSpotlight = new MaterialSkin.Controls.MaterialSwitch();
             sldOutlineWidth = new MaterialSkin.Controls.MaterialSlider();
-            btnOutlineColorCk = new Button();
+            btnOutlineColorPicker = new Button();
             btnApplySettings = new MaterialSkin.Controls.MaterialButton();
             cmboxOutlineStyle = new MaterialSkin.Controls.MaterialComboBox();
             btnResetSettings = new MaterialSkin.Controls.MaterialButton();
             sldRadius = new MaterialSkin.Controls.MaterialSlider();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             panel1 = new Panel();
+            sldShadowDepth = new MaterialSkin.Controls.MaterialSlider();
+            lblFillColor = new Label();
+            btnShadow = new MaterialSkin.Controls.MaterialButton();
+            btnCurrentShadowColor = new Button();
             switchShowOutline = new MaterialSkin.Controls.MaterialSwitch();
             switchShadow = new MaterialSkin.Controls.MaterialSwitch();
             btnOutlineColor = new MaterialSkin.Controls.MaterialButton();
             btnFillColor = new MaterialSkin.Controls.MaterialButton();
-            btnFillColorBck = new Button();
             materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             splitContainer1 = new SplitContainer();
@@ -135,45 +138,45 @@
             switchFilledSpotlight.Checked = true;
             switchFilledSpotlight.CheckState = CheckState.Checked;
             switchFilledSpotlight.Depth = 0;
-            switchFilledSpotlight.Location = new Point(25, 473);
+            switchFilledSpotlight.Location = new Point(25, 488);
             switchFilledSpotlight.Margin = new Padding(0);
             switchFilledSpotlight.MouseLocation = new Point(-1, -1);
             switchFilledSpotlight.MouseState = MaterialSkin.MouseState.HOVER;
             switchFilledSpotlight.Name = "switchFilledSpotlight";
             switchFilledSpotlight.Ripple = true;
-            switchFilledSpotlight.Size = new Size(143, 47);
+            switchFilledSpotlight.Size = new Size(164, 47);
             switchFilledSpotlight.TabIndex = 14;
-            switchFilledSpotlight.Text = "Filled Circle  ";
+            switchFilledSpotlight.Text = "Filled Spotlight ";
             switchFilledSpotlight.UseVisualStyleBackColor = true;
             // 
             // sldOutlineWidth
             // 
             sldOutlineWidth.Depth = 0;
             sldOutlineWidth.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            sldOutlineWidth.Location = new Point(23, 303);
+            sldOutlineWidth.Location = new Point(23, 320);
             sldOutlineWidth.Margin = new Padding(2, 3, 2, 3);
             sldOutlineWidth.MouseState = MaterialSkin.MouseState.HOVER;
             sldOutlineWidth.Name = "sldOutlineWidth";
-            sldOutlineWidth.RangeMax = 10;
+            sldOutlineWidth.RangeMax = 6;
             sldOutlineWidth.RangeMin = 1;
             sldOutlineWidth.Size = new Size(280, 40);
             sldOutlineWidth.TabIndex = 15;
             sldOutlineWidth.Text = "Outline Width";
             sldOutlineWidth.Value = 1;
-            sldOutlineWidth.ValueMax = 10;
+            sldOutlineWidth.ValueMax = 6;
             sldOutlineWidth.ValueSuffix = "px";
             // 
-            // btnOutlineColorCk
+            // btnOutlineColorPicker
             // 
-            btnOutlineColorCk.FlatStyle = FlatStyle.Flat;
-            btnOutlineColorCk.Location = new Point(125, 232);
-            btnOutlineColorCk.Margin = new Padding(2, 3, 2, 3);
-            btnOutlineColorCk.Name = "btnOutlineColorCk";
-            btnOutlineColorCk.Size = new Size(70, 26);
-            btnOutlineColorCk.TabIndex = 85;
-            btnOutlineColorCk.Text = "...";
-            btnOutlineColorCk.UseVisualStyleBackColor = true;
-            btnOutlineColorCk.Click += BtnStrokeColor_Click;
+            btnOutlineColorPicker.FlatStyle = FlatStyle.Flat;
+            btnOutlineColorPicker.Location = new Point(125, 232);
+            btnOutlineColorPicker.Margin = new Padding(2, 3, 2, 3);
+            btnOutlineColorPicker.Name = "btnOutlineColorPicker";
+            btnOutlineColorPicker.Size = new Size(70, 26);
+            btnOutlineColorPicker.TabIndex = 85;
+            btnOutlineColorPicker.Text = "...";
+            btnOutlineColorPicker.UseVisualStyleBackColor = true;
+            btnOutlineColorPicker.Click += BtnStrokeColor_Click;
             // 
             // btnApplySettings
             // 
@@ -211,7 +214,7 @@
             cmboxOutlineStyle.IntegralHeight = false;
             cmboxOutlineStyle.ItemHeight = 43;
             cmboxOutlineStyle.Items.AddRange(new object[] { "Solid", "Dash", "Dot", "Dash Dot", "Dash Dot Dot" });
-            cmboxOutlineStyle.Location = new Point(23, 350);
+            cmboxOutlineStyle.Location = new Point(23, 429);
             cmboxOutlineStyle.Margin = new Padding(4);
             cmboxOutlineStyle.MaxDropDownItems = 4;
             cmboxOutlineStyle.MouseState = MaterialSkin.MouseState.OUT;
@@ -272,11 +275,14 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(sldShadowDepth);
+            panel1.Controls.Add(lblFillColor);
+            panel1.Controls.Add(btnShadow);
+            panel1.Controls.Add(btnCurrentShadowColor);
             panel1.Controls.Add(switchShowOutline);
             panel1.Controls.Add(switchShadow);
             panel1.Controls.Add(btnOutlineColor);
             panel1.Controls.Add(btnFillColor);
-            panel1.Controls.Add(btnFillColorBck);
             panel1.Controls.Add(materialLabel2);
             panel1.Controls.Add(materialCard1);
             panel1.Controls.Add(materialLabel3);
@@ -286,7 +292,7 @@
             panel1.Controls.Add(sldRadius);
             panel1.Controls.Add(sldOutlineWidth);
             panel1.Controls.Add(btnResetSettings);
-            panel1.Controls.Add(btnOutlineColorCk);
+            panel1.Controls.Add(btnOutlineColorPicker);
             panel1.Controls.Add(cmboxOutlineStyle);
             panel1.Controls.Add(btnApplySettings);
             panel1.Dock = DockStyle.Fill;
@@ -296,13 +302,71 @@
             panel1.Size = new Size(1200, 667);
             panel1.TabIndex = 64;
             // 
+            // sldShadowDepth
+            // 
+            sldShadowDepth.Depth = 0;
+            sldShadowDepth.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            sldShadowDepth.Location = new Point(23, 366);
+            sldShadowDepth.Margin = new Padding(2, 3, 2, 3);
+            sldShadowDepth.MouseState = MaterialSkin.MouseState.HOVER;
+            sldShadowDepth.Name = "sldShadowDepth";
+            sldShadowDepth.RangeMax = 12;
+            sldShadowDepth.RangeMin = 2;
+            sldShadowDepth.Size = new Size(280, 40);
+            sldShadowDepth.TabIndex = 93;
+            sldShadowDepth.Text = "Shadow depth";
+            sldShadowDepth.Value = 2;
+            sldShadowDepth.ValueMax = 12;
+            sldShadowDepth.ValueSuffix = "px";
+            // 
+            // lblFillColor
+            // 
+            lblFillColor.Location = new Point(125, 182);
+            lblFillColor.Name = "lblFillColor";
+            lblFillColor.Size = new Size(80, 31);
+            lblFillColor.TabIndex = 92;
+            lblFillColor.Text = "current color";
+            lblFillColor.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnShadow
+            // 
+            btnShadow.AutoSize = false;
+            btnShadow.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnShadow.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
+            btnShadow.Depth = 0;
+            btnShadow.HighEmphasis = false;
+            btnShadow.Icon = null;
+            btnShadow.Location = new Point(23, 275);
+            btnShadow.Margin = new Padding(4, 6, 4, 6);
+            btnShadow.MouseState = MaterialSkin.MouseState.HOVER;
+            btnShadow.Name = "btnShadow";
+            btnShadow.NoAccentTextColor = Color.Empty;
+            btnShadow.Size = new Size(90, 36);
+            btnShadow.TabIndex = 91;
+            btnShadow.Text = "Shadow...";
+            btnShadow.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnShadow.UseAccentColor = true;
+            btnShadow.UseVisualStyleBackColor = true;
+            btnShadow.Click += BtnShadow_Click;
+            // 
+            // btnCurrentShadowColor
+            // 
+            btnCurrentShadowColor.FlatStyle = FlatStyle.Flat;
+            btnCurrentShadowColor.Location = new Point(125, 280);
+            btnCurrentShadowColor.Margin = new Padding(2, 3, 2, 3);
+            btnCurrentShadowColor.Name = "btnCurrentShadowColor";
+            btnCurrentShadowColor.Size = new Size(70, 26);
+            btnCurrentShadowColor.TabIndex = 90;
+            btnCurrentShadowColor.Text = "...";
+            btnCurrentShadowColor.UseVisualStyleBackColor = true;
+            // 
             // switchShowOutline
             // 
             switchShowOutline.AutoSize = true;
             switchShowOutline.Checked = true;
             switchShowOutline.CheckState = CheckState.Checked;
             switchShowOutline.Depth = 0;
-            switchShowOutline.Location = new Point(367, 473);
+            switchShowOutline.Location = new Point(367, 488);
             switchShowOutline.Margin = new Padding(0);
             switchShowOutline.MouseLocation = new Point(-1, -1);
             switchShowOutline.MouseState = MaterialSkin.MouseState.HOVER;
@@ -319,7 +383,7 @@
             switchShadow.Checked = true;
             switchShadow.CheckState = CheckState.Checked;
             switchShadow.Depth = 0;
-            switchShadow.Location = new Point(195, 473);
+            switchShadow.Location = new Point(195, 488);
             switchShadow.Margin = new Padding(0);
             switchShadow.MouseLocation = new Point(-1, -1);
             switchShadow.MouseState = MaterialSkin.MouseState.HOVER;
@@ -345,7 +409,7 @@
             btnOutlineColor.NoAccentTextColor = Color.Empty;
             btnOutlineColor.Size = new Size(90, 36);
             btnOutlineColor.TabIndex = 87;
-            btnOutlineColor.Text = "Outline";
+            btnOutlineColor.Text = "Outline...";
             btnOutlineColor.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnOutlineColor.UseAccentColor = true;
             btnOutlineColor.UseVisualStyleBackColor = true;
@@ -366,23 +430,11 @@
             btnFillColor.NoAccentTextColor = Color.Empty;
             btnFillColor.Size = new Size(90, 36);
             btnFillColor.TabIndex = 78;
-            btnFillColor.Text = "Fill";
+            btnFillColor.Text = "Fill...";
             btnFillColor.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnFillColor.UseAccentColor = false;
             btnFillColor.UseVisualStyleBackColor = true;
             btnFillColor.Click += BtnFillColor_Click;
-            // 
-            // btnFillColorBck
-            // 
-            btnFillColorBck.FlatStyle = FlatStyle.Flat;
-            btnFillColorBck.Location = new Point(125, 184);
-            btnFillColorBck.Margin = new Padding(2, 3, 2, 3);
-            btnFillColorBck.Name = "btnFillColorBck";
-            btnFillColorBck.Size = new Size(70, 26);
-            btnFillColorBck.TabIndex = 86;
-            btnFillColorBck.Text = "...";
-            btnFillColorBck.UseVisualStyleBackColor = true;
-            btnFillColorBck.Click += BtnFillColor_Click;
             // 
             // materialLabel3
             // 
@@ -451,7 +503,7 @@
         private MaterialSkin.Controls.MaterialComboBox cmboxOutlineStyle;
         private MaterialSkin.Controls.MaterialSlider sldOutlineWidth;
         private MaterialSkin.Controls.MaterialSwitch switchFilledSpotlight;
-        private Button btnOutlineColorCk;
+        private Button btnOutlineColorPicker;
         private MaterialSkin.Controls.MaterialButton btnResetSettings;
         private MaterialSkin.Controls.MaterialButton btnApplySettings;
         private MaterialSkin.Controls.MaterialSlider sldRadius;
@@ -464,11 +516,14 @@
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private PictureBox pboxPreview;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private Button btnFillColorBck;
         private MaterialSkin.Controls.MaterialButton btnFillColor;
         private MaterialSkin.Controls.MaterialButton btnOutlineColor;
         private MaterialSkin.Controls.MaterialSwitch switchShadow;
         private MaterialSkin.Controls.MaterialSwitch switchShowOutline;
+        private MaterialSkin.Controls.MaterialButton btnShadow;
+        private Button btnCurrentShadowColor;
+        private Label lblFillColor;
+        private MaterialSkin.Controls.MaterialSlider sldShadowDepth;
         //private Button Bt;
     }
 }

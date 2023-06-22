@@ -1,5 +1,4 @@
 ﻿using FriskyMouse.Drawing.Animation;
-using System.Drawing;
 
 namespace FriskyMouse.Drawing.Ripples
 {
