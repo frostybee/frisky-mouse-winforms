@@ -38,4 +38,8 @@
     <None Include="D:\Dev\my-repos\FriskyMouse\src\FriskyMouse\.editorconfig" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Using Include="System.Drawing.Drawing2D" />
+  </ItemGroup>
+
 </Project>

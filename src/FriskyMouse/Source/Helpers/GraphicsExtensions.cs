@@ -1,6 +1,4 @@
 ﻿using FriskyMouse.Drawing.Helpers;
-using MaterialSkin;
-using System.Drawing.Drawing2D;
 
 
 namespace FriskyMouse.Core
@@ -17,11 +15,7 @@ namespace FriskyMouse.Core
                 Color selectedColor = Color.FromArgb(options.Opacity, options.FillColor);
                 using SolidBrush brush = new SolidBrush(selectedColor);
                 graphics.FillEllipse(brush, rect);
-                if (options.IsOutlined)
-                {
-                    // Add an outline to the spotlight if enabled.
-                    graphics.DrawOutline(options);
-                }
+               
             }
             else
             {
@@ -32,6 +26,11 @@ namespace FriskyMouse.Core
                 graphics.DrawRoundShadow(options);
                 //GraphicsPath gp =  DrawingHelper.CreateCircle(100, 100, options.Radius + options.OutlineWidth+2);
                 //DrawingHelper.DrawShadow(graphics, gp, 7, Color.Blue);                
+            }
+            if (options.IsOutlined & options.IsFilled)
+            {
+                // Add an outline to the spotlight if enabled.
+                graphics.DrawOutline(options);
             }
         }
 
@@ -46,10 +45,12 @@ namespace FriskyMouse.Core
 
         public static void DrawRoundShadow(this Graphics graphics, HighlighterOptions options)
         {
-            int radius = options.Radius + (options.IsOutlined ? options.OutlineWidth + 1 : 3);
-            int opacity = 60;
+            int radius = options.Radius +
+                (options.IsOutlined ? options.OutlineWidth+2  : options.ShadowDepth - options.OutlineWidth
+                //: (options.HasShadow ? options.ShadowDepth : 0)
+                );
             Rectangle shadowRect = DrawingHelper.CreateRectangle(options.Width, options.Height, radius);
-            Color color = Color.FromArgb(opacity, options.ShadowColor);
+            Color color = Color.FromArgb(options.ShadowOpacity, options.ShadowColor);
             using Pen pen = new Pen(color, options.ShadowDepth);
             graphics.DrawEllipse(pen, shadowRect);
         }

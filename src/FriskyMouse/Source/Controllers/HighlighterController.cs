@@ -26,7 +26,7 @@ namespace FriskyMouse.Core
             _settingsManager = pSettingsManager;
         }
 
-        internal void InitHighlighter(HighlighterOptions highlighterInfo)
+        internal void RenderHighlighter(HighlighterOptions highlighterInfo)
         {            
             // Clean up any previously generated bitmap.
             _spotlightBitmap?.Dispose();

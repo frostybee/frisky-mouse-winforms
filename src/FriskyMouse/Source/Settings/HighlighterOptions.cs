@@ -1,11 +1,8 @@
-﻿using System.Drawing.Drawing2D;
-
-
-namespace FriskyMouse.Core
+﻿namespace FriskyMouse.Core
 {
     public class HighlighterOptions
     {
-        #region Properties
+        #region Properties        
         public bool Enabled { get; set; } = true;        
         public int Radius { get; set; } = 25;
         public int Width { get; set; } = 200;
@@ -16,7 +13,7 @@ namespace FriskyMouse.Core
         public byte Opacity
         {
             get
-            {
+            {                
                 return (byte)(Math.Min(OpacityPercentage * 255 / 100, 255));
             }
         }        
@@ -26,7 +23,15 @@ namespace FriskyMouse.Core
         public DashStyle OutlineStyle { get; set; } = DashStyle.Solid;
         public bool HasShadow { get; set; } = true;
         public int ShadowDepth { get; set; } = 5;
-        public Color ShadowColor { get; set; } = Color.CornflowerBlue;        
+        public Color ShadowColor { get; set; } = Color.CornflowerBlue;
+        public byte ShadowOpacityPercentage { get; set; } = 50;
+        public byte ShadowOpacity
+        {
+            get
+            {
+                return (byte)(Math.Min(ShadowOpacityPercentage * 255 / 100, 255));
+            }
+        }
         #endregion
     }
 }

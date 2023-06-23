@@ -29,16 +29,15 @@ namespace FriskyMouse.Core
         
         internal void EnableHighlighter()
         {            
-            _highlighter.InitHighlighter(_settings.HighlighterOptions);        
+            _highlighter.RenderHighlighter(_settings.HighlighterOptions);        
         }         
         internal void DisableHighlighter()
         {
             // HideSpotlight the layered window.
-            _highlighter.HideSpotlight();
             if (_settings.HighlighterOptions.Enabled)
             {
-
-            }
+                _highlighter.HideSpotlight();
+            }            
         }
         public void EnableHook()
         {
