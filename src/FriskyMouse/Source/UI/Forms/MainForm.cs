@@ -25,6 +25,9 @@ namespace FriskyMouse.UI
 
         private void InitializeControls()
         {
+            // Form's title.
+            Text = "Frisky Mouse";
+
             mainTabControl.SelectedIndex = 0;
             // Clean up resources on application exit.
             Application.ApplicationExit += Application_ApplicationExit;
@@ -107,7 +110,7 @@ namespace FriskyMouse.UI
                 _decorationController?.Dispose();
             }
             catch (Exception)
-            {                
+            {
             }
         }
 

@@ -62,7 +62,7 @@ namespace FriskyMouse.UI.Controls
             sldRadius.Value = _settings.Radius;
             sldOpacity.Value = _settings.OpacityPercentage;
             switchHighlighter.Checked = _settings.Enabled;
-            lblFillColor.BackColor = _settings.FillColor;
+            btnSpotlightColor.BackColor = _settings.FillColor;
             //-- Outline
             sldOutlineWidth.Value = _settings.OutlineWidth;
             btnOutlineColorPicker.BackColor = _settings.OutlineColor;
@@ -174,7 +174,7 @@ namespace FriskyMouse.UI.Controls
         {
             Color selectedColor = Helpers.Helpers.GetUserSelectedColor(_settings.FillColor);
             _settings.FillColor = selectedColor;
-            lblFillColor.BackColor = selectedColor;
+            btnSpotlightColor.BackColor = selectedColor;
             UpdateHighlighterPreview();
         }
         private void BtnStrokeColor_Click(object sender, EventArgs e)
@@ -225,15 +225,21 @@ namespace FriskyMouse.UI.Controls
         {
             sldRadius.Value = 15;
             sldOpacity.Value = 75;
-            lblFillColor.BackColor = Color.Yellow;
+            btnSpotlightColor.BackColor = Color.Yellow;
             _settings.FillColor = Color.Yellow;
             _settings.OutlineColor = Color.Red;
-            _settings.OutlineStyle = DashStyle.Dot;
+            _settings.OutlineStyle = DashStyle.Solid;
             _settings.OutlineWidth = 3;
             _settings.IsOutlined = true;
+            _settings.ShadowDepth = 4;
+            _settings.ShadowOpacityPercentage = 25;
             sldOutlineWidth.Value = _settings.OutlineWidth;
+            sldShadowDepth.Value = _settings.ShadowDepth;
+            sldShadowOpacity.Value = _settings.ShadowOpacityPercentage;
             switchFilledSpotlight.Checked = true;
-            switchShowOutline.Checked = true;
+            switchShowOutline.Checked = false;
+            switchShadow.Checked = false;
+
             UpdateHighlighterPreview();
             _decorationManager.ApplyHighlighterSettings();
         }

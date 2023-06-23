@@ -37,6 +37,7 @@
             materialDrawer = new MaterialSkin.Controls.MaterialDrawer();
             tabClickDecorator = new TabPage();
             ctrClickDecoration = new Controls.ClickDecorationControl();
+            tabRightClick = new TabPage();
             tbpSettings = new TabPage();
             ctrlAppSettings = new Controls.AppSettingsControl();
             tabAboutPage = new TabPage();
@@ -46,7 +47,6 @@
             trayContextMenu = new ContextMenuStrip(components);
             mnShow = new ToolStripMenuItem();
             mnExit = new ToolStripMenuItem();
-            tabRightClick = new TabPage();
             mnAbout = new ToolStripMenuItem();
             mainTabControl.SuspendLayout();
             tabHighlighter.SuspendLayout();
@@ -69,7 +69,7 @@
             mainTabControl.Controls.Add(tabClickDecorator);
             mainTabControl.Controls.Add(tabRightClick);
             mainTabControl.Controls.Add(tbpSettings);
-            mainTabControl.Controls.Add(tabAboutPage);            
+            mainTabControl.Controls.Add(tabAboutPage);
             mainTabControl.Depth = 0;
             mainTabControl.Dock = DockStyle.Fill;
             mainTabControl.ImageList = menuIconList;
@@ -143,6 +143,17 @@
             ctrClickDecoration.Name = "ctrClickDecoration";
             ctrClickDecoration.Size = new Size(828, 590);
             ctrClickDecoration.TabIndex = 0;
+            // 
+            // tabRightClick
+            // 
+            tabRightClick.BackColor = Color.White;
+            tabRightClick.ImageKey = "right-click-50.png";
+            tabRightClick.Location = new Point(4, 31);
+            tabRightClick.Name = "tabRightClick";
+            tabRightClick.Padding = new Padding(3);
+            tabRightClick.Size = new Size(834, 596);
+            tabRightClick.TabIndex = 4;
+            tabRightClick.Text = "Right Click";
             // 
             // tbpSettings
             // 
@@ -226,17 +237,6 @@
             mnExit.Text = "Exit";
             mnExit.Click += MenuItemExit_Click;
             // 
-            // tabRightClick
-            // 
-            tabRightClick.BackColor = Color.White;
-            tabRightClick.ImageKey = "right-click-50.png";
-            tabRightClick.Location = new Point(4, 31);
-            tabRightClick.Name = "tabRightClick";
-            tabRightClick.Padding = new Padding(3);
-            tabRightClick.Size = new Size(834, 596);
-            tabRightClick.TabIndex = 4;
-            tabRightClick.Text = "Right Click";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -250,7 +250,6 @@
             Name = "MainForm";
             Padding = new Padding(4, 74, 4, 4);
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Frisky Mouse";
             mainTabControl.ResumeLayout(false);
             tabHighlighter.ResumeLayout(false);
             tabClickDecorator.ResumeLayout(false);
@@ -270,13 +269,13 @@
         private NotifyIcon appNotifyIcon;
         private ContextMenuStrip trayContextMenu;
         private ToolStripMenuItem mnShow;
-        private ToolStripMenuItem mnExit;       
+        private ToolStripMenuItem mnExit;
         private Controls.ClickDecorationControl ctrClickDecoration;
         private Controls.HighlighterControl ctrlHighlighter;
         private Controls.AboutControl ctrlAbout;
         private Controls.AppSettingsControl ctrlAppSettings;
-        private TabPage tbpSettings;        
-        private TabPage tabAboutPage;        
+        private TabPage tbpSettings;
+        private TabPage tabAboutPage;
         private TabPage tabRightClick;
     }
 }
