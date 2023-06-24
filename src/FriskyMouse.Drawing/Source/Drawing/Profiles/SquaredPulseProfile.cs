@@ -21,13 +21,11 @@ namespace FriskyMouse.Drawing.Ripples
 
         private void CreateProfileEntries()
         {
-            int opacity = 10;
             _innerBrush = new SolidBrush(Color.DarkBlue);
             _outerBrush = new SolidBrush(Color.Crimson);
 
-            _outlinePen = new Pen(Color.Crimson.ReduceOpacity(opacity), 4);
-            // 1) Make the outer most ripple.
-            //-- 2) Add the middle ripple.
+            _outlinePen = new Pen(Color.DeepPink, 4);
+            // 1) Make the outer most ripple.            
             AddRipple(
                 new RippleEntry()
                 {
@@ -40,8 +38,9 @@ namespace FriskyMouse.Drawing.Ripples
                     FillBrush = _outerBrush,
                     OutlinePen = _outlinePen,
                     IsFilled = false,
+                    IsStyleable = true
                 });
-            //-- 3) Inner ripple that must drawn last.
+            //-- 2) Inner ripple that must drawn last.
             AddRipple(
                 new RippleEntry()
                 {

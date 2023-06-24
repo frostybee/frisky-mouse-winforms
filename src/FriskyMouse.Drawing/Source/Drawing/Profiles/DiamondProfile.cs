@@ -20,8 +20,7 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    IsExpandable = true,
-                    //Bounds = DrawingHelper.CreateRectangle(Width, Height, _baseRadius),
+                    IsExpandable = true,                    
                     ShapeType = ShapeType.Polygon,
                     InitialRadius = _baseRadius,
                     RadiusMultiplier = 2,

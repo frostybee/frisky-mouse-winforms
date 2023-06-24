@@ -163,6 +163,7 @@
             // sldOutlineWidth
             // 
             sldOutlineWidth.Depth = 0;
+            sldOutlineWidth.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             sldOutlineWidth.ForeColor = Color.FromArgb(222, 0, 0, 0);
             sldOutlineWidth.Location = new Point(11, 79);
             sldOutlineWidth.Margin = new Padding(2, 3, 2, 3);
@@ -172,7 +173,7 @@
             sldOutlineWidth.RangeMin = 1;
             sldOutlineWidth.Size = new Size(351, 40);
             sldOutlineWidth.TabIndex = 15;
-            sldOutlineWidth.Text = "Outline Width";
+            sldOutlineWidth.Text = "Width";
             sldOutlineWidth.Value = 1;
             sldOutlineWidth.ValueMax = 6;
             sldOutlineWidth.ValueSuffix = "px";
@@ -381,13 +382,13 @@
             // 
             sldShadowOpacity.Depth = 0;
             sldShadowOpacity.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            sldShadowOpacity.Location = new Point(9, 117);
+            sldShadowOpacity.Location = new Point(11, 116);
             sldShadowOpacity.Margin = new Padding(2, 3, 2, 3);
             sldShadowOpacity.MouseState = MaterialSkin.MouseState.HOVER;
             sldShadowOpacity.Name = "sldShadowOpacity";
             sldShadowOpacity.RangeMax = 80;
             sldShadowOpacity.RangeMin = 10;
-            sldShadowOpacity.Size = new Size(353, 40);
+            sldShadowOpacity.Size = new Size(351, 40);
             sldShadowOpacity.TabIndex = 95;
             sldShadowOpacity.Text = "Opcaity";
             sldShadowOpacity.Value = 30;

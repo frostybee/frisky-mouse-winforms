@@ -35,19 +35,7 @@ namespace FriskyMouse.Drawing.Ripples
                     OutlinePen = new Pen(Color.Crimson.WithOpacity(80), 8),
                     IsFilled = false,
                     IsStyleable = true,
-                });
-            /*//-- 2) Add the outline ripple.
-            AddRipple(
-                new RippleEntry()
-                {
-                    IsExpandable = true,
-                    Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius + 3),
-                    ShapeType = ShapeType.Ellipse,
-                    InitialRadius = 6 + 2,
-                    RadiusMultiplier = 3,
-                    OutlinePen = new Pen(Color.Crimson.WithOpacity(100), 6),
-                    IsFilled = false,
-                });*/
+                });            
             //-- 2) Add the outline ripple.
             AddRipple(
                 new RippleEntry()

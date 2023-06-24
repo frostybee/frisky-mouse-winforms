@@ -36,6 +36,7 @@ namespace FriskyMouse.Drawing.Ripples
                     FillBrush = _outerBrush,
                     OutlinePen = _outlinePen,
                     IsFilled = true,
+                    IsStyleable = true
                 });
             //-- 2) Add the outline ripple.
             AddRipple(

@@ -31,17 +31,18 @@
             GraphicsPath graphicsPath1 = new GraphicsPath();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             groupBox3 = new GroupBox();
+            materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             switchColorTransition = new MaterialSkin.Controls.MaterialSwitch();
             cmbProfilesList = new MaterialSkin.Controls.MaterialComboBox();
             sldRadius = new MaterialSkin.Controls.MaterialSlider();
             btnColorPicker = new Button();
             lblColor = new MaterialSkin.Controls.MaterialLabel();
             groupBox2 = new GroupBox();
+            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             sliderAnimSpeed = new MaterialSkin.Controls.MaterialSlider();
             cmbInterpolationMode = new MaterialSkin.Controls.MaterialComboBox();
             cmbAnimDirection = new MaterialSkin.Controls.MaterialComboBox();
             switchClickDecoration = new MaterialSkin.Controls.MaterialSwitch();
-            sldOutlineWidth = new MaterialSkin.Controls.MaterialSlider();
             btnStopAnimation = new MaterialSkin.Controls.MaterialButton();
             btnPreview = new MaterialSkin.Controls.MaterialButton();
             pcbRipplePreview = new PictureBox();
@@ -77,6 +78,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(materialLabel3);
             groupBox3.Controls.Add(switchColorTransition);
             groupBox3.Controls.Add(cmbProfilesList);
             groupBox3.Controls.Add(sldRadius);
@@ -88,7 +90,18 @@
             groupBox3.Size = new Size(441, 130);
             groupBox3.TabIndex = 78;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Ripple Profile Options";
+            // 
+            // materialLabel3
+            // 
+            materialLabel3.AutoSize = true;
+            materialLabel3.Depth = 0;
+            materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel3.Location = new Point(13, 0);
+            materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel3.Name = "materialLabel3";
+            materialLabel3.Size = new Size(104, 19);
+            materialLabel3.TabIndex = 84;
+            materialLabel3.Text = "Ripple Options";
             // 
             // switchColorTransition
             // 
@@ -173,16 +186,28 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(materialLabel1);
             groupBox2.Controls.Add(sliderAnimSpeed);
             groupBox2.Controls.Add(cmbInterpolationMode);
             groupBox2.Controls.Add(cmbAnimDirection);
             groupBox2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox2.Location = new Point(23, 171);
+            groupBox2.Location = new Point(23, 186);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(441, 137);
             groupBox2.TabIndex = 75;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Animation Options";
+            // 
+            // materialLabel1
+            // 
+            materialLabel1.AutoSize = true;
+            materialLabel1.Depth = 0;
+            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.Location = new Point(13, 0);
+            materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(133, 19);
+            materialLabel1.TabIndex = 83;
+            materialLabel1.Text = "Animation Options";
             // 
             // sliderAnimSpeed
             // 
@@ -191,11 +216,13 @@
             sliderAnimSpeed.Location = new Point(13, 29);
             sliderAnimSpeed.MouseState = MaterialSkin.MouseState.HOVER;
             sliderAnimSpeed.Name = "sliderAnimSpeed";
-            sliderAnimSpeed.RangeMax = 80;
+            sliderAnimSpeed.RangeMax = 50;
+            sliderAnimSpeed.RangeMin = 10;
             sliderAnimSpeed.Size = new Size(223, 40);
             sliderAnimSpeed.TabIndex = 76;
             sliderAnimSpeed.Text = "Speed";
             sliderAnimSpeed.Value = 30;
+            sliderAnimSpeed.ValueMax = 50;
             sliderAnimSpeed.ValueSuffix = "%";
             // 
             // cmbInterpolationMode
@@ -265,22 +292,6 @@
             switchClickDecoration.TabIndex = 73;
             switchClickDecoration.Text = "On";
             switchClickDecoration.UseVisualStyleBackColor = true;
-            // 
-            // sldOutlineWidth
-            // 
-            sldOutlineWidth.Depth = 0;
-            sldOutlineWidth.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            sldOutlineWidth.Location = new Point(23, 314);
-            sldOutlineWidth.MouseState = MaterialSkin.MouseState.HOVER;
-            sldOutlineWidth.Name = "sldOutlineWidth";
-            sldOutlineWidth.RangeMax = 10;
-            sldOutlineWidth.RangeMin = 1;
-            sldOutlineWidth.Size = new Size(220, 40);
-            sldOutlineWidth.TabIndex = 15;
-            sldOutlineWidth.Text = "Outline Thickness";
-            sldOutlineWidth.Value = 1;
-            sldOutlineWidth.ValueMax = 10;
-            sldOutlineWidth.ValueSuffix = "px";
             // 
             // btnStopAnimation
             // 
@@ -370,7 +381,6 @@
             panel1.Controls.Add(btnStopAnimation);
             panel1.Controls.Add(btnPreview);
             panel1.Controls.Add(groupBox3);
-            panel1.Controls.Add(sldOutlineWidth);
             panel1.Controls.Add(materialCard1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
@@ -416,6 +426,7 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcbRipplePreview).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
@@ -444,11 +455,12 @@
         private GroupBox groupBox3;
         private MaterialSkin.Controls.MaterialComboBox cmbProfilesList;
         private MaterialSkin.Controls.MaterialSwitch switchColorTransition;
-        private MaterialSkin.Controls.MaterialSlider sldOutlineWidth;
         private SplitContainer splitContainer1;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private Panel panel1;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
     }
 }

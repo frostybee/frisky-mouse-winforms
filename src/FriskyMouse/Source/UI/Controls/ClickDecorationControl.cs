@@ -67,7 +67,7 @@ namespace FriskyMouse.UI.Controls
 
         private void LoadRipplesProfile()
         {
-            SwitchRippleProfile(_settings.CurrentRippleProfile);            
+            SwitchRippleProfile(_settings.CurrentRippleProfile);
             AdjustAnimationSpeed((int)(_settings.AnimationSpeed * 1000));
         }
 
@@ -198,6 +198,11 @@ namespace FriskyMouse.UI.Controls
         }
         private void SliderAnimSpeed_onValueChanged(object sender, int newValue)
         {
+            if (newValue < 10)
+            {
+                sliderAnimSpeed.Value = 10;
+                newValue = 10;
+            }
             AdjustAnimationSpeed(newValue);
         }
 

@@ -19,7 +19,7 @@ namespace FriskyMouse.Drawing.Ripples
         private void CreateProfileEntries()
         {
             _innerBrush = new SolidBrush(Color.Crimson);
-            _outerPen = new Pen(Color.DarkRed.WithOpacity(250), 3);
+            _outerPen = new Pen(Color.DeepPink, 4);
             _middlePen = new Pen(Color.Yellow, 3);
 
             // 1) Make the outer ripple.
@@ -33,6 +33,7 @@ namespace FriskyMouse.Drawing.Ripples
                     RadiusMultiplier = 3,                    
                     OutlinePen = _outerPen,
                     IsFilled = false,
+                    IsStyleable = true
                 });
             // 2) Make the middle ripple. 
             AddRipple(   
@@ -40,9 +41,9 @@ namespace FriskyMouse.Drawing.Ripples
                 {
                     IsExpandable = false,
                     IsFade = false,
-                    Bounds = DrawingHelper.CreateRectangle(Width, Height, 9),
+                    Bounds = DrawingHelper.CreateRectangle(Width, Height, 10),
                     ShapeType = ShapeType.Ellipse,
-                    InitialRadius = 9,
+                    InitialRadius = 10,
                     RadiusMultiplier = 2,
                     OutlinePen = _middlePen,
                     IsFilled = false,
@@ -53,9 +54,9 @@ namespace FriskyMouse.Drawing.Ripples
                 {
                     IsExpandable = false,
                     IsFade = false,
-                    Bounds = DrawingHelper.CreateRectangle(Width, Height, 8),
+                    Bounds = DrawingHelper.CreateRectangle(Width, Height, 9),
                     ShapeType = ShapeType.Ellipse,
-                    InitialRadius = 8,
+                    InitialRadius = 9,
                     RadiusMultiplier = 2,
                     FillBrush = _innerBrush,
                     IsFilled = true,

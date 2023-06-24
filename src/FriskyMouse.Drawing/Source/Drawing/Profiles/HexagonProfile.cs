@@ -5,9 +5,7 @@ namespace FriskyMouse.Drawing.Ripples
 {
     internal class HexagonProfile : BaseRippleProfile
     {
-        private Pen _outlinePen;
-        int _baseRadius = 10; // Needs to be parametrized.
-
+        private Pen _outlinePen;        
         public HexagonProfile()
         {
             CreateProfileEntries();
@@ -20,10 +18,9 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    IsExpandable = true,
-                    Bounds = DrawingHelper.CreateRectangle(Width, Height, _baseRadius),
+                    IsExpandable = true,                    
                     ShapeType = ShapeType.Polygon,
-                    InitialRadius = _baseRadius,
+                    InitialRadius = 10,
                     RadiusMultiplier = 2,
                     OutlinePen = _outlinePen,
                     IsFilled = false,
