@@ -14,10 +14,10 @@ namespace FriskyMouse.Drawing.Ripples
         private int _baseRadius = 4;
         public IceCreamProfile()
         {
-            InitProfileEntries();
+            CreateProfileEntries();
         }
 
-        private void InitProfileEntries()
+        private void CreateProfileEntries()
         {
             _outlinePen = new Pen(Color.Crimson.WithOpacity(200), 4);
 
@@ -26,7 +26,7 @@ namespace FriskyMouse.Drawing.Ripples
                 new RippleEntry()
                 {
                     IsFade = false,
-                    Expandable = true,
+                    IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = _baseRadius + 3,
@@ -34,12 +34,13 @@ namespace FriskyMouse.Drawing.Ripples
                     FillBrush = _outerBrush,
                     OutlinePen = new Pen(Color.Crimson.WithOpacity(80), 8),
                     IsFilled = false,
+                    IsStyleable = true,
                 });
             /*//-- 2) Add the outline ripple.
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = true,
+                    IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius + 3),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = 6 + 2,
@@ -52,20 +53,21 @@ namespace FriskyMouse.Drawing.Ripples
                 new RippleEntry()
                 {
                     IsFade = false,
-                    Expandable = true,
+                    IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius + 3),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = _baseRadius + 1,
                     RadiusMultiplier = 3,
                     OutlinePen = new Pen(Color.Crimson.WithOpacity(130), 8),
                     IsFilled = false,
+                    IsStyleable = true,
                 });
             //-- 3) Inner ripple that must drawn last.
             AddRipple(
                 new RippleEntry()
                 {
                     IsFade = false,
-                    Expandable = true,
+                    IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius + 6),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = _baseRadius,
@@ -73,6 +75,7 @@ namespace FriskyMouse.Drawing.Ripples
                     FillBrush = _innerBrush,
                     OutlinePen = new Pen(Color.Crimson.WithOpacity(100), 8),
                     IsFilled = false,
+                    IsStyleable = true,
                 });
         }
     }

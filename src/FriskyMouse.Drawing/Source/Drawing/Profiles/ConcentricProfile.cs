@@ -12,10 +12,10 @@ namespace FriskyMouse.Drawing.Ripples
         int _baseRadius = 40; // Needs to be parametrized.
         public ConcentricProfile()
         {
-            InitProfileEntries();
+            CreateProfileEntries();
         }
 
-        private void InitProfileEntries()
+        private void CreateProfileEntries()
         {
             _brushInnerRipple = new SolidBrush(Color.Yellow);
             _penOutline = new Pen(Color.Crimson, 4);
@@ -31,7 +31,7 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = true,
+                    IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(width, height, _baseRadius * 2),
                     FillBrush = _brushInnerRipple,
                     ShapeType = ShapeType.Ellipse,
@@ -47,7 +47,7 @@ namespace FriskyMouse.Drawing.Ripples
                 AddRipple(
                     new RippleEntry()
                     {
-                        Expandable = true,
+                        IsExpandable = true,
                         Bounds = DrawingHelper.CreateRectangle(width, height, radius),
                         FillBrush = _brushInnerRipple,
                         ShapeType = ShapeType.Ellipse,
@@ -63,7 +63,7 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = false,
+                    IsExpandable = false,
                     IsFade = false,
                     //Bounds = DrawingHelper.CreateRectangle(surface.Width, surface.Height, 5)
                     Bounds = DrawingHelper.CreateRectangle(width, height, 7),

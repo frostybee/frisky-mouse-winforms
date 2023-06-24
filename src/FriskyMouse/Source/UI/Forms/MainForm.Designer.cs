@@ -38,6 +38,7 @@
             tabClickDecorator = new TabPage();
             ctrClickDecoration = new Controls.ClickDecorationControl();
             tabRightClick = new TabPage();
+            panel1 = new Panel();
             tbpSettings = new TabPage();
             ctrlAppSettings = new Controls.AppSettingsControl();
             tabAboutPage = new TabPage();
@@ -51,6 +52,7 @@
             mainTabControl.SuspendLayout();
             tabHighlighter.SuspendLayout();
             tabClickDecorator.SuspendLayout();
+            tabRightClick.SuspendLayout();
             tbpSettings.SuspendLayout();
             tabAboutPage.SuspendLayout();
             trayContextMenu.SuspendLayout();
@@ -147,6 +149,7 @@
             // tabRightClick
             // 
             tabRightClick.BackColor = Color.White;
+            tabRightClick.Controls.Add(panel1);
             tabRightClick.ImageKey = "right-click-50.png";
             tabRightClick.Location = new Point(4, 31);
             tabRightClick.Name = "tabRightClick";
@@ -154,6 +157,14 @@
             tabRightClick.Size = new Size(834, 596);
             tabRightClick.TabIndex = 4;
             tabRightClick.Text = "Right Click";
+            // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(828, 590);
+            panel1.TabIndex = 0;
             // 
             // tbpSettings
             // 
@@ -250,9 +261,11 @@
             Name = "MainForm";
             Padding = new Padding(4, 74, 4, 4);
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "Frisky Mouse";
             mainTabControl.ResumeLayout(false);
             tabHighlighter.ResumeLayout(false);
             tabClickDecorator.ResumeLayout(false);
+            tabRightClick.ResumeLayout(false);
             tbpSettings.ResumeLayout(false);
             tabAboutPage.ResumeLayout(false);
             trayContextMenu.ResumeLayout(false);
@@ -277,6 +290,7 @@
         private TabPage tbpSettings;
         private TabPage tabAboutPage;
         private TabPage tabRightClick;
+        private Panel panel1;
     }
 }
 

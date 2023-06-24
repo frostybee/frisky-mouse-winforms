@@ -15,7 +15,7 @@ namespace FriskyMouse.Core
                 Color selectedColor = Color.FromArgb(options.Opacity, options.FillColor);
                 using SolidBrush brush = new SolidBrush(selectedColor);
                 graphics.FillEllipse(brush, rect);
-               
+
             }
             else
             {
@@ -23,9 +23,10 @@ namespace FriskyMouse.Core
             }
             if (options.HasShadow)
             {
-                graphics.DrawRoundShadow(options);
-                //GraphicsPath gp =  DrawingHelper.CreateCircle(100, 100, options.Radius + options.OutlineWidth+2);
-                //DrawingHelper.DrawShadow(graphics, gp, 7, Color.Blue);                
+                graphics.DrawRoundShadow(options);                
+                /*GraphicsPath gp =  DrawingHelper.CreateCircle(200, 200, options.Radius + options.OutlineWidth+4);
+                DrawingHelper.DrawShadow(graphics, gp, 15, options.ShadowDepth, options.ShadowColor);                
+                gp.Dispose();*/
             }
             if (options.IsOutlined & options.IsFilled)
             {
@@ -46,7 +47,7 @@ namespace FriskyMouse.Core
         public static void DrawRoundShadow(this Graphics graphics, HighlighterOptions options)
         {
             int radius = options.Radius +
-                (options.IsOutlined ? options.OutlineWidth+2  : options.ShadowDepth - options.OutlineWidth
+                (options.IsOutlined ? options.OutlineWidth + 4: options.ShadowDepth - options.OutlineWidth
                 //: (options.HasShadow ? options.ShadowDepth : 0)
                 );
             Rectangle shadowRect = DrawingHelper.CreateRectangle(options.Width, options.Height, radius);

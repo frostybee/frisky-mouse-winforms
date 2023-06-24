@@ -17,11 +17,11 @@
                 return (byte)(Math.Min(OpacityPercentage * 255 / 100, 255));
             }
         }        
-        public bool IsOutlined { get; set; } = true;
+        public bool IsOutlined { get; set; } = false;
         public Color OutlineColor { get; set; } = Color.Red;        
         public int OutlineWidth { get; set; } = 2;
         public DashStyle OutlineStyle { get; set; } = DashStyle.Solid;
-        public bool HasShadow { get; set; } = true;
+        public bool HasShadow { get; set; } = false;
         public int ShadowDepth { get; set; } = 5;
         public Color ShadowColor { get; set; } = Color.CornflowerBlue;
         public byte ShadowOpacityPercentage { get; set; } = 50;

@@ -2,12 +2,10 @@
 {
     public static class FileHelpers
     {
-
         public static string GetAbsolutePath()
         {
             return Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory);
         }
-
 
         public static string ExpandFolderVariables(string path, bool supportCustomSpecialFolders = false)
         {
@@ -15,7 +13,7 @@
             {
                 try
                 {
-                    foreach (Environment.SpecialFolder specialFolder in Helpers.GetEnums<Environment.SpecialFolder>())
+                    foreach (Environment.SpecialFolder specialFolder in AppHelpers.GetEnums<Environment.SpecialFolder>())
                     {
                         path = path.Replace($"%{specialFolder}%", Environment.GetFolderPath(specialFolder), StringComparison.OrdinalIgnoreCase);
                     }
@@ -30,7 +28,6 @@
 
             return path;
         }
-
 
         public static void CreateDirectory(string directoryPath)
         {

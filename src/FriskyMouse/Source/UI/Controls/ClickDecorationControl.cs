@@ -6,6 +6,7 @@ using FriskyMouse.Drawing.Ripples;
 using FriskyMouse.Drawing.Extensions;
 using FriskyMouse.Drawing.Helpers;
 using FriskyMouse.Settings;
+using FriskyMouse.Helpers;
 
 namespace FriskyMouse.UI.Controls
 {
@@ -15,8 +16,8 @@ namespace FriskyMouse.UI.Controls
         private readonly ClickEffectController _profileManager;
         private readonly RippleProfileOptions _settings;
         private BaseRippleProfile _currentProfile;
-        private Bitmap? _canvas = null;
-        private Bitmap? _blankCanvas = null;
+        private Bitmap? _canvas;
+        private Bitmap? _blankCanvas;
         private Graphics? _graphics;
 
         public ClickDecorationControl()
@@ -44,7 +45,7 @@ namespace FriskyMouse.UI.Controls
             cmbInterpolationMode.SelectedIndexChanged += CmbInterpolationMode_SelectedIndexChanged;
             switchColorTransition.CheckedChanged += SwitchColorTransition_CheckedChanged;
             sliderAnimSpeed.onValueChanged += SliderAnimSpeed_onValueChanged;
-            switchEnableClicker.CheckedChanged += SwitchEnableClicker_CheckedChanged;
+            switchClickDecoration.CheckedChanged += SwitchClickDecoration_CheckedChanged;
         }
 
         internal void UpdateControlsFromSettings()
@@ -52,12 +53,13 @@ namespace FriskyMouse.UI.Controls
             cmbInterpolationMode.SelectedIndex = cmbInterpolationMode.GetItemIndexByEumValue(_settings.InterpolationType);
             cmbAnimDirection.SelectedIndex = cmbAnimDirection.GetItemIndexByEumValue(_settings.AnimationDirection);
             cmbProfilesList.SelectedIndex = cmbProfilesList.GetItemIndexByEumValue(_settings.CurrentRippleProfile);
-            sliderAnimSpeed.Value = (int)(_settings.AnimationSpeed * 1000);            
+            sliderAnimSpeed.Value = (int)(_settings.AnimationSpeed * 1000);
             switchColorTransition.Checked = _settings.CanFadeColor;
-            switchEnableClicker.Checked = _settings.IsEnabled;
+            switchClickDecoration.Checked = _settings.IsEnabled;
             btnColorPicker.BackColor = _settings.FillColor;
+            AppHelpers.UpdateSwitchText(switchClickDecoration);
             //--> 
-            LoadRipplesProfile();            
+            LoadRipplesProfile();
             //_profileManager.SwitchProfile()
             InitControlsEvents();
             StartAnimation();
@@ -65,8 +67,7 @@ namespace FriskyMouse.UI.Controls
 
         private void LoadRipplesProfile()
         {
-            ChangeRippleProfile(_settings.CurrentRippleProfile);
-            _currentProfile.UpdateRipplesStyle(_settings);
+            SwitchRippleProfile(_settings.CurrentRippleProfile);            
             AdjustAnimationSpeed((int)(_settings.AnimationSpeed * 1000));
         }
 
@@ -79,36 +80,26 @@ namespace FriskyMouse.UI.Controls
             double speedRate = (double)speed / 1000;
             _rippleValueAnimator.Increment = speedRate;
             _settings.AnimationSpeed = speedRate;
+            sliderAnimSpeed.Value = speed;
             _profileManager.ApplySettings(_settings);
         }
 
-        private void ChangeRippleProfile(RippleProfileType profileType)
+        private void SwitchRippleProfile(RippleProfileType profileType)
         {
             BaseRippleProfile _newProfile = ConstructableFactory.GetInstanceOf<BaseRippleProfile>(profileType);
             _currentProfile?.Dispose();
             _currentProfile = _newProfile;
             _profileManager.SwitchProfile(_newProfile);
             _settings.CurrentRippleProfile = profileType;
+            _currentProfile.UpdateRipplesStyle(_settings);
         }
         private void BtnColorPicker_Click(object? sender, EventArgs e)
         {
-            ColorDialog colorPicker = new()
-            {
-                // Keeps the user from selecting a custom color.
-                AllowFullOpen = true,
-                FullOpen = true,
-                // Allows the user to get help. (The default is false.)
-                ShowHelp = true,
-                // Sets the initial color select to the current text color.
-                Color = btnColorPicker.BackColor
-            };            
-            if (colorPicker.ShowDialog() == DialogResult.OK)
-            {
-                _settings.FillColor = colorPicker.Color;
-                _currentProfile.UpdateRipplesStyle(_settings);                
-                btnColorPicker.BackColor = colorPicker.Color;
-                StartAnimation();         
-            }
+            Color selectedColor = Helpers.AppHelpers.GetUserSelectedColor(_settings.FillColor);
+            _settings.FillColor = selectedColor;
+            btnColorPicker.BackColor = selectedColor;
+            _currentProfile?.UpdateRipplesStyle(_settings);
+            StartAnimation();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -170,15 +161,16 @@ namespace FriskyMouse.UI.Controls
             //pcbRipplePreview.Image = _blankCanvas;
         }
 
-        private void SwitchEnableClicker_CheckedChanged(object sender, EventArgs e)
+        private void SwitchClickDecoration_CheckedChanged(object sender, EventArgs e)
         {
-            _settings.IsEnabled = switchEnableClicker.Checked;
+            _settings.IsEnabled = switchClickDecoration.Checked;
+            AppHelpers.UpdateSwitchText(switchClickDecoration);
         }
         private void CmbProfilesList_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Switch to the newly selected profile. 
             RippleProfileType profileType = cmbProfilesList.GetEnumValue<RippleProfileType>();
-            ChangeRippleProfile(profileType);
+            SwitchRippleProfile(profileType);
             StartAnimation();
         }
 
@@ -192,7 +184,7 @@ namespace FriskyMouse.UI.Controls
         }
         private void CmbInterpolationMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // The animation's savedEasing mode has been changed.                                     
+            // The animation's saved easing mode has been changed.                                     
             InterpolationType interpolation = cmbInterpolationMode.GetEnumValue<InterpolationType>();
             _rippleValueAnimator.Interpolation = interpolation;
             _settings.InterpolationType = interpolation;

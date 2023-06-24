@@ -6,10 +6,10 @@
         private SolidBrush _horizontalBrush;
         public CrosshairProfile()
         {
-            InitProfileEntries();
+            CreateProfileEntries();
         }
 
-        private void InitProfileEntries()
+        private void CreateProfileEntries()
         {            
             int width = 40;
             int height = 8;            
@@ -19,7 +19,7 @@
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = false,
+                    IsExpandable = false,
                     Bounds = new Rectangle((200/ 2) - 4, (200 / 2) - 20, height, width),
                     ShapeType = ShapeType.Crosshair,
                     InitialRadius = 10,
@@ -30,7 +30,7 @@
             AddRipple(
              new RippleEntry()
              {
-                 Expandable = false,
+                 IsExpandable = false,
                  Bounds = new Rectangle((200 / 2) - 20, (200 / 2) - 4, width, height),
                  ShapeType = ShapeType.Crosshair,
                  InitialRadius = 10,

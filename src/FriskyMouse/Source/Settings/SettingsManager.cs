@@ -9,8 +9,7 @@ namespace FriskyMouse.Settings
         private static string SettingsFileName = "settings.json";
         private const string ApplicationName = "FriskyMouse";
         private static Mutex _jsonMutex = new Mutex();
-        public static ApplicationSettings Settings { get; private set; } = new ApplicationSettings();
-        // I guess this is the path of the folder holding the executable of this application. 
+        public static ApplicationSettings Settings { get; private set; } = new ApplicationSettings();        
         private static readonly string PortablePersonalFolder = FileHelpers.GetAbsolutePath();
         private static readonly string DefaultPersonalFolder =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), ApplicationName);
@@ -46,10 +45,9 @@ namespace FriskyMouse.Settings
                     Settings.ApplicationName = ApplicationName;
                     // Create the directory that will hold the settings file if it doesn't exist.
                     FileHelpers.CreateDirectoryFromFilePath(filePath);
-                    using FileStream createStream = File.Create(filePath);
-                    JsonSerializer.SerializeAsync(createStream, Settings, GetJsonSerializerOptions());
-                    createStream.DisposeAsync();
-                    Console.WriteLine(File.ReadAllText(filePath));
+                    FileStream createStream = File.Create(filePath);
+                    JsonSerializer.SerializeAsync(createStream, Settings, GetJsonSerializerOptions());                    
+                    createStream.DisposeAsync();                    
                     //TODO: verify if JSON file is not corrupted.
                 }
             }

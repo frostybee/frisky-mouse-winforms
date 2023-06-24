@@ -8,23 +8,23 @@ namespace FriskyMouse.Drawing.Ripples
         private SolidBrush _innerBrush;
         public SpotlightProfile()
         {
-            InitProfileEntries();
+            CreateProfileEntries();
         }
-        private void InitProfileEntries()
+        private void CreateProfileEntries()
         {
-            Color rippleColor = Color.Crimson.ReduceOpacity(20);
-            _innerBrush = new SolidBrush(rippleColor);
-            //-- 1) Make the outer ripple.
+            _innerBrush = new SolidBrush(Color.Crimson);            
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = false,
+                    IsExpandable = false,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = BaseRadius,
                     RadiusMultiplier = 3,
                     FillBrush = _innerBrush,
                     IsFilled = true,
+                    IsFade = true,
+                    IsStyleable = true
                 });
         }
     }

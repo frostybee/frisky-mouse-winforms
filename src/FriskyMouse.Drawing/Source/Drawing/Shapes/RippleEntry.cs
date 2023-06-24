@@ -7,11 +7,13 @@ namespace FriskyMouse.Drawing.Ripples
     {
         public ShapeType ShapeType { get; set; } = ShapeType.Ellipse;
         public bool IsFilled { get; set; } = false;
-        public bool Expandable { get; set; } = true;
+        public bool IsExpandable { get; set; } = true;
         public bool IsFade { get; set; } = true;
+        public bool IsStyleable { get; set; } = false;
         public float RadiusMultiplier { get; set; } = 2.2f;
-        public int InitialRadius { get; set; }
+        public int InitialRadius { get; set; } = 10;
         public int Opacity { get; set; }
+        public int OutlineWidth { get; set; } = 4;
         public Rectangle Bounds { get; set; }
         public SolidBrush FillBrush { get; set; }
         public Pen OutlinePen { get; set; }
@@ -82,7 +84,7 @@ namespace FriskyMouse.Drawing.Ripples
                     //FillBrush.Color = DrawingHelper.RandomColor().ReduceOpacity(opacity);
                 }
                 else
-                {                    
+                {
                     OutlinePen.Color = OutlinePen.Color.ReduceOpacity(opacity);
                 }
             }
@@ -90,7 +92,7 @@ namespace FriskyMouse.Drawing.Ripples
 
         internal void ExpandRadius(double progress)
         {
-            if (Expandable)
+            if (IsExpandable)
             {
                 // TODO: Take into consideration the MaxRadius.
                 // TODO: Clamp the radius. 
@@ -127,15 +129,18 @@ namespace FriskyMouse.Drawing.Ripples
 
         internal void ChangeColor(RippleProfileOptions options)
         {
-            if (IsFilled)
+            if (IsStyleable)
             {
-                FillBrush.Color = Color.FromArgb(FillBrush.Color.A, options.FillColor);
+                if (IsFilled)
+                {
+                    FillBrush.Color = Color.FromArgb(FillBrush.Color.A, options.FillColor);
 
-            }
-            else
-            {
-                //OutlinePen.Color = OutlinePen.Color.WithOpacity(initialOpacity);
-                OutlinePen.Color = Color.FromArgb(OutlinePen.Color.A, options.FillColor);
+                }
+                else
+                {
+                    //OutlinePen.Color = OutlinePen.Color.WithOpacity(initialOpacity);
+                    OutlinePen.Color = Color.FromArgb(OutlinePen.Color.A, options.FillColor);
+                }
             }
         }
     }

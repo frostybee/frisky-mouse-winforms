@@ -13,9 +13,9 @@ namespace FriskyMouse.Drawing.Animation
         BackEaseOut,
         [Description("Back In Out"), ConstructableEnum(typeof(BackEaseInOut)), DefaultSpeed(20)]
         BackEaseInOut,
-        [Description("Bounce In"), ConstructableEnum(typeof(BounceEaseIn)), DefaultSpeed(30)]
+        [Description("Bounce In"), ConstructableEnum(typeof(BounceEaseIn)), DefaultSpeed(20)]
         BounceEaseIn,
-        [Description("Bounce Out"), ConstructableEnum(typeof(BounceEaseOut)), DefaultSpeed(10)]
+        [Description("Bounce Out"), ConstructableEnum(typeof(BounceEaseOut)), DefaultSpeed(20)]
         BounceEaseOut,
         [Description("Bounce In Out"), ConstructableEnum(typeof(BounceEaseInOut)), DefaultSpeed(10)]
         BounceEaseInOut,

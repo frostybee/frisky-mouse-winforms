@@ -13,10 +13,10 @@ namespace FriskyMouse.Drawing.Ripples
         private Pen _middlePen;
         public FilledSonarPulseProfile()
         {
-            InitProfileEntries();
+            CreateProfileEntries();
         }
 
-        private void InitProfileEntries()
+        private void CreateProfileEntries()
         {
             _innerBrush = new SolidBrush(Color.Green);
             _outerBrush = new SolidBrush(Color.DarkGreen.WithOpacity(250));
@@ -26,7 +26,7 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = true,
+                    IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, 15),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = BaseRadius,
@@ -38,7 +38,7 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(   
                 new RippleEntry()
                 {
-                    Expandable = false,
+                    IsExpandable = false,
                     IsFade = false,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, 9),
                     ShapeType = ShapeType.Ellipse,
@@ -51,7 +51,7 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = false,
+                    IsExpandable = false,
                     IsFade = false,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, 8),
                     ShapeType = ShapeType.Ellipse,

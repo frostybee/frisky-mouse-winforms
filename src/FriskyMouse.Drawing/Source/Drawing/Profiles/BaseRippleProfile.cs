@@ -8,7 +8,7 @@ namespace FriskyMouse.Drawing.Ripples
     public abstract class BaseRippleProfile :  IDisposable, IConstructable
     {
         private bool disposedValue;
-        private readonly List<RippleEntry> _ripples = new List<RippleEntry>();
+        private readonly List<RippleEntry> _ripples = new List<RippleEntry>();        
 
         #region Properties
         public int Width { get; set; } = 200;
@@ -47,14 +47,7 @@ namespace FriskyMouse.Drawing.Ripples
             {            
                 ripple.ResetColor(255);
             });
-        }
-        /*public void ApplySelectedColor(RippleProfileOptions options)
-        {
-            _ripples.ForEach(ripple =>
-            {
-                ripple.ChangeColor(options);
-            });
-        }*/
+        }        
 
         public void UpdateRipplesStyle(RippleProfileOptions options)
         {

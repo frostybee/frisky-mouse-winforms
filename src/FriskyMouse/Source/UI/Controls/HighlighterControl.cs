@@ -1,12 +1,10 @@
 ﻿using FriskyMouse.Core;
 using FriskyMouse.Drawing.Helpers;
+using FriskyMouse.Helpers;
 using FriskyMouse.Settings;
 
 namespace FriskyMouse.UI.Controls
 {
-    //TODO: might need to move all the controls back to the MainForm. 
-    // Not sure if I can manage the hook from here since I need enable the hook upon loading 
-    // the main form. 
     public partial class HighlighterControl : UserControl
     {
         private readonly HighlighterOptions _settings;
@@ -75,7 +73,7 @@ namespace FriskyMouse.UI.Controls
             //--             
             InitControlsEvents();
             UpdateOutlineSettings();
-            UpdateHighlighterSwitchText();
+            AppHelpers.UpdateSwitchText(switchHighlighter);
             pboxPreview.Invalidate();
         }
 
@@ -87,7 +85,7 @@ namespace FriskyMouse.UI.Controls
         private void SwitchHighlighter_CheckedChanged(object sender, EventArgs e)
         {
             _settings.Enabled = switchHighlighter.Checked;
-            UpdateHighlighterSwitchText();
+            AppHelpers.UpdateSwitchText(switchHighlighter);
             if (switchHighlighter.Checked)
             {
                 _decorationManager.EnableHighlighter();
@@ -96,11 +94,6 @@ namespace FriskyMouse.UI.Controls
             {
                 _decorationManager.DisableHighlighter();
             }
-        }
-
-        private void UpdateHighlighterSwitchText()
-        {
-            switchHighlighter.Text = (switchHighlighter.Checked) ? "On" : "Off";
         }
 
         private void UpdateOutlineSettings()
@@ -172,21 +165,21 @@ namespace FriskyMouse.UI.Controls
 
         private void BtnFillColor_Click(object sender, EventArgs e)
         {
-            Color selectedColor = Helpers.Helpers.GetUserSelectedColor(_settings.FillColor);
+            Color selectedColor = Helpers.AppHelpers.GetUserSelectedColor(_settings.FillColor);
             _settings.FillColor = selectedColor;
             btnSpotlightColor.BackColor = selectedColor;
             UpdateHighlighterPreview();
         }
         private void BtnStrokeColor_Click(object sender, EventArgs e)
         {
-            Color selectedColor = Helpers.Helpers.GetUserSelectedColor(_settings.OutlineColor);
+            Color selectedColor = Helpers.AppHelpers.GetUserSelectedColor(_settings.OutlineColor);
             _settings.OutlineColor = selectedColor;
             UpdateHighlighterPreview();
             btnOutlineColorPicker.BackColor = selectedColor;
         }
         private void BtnShadow_Click(object sender, EventArgs e)
         {
-            Color selectedColor = Helpers.Helpers.GetUserSelectedColor(_settings.ShadowColor);
+            Color selectedColor = Helpers.AppHelpers.GetUserSelectedColor(_settings.ShadowColor);
             _settings.ShadowColor = selectedColor;
             btnCurrentShadowColor.BackColor = selectedColor;
             UpdateHighlighterPreview();

@@ -98,8 +98,7 @@
             if (!IsAnimating() || InterruptAnimation)
             {
                 _progress =
-                    (direction == AnimationDirection.Out ||
-                    direction == AnimationDirection.InOutOut) ? MAX_VALUE : MIN_VALUE;
+                    (direction == AnimationDirection.Out) ? MAX_VALUE : MIN_VALUE;
                 _direction = direction;
                 _animationTimer.Start();
             }
@@ -116,16 +115,8 @@
         {
             if ((_direction == AnimationDirection.InOutIn && _progress == MAX_VALUE))
             {
-                _direction = AnimationDirection.InOutOut;
-            }
-            else if ((_direction == AnimationDirection.InOutRepeatingIn && _progress == MAX_VALUE))
-            {
-                _direction = AnimationDirection.InOutRepeatingOut;
-            }
-            else if ((_direction == AnimationDirection.InOutRepeatingOut && _progress == MIN_VALUE))
-            {
-                _direction = AnimationDirection.InOutRepeatingIn;
-            }
+                _direction = AnimationDirection.Out;
+            }            
         }
               
 
@@ -139,16 +130,14 @@
         /// </exception>
         private void UpdateProgress()
         {
+                       
             switch (_direction)
             {
-                case AnimationDirection.InOutRepeatingIn:
+                //case AnimationDirection.InOutRepeatingIn:
                 case AnimationDirection.InOutIn:
                 case AnimationDirection.In:
                     IncrementProgress();
-                    break;
-
-                case AnimationDirection.InOutRepeatingOut:
-                case AnimationDirection.InOutOut:
+                    break;                
                 case AnimationDirection.Out:
                     DecrementProgress();
                     break;
@@ -172,8 +161,7 @@
                 {
                     return;
                 }
-                if ((_direction == AnimationDirection.InOutOut
-                    || _direction == AnimationDirection.In)
+                if ((_direction == AnimationDirection.In)
                     && _progress != MAX_VALUE)
                 {
                     return;
@@ -189,8 +177,7 @@
         /// </summary>
         private void DecrementProgress()
         {
-            _progress -= (_direction == AnimationDirection.InOutOut ||
-                _direction == AnimationDirection.InOutRepeatingOut) ? SecondaryIncrement : Increment;
+            _progress -= (_direction == AnimationDirection.Out ? SecondaryIncrement : Increment);
             if (_progress < MIN_VALUE)
             {
                 // The animation progressed inward and has reached 0. 
@@ -200,7 +187,7 @@
                 {
                     return;
                 }
-                if ((_direction == AnimationDirection.InOutOut
+                if ((_direction == AnimationDirection.Out
                     || _direction == AnimationDirection.Out)
                     && _progress != MIN_VALUE)
                 {
@@ -212,9 +199,7 @@
         }
         private bool IsLooping()
         {
-            return (_direction == AnimationDirection.InOutIn
-                    || _direction == AnimationDirection.InOutRepeatingIn
-                    || _direction == AnimationDirection.InOutRepeatingOut);
+            return (_direction == AnimationDirection.InOutIn);
         }
         /// <summary>
         /// Determines whether the animation is running or not.

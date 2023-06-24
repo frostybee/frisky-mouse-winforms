@@ -1,6 +1,8 @@
-﻿namespace FriskyMouse.Helpers
+﻿using MaterialSkin.Controls;
+
+namespace FriskyMouse.Helpers
 {
-    public static class Helpers
+    public static class AppHelpers
     {
 
         public static readonly Version OSVersion = Environment.OSVersion.Version;
@@ -86,6 +88,11 @@
             }
             colorPicker?.Dispose(); 
             return initialColor;
+        }
+
+        internal static void UpdateSwitchText(MaterialSwitch materialSwitch)
+        {
+            materialSwitch.Text = (materialSwitch.Checked) ? "On" : "Off";
         }
     }
 }

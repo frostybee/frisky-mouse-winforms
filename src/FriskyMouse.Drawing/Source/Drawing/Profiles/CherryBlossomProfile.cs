@@ -14,10 +14,10 @@ namespace FriskyMouse.Drawing.Ripples
 
         public CherryBlossomProfile()
         {
-            InitProfileEntries();
+            CreateProfileEntries();
         }
 
-        private void InitProfileEntries()
+        private void CreateProfileEntries()
         {
             int opacity = 10;
             _innerBrush = new SolidBrush(Color.Cyan);
@@ -28,7 +28,7 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = true,
+                    IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = BaseRadius,
@@ -41,7 +41,7 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = true,
+                    IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = BaseRadius,
@@ -53,7 +53,7 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = false,
+                    IsExpandable = false,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, 6),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = 6,

@@ -70,22 +70,23 @@ namespace FriskyMouse.Drawing.Helpers
             }
             return points;
         }
-        public static void DrawShadow(Graphics graphics, GraphicsPath gp, int d, Color pBackColor)
+        public static void DrawShadow(Graphics graphics, GraphicsPath gp, int d, int penWidth, Color pBackColor)
         {
-            Color[] colors = GetColorVector(Color.Yellow, pBackColor, d).ToArray();
+            Color[] colors = GetColorVector(Color.Gray, pBackColor, d).ToArray();
             for (int i = 0; i < d; i++)
             {
-                graphics.TranslateTransform(0.9f, 0.10f);                // <== shadow vector!
-                using (Pen pen = new Pen(colors[i], 2.75f))  // <== pen width (*)
+                graphics.TranslateTransform(0.9f, 0.15f);                // <== shadow vector!
+                //graphics.TranslateTransform(0.9f, 0.10f);                // <== shadow vector!
+                //using (Pen pen = new Pen(colors[i], 2.75f))  // <== pen width (*)
+                using (Pen pen = new Pen(colors[i], penWidth))  // <== pen width (*)
                     graphics.DrawPath(pen, gp);
             }
             graphics.ResetTransform();
         }
-        public static GraphicsPath CreateCircle(float x, float y, int radius)
+        public static GraphicsPath CreateCircle(int x, int y, int radius)
         {
-            GraphicsPath gp = new GraphicsPath();
-            //gp.AddEllipse(x, y, radius * 2, radius * 2);
-            gp.AddEllipse(CreateRectangle(200, 200, radius));
+            GraphicsPath gp = new GraphicsPath();            
+            gp.AddEllipse(CreateRectangle(x, y, radius));
             return gp;
         }
 

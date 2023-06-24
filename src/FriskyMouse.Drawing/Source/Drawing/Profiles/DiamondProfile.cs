@@ -10,27 +10,25 @@ namespace FriskyMouse.Drawing.Ripples
 
         public DiamondProfile()
         {
-            InitProfileEntries();
+            CreateProfileEntries();
         }
 
-        private void InitProfileEntries()
+        private void CreateProfileEntries()
         {
-            int opacity = 10;
-            int strokeWidth = 4;            
-            _outlinePen = new Pen(Color.DarkBlue.ReduceOpacity(opacity), 4);
+            _outlinePen = new Pen(Color.DarkBlue, 4);
             // 1) Make the outer most ripple.
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = true,
-                    Bounds = DrawingHelper.CreateRectangle(Width, Height, _baseRadius),
+                    IsExpandable = true,
+                    //Bounds = DrawingHelper.CreateRectangle(Width, Height, _baseRadius),
                     ShapeType = ShapeType.Polygon,
                     InitialRadius = _baseRadius,
                     RadiusMultiplier = 2,
                     OutlinePen = _outlinePen,
                     IsFilled = false,
-                    PolygonType = PolygonType.Diamond
-                    //PolyPoints =  DrawingHelper.CreateHexagon(x, y, _baseRadius)
+                    PolygonType = PolygonType.Diamond,
+                    IsStyleable = true
                 });            
         }
     }

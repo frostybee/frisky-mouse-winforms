@@ -28,7 +28,7 @@ namespace FriskyMouse.UI
             // Form's title.
             Text = "Frisky Mouse";
 
-            mainTabControl.SelectedIndex = 0;
+            mainTabControl.SelectedIndex = 1;
             // Clean up resources on application exit.
             Application.ApplicationExit += Application_ApplicationExit;
             this.Icon = Properties.Resources.Martin_Berube_Animal_Bee;
@@ -104,7 +104,7 @@ namespace FriskyMouse.UI
             try
             {
                 SettingsManager.SaveSettings();
-                appNotifyIcon?.Icon.Dispose();
+                //appNotifyIcon?.Icon.Dispose();
                 appNotifyIcon?.Dispose();
                 _decorationController?.DisableHook();
                 _decorationController?.Dispose();

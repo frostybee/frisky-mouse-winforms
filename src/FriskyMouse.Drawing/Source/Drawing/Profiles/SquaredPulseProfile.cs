@@ -16,10 +16,10 @@ namespace FriskyMouse.Drawing.Ripples
 
         public SquaredPulseProfile()
         {
-            InitProfileEntries();
+            CreateProfileEntries();
         }
 
-        private void InitProfileEntries()
+        private void CreateProfileEntries()
         {
             int opacity = 10;
             _innerBrush = new SolidBrush(Color.DarkBlue);
@@ -31,7 +31,7 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = true,
+                    IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius+5),
                     ShapeType = ShapeType.Rectangle,
                     InitialRadius = BaseRadius+5,
@@ -45,7 +45,7 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = false,
+                    IsExpandable = false,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, 7),
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = 10,

@@ -10,9 +10,9 @@ namespace FriskyMouse.Drawing.Ripples
         int _baseRadius = 10; // Needs to be parametrized.
         public SquareProfile()
         {
-            InitProfileEntries();
+            CreateProfileEntries();
         }
-        private void InitProfileEntries()
+        private void CreateProfileEntries()
         {
             brush = new SolidBrush(Color.DarkBlue.ReduceOpacity(_baseRadius * 10));
             _outlinePen = new Pen(Color.DarkBlue.ReduceOpacity(_baseRadius * 10), 4);
@@ -21,14 +21,15 @@ namespace FriskyMouse.Drawing.Ripples
             AddRipple(
                 new RippleEntry()
                 {
-                    Expandable = true,
+                    IsExpandable = true,
                     ShapeType = ShapeType.Rectangle,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, _baseRadius),
                     InitialRadius = 10,
                     RadiusMultiplier = 2,
                     FillBrush = brush,
                     OutlinePen = _outlinePen,
-                    IsFilled = true,
+                    IsFilled = false,
+                    IsStyleable = true,
                 });
         }         
     }
