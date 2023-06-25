@@ -1,7 +1,7 @@
-﻿using FriskyMouse.Drawing.Helpers;
+﻿using FriskyMouse.Core;
+using FriskyMouse.Drawing.Helpers;
 
-
-namespace FriskyMouse.Core
+namespace FriskyMouse.Extensions
 {
     internal static class GraphicsExtensions
     {

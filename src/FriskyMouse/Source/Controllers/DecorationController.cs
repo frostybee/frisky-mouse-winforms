@@ -29,7 +29,7 @@ namespace FriskyMouse.Core
         
         internal void EnableHighlighter()
         {            
-            _highlighter.RenderHighlighter(_settings.HighlighterOptions);        
+            _highlighter.SetHighlighterBitmap(_settings.HighlighterOptions);        
         }         
         internal void DisableHighlighter()
         {

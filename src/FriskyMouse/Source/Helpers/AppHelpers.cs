@@ -1,4 +1,7 @@
-﻿using MaterialSkin.Controls;
+﻿using FriskyMouse.NativeApi;
+using MaterialSkin.Controls;
+using FriskyMouse.Core;
+using FriskyMouse.Extensions;
 
 namespace FriskyMouse.Helpers
 {
@@ -66,6 +69,15 @@ namespace FriskyMouse.Helpers
         public static Version NormalizeVersion(string version)
         {
             return Version.Parse(version).Normalize();
+        }
+        internal static POINT GetCursorPosition()
+        {
+            if (NativeMethods.GetCursorPos(out POINT point))
+            {
+                return point;
+            }
+
+            return POINT.Empty;
         }
 
         internal static Color GetUserSelectedColor(Color initialColor)

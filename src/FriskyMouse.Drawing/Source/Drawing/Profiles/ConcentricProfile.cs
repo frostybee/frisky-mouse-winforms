@@ -39,6 +39,7 @@ namespace FriskyMouse.Drawing.Ripples
                     RadiusMultiplier = 2.5f,
                     OutlinePen = _penOutline,
                     IsFilled = false,
+                    IsStyleable = true
                 });
             //-- 2) Make ripples that will be rendered between the inner most and outer most ripples.
             int radius = 6;            
@@ -65,13 +66,13 @@ namespace FriskyMouse.Drawing.Ripples
                 {
                     IsExpandable = false,
                     IsFade = false,
-                    //Bounds = DrawingHelper.CreateRectangle(surface.Width, surface.Height, 5)
                     Bounds = DrawingHelper.CreateRectangle(width, height, 7),
                     FillBrush = _brushInnerRipple,
                     ShapeType = ShapeType.Ellipse,
                     InitialRadius = 7,
                     IsFilled = true,
-                });
+                    IsStyleable = false
+                }); ;
         }        
     }
 }

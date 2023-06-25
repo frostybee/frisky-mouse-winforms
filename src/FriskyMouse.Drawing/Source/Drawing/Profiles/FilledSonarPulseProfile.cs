@@ -18,8 +18,8 @@ namespace FriskyMouse.Drawing.Ripples
 
         private void CreateProfileEntries()
         {
-            _innerBrush = new SolidBrush(Color.Green);
-            _outerBrush = new SolidBrush(Color.DarkGreen.WithOpacity(250));
+            _innerBrush = new SolidBrush(Color.DeepPink);
+            _outerBrush = new SolidBrush(Color.DarkGreen);
             _middlePen = new Pen(Color.White, 3);
 
             // 1) Make the outer ripple.
@@ -33,6 +33,7 @@ namespace FriskyMouse.Drawing.Ripples
                     RadiusMultiplier = 3,
                     FillBrush = _outerBrush,
                     IsFilled = true,
+                    IsStyleable = true
                 });
             // 2) Make the middle ripple. 
             AddRipple(   

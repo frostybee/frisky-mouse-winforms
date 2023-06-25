@@ -3,9 +3,6 @@ using FriskyMouse.Drawing.Helpers;
 
 namespace FriskyMouse.Drawing.Ripples
 {
-    /// <summary>
-    /// Represents a single expanding ripple.
-    /// </summary>
     internal class CherryBlossomProfile : BaseRippleProfile
     {
         private Pen _outlinePen;
@@ -19,10 +16,9 @@ namespace FriskyMouse.Drawing.Ripples
 
         private void CreateProfileEntries()
         {
-            int opacity = 10;
             _innerBrush = new SolidBrush(Color.Cyan);
             _outerBrush = new SolidBrush(Color.Crimson);
-            _outlinePen = new Pen(Color.YellowGreen.ReduceOpacity(opacity), 4);            
+            _outlinePen = new Pen(Color.YellowGreen, 4);            
 
             //-- 1) Add the middle ripple.
             AddRipple(

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
 
-namespace FriskyMouse.Helpers
+namespace FriskyMouse.Extensions
 {
     public static class Extensions
     {

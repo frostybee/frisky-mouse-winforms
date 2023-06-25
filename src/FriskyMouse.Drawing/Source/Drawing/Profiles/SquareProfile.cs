@@ -14,8 +14,8 @@ namespace FriskyMouse.Drawing.Ripples
         }
         private void CreateProfileEntries()
         {
-            brush = new SolidBrush(Color.DarkBlue.ReduceOpacity(_baseRadius * 10));
-            _outlinePen = new Pen(Color.DarkBlue.ReduceOpacity(_baseRadius * 10), 4);
+            brush = new SolidBrush(Color.DarkBlue);
+            _outlinePen = new Pen(Color.DarkBlue, 4);
 
             // 1) Make the outer most ripple.
             AddRipple(

@@ -2,6 +2,7 @@
 using FriskyMouse.Drawing.Helpers;
 using FriskyMouse.Helpers;
 using FriskyMouse.Settings;
+using FriskyMouse.Extensions;
 
 namespace FriskyMouse.UI.Controls
 {

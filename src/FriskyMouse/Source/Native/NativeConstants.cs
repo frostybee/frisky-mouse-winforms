@@ -9,6 +9,8 @@
         public const byte AC_SRC_OVER = 0x00;
         public const byte AC_SRC_ALPHA = 0x01;
         public const int WS_POPUP = 0x8000000;
+        public const int GWL_EXSTYLE = -20;
+        public const int WS_EX_TOPMOST = 0x0008;
         #endregion
     }
 }

@@ -7,6 +7,7 @@ using FriskyMouse.Drawing.Extensions;
 using FriskyMouse.Drawing.Helpers;
 using FriskyMouse.Settings;
 using FriskyMouse.Helpers;
+using FriskyMouse.Extensions;
 
 namespace FriskyMouse.UI.Controls
 {
@@ -46,6 +47,7 @@ namespace FriskyMouse.UI.Controls
             switchColorTransition.CheckedChanged += SwitchColorTransition_CheckedChanged;
             sliderAnimSpeed.onValueChanged += SliderAnimSpeed_onValueChanged;
             switchClickDecoration.CheckedChanged += SwitchClickDecoration_CheckedChanged;
+            btnColorPicker.Click += BtnColorPicker_Click;
         }
 
         internal void UpdateControlsFromSettings()
@@ -56,7 +58,7 @@ namespace FriskyMouse.UI.Controls
             sliderAnimSpeed.Value = (int)(_settings.AnimationSpeed * 1000);
             switchColorTransition.Checked = _settings.CanFadeColor;
             switchClickDecoration.Checked = _settings.IsEnabled;
-            btnColorPicker.BackColor = _settings.FillColor;
+            btnFillColor.BackColor = _settings.FillColor;
             AppHelpers.UpdateSwitchText(switchClickDecoration);
             //--> 
             LoadRipplesProfile();
@@ -97,7 +99,7 @@ namespace FriskyMouse.UI.Controls
         {
             Color selectedColor = Helpers.AppHelpers.GetUserSelectedColor(_settings.FillColor);
             _settings.FillColor = selectedColor;
-            btnColorPicker.BackColor = selectedColor;
+            btnFillColor.BackColor = selectedColor;
             _currentProfile?.UpdateRipplesStyle(_settings);
             StartAnimation();
         }

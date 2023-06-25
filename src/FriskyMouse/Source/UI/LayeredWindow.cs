@@ -1,6 +1,7 @@
 ﻿using FriskyMouse.NativeApi;
 using System.Diagnostics;
 using System.Drawing.Imaging;
+using System.Reflection.Metadata;
 using NativeStructs = FriskyMouse.NativeApi;
 
 namespace FriskyMouse.UI
@@ -89,8 +90,7 @@ namespace FriskyMouse.UI
         {
             // FIXME: this should be called in a delayed manner. 
             // Upon detecting a mouse click, around 500 ms should be elapsed before calling this method.
-
-            Debug.WriteLine("Setting top most window....");
+            //Debug.WriteLine("Setting top most window....");
             if (Handle != IntPtr.Zero)
             {
                  SetWindowPosition(PositionX, PositionY);
@@ -105,15 +105,13 @@ namespace FriskyMouse.UI
         {
             NativeMethods.SetWindowPos(Handle, (int)SpecialWindowHandles.HWND_TOPMOST, x, y, Width, Height, SetWindowPosFlags.SWP_NOACTIVATE);
         }
-        internal POINT GetCursorPosition()
-        {
-            if (NativeMethods.GetCursorPos(out POINT point))
-            {
-                return point;
-            }
 
-            return POINT.Empty;
+        public bool IsWindowTopMost()
+        {
+            int exStyle = (int)NativeMethods.GetWindowLongPtr(Handle, NativeConstants.GWL_EXSTYLE);
+            return (exStyle & NativeConstants.WS_EX_TOPMOST) == NativeConstants.WS_EX_TOPMOST;
         }
+
         /// <summary>
         /// 
         /// </summary>

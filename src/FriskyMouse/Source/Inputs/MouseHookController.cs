@@ -12,7 +12,7 @@ namespace FriskyMouse.Core
         private ClickEffectController _rightClickDecorator;
         private static object _syncRoot = new Object();
         private IntPtr _mouseHookHandle = IntPtr.Zero;
-        public MouseHookController(HighlighterController highlighter, ClickEffectController clickDecorator, 
+        public MouseHookController(HighlighterController highlighter, ClickEffectController clickDecorator,
             ClickEffectController rightClickDecorator)
         {
             _highlighter = highlighter;
@@ -25,7 +25,7 @@ namespace FriskyMouse.Core
         protected override IntPtr HookCallbackProcedure(int nCode, IntPtr wParam, IntPtr lParam)
         {
             MouseButtonTypes messageType = (MouseButtonTypes)wParam;
-            //Debug.WriteLine("wParam..." + wParam);
+
             if (nCode < 0)
             {
                 return NativeMethods.CallNextHookEx(_mouseHookHandle, nCode, wParam, lParam);
@@ -41,10 +41,10 @@ namespace FriskyMouse.Core
                     case MouseButtonTypes.LeftButtonUp:
                         // Fix the issue when the highlighter is no longer top most.
                         // TODO: lock the involved objects. This is causing an InvalidOperationException.
-                        //Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));
+                        Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));
                         break;
                     case MouseButtonTypes.MouseMove:
-                        _highlighter?.MoveSpotlight(hookStruct.pt);
+                        _highlighter?.MoveSpotlight(hookStruct.pt);                        
                         break;
                     case MouseButtonTypes.RightButtonUp:
                         // Fix the issue when the highlighter is no longer top most.                        
@@ -72,7 +72,7 @@ namespace FriskyMouse.Core
                         //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         break;
                     case MouseButtonTypes.LeftButtonDoubleClick:
-                        Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
+                        //Debug.WriteLine("Mouse moved..." + hookStruct.pt.X);
                         break;
                     default:
                         break;

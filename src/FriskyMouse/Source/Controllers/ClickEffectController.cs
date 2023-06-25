@@ -2,6 +2,7 @@
 using FriskyMouse.Drawing.Animation;
 using FriskyMouse.Drawing.Ripples;
 using FriskyMouse.UI;
+using FriskyMouse.Extensions;
 using System.Drawing.Imaging;
 
 namespace FriskyMouse.Core
@@ -104,7 +105,7 @@ namespace FriskyMouse.Core
                 }
                 if (!_animationManager.IsAnimating())
                 {
-                    _layeredWindow.Move(x, y );
+                    _layeredWindow.Move(x, y);
                     //_layeredWindow.Move(x + 1, y + 1);
                     _layeredWindow.Show();
                     StartAnimation();
@@ -112,12 +113,12 @@ namespace FriskyMouse.Core
             }
         }
 
-        internal void SetTopMost(int x, int y)
+        /*internal void SetTopMost(int x, int y)
         {
             _layeredWindow.PositionX = x ;
             _layeredWindow.PositionY = y ;
             _layeredWindow.SetTopMost();
-        }
+        }*/
         internal void StartAnimation()
         {
             // We perform the drawing here.            

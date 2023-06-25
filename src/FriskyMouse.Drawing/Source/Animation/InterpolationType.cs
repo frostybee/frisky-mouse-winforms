@@ -7,21 +7,21 @@ namespace FriskyMouse.Drawing.Animation
     {
         [Description("Linear Easing"), ConstructableEnum(typeof(LinearEasing)), DefaultSpeed(25)]
         Linear,
-        [Description("Back In"), ConstructableEnum(typeof(BackEaseIn)), DefaultSpeed(25)]
-        BackEaseIn,
-        [Description("Back Out"), ConstructableEnum(typeof(BackEaseOut)), DefaultSpeed(10)]
-        BackEaseOut,
-        [Description("Back In Out"), ConstructableEnum(typeof(BackEaseInOut)), DefaultSpeed(20)]
-        BackEaseInOut,
         [Description("Bounce In"), ConstructableEnum(typeof(BounceEaseIn)), DefaultSpeed(20)]
         BounceEaseIn,
         [Description("Bounce Out"), ConstructableEnum(typeof(BounceEaseOut)), DefaultSpeed(20)]
         BounceEaseOut,
-        [Description("Bounce In Out"), ConstructableEnum(typeof(BounceEaseInOut)), DefaultSpeed(10)]
+        [Description("Bounce In Out"), ConstructableEnum(typeof(BounceEaseInOut)), DefaultSpeed(25)]
         BounceEaseInOut,
+        [Description("Back In"), ConstructableEnum(typeof(BackEaseIn)), DefaultSpeed(25)]
+        BackEaseIn,
+        [Description("Back Out"), ConstructableEnum(typeof(BackEaseOut)), DefaultSpeed(20)]
+        BackEaseOut,
+        [Description("Back In Out"), ConstructableEnum(typeof(BackEaseInOut)), DefaultSpeed(20)]
+        BackEaseInOut,        
         [Description("Circular In"), ConstructableEnum(typeof(CircularEaseIn)), DefaultSpeed(15)]
         CircularEaseIn,
-        [Description("Circular Out"), ConstructableEnum(typeof(CircularEaseOut)), DefaultSpeed(15)]
+        [Description("Circular Out"), ConstructableEnum(typeof(CircularEaseOut)), DefaultSpeed(20)]
         CircularEaseOut,
         [Description("Circular In Out"), ConstructableEnum(typeof(CircularEaseInOut)), DefaultSpeed(15)]
         CircularEaseInOut,
@@ -33,7 +33,7 @@ namespace FriskyMouse.Drawing.Animation
         CubicEaseInOut,
         [Description("Elastic In"), ConstructableEnum(typeof(ElasticEaseIn)), DefaultSpeed(10)]
         ElasticEaseIn,
-        [Description("Elastic Out"), ConstructableEnum(typeof(ElasticEaseOut)), DefaultSpeed(10)]
+        [Description("Elastic Out"), ConstructableEnum(typeof(ElasticEaseOut)), DefaultSpeed(15)]
         ElasticEaseOut,
         [Description("Elastic In Out"), ConstructableEnum(typeof(ElasticEaseInOut)), DefaultSpeed(10)]
         ElasticEaseInOut,
@@ -43,11 +43,11 @@ namespace FriskyMouse.Drawing.Animation
         ExponentialEaseOut,
         [Description("Exponential In Out"), ConstructableEnum(typeof(ExponentialEaseInOut)), DefaultSpeed(10)]
         ExponentialEaseInOut,
-        [Description("Quadratic In"), ConstructableEnum(typeof(QuadraticEaseIn)), DefaultSpeed(10)]
+        [Description("Quadratic In"), ConstructableEnum(typeof(QuadraticEaseIn)), DefaultSpeed(15)]
         QuadraticEaseIn,
-        [Description("Quadratic Out"), ConstructableEnum(typeof(QuadraticEaseOut)), DefaultSpeed(10)]
+        [Description("Quadratic Out"), ConstructableEnum(typeof(QuadraticEaseOut)), DefaultSpeed(20)]
         QuadraticEaseOut,
-        [Description("Quadratic In Out"), ConstructableEnum(typeof(QuadraticEaseInOut)), DefaultSpeed(10)]
+        [Description("Quadratic In Out"), ConstructableEnum(typeof(QuadraticEaseInOut)), DefaultSpeed(20)]
         QuadraticEaseInOut,
         [Description("Quartic In"), ConstructableEnum(typeof(QuarticEaseIn)), DefaultSpeed(15)]
         QuarticEaseIn,
@@ -61,11 +61,11 @@ namespace FriskyMouse.Drawing.Animation
         QuinticEaseOut,
         [Description("Quintic In Out"), ConstructableEnum(typeof(QuinticEaseInOut)), DefaultSpeed(15)]
         QuinticEaseInOut,
-        [Description("Sine In"), ConstructableEnum(typeof(SineEaseIn)), DefaultSpeed(15)]
+        [Description("Sine In"), ConstructableEnum(typeof(SineEaseIn)), DefaultSpeed(25)]
         SineEaseIn,
-        [Description("Sine Out"), ConstructableEnum(typeof(SineEaseOut)), DefaultSpeed(15)]
+        [Description("Sine Out"), ConstructableEnum(typeof(SineEaseOut)), DefaultSpeed(25)]
         SineEaseOut,
-        [Description("Sine In Out"), ConstructableEnum(typeof(SineEaseInOut)), DefaultSpeed(15)]
+        [Description("Sine In Out"), ConstructableEnum(typeof(SineEaseInOut)), DefaultSpeed(20)]
         SineEaseInOut,
     }
 }

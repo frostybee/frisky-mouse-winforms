@@ -17,9 +17,9 @@ namespace FriskyMouse.Drawing.Ripples
                 new RippleEntry()
                 {
                     IsExpandable = false,
-                    Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius),
+                    Bounds = DrawingHelper.CreateRectangle(Width, Height, 15),
                     ShapeType = ShapeType.Ellipse,
-                    InitialRadius = BaseRadius,
+                    InitialRadius = 15,
                     RadiusMultiplier = 3,
                     FillBrush = _innerBrush,
                     IsFilled = true,
