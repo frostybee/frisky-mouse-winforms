@@ -15,7 +15,7 @@ namespace FriskyMouse.Drawing.Ripples
         public int InitialOpacity { get; set; } = 100;
         public int MaxRadius { get; set; } = 200;
         public Color FillColor { get; set; } = Color.Yellow;
-        public Color OutlineColor { get; set; } = Color.Red;
+        public Color OutlineColor { get; set; } = Color.Red;        
         #endregion
         public bool IsEnabled { get; set; } = true;
         public RippleProfileType CurrentRippleProfile { get; set; } = RippleProfileType.IceCream;

@@ -46,7 +46,7 @@ namespace FriskyMouse.UI.Controls
             cmbInterpolationMode.SelectedIndexChanged += CmbInterpolationMode_SelectedIndexChanged;
             switchColorTransition.CheckedChanged += SwitchColorTransition_CheckedChanged;
             sliderAnimSpeed.onValueChanged += SliderAnimSpeed_onValueChanged;
-            switchClickDecoration.CheckedChanged += SwitchClickDecoration_CheckedChanged;
+            switchClickDecoration.CheckedChanged += SwitchClickDecoration_CheckedChanged;         
             btnColorPicker.Click += BtnColorPicker_Click;
         }
 
@@ -58,12 +58,13 @@ namespace FriskyMouse.UI.Controls
             sliderAnimSpeed.Value = (int)(_settings.AnimationSpeed * 1000);
             switchColorTransition.Checked = _settings.CanFadeColor;
             switchClickDecoration.Checked = _settings.IsEnabled;
-            btnFillColor.BackColor = _settings.FillColor;
+            btnFillColor.BackColor = _settings.FillColor;            
             AppHelpers.UpdateSwitchText(switchClickDecoration);
             //--> 
             LoadRipplesProfile();
-            //_profileManager.SwitchProfile()
             InitControlsEvents();
+            //-- Animation settings.
+            _rippleValueAnimator.Interpolation = _settings.InterpolationType;
             StartAnimation();
         }
 
@@ -103,7 +104,7 @@ namespace FriskyMouse.UI.Controls
             _currentProfile?.UpdateRipplesStyle(_settings);
             StartAnimation();
         }
-
+        
         protected override void OnLoad(EventArgs e)
         {
             PopulateControls();
@@ -132,6 +133,7 @@ namespace FriskyMouse.UI.Controls
         private void StartAnimation()
         {
             pcbRipplePreview.Image = _canvas;
+            _currentProfile.ResetColorOpacity();
             //   StopAnimation();
             _rippleValueAnimator.StartNewAnimation(_settings.AnimationDirection);
             if (!_rippleValueAnimator.IsAnimating())
@@ -171,7 +173,7 @@ namespace FriskyMouse.UI.Controls
         private void CmbProfilesList_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Switch to the newly selected profile. 
-            RippleProfileType profileType = cmbProfilesList.GetEnumValue<RippleProfileType>();
+            RippleProfileType profileType = cmbProfilesList.GetSelectedEnumValue<RippleProfileType>();
             SwitchRippleProfile(profileType);
             StartAnimation();
         }
@@ -180,14 +182,14 @@ namespace FriskyMouse.UI.Controls
         private void CmbAnimDirection_SelectedIndexChanged(object sender, EventArgs e)
         {
             // The direction of the animation has been changed.                                     
-            _settings.AnimationDirection = cmbAnimDirection.GetEnumValue<AnimationDirection>();
+            _settings.AnimationDirection = cmbAnimDirection.GetSelectedEnumValue<AnimationDirection>();
             _profileManager.ApplySettings(_settings);
             StartAnimation();
         }
         private void CmbInterpolationMode_SelectedIndexChanged(object sender, EventArgs e)
         {
             // The animation's saved easing mode has been changed.                                     
-            InterpolationType interpolation = cmbInterpolationMode.GetEnumValue<InterpolationType>();
+            InterpolationType interpolation = cmbInterpolationMode.GetSelectedEnumValue<InterpolationType>();
             _rippleValueAnimator.Interpolation = interpolation;
             _settings.InterpolationType = interpolation;
             _profileManager.ApplySettings(_settings);
@@ -197,6 +199,7 @@ namespace FriskyMouse.UI.Controls
             AdjustAnimationSpeed(speedAttribute.Speed);
             // TODO: Display the recommended speed in a label instead.
             //sliderAnimSpeed.Value = speedAttribute.Speed;
+            StartAnimation();
         }
         private void SliderAnimSpeed_onValueChanged(object sender, int newValue)
         {

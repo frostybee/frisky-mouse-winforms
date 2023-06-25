@@ -14,7 +14,7 @@ namespace FriskyMouse.Drawing.Ripples
             CreateProfileEntries();
         }
 
-        private void CreateProfileEntries()
+        public void CreateProfileEntries()
         {
             _innerBrush = new SolidBrush(Color.Cyan);
             _outerBrush = new SolidBrush(Color.Crimson);

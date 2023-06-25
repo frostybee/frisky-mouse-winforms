@@ -105,6 +105,7 @@ namespace FriskyMouse.Core
                 }
                 if (!_animationManager.IsAnimating())
                 {
+                    _currentRipplesProfile.ResetColorOpacity();
                     _layeredWindow.Move(x, y);
                     //_layeredWindow.Move(x + 1, y + 1);
                     _layeredWindow.Show();

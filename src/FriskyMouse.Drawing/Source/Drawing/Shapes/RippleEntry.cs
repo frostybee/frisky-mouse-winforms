@@ -1,5 +1,6 @@
 ﻿using FriskyMouse.Drawing.Extensions;
 using FriskyMouse.Drawing.Helpers;
+using System.Diagnostics;
 
 namespace FriskyMouse.Drawing.Ripples
 {
@@ -21,6 +22,8 @@ namespace FriskyMouse.Drawing.Ripples
         public PolygonType PolygonType { get; set; }
         public double ExpandedRadius { get { return InitialRadius * RadiusMultiplier; } }
         private int _expandedRadius = 1;
+        private Color _initialFillColor = Color.Red;
+        private Color _initialOutlineColor = Color.Red;
 
 
         /// <summary>
@@ -69,7 +72,7 @@ namespace FriskyMouse.Drawing.Ripples
             }
         }
 
-        internal void AdjustColorOpacity(double animationProgress)
+        /*internal void AdjustColorOpacity(double animationProgress)
         {
             //return (255 - Math.Min(Math.Max(0, (int)animationProgress* 150), 255));
             int opacity = 1;
@@ -86,6 +89,26 @@ namespace FriskyMouse.Drawing.Ripples
                 else
                 {
                     OutlinePen.Color = OutlinePen.Color.ReduceOpacity(opacity);
+                }
+            }
+        }*/
+        internal void AdjustColorOpacity(double animationProgress)
+        {
+            int opacity = 1;
+            // Opacity percentage: 255 * 75 / 100
+            float percentage = (float)Math.Round(animationProgress * 30, 2);
+            opacity = Math.Max(1, Math.Min(255 * (int)percentage / 100, 255));
+            if (IsFade)
+            {
+                if (IsFilled)
+                {
+                    FillBrush.Color = _initialFillColor.ReduceOpacity(opacity);
+                    //FillBrush.Color = DrawingHelper.RandomColor().ReduceOpacity(opacity);
+                }
+                else
+                {
+                    Debug.WriteLine("opacity: " + opacity);
+                    OutlinePen.Color = _initialOutlineColor.ReduceOpacity(opacity);
                 }
             }
         }
@@ -111,18 +134,34 @@ namespace FriskyMouse.Drawing.Ripples
             //return InitialRadius * RadiusMultiplier * 2;
         }
 
-        internal void ResetColor(byte initialOpacity)
+        /* internal void ResetColorOpacity(byte initialOpacity)
+         {
+             if (IsFade)
+             {
+                 if (IsFilled)
+                 {
+                     FillBrush.Color = FillBrush.Color.WithOpacity(initialOpacity);
+                     //FillBrush.Color = DrawingHelper.RandomColor().ReduceOpacity(opacity);
+                 }
+                 else
+                 {
+                     OutlinePen.Color = OutlinePen.Color.WithOpacity(initialOpacity);
+                 }
+             }
+         }*/
+        internal void ResetColorOpacity(byte initialOpacity)
         {
             if (IsFade)
             {
                 if (IsFilled)
                 {
                     FillBrush.Color = FillBrush.Color.WithOpacity(initialOpacity);
-                    //FillBrush.Color = DrawingHelper.RandomColor().ReduceOpacity(opacity);
+                    _initialFillColor = FillBrush.Color;
                 }
                 else
                 {
                     OutlinePen.Color = OutlinePen.Color.WithOpacity(initialOpacity);
+                    _initialOutlineColor = OutlinePen.Color;
                 }
             }
         }

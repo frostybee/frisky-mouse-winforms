@@ -24,10 +24,7 @@ namespace FriskyMouse.UI.Controls
             //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             _decorationManager = DecorationController.Instance;
-            _settings = SettingsManager.Settings.HighlighterOptions;
-            // Enable the slider of the _settings's outline width based 
-            // on the status of the fill circle switch.
-            //UpdateOutlineSettings();
+            _settings = SettingsManager.Settings.HighlighterOptions;            
         }
 
         private void InitControlsEvents()

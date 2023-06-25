@@ -42,7 +42,7 @@ namespace FriskyMouse.Drawing.Extensions
         /// <typeparam name="TEnum">The type of the enum of which the value should be returned.</typeparam>
         /// <param name="comboBox">The combobox control that contains the selected value.</param>
         /// <returns></returns>
-        public static TEnum GetEnumValue<TEnum>(this ComboBox comboBox) where TEnum : struct
+        public static TEnum GetSelectedEnumValue<TEnum>(this ComboBox comboBox) where TEnum : struct
         {
             return Enum.TryParse<TEnum>(comboBox.SelectedValue.ToString(), out var result)
                 ? result

@@ -5,33 +5,34 @@ namespace FriskyMouse.Drawing.Ripples
     /// <summary>
     /// Each profile maintains its list of ripples. 
     /// </summary>
-    public abstract class BaseRippleProfile :  IDisposable, IConstructable
+    public abstract class BaseRippleProfile : IDisposable, IConstructable
     {
         private bool disposedValue;
-        private readonly List<RippleEntry> _ripples = new List<RippleEntry>();        
+        private readonly List<RippleEntry> _ripples = new List<RippleEntry>();
+
 
         #region Properties
         public int Width { get; set; } = 200;
         public int Height { get; set; } = 200;
-        public int BaseRadius { get; set; } = 10;                
+        public int BaseRadius { get; set; } = 10;
         #endregion
-        
+
         /// <summary>
         /// Prepares and renders the ripples that are defined in a given profile.
         /// </summary>
         /// <param name="inRippleProfile">The profile to be rendered.</param>
         /// <param name="progress">The interpolated value that indicates the progress of the currently running animation. </param>
         public void RenderRipples(Graphics _graphics, RippleProfileOptions options, double progress)
-        {                                   
+        {
             // We adjust the ripple properties every animation frame. 
             _ripples.ForEach(ripple =>
-            {                
+            {
                 if (options.CanFadeColor)
                 {
                     // We fade the color of the ripple based on the current animation's progress value.
                     ripple.AdjustColorOpacity(progress);
                 }
-                ripple.ExpandRadius(progress);                                
+                ripple.ExpandRadius(progress);
                 ripple.Draw(_graphics);
             });
         }
@@ -44,17 +45,17 @@ namespace FriskyMouse.Drawing.Ripples
         {
             // Reset the opacity of the color upon disabling color transition.
             _ripples.ForEach(ripple =>
-            {            
-                ripple.ResetColor(255);
+            {
+                ripple.ResetColorOpacity(255);
             });
-        }        
+        }
 
         public void UpdateRipplesStyle(RippleProfileOptions options)
         {
             _ripples.ForEach(ripple =>
-            {
-                ripple.ChangeColor(options);
-            });
+                {
+                    ripple.ChangeColor(options);
+                });
         }
 
         private void DisposeDrawingTools()
@@ -66,7 +67,6 @@ namespace FriskyMouse.Drawing.Ripples
                 ripple.OutlinePen?.Dispose();
             });
             _ripples?.Clear();
-            Debug.WriteLine("Disposing drawing tools...");
         }
         protected virtual void Dispose(bool disposing)
         {

@@ -89,8 +89,7 @@
         }
 
         /// <summary>
-        /// Starts a new animation.
-        /// If the spe
+        /// Starts a new animation progressing towards the specified direction.
         /// </summary>
         /// <param name="direction">The direction of the animation.</param>
         public void StartNewAnimation(AnimationDirection direction)
@@ -148,7 +147,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Increments the progress of the animation towards the max value.
         /// </summary>
         private void IncrementProgress()
         {
@@ -170,10 +169,10 @@
                 _animationTimer.Stop();
                 Completed?.Invoke(this);
             }
-        }        
+        }
 
         /// <summary>
-        /// 
+        /// Decrements the progress of the animation towards min value.
         /// </summary>
         private void DecrementProgress()
         {
