@@ -82,7 +82,6 @@ namespace MaterialSkin.Controls
             set
             {
                 _rangeMax = value;
-                //_mouseX = _sliderRectangle.X + ((int)((double)_value / (double)(RangeMax - RangeMin) * (double)(_sliderRectangle.Width) - _thumbRadius / 2));
                 _mouseX = _sliderRectangle.X + ((int)((double)_value / (double)(RangeMax - RangeMin) * (double)(_sliderRectangle.Width - _thumbRadius)));
                 RecalcutlateIndicator();
             }
@@ -98,7 +97,6 @@ namespace MaterialSkin.Controls
             set
             {
                 _rangeMin = value;
-                //_mouseX = _sliderRectangle.X + ((int)((double)_value / (double)(RangeMax - RangeMin) * (double)(_sliderRectangle.Width) - _thumbRadius / 2));
                 _mouseX = _sliderRectangle.X + ((int)((double)_value / (double)(RangeMax - RangeMin) * (double)(_sliderRectangle.Width - _thumbRadius)));
                 RecalcutlateIndicator();
             }

@@ -16,10 +16,22 @@ namespace FriskyMouse.Drawing.Ripples
 
         public void CreateProfileEntries()
         {
-            _innerBrush = new SolidBrush(Color.Cyan);
+            _innerBrush = new SolidBrush(Color.DarkSalmon);
             _outerBrush = new SolidBrush(Color.Crimson);
-            _outlinePen = new Pen(Color.YellowGreen, 4);            
+            _outlinePen = new Pen(Color.DarkRed, 4);
 
+            //-- 2) Add the outline ripple.
+            AddRipple(
+                new RippleEntry()
+                {
+                    IsExpandable = true,
+                    Bounds = DrawingHelper.CreateRectangle(Width, Height, 8),
+                    ShapeType = ShapeType.Ellipse,
+                    InitialRadius = BaseRadius +1,
+                    RadiusMultiplier = 3,
+                    OutlinePen = _outlinePen,
+                    IsFilled = false,
+                });
             //-- 1) Add the middle ripple.
             AddRipple(
                 new RippleEntry()
@@ -27,25 +39,13 @@ namespace FriskyMouse.Drawing.Ripples
                     IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius),
                     ShapeType = ShapeType.Ellipse,
-                    InitialRadius = BaseRadius,
+                    InitialRadius = BaseRadius+1 ,
                     RadiusMultiplier = 3,
                     FillBrush = _outerBrush,
                     OutlinePen = _outlinePen,
                     IsFilled = true,
                     IsStyleable = true
-                });
-            //-- 2) Add the outline ripple.
-            AddRipple(
-                new RippleEntry()
-                {
-                    IsExpandable = true,
-                    Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius),
-                    ShapeType = ShapeType.Ellipse,
-                    InitialRadius = BaseRadius,
-                    RadiusMultiplier = 3,
-                    OutlinePen = _outlinePen,
-                    IsFilled = false,
-                });
+                });            
             //-- 3) Inner ripple that must drawn last.
             AddRipple(
                 new RippleEntry()

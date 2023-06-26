@@ -117,6 +117,7 @@ namespace FriskyMouse.Core
         public static DecorationController Instance => _instance.Value;        
         public HighlighterController MouseHighlighter => _highlighter;
         public ClickEffectController ClickDecorator => _leftClickDecorator;
+        public ClickEffectController RightClickDecorator => _rightClickDecorator;
 
         public MainForm MainForm { get; internal set; }
 

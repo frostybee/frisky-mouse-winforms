@@ -39,6 +39,7 @@
             ctrClickDecoration = new Controls.ClickDecorationControl();
             tabRightClick = new TabPage();
             panel1 = new Panel();
+            ctrLeftClickDecoration = new Controls.ClickDecorationControl();
             tbpSettings = new TabPage();
             ctrlAppSettings = new Controls.AppSettingsControl();
             tabAboutPage = new TabPage();
@@ -53,6 +54,7 @@
             tabHighlighter.SuspendLayout();
             tabClickDecorator.SuspendLayout();
             tabRightClick.SuspendLayout();
+            panel1.SuspendLayout();
             tbpSettings.SuspendLayout();
             tabAboutPage.SuspendLayout();
             trayContextMenu.SuspendLayout();
@@ -160,11 +162,19 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(ctrLeftClickDecoration);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(828, 590);
             panel1.TabIndex = 0;
+            // 
+            // ctrLeftClickDecoration
+            // 
+            ctrLeftClickDecoration.Location = new Point(0, 1);
+            ctrLeftClickDecoration.Name = "ctrLeftClickDecoration";
+            ctrLeftClickDecoration.Size = new Size(831, 587);
+            ctrLeftClickDecoration.TabIndex = 0;
             // 
             // tbpSettings
             // 
@@ -266,6 +276,7 @@
             tabHighlighter.ResumeLayout(false);
             tabClickDecorator.ResumeLayout(false);
             tabRightClick.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             tbpSettings.ResumeLayout(false);
             tabAboutPage.ResumeLayout(false);
             trayContextMenu.ResumeLayout(false);
@@ -291,6 +302,7 @@
         private TabPage tabAboutPage;
         private TabPage tabRightClick;
         private Panel panel1;
+        private Controls.ClickDecorationControl ctrLeftClickDecoration;
     }
 }
 

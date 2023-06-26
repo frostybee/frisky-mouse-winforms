@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            GraphicsPath graphicsPath1 = new GraphicsPath();
-            lblTitle = new MaterialSkin.Controls.MaterialLabel();
+            GraphicsPath graphicsPath2 = new GraphicsPath();
+            lblControlTitle = new MaterialSkin.Controls.MaterialLabel();
             groupBox3 = new GroupBox();
             materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             sldOpacityMultiplier = new MaterialSkin.Controls.MaterialSlider();
@@ -63,19 +63,19 @@
             materialCard1.SuspendLayout();
             SuspendLayout();
             // 
-            // lblTitle
+            // lblControlTitle
             // 
-            lblTitle.AutoSize = true;
-            lblTitle.Depth = 0;
-            lblTitle.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblTitle.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            lblTitle.Location = new Point(23, 7);
-            lblTitle.Margin = new Padding(4, 0, 4, 0);
-            lblTitle.MouseState = MaterialSkin.MouseState.HOVER;
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(226, 29);
-            lblTitle.TabIndex = 62;
-            lblTitle.Text = "Left Click Decoration";
+            lblControlTitle.AutoSize = true;
+            lblControlTitle.Depth = 0;
+            lblControlTitle.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblControlTitle.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            lblControlTitle.Location = new Point(23, 7);
+            lblControlTitle.Margin = new Padding(4, 0, 4, 0);
+            lblControlTitle.MouseState = MaterialSkin.MouseState.HOVER;
+            lblControlTitle.Name = "lblControlTitle";
+            lblControlTitle.Size = new Size(226, 29);
+            lblControlTitle.TabIndex = 62;
+            lblControlTitle.Text = "Left Click Decoration";
             // 
             // groupBox3
             // 
@@ -379,7 +379,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(lblTitle);
+            splitContainer1.Panel1.Controls.Add(lblControlTitle);
             splitContainer1.Panel1.Controls.Add(materialDivider1);
             splitContainer1.Panel1.Controls.Add(switchClickDecoration);
             // 
@@ -438,8 +438,8 @@
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(5, 25, 5, 5);
-            graphicsPath1.FillMode = FillMode.Alternate;
-            materialCard1.ShadowBorder = graphicsPath1;
+            graphicsPath2.FillMode = FillMode.Alternate;
+            materialCard1.ShadowBorder = graphicsPath2;
             materialCard1.Size = new Size(194, 236);
             materialCard1.TabIndex = 79;
             materialCard1.Title = null;
@@ -473,7 +473,7 @@
         private MaterialSkin.Controls.MaterialButton btnPreview;
         private MaterialSkin.Controls.MaterialSlider sldRadiusMultiplier;
         private PictureBox pcbRipplePreview;
-        private MaterialSkin.Controls.MaterialLabel lblTitle;
+        private MaterialSkin.Controls.MaterialLabel lblControlTitle;
         private GroupBox groupBox2;
         private MaterialSkin.Controls.MaterialComboBox cmbAnimDirection;
         private MaterialSkin.Controls.MaterialComboBox cmbInterpolationMode;

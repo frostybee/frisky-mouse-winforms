@@ -14,8 +14,8 @@ namespace FriskyMouse.UI.Controls
     public partial class ClickDecorationControl : UserControl
     {
         private readonly ValueAnimator _rippleValueAnimator;
-        private readonly ClickEffectController _profileManager;
-        private readonly RippleProfileOptions _settings;
+        private ClickEffectController _profileManager;
+        private RippleProfileOptions _settings;
         private BaseRippleProfile _currentProfile;
         private Bitmap? _canvas;
         private Bitmap? _blankCanvas;
@@ -28,9 +28,7 @@ namespace FriskyMouse.UI.Controls
             //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             DoubleBuffered = true;
-            _currentProfile = new FilledSonarPulseProfile();
-            _profileManager = DecorationController.Instance.ClickDecorator;
-            _settings = SettingsManager.Settings.LeftClickOptions;
+            _currentProfile = new FilledSonarPulseProfile();            
             _rippleValueAnimator = new ValueAnimator()
             {
                 Increment = 0.010, // Control the animation speed.                                         
@@ -53,8 +51,11 @@ namespace FriskyMouse.UI.Controls
         }
 
 
-        internal void UpdateControlsFromSettings()
+        internal void UpdateControlsFromSettings(string title, ClickEffectController profileManager, RippleProfileOptions options)
         {
+            lblControlTitle.Text = title;
+            _profileManager = profileManager;
+            _settings = options;
             cmbInterpolationMode.SelectedIndex = cmbInterpolationMode.GetItemIndexByEumValue(_settings.InterpolationType);
             cmbAnimDirection.SelectedIndex = cmbAnimDirection.GetItemIndexByEumValue(_settings.AnimationDirection);
             cmbProfilesList.SelectedIndex = cmbProfilesList.GetItemIndexByEumValue(_settings.CurrentRippleProfile);
