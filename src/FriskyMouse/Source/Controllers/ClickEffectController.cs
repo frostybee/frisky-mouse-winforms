@@ -73,10 +73,9 @@ namespace FriskyMouse.Core
         {
             // We process the animation frames here. 
             // We perform the drawing here.                        
-            // TODO: put this in a helper method.                                    
-            double progress = _animationManager.GetProgress();
+            // TODO: put this in a helper method.                                                
             _graphics.Clear(Color.Transparent);
-            _currentRipplesProfile.RenderRipples(_graphics, _settings, progress);
+            _currentRipplesProfile.RenderRipples(_graphics, _settings, _animationManager.GetProgress());
             // Update the layered window to show the current frame. 
             _layeredWindow.SetBitmap(_canvas, 255);
         }
@@ -89,7 +88,7 @@ namespace FriskyMouse.Core
 
         private void RipplesAnimation_Finished(object sender)
         {
-                        // Clear the _canvas that was previously drawn onto the _layeredWindow window.
+            // Clear the _canvas that was previously drawn onto the _layeredWindow window.
             _graphics.Clear(Color.Transparent);
             _layeredWindow.Hide();
             _layeredWindow.SetBitmap(_blankCanvas, 0);            

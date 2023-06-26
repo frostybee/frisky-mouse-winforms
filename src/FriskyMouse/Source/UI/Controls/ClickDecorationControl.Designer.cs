@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             GraphicsPath graphicsPath1 = new GraphicsPath();
-            materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
+            lblTitle = new MaterialSkin.Controls.MaterialLabel();
             groupBox3 = new GroupBox();
-            btnFillColor = new Button();
             materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            sldOpacityMultiplier = new MaterialSkin.Controls.MaterialSlider();
+            btnFillColor = new Button();
             btnColorPicker = new MaterialSkin.Controls.MaterialButton();
             switchColorTransition = new MaterialSkin.Controls.MaterialSwitch();
             cmbProfilesList = new MaterialSkin.Controls.MaterialComboBox();
-            sldRadius = new MaterialSkin.Controls.MaterialSlider();
+            sldRadiusMultiplier = new MaterialSkin.Controls.MaterialSlider();
             groupBox2 = new GroupBox();
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             sliderAnimSpeed = new MaterialSkin.Controls.MaterialSlider();
@@ -62,57 +63,75 @@
             materialCard1.SuspendLayout();
             SuspendLayout();
             // 
-            // materialLabel26
+            // lblTitle
             // 
-            materialLabel26.AutoSize = true;
-            materialLabel26.Depth = 0;
-            materialLabel26.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            materialLabel26.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            materialLabel26.Location = new Point(23, 7);
-            materialLabel26.Margin = new Padding(4, 0, 4, 0);
-            materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel26.Name = "materialLabel26";
-            materialLabel26.Size = new Size(226, 29);
-            materialLabel26.TabIndex = 62;
-            materialLabel26.Text = "Left Click Decoration";
+            lblTitle.AutoSize = true;
+            lblTitle.Depth = 0;
+            lblTitle.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblTitle.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            lblTitle.Location = new Point(23, 7);
+            lblTitle.Margin = new Padding(4, 0, 4, 0);
+            lblTitle.MouseState = MaterialSkin.MouseState.HOVER;
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(226, 29);
+            lblTitle.TabIndex = 62;
+            lblTitle.Text = "Left Click Decoration";
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(btnFillColor);
             groupBox3.Controls.Add(materialLabel3);
+            groupBox3.Controls.Add(sldOpacityMultiplier);
+            groupBox3.Controls.Add(btnFillColor);
             groupBox3.Controls.Add(btnColorPicker);
             groupBox3.Controls.Add(switchColorTransition);
             groupBox3.Controls.Add(cmbProfilesList);
-            groupBox3.Controls.Add(sldRadius);
+            groupBox3.Controls.Add(sldRadiusMultiplier);
             groupBox3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox3.Location = new Point(23, 28);
+            groupBox3.Location = new Point(23, 13);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(419, 182);
+            groupBox3.Size = new Size(385, 229);
             groupBox3.TabIndex = 78;
             groupBox3.TabStop = false;
-            // 
-            // btnFillColor
-            // 
-            btnFillColor.FlatStyle = FlatStyle.Flat;
-            btnFillColor.Location = new Point(127, 95);
-            btnFillColor.Margin = new Padding(2, 3, 2, 3);
-            btnFillColor.Name = "btnFillColor";
-            btnFillColor.Size = new Size(44, 31);
-            btnFillColor.TabIndex = 89;
-            btnFillColor.Text = "...";
-            btnFillColor.UseVisualStyleBackColor = true;
             // 
             // materialLabel3
             // 
             materialLabel3.AutoSize = true;
             materialLabel3.Depth = 0;
             materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel3.Location = new Point(13, 0);
+            materialLabel3.Location = new Point(13, -3);
             materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel3.Name = "materialLabel3";
             materialLabel3.Size = new Size(104, 19);
             materialLabel3.TabIndex = 84;
             materialLabel3.Text = "Ripple Options";
+            // 
+            // sldOpacityMultiplier
+            // 
+            sldOpacityMultiplier.Depth = 0;
+            sldOpacityMultiplier.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            sldOpacityMultiplier.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            sldOpacityMultiplier.Location = new Point(18, 135);
+            sldOpacityMultiplier.MouseState = MaterialSkin.MouseState.HOVER;
+            sldOpacityMultiplier.Name = "sldOpacityMultiplier";
+            sldOpacityMultiplier.RangeMax = 95;
+            sldOpacityMultiplier.RangeMin = 1;
+            sldOpacityMultiplier.Size = new Size(336, 40);
+            sldOpacityMultiplier.TabIndex = 90;
+            sldOpacityMultiplier.Text = "Fading Opacity";
+            sldOpacityMultiplier.Value = 7;
+            sldOpacityMultiplier.ValueMax = 95;
+            sldOpacityMultiplier.ValueSuffix = "%";
+            // 
+            // btnFillColor
+            // 
+            btnFillColor.FlatStyle = FlatStyle.Flat;
+            btnFillColor.Location = new Point(322, 47);
+            btnFillColor.Margin = new Padding(2, 3, 2, 3);
+            btnFillColor.Name = "btnFillColor";
+            btnFillColor.Size = new Size(44, 31);
+            btnFillColor.TabIndex = 89;
+            btnFillColor.Text = "...";
+            btnFillColor.UseVisualStyleBackColor = true;
             // 
             // btnColorPicker
             // 
@@ -122,7 +141,7 @@
             btnColorPicker.Depth = 0;
             btnColorPicker.HighEmphasis = true;
             btnColorPicker.Icon = null;
-            btnColorPicker.Location = new Point(13, 92);
+            btnColorPicker.Location = new Point(226, 44);
             btnColorPicker.Margin = new Padding(4, 6, 4, 6);
             btnColorPicker.MouseState = MaterialSkin.MouseState.HOVER;
             btnColorPicker.Name = "btnColorPicker";
@@ -140,15 +159,15 @@
             switchColorTransition.Checked = true;
             switchColorTransition.CheckState = CheckState.Checked;
             switchColorTransition.Depth = 0;
-            switchColorTransition.Location = new Point(222, 19);
+            switchColorTransition.Location = new Point(18, 178);
             switchColorTransition.Margin = new Padding(0);
             switchColorTransition.MouseLocation = new Point(-1, -1);
             switchColorTransition.MouseState = MaterialSkin.MouseState.HOVER;
             switchColorTransition.Name = "switchColorTransition";
             switchColorTransition.Ripple = true;
-            switchColorTransition.Size = new Size(167, 47);
+            switchColorTransition.Size = new Size(196, 47);
             switchColorTransition.TabIndex = 79;
-            switchColorTransition.Text = "Color Transition";
+            switchColorTransition.Text = "Enable Color Fading";
             switchColorTransition.UseVisualStyleBackColor = true;
             // 
             // cmbProfilesList
@@ -166,7 +185,7 @@
             cmbProfilesList.Hint = "Select Profile:";
             cmbProfilesList.IntegralHeight = false;
             cmbProfilesList.ItemHeight = 43;
-            cmbProfilesList.Location = new Point(13, 29);
+            cmbProfilesList.Location = new Point(18, 35);
             cmbProfilesList.Margin = new Padding(4);
             cmbProfilesList.MaxDropDownItems = 4;
             cmbProfilesList.MouseState = MaterialSkin.MouseState.OUT;
@@ -176,21 +195,22 @@
             cmbProfilesList.TabIndex = 76;
             cmbProfilesList.UseAccent = false;
             // 
-            // sldRadius
+            // sldRadiusMultiplier
             // 
-            sldRadius.Depth = 0;
-            sldRadius.Font = new Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
-            sldRadius.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            sldRadius.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            sldRadius.Location = new Point(13, 137);
-            sldRadius.MouseState = MaterialSkin.MouseState.HOVER;
-            sldRadius.Name = "sldRadius";
-            sldRadius.RangeMax = 80;
-            sldRadius.Size = new Size(195, 40);
-            sldRadius.TabIndex = 5;
-            sldRadius.Text = "Radius  ";
-            sldRadius.Value = 30;
-            sldRadius.ValueSuffix = "px";
+            sldRadiusMultiplier.Depth = 0;
+            sldRadiusMultiplier.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            sldRadiusMultiplier.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            sldRadiusMultiplier.Location = new Point(18, 94);
+            sldRadiusMultiplier.MouseState = MaterialSkin.MouseState.HOVER;
+            sldRadiusMultiplier.Name = "sldRadiusMultiplier";
+            sldRadiusMultiplier.RangeMax = 20;
+            sldRadiusMultiplier.RangeMin = 1;
+            sldRadiusMultiplier.Size = new Size(336, 40);
+            sldRadiusMultiplier.TabIndex = 5;
+            sldRadiusMultiplier.Text = "Radius";
+            sldRadiusMultiplier.Value = 1;
+            sldRadiusMultiplier.ValueMax = 20;
+            sldRadiusMultiplier.ValueSuffix = "%";
             // 
             // groupBox2
             // 
@@ -199,9 +219,9 @@
             groupBox2.Controls.Add(cmbInterpolationMode);
             groupBox2.Controls.Add(cmbAnimDirection);
             groupBox2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox2.Location = new Point(23, 230);
+            groupBox2.Location = new Point(23, 253);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(419, 132);
+            groupBox2.Size = new Size(385, 132);
             groupBox2.TabIndex = 75;
             groupBox2.TabStop = false;
             // 
@@ -210,7 +230,7 @@
             materialLabel1.AutoSize = true;
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(13, 0);
+            materialLabel1.Location = new Point(13, 2);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new Size(133, 19);
@@ -221,12 +241,12 @@
             // 
             sliderAnimSpeed.Depth = 0;
             sliderAnimSpeed.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            sliderAnimSpeed.Location = new Point(13, 24);
+            sliderAnimSpeed.Location = new Point(18, 24);
             sliderAnimSpeed.MouseState = MaterialSkin.MouseState.HOVER;
             sliderAnimSpeed.Name = "sliderAnimSpeed";
             sliderAnimSpeed.RangeMax = 50;
-            sliderAnimSpeed.RangeMin = 10;
-            sliderAnimSpeed.Size = new Size(376, 40);
+            sliderAnimSpeed.RangeMin = 1;
+            sliderAnimSpeed.Size = new Size(336, 40);
             sliderAnimSpeed.TabIndex = 76;
             sliderAnimSpeed.Text = "Speed";
             sliderAnimSpeed.Value = 30;
@@ -245,16 +265,16 @@
             cmbInterpolationMode.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             cmbInterpolationMode.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cmbInterpolationMode.FormattingEnabled = true;
-            cmbInterpolationMode.Hint = "Interpolation";
+            cmbInterpolationMode.Hint = "Easing";
             cmbInterpolationMode.ImeMode = ImeMode.Off;
             cmbInterpolationMode.IntegralHeight = false;
             cmbInterpolationMode.ItemHeight = 43;
-            cmbInterpolationMode.Location = new Point(214, 71);
+            cmbInterpolationMode.Location = new Point(213, 71);
             cmbInterpolationMode.Margin = new Padding(4);
             cmbInterpolationMode.MaxDropDownItems = 4;
             cmbInterpolationMode.MouseState = MaterialSkin.MouseState.OUT;
             cmbInterpolationMode.Name = "cmbInterpolationMode";
-            cmbInterpolationMode.Size = new Size(175, 49);
+            cmbInterpolationMode.Size = new Size(155, 49);
             cmbInterpolationMode.StartIndex = 0;
             cmbInterpolationMode.TabIndex = 77;
             cmbInterpolationMode.UseAccent = false;
@@ -274,7 +294,7 @@
             cmbAnimDirection.Hint = "Direction";
             cmbAnimDirection.IntegralHeight = false;
             cmbAnimDirection.ItemHeight = 43;
-            cmbAnimDirection.Location = new Point(13, 71);
+            cmbAnimDirection.Location = new Point(18, 71);
             cmbAnimDirection.Margin = new Padding(4);
             cmbAnimDirection.MaxDropDownItems = 4;
             cmbAnimDirection.MouseState = MaterialSkin.MouseState.OUT;
@@ -359,7 +379,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(materialLabel26);
+            splitContainer1.Panel1.Controls.Add(lblTitle);
             splitContainer1.Panel1.Controls.Add(materialDivider1);
             splitContainer1.Panel1.Controls.Add(switchClickDecoration);
             // 
@@ -385,11 +405,11 @@
             // panel1
             // 
             panel1.Controls.Add(materialLabel2);
-            panel1.Controls.Add(groupBox2);
             panel1.Controls.Add(btnStopAnimation);
             panel1.Controls.Add(btnPreview);
-            panel1.Controls.Add(groupBox3);
             panel1.Controls.Add(materialCard1);
+            panel1.Controls.Add(groupBox2);
+            panel1.Controls.Add(groupBox3);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -451,9 +471,9 @@
         private MaterialSkin.Controls.MaterialSwitch switchClickDecoration;
         private MaterialSkin.Controls.MaterialButton btnStopAnimation;
         private MaterialSkin.Controls.MaterialButton btnPreview;
-        private MaterialSkin.Controls.MaterialSlider sldRadius;
+        private MaterialSkin.Controls.MaterialSlider sldRadiusMultiplier;
         private PictureBox pcbRipplePreview;
-        private MaterialSkin.Controls.MaterialLabel materialLabel26;
+        private MaterialSkin.Controls.MaterialLabel lblTitle;
         private GroupBox groupBox2;
         private MaterialSkin.Controls.MaterialComboBox cmbAnimDirection;
         private MaterialSkin.Controls.MaterialComboBox cmbInterpolationMode;
@@ -470,5 +490,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialButton btnColorPicker;
         private Button btnFillColor;
+        private MaterialSkin.Controls.MaterialSlider sldOpacityMultiplier;
     }
 }

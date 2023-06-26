@@ -5,7 +5,7 @@ namespace FriskyMouse.Drawing.Animation
 {
     public enum InterpolationType : uint
     {
-        [Description("Linear Easing"), ConstructableEnum(typeof(LinearEasing)), DefaultSpeed(25)]
+        [Description("Linear"), ConstructableEnum(typeof(LinearEasing)), DefaultSpeed(25)]
         Linear,
         [Description("Bounce In"), ConstructableEnum(typeof(BounceEaseIn)), DefaultSpeed(20)]
         BounceEaseIn,

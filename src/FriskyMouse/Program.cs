@@ -23,6 +23,7 @@ namespace FriskyMouse
             {
                 try
                 {
+                    AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
                     IsPortable = true;
                     SettingsManager.LoadSettings();
                     // To customize application configuration such as set high DPI settings or default font,
@@ -46,6 +47,12 @@ namespace FriskyMouse
                 // Send a message to the application's main window so that it gets shown to the user. 
                 NativeMethods.SendMessage((IntPtr)SpecialWindowHandles.HWND_BROADCAST, WM_SHOW_MAIN_WINDOW, IntPtr.Zero, IntPtr.Zero);
             }
-        }        
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs args)
+        {
+            Exception e = (Exception)args.ExceptionObject;
+            MessageBox.Show("Something went wrong: "+e.Message); 
+        }
     }
 }

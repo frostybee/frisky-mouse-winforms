@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            GraphicsPath graphicsPath2 = new GraphicsPath();
             GraphicsPath graphicsPath1 = new GraphicsPath();
+            GraphicsPath graphicsPath2 = new GraphicsPath();
             splitContainer1 = new SplitContainer();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
+            materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            materialSwitch1 = new MaterialSkin.Controls.MaterialSwitch();
             materialSpinner1 = new MaterialSkin.Controls.MaterialSpinner();
             grpOptions = new GroupBox();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -46,16 +48,14 @@
             cmboxOutlineStyle = new MaterialSkin.Controls.MaterialComboBox();
             btnResetSettings = new MaterialSkin.Controls.MaterialButton();
             sldRadius = new MaterialSkin.Controls.MaterialSlider();
-            materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            materialSwitch1 = new MaterialSkin.Controls.MaterialSwitch();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            materialCard2.SuspendLayout();
             grpOptions.SuspendLayout();
             materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pboxPreview).BeginInit();
-            materialCard2.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -91,12 +91,45 @@
             materialLabel26.TabIndex = 62;
             materialLabel26.Text = "About";
             // 
+            // materialCard2
+            // 
+            materialCard2.Controls.Add(materialSwitch1);
+            materialCard2.Depth = 0;
+            materialCard2.Elevation = 5;
+            materialCard2.LargeTitle = false;
+            materialCard2.Location = new Point(279, 433);
+            materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialCard2.Name = "materialCard2";
+            materialCard2.Padding = new Padding(5, 25, 5, 5);
+            graphicsPath1.FillMode = FillMode.Alternate;
+            materialCard2.ShadowBorder = graphicsPath1;
+            materialCard2.Size = new Size(258, 71);
+            materialCard2.TabIndex = 78;
+            materialCard2.Title = null;
+            // 
+            // materialSwitch1
+            // 
+            materialSwitch1.AutoSize = true;
+            materialSwitch1.Checked = true;
+            materialSwitch1.CheckState = CheckState.Checked;
+            materialSwitch1.Depth = 0;
+            materialSwitch1.Location = new Point(46, 19);
+            materialSwitch1.Margin = new Padding(0);
+            materialSwitch1.MouseLocation = new Point(-1, -1);
+            materialSwitch1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialSwitch1.Name = "materialSwitch1";
+            materialSwitch1.Ripple = true;
+            materialSwitch1.Size = new Size(143, 47);
+            materialSwitch1.TabIndex = 83;
+            materialSwitch1.Text = "Filled Circle  ";
+            materialSwitch1.UseVisualStyleBackColor = true;
+            // 
             // materialSpinner1
             // 
             materialSpinner1.Depth = 0;
-            materialSpinner1.Location = new Point(155, 429);
+            materialSpinner1.Location = new Point(142, 368);
             materialSpinner1.MaxValue = 100;
-            materialSpinner1.MinValue = 1;
+            materialSpinner1.MinValue = 7;
             materialSpinner1.MouseState = MaterialSkin.MouseState.HOVER;
             materialSpinner1.Name = "materialSpinner1";
             materialSpinner1.Size = new Size(395, 40);
@@ -314,39 +347,6 @@
             sldRadius.Value = 30;
             sldRadius.ValueSuffix = "px";
             // 
-            // materialCard2
-            // 
-            materialCard2.Controls.Add(materialSwitch1);
-            materialCard2.Depth = 0;
-            materialCard2.Elevation = 5;
-            materialCard2.LargeTitle = false;
-            materialCard2.Location = new Point(427, 499);
-            materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialCard2.Name = "materialCard2";
-            materialCard2.Padding = new Padding(5, 25, 5, 5);
-            graphicsPath1.FillMode = FillMode.Alternate;
-            materialCard2.ShadowBorder = graphicsPath1;
-            materialCard2.Size = new Size(258, 71);
-            materialCard2.TabIndex = 78;
-            materialCard2.Title = null;
-            // 
-            // materialSwitch1
-            // 
-            materialSwitch1.AutoSize = true;
-            materialSwitch1.Checked = true;
-            materialSwitch1.CheckState = CheckState.Checked;
-            materialSwitch1.Depth = 0;
-            materialSwitch1.Location = new Point(110, 10);
-            materialSwitch1.Margin = new Padding(0);
-            materialSwitch1.MouseLocation = new Point(-1, -1);
-            materialSwitch1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialSwitch1.Name = "materialSwitch1";
-            materialSwitch1.Ripple = true;
-            materialSwitch1.Size = new Size(143, 47);
-            materialSwitch1.TabIndex = 83;
-            materialSwitch1.Text = "Filled Circle  ";
-            materialSwitch1.UseVisualStyleBackColor = true;
-            // 
             // AboutControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -360,12 +360,12 @@
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            materialCard2.ResumeLayout(false);
+            materialCard2.PerformLayout();
             grpOptions.ResumeLayout(false);
             grpOptions.PerformLayout();
             materialCard1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pboxPreview).EndInit();
-            materialCard2.ResumeLayout(false);
-            materialCard2.PerformLayout();
             ResumeLayout(false);
         }
 

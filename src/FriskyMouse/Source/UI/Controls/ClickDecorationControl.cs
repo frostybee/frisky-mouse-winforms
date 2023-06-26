@@ -44,11 +44,14 @@ namespace FriskyMouse.UI.Controls
             cmbProfilesList.SelectedIndexChanged += CmbProfilesList_SelectedIndexChanged;
             cmbAnimDirection.SelectedIndexChanged += CmbAnimDirection_SelectedIndexChanged;
             cmbInterpolationMode.SelectedIndexChanged += CmbInterpolationMode_SelectedIndexChanged;
-            switchColorTransition.CheckedChanged += SwitchColorTransition_CheckedChanged;
             sliderAnimSpeed.onValueChanged += SliderAnimSpeed_onValueChanged;
-            switchClickDecoration.CheckedChanged += SwitchClickDecoration_CheckedChanged;         
+            sldRadiusMultiplier.onValueChanged += SldRadiusMultiplier_onValueChanged;
+            sldOpacityMultiplier.onValueChanged += SwitchOpacityMultiplier_onValueChanged;
+            switchClickDecoration.CheckedChanged += SwitchClickDecoration_CheckedChanged;
+            switchColorTransition.CheckedChanged += SwitchColorTransition_CheckedChanged;
             btnColorPicker.Click += BtnColorPicker_Click;
         }
+
 
         internal void UpdateControlsFromSettings()
         {
@@ -58,7 +61,9 @@ namespace FriskyMouse.UI.Controls
             sliderAnimSpeed.Value = (int)(_settings.AnimationSpeed * 1000);
             switchColorTransition.Checked = _settings.CanFadeColor;
             switchClickDecoration.Checked = _settings.IsEnabled;
-            btnFillColor.BackColor = _settings.FillColor;            
+            btnFillColor.BackColor = _settings.FillColor;
+            sldRadiusMultiplier.Value = _settings.RadiusMultiplier;
+            sldOpacityMultiplier.Value = _settings.OpacityMultiplier;
             AppHelpers.UpdateSwitchText(switchClickDecoration);
             //--> 
             LoadRipplesProfile();
@@ -104,7 +109,7 @@ namespace FriskyMouse.UI.Controls
             _currentProfile?.UpdateRipplesStyle(_settings);
             StartAnimation();
         }
-        
+
         protected override void OnLoad(EventArgs e)
         {
             PopulateControls();
@@ -201,6 +206,20 @@ namespace FriskyMouse.UI.Controls
             //sliderAnimSpeed.Value = speedAttribute.Speed;
             StartAnimation();
         }
+        private void SldRadiusMultiplier_onValueChanged(object sender, int newValue)
+        {
+            if (newValue < 5)
+            {
+                sldRadiusMultiplier.Value = 5;
+                newValue = 5;
+            }
+            _settings.RadiusMultiplier = newValue;
+        }
+        private void SwitchOpacityMultiplier_onValueChanged(object sender, int newValue)
+        {
+            _settings.OpacityMultiplier = newValue;
+        }
+
         private void SliderAnimSpeed_onValueChanged(object sender, int newValue)
         {
             if (newValue < 10)

@@ -74,17 +74,12 @@ namespace MaterialSkin.Controls
             Width = 80;
             MinValue = 0;
             Height = IndicatorSize + 10;
-
             Value = 50;
-
             IndicatorRectangle = new Rectangle(0, 10, IndicatorSize, IndicatorSize);
             IndicatorRectangleNormal = new Rectangle();
             IndicatorRectanglePressed = new Rectangle();
-
             EnabledChanged += MaterialSlider_EnabledChanged;
-
             DoubleBuffered = true;
-
         }
 
         void MaterialSlider_EnabledChanged(object sender, EventArgs e)
@@ -214,6 +209,7 @@ namespace MaterialSkin.Controls
 
             if (Enabled)
             {
+                SkinManager.ColorScheme.AccentPen.Width = 4;
                 g.DrawLine(SkinManager.ColorScheme.AccentPen, IndicatorSize / 2, Height / 2 + (Height - IndicatorSize) / 2, IndicatorRectangleNormal.X, Height / 2 + (Height - IndicatorSize) / 2);
 
                 if (MousePressed)
@@ -268,7 +264,7 @@ namespace MaterialSkin.Controls
             g.DrawString(MinValue.ToString(), font, _accentBrush, new PointF(0, 0));
             g.DrawString(MaxValue.ToString(), font, _accentBrush,
                 new PointF(Width - g.MeasureString(MaxValue.ToString(), font).Width, 0f));
-            g.DrawString(Value.ToString(), font, _accentBrush, new PointF(Width / 2 - g.MeasureString(Value.ToString(),
+            g.DrawString(Value.ToString()+"px", font, _accentBrush, new PointF(Width / 2 - g.MeasureString(Value.ToString(),
                 font).Width / 2, 0f));
             e.Graphics.DrawImage((Image)bmp.Clone(), 0, 0);
         }

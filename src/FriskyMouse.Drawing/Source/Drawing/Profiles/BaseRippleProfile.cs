@@ -24,15 +24,15 @@ namespace FriskyMouse.Drawing.Ripples
         /// <param name="progress">The interpolated value that indicates the progress of the currently running animation. </param>
         public void RenderRipples(Graphics _graphics, RippleProfileOptions options, double progress)
         {
-            // We adjust the ripple properties every animation frame. 
+            // We adjust the ripple properties according to the provided settings.  
             _ripples.ForEach(ripple =>
             {
                 if (options.CanFadeColor)
                 {
                     // We fade the color of the ripple based on the current animation's progress value.
-                    ripple.AdjustColorOpacity(progress);
-                }
-                ripple.ExpandRadius(progress);
+                    ripple.AdjustColorOpacity(progress, options.OpacityMultiplier);
+                }                
+                ripple.ExpandRadius(progress, options.RadiusMultiplier);
                 ripple.Draw(_graphics);
             });
         }

@@ -13,7 +13,6 @@ namespace FriskyMouse.Drawing.Ripples
         public bool IsStyleable { get; set; } = false;
         public float RadiusMultiplier { get; set; } = 2.2f;
         public int InitialRadius { get; set; } = 10;
-        public int Opacity { get; set; }
         public int OutlineWidth { get; set; } = 4;
         public Rectangle Bounds { get; set; }
         public SolidBrush FillBrush { get; set; }
@@ -92,11 +91,11 @@ namespace FriskyMouse.Drawing.Ripples
                 }
             }
         }*/
-        internal void AdjustColorOpacity(double animationProgress)
+        internal void AdjustColorOpacity(double animationProgress, int opacityMultiplier)
         {
             int opacity = 1;
             // Opacity percentage: 255 * 75 / 100
-            float percentage = (float)Math.Round(animationProgress * 30, 2);
+            float percentage = (float)Math.Round(animationProgress * opacityMultiplier, 2);
             opacity = Math.Max(1, Math.Min(255 * (int)percentage / 100, 255));
             if (IsFade)
             {
@@ -113,25 +112,20 @@ namespace FriskyMouse.Drawing.Ripples
             }
         }
 
-        internal void ExpandRadius(double progress)
+        internal void ExpandRadius(double progress, int multiplier)
         {
             if (IsExpandable)
             {
-                // TODO: Take into consideration the MaxRadius.
                 // TODO: Clamp the radius. 
-                _expandedRadius = Math.Min(Math.Max(1, (int)(progress * CalculateNewRadius())), 200 / 2);
-                //int newRadius = (int)();
+                _expandedRadius = Math.Min(Math.Max(1, (int)(progress * CalculateNewRadius(multiplier))), 200 / 2);                
                 // Create a new bounding rectangle based on the newly expanded radius. 
                 Bounds = DrawingHelper.CreateRectangle(200, 200, _expandedRadius);
             }
         }
 
-        internal double CalculateNewRadius()
+        private double CalculateNewRadius(int multiplier)
         {
-            return InitialRadius * RadiusMultiplier;
-            // TODO: parametrize the last value: make it a slider that ranges
-            // between 1 and 2. 
-            //return InitialRadius * RadiusMultiplier * 2;
+            return InitialRadius * RadiusMultiplier * (multiplier / 10d);            
         }
 
         /* internal void ResetColorOpacity(byte initialOpacity)

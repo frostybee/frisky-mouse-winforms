@@ -245,7 +245,7 @@ namespace MaterialSkin.Controls
             if (e.Button == System.Windows.Forms.MouseButtons.Left && e.Y > _indicatorRectanglePressed.Top && e.Y < _indicatorRectanglePressed.Bottom)
             {
                 _mousePressed = true;
-                UpdateValue(e);
+                //UpdateValue(e);
             }
         }
 
@@ -292,34 +292,34 @@ namespace MaterialSkin.Controls
 
         private void UpdateValue(MouseEventArgs e)
         {
-            int v = 0;
+            int currentValue = 0;
             if (e.X >= _sliderRectangle.X + (_thumbRadius / 2) && e.X <= _sliderRectangle.Right - _thumbRadius / 2)
             {
                 _mouseX = e.X - _thumbRadius / 2;
                 double ValuePerPx = ((double)(RangeMax - RangeMin)) / (_sliderRectangle.Width - _thumbRadius);
-                v = (int)(ValuePerPx * (_mouseX - _sliderRectangle.X));
-                //if (_valueMax!=0 && v > _valueMax) v = _valueMax;
+                currentValue = (int)(ValuePerPx * (_mouseX - _sliderRectangle.X));
+                //if (_valueMax!=0 && currentValue > _valueMax) currentValue = _valueMax;
             }
             else if (e.X < _sliderRectangle.X)// + (_thumbRadius / 2))
             {
                 _mouseX = _sliderRectangle.X;
-                v = _rangeMin;
+                currentValue = _rangeMin;
             }
             else if (e.X > _sliderRectangle.Right - _thumbRadius)// / 2)
             {
                 _mouseX = _sliderRectangle.Right - _thumbRadius;
-                v = _rangeMax;
+                currentValue = _rangeMax;
             }
 
-            if (_valueMax != 0 && v > _valueMax)
+            if (_valueMax != 0 && currentValue > _valueMax)
             {
                 Value = _valueMax;
             }
             else
             {
-                if (v != _value)
+                if (currentValue != _value)
                 {
-                    _value = v;
+                    _value = currentValue;
                     onValueChanged?.Invoke(this, _value);
                 }
                 RecalcutlateIndicator();

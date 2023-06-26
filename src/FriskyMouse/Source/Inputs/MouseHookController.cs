@@ -41,14 +41,14 @@ namespace FriskyMouse.Core
                     case MouseButtonTypes.LeftButtonUp:
                         // Fix the issue when the highlighter is no longer top most.
                         // TODO: lock the involved objects. This is causing an InvalidOperationException.
-                        Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));
+                        //Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));
                         break;
                     case MouseButtonTypes.MouseMove:
                         _highlighter?.MoveSpotlight(hookStruct.pt);                        
                         break;
                     case MouseButtonTypes.RightButtonUp:
                         // Fix the issue when the highlighter is no longer top most.                        
-                        Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));
+                        //Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront(hookStruct.pt));
                         //Task.Delay(200).ContinueWith(t => _rightClickDecorator?.SetTopMost(hookStruct.pt.X, hookStruct.pt.Y));
                         //_rightClickDecorator.SetTopMost(hookStruct.pt.X, hookStruct.pt.Y);
                         _rightClickDecorator.ShowRipplesAt(hookStruct.pt.X, hookStruct.pt.Y);
