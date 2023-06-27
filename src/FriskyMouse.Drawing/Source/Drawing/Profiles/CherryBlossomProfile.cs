@@ -16,9 +16,9 @@ namespace FriskyMouse.Drawing.Ripples
 
         public void CreateProfileEntries()
         {
-            _innerBrush = new SolidBrush(Color.DarkSalmon);
+            _innerBrush = new SolidBrush(Color.Crimson);
             _outerBrush = new SolidBrush(Color.Crimson);
-            _outlinePen = new Pen(Color.DarkRed, 4);
+            _outlinePen = new Pen(Color.DeepPink, 6);
 
             //-- 2) Add the outline ripple.
             AddRipple(
@@ -27,7 +27,7 @@ namespace FriskyMouse.Drawing.Ripples
                     IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, 8),
                     ShapeType = ShapeType.Ellipse,
-                    InitialRadius = BaseRadius +1,
+                    InitialRadius = BaseRadius + 1,
                     RadiusMultiplier = 3,
                     OutlinePen = _outlinePen,
                     IsFilled = false,
@@ -39,13 +39,13 @@ namespace FriskyMouse.Drawing.Ripples
                     IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius),
                     ShapeType = ShapeType.Ellipse,
-                    InitialRadius = BaseRadius+1 ,
+                    InitialRadius = BaseRadius +1,
                     RadiusMultiplier = 3,
                     FillBrush = _outerBrush,
                     OutlinePen = _outlinePen,
                     IsFilled = true,
                     IsStyleable = true
-                });            
+                });
             //-- 3) Inner ripple that must drawn last.
             AddRipple(
                 new RippleEntry()

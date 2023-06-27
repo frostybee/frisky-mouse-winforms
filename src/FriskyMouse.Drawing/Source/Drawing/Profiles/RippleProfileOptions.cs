@@ -12,11 +12,9 @@ namespace FriskyMouse.Drawing.Ripples
 
         #region Visual Appearance
         public bool CanFadeColor { get; set; } = false;
-        public int InitialOpacity { get; set; } = 100;
-        public int MaxRadius { get; set; } = 200;
-        public int RadiusMultiplier { get; set; } = 6;
-        public Color FillColor { get; set; } = Color.Yellow;
-        public Color OutlineColor { get; set; } = Color.Red;
+        public int InitialOpacity { get; set; } = 100;        
+        public int RadiusMultiplier { get; set; } = 10;
+        public Color FillColor { get; set; } = Color.Yellow;        
         public int OpacityMultiplier { get; set; } = 40;
         #endregion
         public bool IsEnabled { get; set; } = true;

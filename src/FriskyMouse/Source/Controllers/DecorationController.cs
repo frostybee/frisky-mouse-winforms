@@ -61,8 +61,7 @@ namespace FriskyMouse.Core
         internal void ApplyHighlighterSettings()
         {
             // Save the newly edited settings.
-            SettingsManager.SaveSettings();
-
+            //SettingsManager.SaveSettings();
             if (_settings.HighlighterOptions.Enabled)
             {                
                 EnableHighlighter();

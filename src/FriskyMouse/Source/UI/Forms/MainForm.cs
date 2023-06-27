@@ -91,7 +91,7 @@ namespace FriskyMouse.UI
             _decorationController.MainForm = this;
             _decorationController.BootstrapApp();
             ctrlHighlighter.UpdateControlsFromSettings();
-            ctrClickDecoration.UpdateControlsFromSettings("Click Decoration", DecorationController.Instance.ClickDecorator, SettingsManager.Settings.LeftClickOptions);
+            ctrClickDecoration.UpdateControlsFromSettings("Left Click Decoration", DecorationController.Instance.ClickDecorator, SettingsManager.Settings.LeftClickOptions);
             ctrLeftClickDecoration.UpdateControlsFromSettings("Right Click Decoration", DecorationController.Instance.RightClickDecorator, SettingsManager.Settings.RightClickOptions);
         }
 

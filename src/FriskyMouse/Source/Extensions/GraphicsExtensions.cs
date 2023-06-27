@@ -40,7 +40,7 @@ namespace FriskyMouse.Extensions
             Rectangle outlineRect = DrawingHelper.CreateRectangle(options.Width, options.Height, options.Radius + 2);
             //using Pen pen = new Pen(Color.Red, options.OutlineWidth);
             using Pen pen = new Pen(options.OutlineColor, options.OutlineWidth);
-            pen.DashStyle = options.OutlineStyle;
+            pen.DashStyle = (DashStyle)options.OutlineStyle;
             graphics.DrawEllipse(pen, outlineRect);
         }
 

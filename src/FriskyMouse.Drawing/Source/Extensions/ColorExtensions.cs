@@ -2,13 +2,13 @@
 {
     internal static class ColorExtensions
     {
-        public static Color ReduceOpacity(this Color inColor, int opacity)
+        public static Color ReduceOpacity(this Color color, int opacity)
         {
-            return Color.FromArgb(255 - Math.Min(Math.Max(0,opacity), 255), inColor);
+            return Color.FromArgb(255 - Math.Clamp(opacity,1, 255), color);
         }
-        public static Color WithOpacity(this Color inColor, int opacity)
+        public static Color WithOpacity(this Color color, int opacity)
         {
-            return Color.FromArgb(Math.Min(Math.Max(1, opacity), 255), inColor);
+            return Color.FromArgb(Math.Clamp(opacity, 1, 255), color);
         }       
     }
 }

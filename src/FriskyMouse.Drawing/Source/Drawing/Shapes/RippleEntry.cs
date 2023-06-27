@@ -1,9 +1,12 @@
 ﻿using FriskyMouse.Drawing.Extensions;
 using FriskyMouse.Drawing.Helpers;
-using System.Diagnostics;
 
 namespace FriskyMouse.Drawing.Ripples
 {
+    /// <summary>
+    /// Represents a ripple entry having various shapes.
+    /// The ripple can be either fixed or expandable. 
+    /// </summary>
     public class RippleEntry
     {
         public ShapeType ShapeType { get; set; } = ShapeType.Ellipse;
@@ -12,18 +15,17 @@ namespace FriskyMouse.Drawing.Ripples
         public bool IsFade { get; set; } = true;
         public bool IsStyleable { get; set; } = false;
         public float RadiusMultiplier { get; set; } = 2.2f;
-        public int InitialRadius { get; set; } = 10;
-        public int OutlineWidth { get; set; } = 4;
+        public int InitialRadius { get; set; } = 10;        
         public Rectangle Bounds { get; set; }
         public SolidBrush FillBrush { get; set; }
         public Pen OutlinePen { get; set; }
         public PointF[] PolyPoints { get; set; }
-        public PolygonType PolygonType { get; set; }
-        public double ExpandedRadius { get { return InitialRadius * RadiusMultiplier; } }
+        public PolygonType PolygonType { get; set; }        
         private int _expandedRadius = 1;
         private Color _initialFillColor = Color.Red;
         private Color _initialOutlineColor = Color.Red;
-
+        private const int MAX_RADIUS = 200;
+        private const int MAX_WIDTH = 200;        
 
         /// <summary>
         /// Draws a ripple entry.
@@ -50,8 +52,8 @@ namespace FriskyMouse.Drawing.Ripples
                     graphics.DrawRectangle(OutlinePen, Bounds);
                     break;
                 case ShapeType.Polygon:
-                    var x = 200 / 2;
-                    var y = 200 / 2;
+                    var x = MAX_RADIUS / 2;
+                    var y = MAX_RADIUS / 2;
                     switch (PolygonType)
                     {
                         case PolygonType.Diamond:
@@ -61,7 +63,7 @@ namespace FriskyMouse.Drawing.Ripples
                             PolyPoints = DrawingHelper.CreateHexagon(x, y, _expandedRadius);
                             break;
                         case PolygonType.Star:
-                            PolyPoints = DrawingHelper.CreateStarShape(200, _expandedRadius);
+                            PolyPoints = DrawingHelper.CreateStarShape(MAX_WIDTH, _expandedRadius);
                             break;
                         default:
                             break;
@@ -71,42 +73,21 @@ namespace FriskyMouse.Drawing.Ripples
             }
         }
 
-        /*internal void AdjustColorOpacity(double animationProgress)
-        {
-            //return (255 - Math.Min(Math.Max(0, (int)animationProgress* 150), 255));
-            int opacity = 1;
-            // Opacity percentage: 255 * 75 / 100
-            float percentage = (float)Math.Round(animationProgress * 80, 2);
-            opacity = Math.Max(1, Math.Min(255 * (int)percentage / 100, 255));
-            if (IsFade)
-            {
-                if (IsFilled)
-                {
-                    FillBrush.Color = FillBrush.Color.ReduceOpacity(opacity);
-                    //FillBrush.Color = DrawingHelper.RandomColor().ReduceOpacity(opacity);
-                }
-                else
-                {
-                    OutlinePen.Color = OutlinePen.Color.ReduceOpacity(opacity);
-                }
-            }
-        }*/
+
         internal void AdjustColorOpacity(double animationProgress, int opacityMultiplier)
         {
-            int opacity = 1;
+            int opacity = 255;
             // Opacity percentage: 255 * 75 / 100
             float percentage = (float)Math.Round(animationProgress * opacityMultiplier, 2);
-            opacity = Math.Max(1, Math.Min(255 * (int)percentage / 100, 255));
+            opacity = Math.Clamp(255 * (int)percentage / 100, 1, 255);
             if (IsFade)
             {
                 if (IsFilled)
                 {
                     FillBrush.Color = _initialFillColor.ReduceOpacity(opacity);
-                    //FillBrush.Color = DrawingHelper.RandomColor().ReduceOpacity(opacity);
                 }
                 else
                 {
-                    Debug.WriteLine("opacity: " + opacity);
                     OutlinePen.Color = _initialOutlineColor.ReduceOpacity(opacity);
                 }
             }
@@ -116,33 +97,18 @@ namespace FriskyMouse.Drawing.Ripples
         {
             if (IsExpandable)
             {
-                // TODO: Clamp the radius. 
-                _expandedRadius = Math.Min(Math.Max(1, (int)(progress * CalculateNewRadius(multiplier))), 200 / 2);                
+                int radius = (int)(progress * CalculateNewRadius(multiplier));
+                _expandedRadius = Math.Clamp(radius, 1, MAX_RADIUS / 2);
                 // Create a new bounding rectangle based on the newly expanded radius. 
-                Bounds = DrawingHelper.CreateRectangle(200, 200, _expandedRadius);
+                Bounds = DrawingHelper.CreateRectangle(MAX_RADIUS, MAX_RADIUS, _expandedRadius);
             }
         }
 
         private double CalculateNewRadius(int multiplier)
         {
-            return InitialRadius * RadiusMultiplier * (multiplier / 10d);            
+            return InitialRadius * RadiusMultiplier * (multiplier / 10d);
         }
 
-        /* internal void ResetColorOpacity(byte initialOpacity)
-         {
-             if (IsFade)
-             {
-                 if (IsFilled)
-                 {
-                     FillBrush.Color = FillBrush.Color.WithOpacity(initialOpacity);
-                     //FillBrush.Color = DrawingHelper.RandomColor().ReduceOpacity(opacity);
-                 }
-                 else
-                 {
-                     OutlinePen.Color = OutlinePen.Color.WithOpacity(initialOpacity);
-                 }
-             }
-         }*/
         internal void ResetColorOpacity(byte initialOpacity)
         {
             if (IsFade)
@@ -171,7 +137,6 @@ namespace FriskyMouse.Drawing.Ripples
                 }
                 else
                 {
-                    //OutlinePen.Color = OutlinePen.Color.WithOpacity(initialOpacity);
                     OutlinePen.Color = Color.FromArgb(OutlinePen.Color.A, options.FillColor);
                 }
             }

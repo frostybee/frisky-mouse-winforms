@@ -165,7 +165,7 @@
             sldOutlineWidth.Depth = 0;
             sldOutlineWidth.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             sldOutlineWidth.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            sldOutlineWidth.Location = new Point(18, 132);
+            sldOutlineWidth.Location = new Point(18, 81);
             sldOutlineWidth.Margin = new Padding(2, 3, 2, 3);
             sldOutlineWidth.MouseState = MaterialSkin.MouseState.HOVER;
             sldOutlineWidth.Name = "sldOutlineWidth";
@@ -225,8 +225,7 @@
             cmboxOutlineStyle.Hint = "Outline style";
             cmboxOutlineStyle.IntegralHeight = false;
             cmboxOutlineStyle.ItemHeight = 43;
-            cmboxOutlineStyle.Items.AddRange(new object[] { "Solid", "Dash", "Dot", "Dash Dot", "Dash Dot Dot" });
-            cmboxOutlineStyle.Location = new Point(18, 83);
+            cmboxOutlineStyle.Location = new Point(18, 122);
             cmboxOutlineStyle.Margin = new Padding(4);
             cmboxOutlineStyle.MaxDropDownItems = 4;
             cmboxOutlineStyle.MouseState = MaterialSkin.MouseState.OUT;
@@ -279,7 +278,7 @@
             materialLabel26.Depth = 0;
             materialLabel26.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
             materialLabel26.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            materialLabel26.Location = new Point(15, 4);
+            materialLabel26.Location = new Point(23, 4);
             materialLabel26.Margin = new Padding(4, 0, 4, 0);
             materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel26.Name = "materialLabel26";

@@ -3,6 +3,8 @@ using FriskyMouse.Drawing.Helpers;
 using FriskyMouse.Helpers;
 using FriskyMouse.Settings;
 using FriskyMouse.Extensions;
+using FriskyMouse.Drawing.Ripples;
+using FriskyMouse.Drawing.Extensions;
 
 namespace FriskyMouse.UI.Controls
 {
@@ -10,13 +12,6 @@ namespace FriskyMouse.UI.Controls
     {
         private readonly HighlighterOptions _settings;
         private readonly DecorationController _decorationManager;
-        private readonly Dictionary<String, DashStyle> _outlineStyles = new Dictionary<String, DashStyle>() {
-            { "Solid", DashStyle.Solid},
-            { "Dash", DashStyle.Dash},
-            { "Dot", DashStyle.Dot},
-            { "Dash Dot", DashStyle.DashDot},
-            { "Dash Dot Dot", DashStyle.DashDotDot},
-        };
 
         public HighlighterControl()
         {
@@ -63,6 +58,8 @@ namespace FriskyMouse.UI.Controls
             sldOutlineWidth.Value = _settings.OutlineWidth;
             btnOutlineColorPicker.BackColor = _settings.OutlineColor;
             switchShowOutline.Checked = _settings.IsOutlined;
+            cmboxOutlineStyle.PopulateFromEnum<OutlineStyle>();
+            cmboxOutlineStyle.SelectedIndex = cmboxOutlineStyle.GetItemIndexByEumValue(_settings.OutlineStyle);
             //-- Shadow
             switchShadow.Checked = _settings.HasShadow;
             sldShadowDepth.Value = _settings.ShadowDepth;
@@ -102,11 +99,7 @@ namespace FriskyMouse.UI.Controls
 
         private void OutlineStyle_SelectedValueChanged(object sender, EventArgs e)
         {
-            // TODO: move to a helper method in a separate helper class.
-            // Convert the selected style from text to it's corresponding enum value.
-            // FIXME: the list should be saved in a dictionary.            
-            var selectedStyle = DashStyle.Solid;
-            _outlineStyles.TryGetValue(cmboxOutlineStyle.SelectedItem.ToString(), out selectedStyle);
+            OutlineStyle selectedStyle = cmboxOutlineStyle.GetSelectedEnumValue<OutlineStyle>();
             _settings.OutlineStyle = selectedStyle;
             UpdateHighlighterPreview();
         }
@@ -219,7 +212,6 @@ namespace FriskyMouse.UI.Controls
             btnSpotlightColor.BackColor = Color.Yellow;
             _settings.FillColor = Color.Yellow;
             _settings.OutlineColor = Color.Red;
-            _settings.OutlineStyle = DashStyle.Solid;
             _settings.OutlineWidth = 3;
             _settings.IsOutlined = true;
             _settings.ShadowDepth = 4;

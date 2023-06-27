@@ -51,6 +51,7 @@ namespace FriskyMouse
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs args)
         {
+            SettingsManager.SaveSettings();
             Exception e = (Exception)args.ExceptionObject;
             MessageBox.Show("Something went wrong: "+e.Message); 
         }

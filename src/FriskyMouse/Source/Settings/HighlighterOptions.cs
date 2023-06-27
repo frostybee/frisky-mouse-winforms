@@ -1,4 +1,6 @@
-﻿namespace FriskyMouse.Core
+﻿using FriskyMouse.Helpers;
+
+namespace FriskyMouse.Core
 {
     public class HighlighterOptions
     {
@@ -20,7 +22,7 @@
         public bool IsOutlined { get; set; } = false;
         public Color OutlineColor { get; set; } = Color.Red;        
         public int OutlineWidth { get; set; } = 2;
-        public DashStyle OutlineStyle { get; set; } = DashStyle.Solid;
+        public OutlineStyle OutlineStyle { get; set; } = OutlineStyle.Solid;
         public bool HasShadow { get; set; } = false;
         public int ShadowDepth { get; set; } = 5;
         public Color ShadowColor { get; set; } = Color.CornflowerBlue;

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            GraphicsPath graphicsPath2 = new GraphicsPath();
+            GraphicsPath graphicsPath1 = new GraphicsPath();
             lblControlTitle = new MaterialSkin.Controls.MaterialLabel();
             groupBox3 = new GroupBox();
             materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
@@ -89,7 +89,7 @@
             groupBox3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox3.Location = new Point(23, 13);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(385, 229);
+            groupBox3.Size = new Size(400, 229);
             groupBox3.TabIndex = 78;
             groupBox3.TabStop = false;
             // 
@@ -203,13 +203,13 @@
             sldRadiusMultiplier.Location = new Point(18, 94);
             sldRadiusMultiplier.MouseState = MaterialSkin.MouseState.HOVER;
             sldRadiusMultiplier.Name = "sldRadiusMultiplier";
-            sldRadiusMultiplier.RangeMax = 20;
+            sldRadiusMultiplier.RangeMax = 25;
             sldRadiusMultiplier.RangeMin = 1;
             sldRadiusMultiplier.Size = new Size(336, 40);
             sldRadiusMultiplier.TabIndex = 5;
             sldRadiusMultiplier.Text = "Radius";
             sldRadiusMultiplier.Value = 1;
-            sldRadiusMultiplier.ValueMax = 20;
+            sldRadiusMultiplier.ValueMax = 25;
             sldRadiusMultiplier.ValueSuffix = "%";
             // 
             // groupBox2
@@ -221,7 +221,7 @@
             groupBox2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.Location = new Point(23, 253);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(385, 132);
+            groupBox2.Size = new Size(400, 132);
             groupBox2.TabIndex = 75;
             groupBox2.TabStop = false;
             // 
@@ -274,7 +274,7 @@
             cmbInterpolationMode.MaxDropDownItems = 4;
             cmbInterpolationMode.MouseState = MaterialSkin.MouseState.OUT;
             cmbInterpolationMode.Name = "cmbInterpolationMode";
-            cmbInterpolationMode.Size = new Size(155, 49);
+            cmbInterpolationMode.Size = new Size(172, 49);
             cmbInterpolationMode.StartIndex = 0;
             cmbInterpolationMode.TabIndex = 77;
             cmbInterpolationMode.UseAccent = false;
@@ -364,9 +364,9 @@
             // pcbRipplePreview
             // 
             pcbRipplePreview.BackColor = Color.White;
-            pcbRipplePreview.Location = new Point(8, 10);
+            pcbRipplePreview.Location = new Point(8, 9);
             pcbRipplePreview.Name = "pcbRipplePreview";
-            pcbRipplePreview.Size = new Size(173, 218);
+            pcbRipplePreview.Size = new Size(204, 218);
             pcbRipplePreview.TabIndex = 0;
             pcbRipplePreview.TabStop = false;
             // 
@@ -421,7 +421,7 @@
             materialLabel2.AutoSize = true;
             materialLabel2.Depth = 0;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(459, 20);
+            materialLabel2.Location = new Point(439, 13);
             materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
             materialLabel2.Size = new Size(56, 19);
@@ -434,13 +434,13 @@
             materialCard1.Depth = 0;
             materialCard1.Elevation = 5;
             materialCard1.LargeTitle = false;
-            materialCard1.Location = new Point(459, 47);
+            materialCard1.Location = new Point(433, 35);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(5, 25, 5, 5);
-            graphicsPath2.FillMode = FillMode.Alternate;
-            materialCard1.ShadowBorder = graphicsPath2;
-            materialCard1.Size = new Size(194, 236);
+            graphicsPath1.FillMode = FillMode.Alternate;
+            materialCard1.ShadowBorder = graphicsPath1;
+            materialCard1.Size = new Size(220, 236);
             materialCard1.TabIndex = 79;
             materialCard1.Title = null;
             // 
