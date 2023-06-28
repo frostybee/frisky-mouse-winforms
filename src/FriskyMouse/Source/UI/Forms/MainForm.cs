@@ -8,7 +8,7 @@ namespace FriskyMouse.UI
     public partial class MainForm : MaterialForm
     {
         private readonly MaterialSkinManager _materialSkinManager;
-        private readonly DecorationController _decorationController;
+        private readonly DecorationManager _decorationController;
 
         public MainForm()
         {
@@ -18,7 +18,7 @@ namespace FriskyMouse.UI
             this.AutoScaleDimensions = new SizeF(96f, 96f);
             DoubleBuffered = true;
             // Initialize the global managers.
-            _decorationController = DecorationController.Instance;
+            _decorationController = DecorationManager.Instance;
             _materialSkinManager = MaterialSkinManager.Instance;
             InitializeControls();
         }
@@ -31,13 +31,13 @@ namespace FriskyMouse.UI
             mainTabControl.SelectedIndex = 1;
             // Clean up resources on application exit.
             Application.ApplicationExit += Application_ApplicationExit;
-            this.Icon = Properties.Resources.Martin_Berube_Animal_Bee;
+            this.Icon = Properties.Resources.bee_icon;
 
             // Handle minimizing main application's window to the system tray.
             this.Resize += MainForm_Resize;
 
             appNotifyIcon.DoubleClick += AppNotifyIcon_DoubleClick;
-            appNotifyIcon.Icon = Properties.Resources.Martin_Berube_Animal_Bee;
+            appNotifyIcon.Icon = Properties.Resources.bee_icon;
             appNotifyIcon.ContextMenuStrip = trayContextMenu;
             //-- Set up the form closing/loading events. They are required for ensuring that 
             // the mouse hooks is properly installed/uninstalled.
@@ -91,8 +91,10 @@ namespace FriskyMouse.UI
             _decorationController.MainForm = this;
             _decorationController.BootstrapApp();
             ctrlHighlighter.UpdateControlsFromSettings();
-            ctrClickDecoration.UpdateControlsFromSettings("Left Click Decoration", DecorationController.Instance.ClickDecorator, SettingsManager.Settings.LeftClickOptions);
-            ctrLeftClickDecoration.UpdateControlsFromSettings("Right Click Decoration", DecorationController.Instance.RightClickDecorator, SettingsManager.Settings.RightClickOptions);
+            ctrClickDecoration.UpdateControlsFromSettings("Left Click Decoration", DecorationManager.Instance.ClickDecorator, SettingsManager.Settings.LeftClickOptions);
+            ctrLeftClickDecoration.UpdateControlsFromSettings("Right Click Decoration", DecorationManager.Instance.RightClickDecorator, SettingsManager.Settings.RightClickOptions);
+            ctrlAppSettings.UpdateControlsFromSettings();
+                    
         }
 
         /// <summary>

@@ -30,7 +30,10 @@ namespace FriskyMouse.Core
         private readonly ValueAnimator _animationManager;
         private BaseRippleProfile _currentRipplesProfile;
         private readonly RippleProfileOptions _settings;
-        
+        public delegate void AnimationCompletedEventHandler();
+        public event AnimationCompletedEventHandler AnimationCompleted;
+
+
         private bool disposedValue;
         public RippleProfileType RippleType { get; set; }
 
@@ -89,9 +92,10 @@ namespace FriskyMouse.Core
         private void RipplesAnimation_Finished(object sender)
         {
             // Clear the _canvas that was previously drawn onto the _layeredWindow window.
-            _graphics.Clear(Color.Transparent);
-            _layeredWindow.Hide();
-            _layeredWindow.SetBitmap(_blankCanvas, 0);            
+            _graphics?.Clear(Color.Transparent);
+            _layeredWindow?.Hide();
+            _layeredWindow?.SetBitmap(_blankCanvas, 0);
+            //AnimationCompleted?.Invoke();
         }
 
         internal void ShowRipplesAt(int x, int y)

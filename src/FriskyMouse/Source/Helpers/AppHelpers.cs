@@ -1,6 +1,5 @@
 ﻿using FriskyMouse.NativeApi;
 using MaterialSkin.Controls;
-using FriskyMouse.Core;
 using FriskyMouse.Extensions;
 
 namespace FriskyMouse.Helpers
@@ -27,7 +26,7 @@ namespace FriskyMouse.Helpers
 
         public static string GetApplicationVersion(bool includeRevision = false)
         {
-            Version version = Version.Parse(Application.ProductVersion);
+            Version version = typeof(AppHelpers).Assembly.GetName().Version; 
             string result = $"{version.Major}.{version.Minor}.{version.Build}";
             if (includeRevision)
             {

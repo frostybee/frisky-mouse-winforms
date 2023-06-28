@@ -1,5 +1,4 @@
-﻿using FriskyMouse.Drawing.Extensions;
-using FriskyMouse.Drawing.Helpers;
+﻿using FriskyMouse.Drawing.Helpers;
 
 namespace FriskyMouse.Drawing.Ripples
 {
@@ -18,20 +17,8 @@ namespace FriskyMouse.Drawing.Ripples
         {
             _innerBrush = new SolidBrush(Color.Crimson);
             _outerBrush = new SolidBrush(Color.Crimson);
-            _outlinePen = new Pen(Color.DeepPink, 6);
-
-            //-- 2) Add the outline ripple.
-            AddRipple(
-                new RippleEntry()
-                {
-                    IsExpandable = true,
-                    Bounds = DrawingHelper.CreateRectangle(Width, Height, 8),
-                    ShapeType = ShapeType.Ellipse,
-                    InitialRadius = BaseRadius + 1,
-                    RadiusMultiplier = 3,
-                    OutlinePen = _outlinePen,
-                    IsFilled = false,
-                });
+            _outlinePen = new Pen(Color.DarkBlue, 4);
+                        
             //-- 1) Add the middle ripple.
             AddRipple(
                 new RippleEntry()
@@ -39,14 +26,14 @@ namespace FriskyMouse.Drawing.Ripples
                     IsExpandable = true,
                     Bounds = DrawingHelper.CreateRectangle(Width, Height, BaseRadius),
                     ShapeType = ShapeType.Ellipse,
-                    InitialRadius = BaseRadius +1,
+                    InitialRadius = BaseRadius ,
                     RadiusMultiplier = 3,
                     FillBrush = _outerBrush,
                     OutlinePen = _outlinePen,
                     IsFilled = true,
                     IsStyleable = true
-                });
-            //-- 3) Inner ripple that must drawn last.
+                });            
+            //-- 2) Inner ripple that must drawn last.
             AddRipple(
                 new RippleEntry()
                 {
@@ -58,6 +45,18 @@ namespace FriskyMouse.Drawing.Ripples
                     FillBrush = _innerBrush,
                     OutlinePen = _outlinePen,
                     IsFilled = true,
+                });
+            //-- 3) Add the outline ripple.
+            AddRipple(
+                new RippleEntry()
+                {
+                    IsExpandable = true,
+                    Bounds = DrawingHelper.CreateRectangle(Width, Height, 8),
+                    ShapeType = ShapeType.Ellipse,
+                    InitialRadius = BaseRadius,
+                    RadiusMultiplier = 3,
+                    OutlinePen = _outlinePen,
+                    IsFilled = false,
                 });
         }
     }

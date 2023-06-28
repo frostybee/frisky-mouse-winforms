@@ -1,15 +1,13 @@
-﻿using FriskyMouse.Drawing.Ripples;
+﻿using MaterialSkin;
 
-namespace FriskyMouse.Core
+namespace FriskyMouse.Settings
 {
     public class ApplicationSettings
     {
         #region Properties        
-        public string ApplicationName { get; set; }
-        public string Version { get; set; }
-        public HighlighterOptions HighlighterOptions { get; set; } = new HighlighterOptions();
-        public RippleProfileOptions LeftClickOptions { get; set; } = new RippleProfileOptions();
-        public RippleProfileOptions RightClickOptions { get; set; } = new RippleProfileOptions();   
+        public string ApplicationName { get; set; } = "FriskyMouse";
+        public string Version { get; set; } = string.Empty;
+        public ColorSchemeType ColorScheme { get; set; } = ColorSchemeType.Blue;
 
         #endregion
     }

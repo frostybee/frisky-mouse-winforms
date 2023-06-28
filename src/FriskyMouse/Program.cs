@@ -13,6 +13,7 @@ namespace FriskyMouse
         private static readonly Mutex _mutex = new Mutex(true, _mutexName);
         public static readonly uint WM_SHOW_MAIN_WINDOW = NativeMethods.RegisterWindowMessage("WM_SHOW_MAIN_WINDOW");
         public static bool IsPortable { get; private set; }
+        public const string ApplicationName = "FriskyMouse";
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

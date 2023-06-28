@@ -1,5 +1,5 @@
-﻿using FriskyMouse.Core;
-using FriskyMouse.Drawing.Helpers;
+﻿using FriskyMouse.Drawing.Helpers;
+using FriskyMouse.Settings;
 
 namespace FriskyMouse.Extensions
 {
@@ -11,11 +11,10 @@ namespace FriskyMouse.Extensions
 
             if (options.IsFilled)
             {
-                // Apply the selected opacity on the color to be used in the _settings. 
+                // Apply the selected opacity on the color to be used in the _options. 
                 Color selectedColor = Color.FromArgb(options.Opacity, options.FillColor);
                 using SolidBrush brush = new SolidBrush(selectedColor);
                 graphics.FillEllipse(brush, rect);
-
             }
             else
             {

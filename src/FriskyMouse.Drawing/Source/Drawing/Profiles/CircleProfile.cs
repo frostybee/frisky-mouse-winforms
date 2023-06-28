@@ -1,7 +1,4 @@
-﻿using FriskyMouse.Drawing.Extensions;
-using FriskyMouse.Drawing.Helpers;
-
-namespace FriskyMouse.Drawing.Ripples
+﻿namespace FriskyMouse.Drawing.Ripples
 {
     /// <summary>
     /// Represents an expanding, single circular ripple. 

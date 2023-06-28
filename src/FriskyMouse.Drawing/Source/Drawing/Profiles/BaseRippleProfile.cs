@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace FriskyMouse.Drawing.Ripples
+﻿namespace FriskyMouse.Drawing.Ripples
 {
     /// <summary>
     /// Each profile maintains its list of ripples. 

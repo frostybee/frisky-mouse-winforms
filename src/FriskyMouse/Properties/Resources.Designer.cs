@@ -71,6 +71,16 @@ namespace FriskyMouse.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon bee_icon {
+            get {
+                object obj = ResourceManager.GetObject("bee_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap circle_cursor_32 {
@@ -87,16 +97,6 @@ namespace FriskyMouse.Properties {
             get {
                 object obj = ResourceManager.GetObject("left_click_50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon Martin_Berube_Animal_Bee {
-            get {
-                object obj = ResourceManager.GetObject("Martin_Berube_Animal_Bee", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         

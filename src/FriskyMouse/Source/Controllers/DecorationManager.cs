@@ -4,11 +4,11 @@ using FriskyMouse.UI;
 namespace FriskyMouse.Core
 {
     //TODO: Dispose everything here.
-    internal class DecorationController : IDisposable
+    internal class DecorationManager : IDisposable
     {
-        private static readonly Lazy<DecorationController> _instance =
-            new Lazy<DecorationController>(() => new DecorationController());        
-        private readonly ApplicationSettings _settings;        
+        private static readonly Lazy<DecorationManager> _instance =
+            new Lazy<DecorationManager>(() => new DecorationManager());        
+        private readonly SettingsWrapper _settings;        
         private readonly HighlighterController _highlighter;
         private readonly ClickEffectController _leftClickDecorator;
         private readonly ClickEffectController _rightClickDecorator;
@@ -16,17 +16,23 @@ namespace FriskyMouse.Core
         private readonly object _syncLock = new object();
         private bool _disposed = false;
 
-        private DecorationController()
+        private DecorationManager()
         {
             _settings = SettingsManager.Settings;
             _leftClickDecorator = new ClickEffectController(_settings.LeftClickOptions);
             _rightClickDecorator = new ClickEffectController(_settings.RightClickOptions);
-            _highlighter = new HighlighterController(_settings);
+            _highlighter = new HighlighterController(_settings.HighlighterOptions);
             _mouseHookController = new MouseHookController(_highlighter, _leftClickDecorator, _rightClickDecorator);
+            //_rightClickDecorator.AnimationCompleted += _rightClickDecorator_AnimationCompleted;
+        }
+
+        private void _rightClickDecorator_AnimationCompleted()
+        {            
+            //_highlighter?.BringToFront(AppHelpers.GetCursorPosition());
         }
 
         #region Methods
-        
+
         internal void EnableHighlighter()
         {            
             _highlighter.SetHighlighterBitmap(_settings.HighlighterOptions);        
@@ -113,7 +119,7 @@ namespace FriskyMouse.Core
         /// <summary>
         /// Gets the single instance of the decoration engine.
         /// </summary>
-        public static DecorationController Instance => _instance.Value;        
+        public static DecorationManager Instance => _instance.Value;        
         public HighlighterController MouseHighlighter => _highlighter;
         public ClickEffectController ClickDecorator => _leftClickDecorator;
         public ClickEffectController RightClickDecorator => _rightClickDecorator;

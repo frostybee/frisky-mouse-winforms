@@ -1,6 +1,4 @@
-﻿using FriskyMouse.Drawing.Helpers;
-
-namespace FriskyMouse.Drawing.Ripples
+﻿namespace FriskyMouse.Drawing.Ripples
 {
     internal class StarProfile : BaseRippleProfile
     {

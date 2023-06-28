@@ -1,7 +1,5 @@
 ﻿using FriskyMouse.NativeApi;
-using System.Diagnostics;
 using System.Drawing.Imaging;
-using System.Reflection.Metadata;
 using NativeStructs = FriskyMouse.NativeApi;
 
 namespace FriskyMouse.UI

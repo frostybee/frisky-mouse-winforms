@@ -1,18 +1,16 @@
 ﻿using FriskyMouse.Helpers;
 using System.Text.Json;
-using FriskyMouse.Core;
 
 namespace FriskyMouse.Settings
 {
     internal static class SettingsManager
     {
-        private static string SettingsFileName = "settings.json";
-        private const string ApplicationName = "FriskyMouse";
+        private static string SettingsFileName = "settings.json";        
         private static Mutex _jsonMutex = new Mutex();
-        public static ApplicationSettings Settings { get; private set; } = new ApplicationSettings();        
+        public static SettingsWrapper Settings { get; private set; } = new SettingsWrapper();        
         private static readonly string PortablePersonalFolder = FileHelpers.GetAbsolutePath();
         private static readonly string DefaultPersonalFolder =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), ApplicationName);
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Program.ApplicationName);
         private static string SettingsFolder
         {
             get
@@ -42,7 +40,8 @@ namespace FriskyMouse.Settings
                 if (!string.IsNullOrEmpty(filePath))
                 {
                     LoadDefaultSettings();
-                    Settings.ApplicationName = ApplicationName;
+                    Settings.ApplicationSettings.ApplicationName = Program.ApplicationName;
+                    Settings.ApplicationSettings.Version = AppHelpers.GetApplicationVersion();
                     // Create the directory that will hold the settings file if it doesn't exist.
                     FileHelpers.CreateDirectoryFromFilePath(filePath);
                     FileStream createStream = File.Create(filePath);
@@ -72,7 +71,7 @@ namespace FriskyMouse.Settings
                     using FileStream openStream = File.OpenRead(settingFilePath);                    
                     if (openStream.CanRead)
                     {
-                        Settings = JsonSerializer.Deserialize<ApplicationSettings>(openStream, GetJsonSerializerOptions());
+                        Settings = JsonSerializer.Deserialize<SettingsWrapper>(openStream, GetJsonSerializerOptions());
                         //TODO: verify if JSON file is not corrupted.
                     }
                 }
@@ -85,7 +84,7 @@ namespace FriskyMouse.Settings
 
         private static void LoadDefaultSettings()
         {
-            Settings ??= new ApplicationSettings();
+            Settings ??= new SettingsWrapper();
         }
         private static JsonSerializerOptions GetJsonSerializerOptions()
         {

@@ -3,7 +3,7 @@ using FriskyMouse.Helpers;
 using FriskyMouse.NativeApi;
 using FriskyMouse.UI;
 using FriskyMouse.Extensions;
-using System.Diagnostics;
+using FriskyMouse.Settings;
 
 namespace FriskyMouse.Core
 {
@@ -19,14 +19,14 @@ namespace FriskyMouse.Core
         /// </summary>
         private LayeredWindow _layeredWindow;
         private bool _disposed = false;
-        private readonly ApplicationSettings _settingsManager;
+        private readonly HighlighterOptions _options;
         private int _width = 0;
         private int _height = 0;
 
-        internal HighlighterController(ApplicationSettings pSettingsManager)
+        internal HighlighterController(HighlighterOptions options)
         {
             _layeredWindow = new LayeredWindow();
-            _settingsManager = pSettingsManager;
+            _options = options;
         }
 
         internal void SetHighlighterBitmap(HighlighterOptions highlighterInfo)
@@ -54,7 +54,7 @@ namespace FriskyMouse.Core
         /// <param name="inPoint">A point containing the current X and Y coordinates of the mouse cursor.</param>
         internal void MoveSpotlight(POINT inPoint)
         {
-            if (_settingsManager.HighlighterOptions.Enabled)
+            if (_options.Enabled)
             {
                 if (_spotlightBitmap != null)
                 {
@@ -71,12 +71,12 @@ namespace FriskyMouse.Core
         /// Brings the highlighter to the top just in case it got hidden by another application's context/popup menu.
         /// </summary>
         /// <param name="inPoint"></param>
-        internal void BringToFront(POINT inPoint)
+        internal void BringToFront()
         {
-            if (_settingsManager.HighlighterOptions.Enabled)
+            if (_options.Enabled)
             {
-                // Adjust the coordinates of the layered window based on the spotlight's bitmap size.
-                SetLayeredWindowCoordinates(inPoint);
+                // Adjust the coordinates of the layered window based on the spotlight's bitmap size.                
+                SetLayeredWindowCoordinates(AppHelpers.GetCursorPosition());
                 _layeredWindow.SetTopMost();
             }
         }

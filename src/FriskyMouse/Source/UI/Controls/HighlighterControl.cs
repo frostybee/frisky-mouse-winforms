@@ -3,7 +3,6 @@ using FriskyMouse.Drawing.Helpers;
 using FriskyMouse.Helpers;
 using FriskyMouse.Settings;
 using FriskyMouse.Extensions;
-using FriskyMouse.Drawing.Ripples;
 using FriskyMouse.Drawing.Extensions;
 
 namespace FriskyMouse.UI.Controls
@@ -11,14 +10,14 @@ namespace FriskyMouse.UI.Controls
     public partial class HighlighterControl : UserControl
     {
         private readonly HighlighterOptions _settings;
-        private readonly DecorationController _decorationManager;
+        private readonly DecorationManager _decorationManager;
 
         public HighlighterControl()
         {
             InitializeComponent();
             //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            _decorationManager = DecorationController.Instance;
+            _decorationManager = DecorationManager.Instance;
             _settings = SettingsManager.Settings.HighlighterOptions;
         }
 

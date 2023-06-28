@@ -121,14 +121,14 @@
   <data name="about-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\about-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bee_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bee-icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="circle_cursor_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circle-cursor-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="left_click_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\left-click-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Martin_Berube_Animal_Bee" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Martin-Berube-Animal-Bee.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="right_click_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\right-click-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

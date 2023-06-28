@@ -1,5 +1,43 @@
-﻿namespace MaterialSkin
+﻿using System.ComponentModel;
+
+namespace MaterialSkin
 {
+    public enum ColorSchemeType
+    {
+        [Description("Red")]
+        Red,
+        [Description("Pink")]
+        Pink,
+        [Description("Purple")]
+        Purple,
+        [Description("Deep Purple")]
+        DeepPurple,
+        [Description("Indigo")]
+        Indigo,
+        [Description("Blue")]
+        Blue,
+        [Description("Light Blue")]
+        LightBlue,
+        [Description("Cyan")]
+        Cyan,
+        [Description("Teal")]
+        Teal,
+        [Description("Green")]
+        Green,
+        [Description("Light Green")]
+        LightGreen,        
+        [Description("Orange")]
+        Orange,
+        [Description("Deep Orange")]
+        DeepOrange,
+        [Description("Brown")]
+        Brown,
+        [Description("Grey")]
+        Grey,
+        [Description("Blue Grey")]
+        BlueGrey
+    }
+
     public enum TextShade
     {
         WHITE = 0xFFFFFF,

@@ -1,6 +1,6 @@
 ﻿using FriskyMouse.Helpers;
 
-namespace FriskyMouse.Core
+namespace FriskyMouse.Settings
 {
     public class HighlighterOptions
     {
