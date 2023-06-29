@@ -1,4 +1,10 @@
-﻿using FriskyMouse.NativeApi;
+﻿#region License Information (MIT)
+// This code is distributed under the MIT license. 
+// Copyright (c) 2021-2023 FrostyBee
+// See license.txt or https://mit-license.org/
+#endregion
+
+using FriskyMouse.NativeApi;
 using System.Runtime.InteropServices;
 
 namespace FriskyMouse.Core
@@ -18,7 +24,7 @@ namespace FriskyMouse.Core
             _clickDecorator = clickDecorator;
             _rightClickDecorator = rightClickDecorator;
             _systemDoubleClickTime = SystemInformation.DoubleClickTime;
-            _hookType = NativeMethods.WH_MOUSE_LL;
+            _hookType = WH_MOUSE_LL;
         }
 
         protected override IntPtr HookCallbackProcedure(int nCode, IntPtr wParam, IntPtr lParam)

@@ -1,4 +1,10 @@
-﻿using FriskyMouse.NativeApi;
+﻿#region License Information (MIT)
+// This code is distributed under the MIT license. 
+// Copyright (c) 2021-2023 FrostyBee
+// See license.txt or https://mit-license.org/
+#endregion
+
+using FriskyMouse.NativeApi;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -12,6 +18,10 @@ namespace FriskyMouse.Core
         protected HookProcedureSafeHandle? _hookHandle;
         protected bool _isStarted;
         private NativeMethods.HookProc? _hookCallback = null;
+        /// <summary>
+        /// The WH_MOUSE_LL flag that enables the hook to monitor mouse input events about to be posted in a thread input queue.
+        /// </summary>
+        protected const int WH_MOUSE_LL = 14;
 
         #region Methods
 

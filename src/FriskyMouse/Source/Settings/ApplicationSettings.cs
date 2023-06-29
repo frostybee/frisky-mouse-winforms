@@ -1,4 +1,10 @@
-﻿using MaterialSkin;
+﻿#region License Information (MIT)
+// This code is distributed under the MIT license. 
+// Copyright (c) 2021-2023 FrostyBee
+// See license.txt or https://mit-license.org/
+#endregion
+
+using MaterialSkin;
 
 namespace FriskyMouse.Settings
 {

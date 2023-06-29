@@ -1,4 +1,10 @@
-﻿using FriskyMouse.Helpers;
+﻿#region License Information (MIT)
+// This code is distributed under the MIT license. 
+// Copyright (c) 2021-2023 FrostyBee
+// See license.txt or https://mit-license.org/
+#endregion
+
+using FriskyMouse.Helpers;
 using System.Text.Json;
 
 namespace FriskyMouse.Settings

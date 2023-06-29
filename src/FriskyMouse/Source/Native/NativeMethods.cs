@@ -1,4 +1,10 @@
-﻿using FriskyMouse.Core;
+﻿#region License Information (MIT)
+// This code is distributed under the MIT license. 
+// Copyright (c) 2021-2023 FrostyBee
+// See license.txt or https://mit-license.org/
+#endregion
+
+using FriskyMouse.Core;
 using System.Runtime.InteropServices;
 
 namespace FriskyMouse.NativeApi
@@ -6,10 +12,6 @@ namespace FriskyMouse.NativeApi
 
     public static class NativeMethods
     {
-        /// <summary>
-        /// The WH_MOUSE_LL flag that enables the hook to monitor mouse input events about to be posted in a thread input queue.
-        /// </summary>
-        public const int WH_MOUSE_LL = 14;
         public const string KERNEL_32 = "kernel32.dll";
         public const string USER32_DLL = "user32.dll";
         public const string GDI32_DLL = "gdi32.dll";

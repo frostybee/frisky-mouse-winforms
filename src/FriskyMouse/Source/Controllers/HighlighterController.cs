@@ -1,4 +1,10 @@
-﻿using FriskyMouse.Drawing.Helpers;
+﻿#region License Information (MIT)
+// This code is distributed under the MIT license. 
+// Copyright (c) 2021-2023 FrostyBee
+// See license.txt or https://mit-license.org/
+#endregion
+
+using FriskyMouse.Drawing.Helpers;
 using FriskyMouse.Helpers;
 using FriskyMouse.NativeApi;
 using FriskyMouse.UI;
@@ -86,12 +92,12 @@ namespace FriskyMouse.Core
         /// <param name="point">A point containing the X and Y coordinates of the mouse cursor. </param>
         private void SetLayeredWindowCoordinates(POINT point)
         {
-            _layeredWindow.PositionX = (point.X - 1) - (_width / 2);            
-            _layeredWindow.PositionY = (point.Y - 1) - (_height / 2);            
+            _layeredWindow.PositionX = point.X - (_width / 2);
+            _layeredWindow.PositionY = point.Y - (_height / 2);
         }
         internal void SetInitialPosition()
         {
-            POINT coordinates = AppHelpers. GetCursorPosition();
+            POINT coordinates = AppHelpers.GetCursorPosition();
             if (coordinates != POINT.Empty)
             {
                 SetLayeredWindowCoordinates(coordinates);
@@ -111,7 +117,7 @@ namespace FriskyMouse.Core
                     // Clean up resources.
                     _spotlightBitmap?.Dispose();
                     _spotlightBitmap = null;
-                    _layeredWindow?.Dispose();                    
+                    _layeredWindow?.Dispose();
                     _layeredWindow = null;
 
                 }

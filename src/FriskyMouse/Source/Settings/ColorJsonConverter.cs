@@ -1,4 +1,10 @@
-﻿using System.Text.Json;
+﻿#region License Information (MIT)
+// This code is distributed under the MIT license. 
+// Copyright (c) 2021-2023 FrostyBee
+// See license.txt or https://mit-license.org/
+#endregion
+
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace FriskyMouse.Settings

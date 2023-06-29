@@ -44,10 +44,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EditorConfigFiles Remove="D:\Dev\my-repos\FriskyMouse\src\FriskyMouse\.editorconfig" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Remove="bee-icon.ico" />
       <None Remove="Resources\bee-icon.png" />
     </ItemGroup>
@@ -61,10 +57,6 @@
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
       </EmbeddedResource>
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Include="D:\Dev\my-repos\FriskyMouse\src\FriskyMouse\.editorconfig" />
     </ItemGroup>
 
     <ItemGroup>
@@ -83,6 +75,14 @@
           <Pack>True</Pack>
           <PackagePath>\</PackagePath>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EditorConfigFiles Remove="D:\Dev\my-repos\FriskyMouse\src\FriskyMouse\.editorconfig" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="D:\Dev\my-repos\FriskyMouse\src\FriskyMouse\.editorconfig" />
     </ItemGroup>
 
 </Project>
