@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using FriskyMouse.Core;
+using System.Runtime.InteropServices;
 
 namespace FriskyMouse.NativeApi
 {
@@ -40,8 +41,9 @@ namespace FriskyMouse.NativeApi
         /// <param name="hMod">handle to application instance</param>
         /// <param name="dwThreadId">thread identifier</param>
         /// <returns>If the function succeeds, the return value is the handle to the hook procedure.</returns>
-        [DllImport(USER32_DLL, SetLastError = true)]
-        internal static extern IntPtr SetWindowsHookEx(int idHook, HookProc lpfn, IntPtr hMod, uint dwThreadId);
+        [DllImport(USER32_DLL, CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+        internal static extern HookProcedureSafeHandle SetWindowsHookEx(int idHook, HookProc lpfn, IntPtr hMod, uint dwThreadId);
 
 
         /// <summary>
@@ -51,7 +53,7 @@ namespace FriskyMouse.NativeApi
         /// <returns>If the function succeeds, the return value is true.</returns>
         [DllImport(USER32_DLL, CharSet = CharSet.Auto,
            CallingConvention = CallingConvention.StdCall, SetLastError = true)]
-        internal static extern bool UnhookWindowsHookEx(IntPtr hHook);
+        internal static extern int UnhookWindowsHookEx(IntPtr hHook);
 
         /// <summary>
         /// The CallNextHookEx function passes the hook information to the next hook procedure in the current hook chain.
@@ -62,7 +64,8 @@ namespace FriskyMouse.NativeApi
         /// <param name="wParam">value passed to hook procedure</param>
         /// <param name="lParam">value passed to hook procedure</param>
         /// <returns>If the function succeeds, the return value is true.</returns>
-        [DllImport(USER32_DLL, SetLastError = true)]
+        [DllImport(USER32_DLL, CharSet = CharSet.Auto,
+            CallingConvention = CallingConvention.StdCall, SetLastError = true)]
         internal static extern IntPtr CallNextHookEx(IntPtr hHook, int code, IntPtr wParam, IntPtr lParam);
 
         [DllImport(USER32_DLL, SetLastError = true)]
