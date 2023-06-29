@@ -1,4 +1,10 @@
-﻿using System.Drawing.Drawing2D;
+﻿#region License Information (MIT)
+// This code is distributed under the MIT license. 
+// Copyright (c) 2021-2023 FrostyBee
+// See license.txt or https://mit-license.org/
+#endregion
+
+using System.Drawing.Drawing2D;
 using FriskyMouse.Drawing.Helpers;
 
 namespace FriskyMouse.Drawing.Ripples

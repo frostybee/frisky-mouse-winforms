@@ -1,4 +1,10 @@
-﻿using FriskyMouse.Drawing.Extensions;
+﻿#region License Information (MIT)
+// This code is distributed under the MIT license. 
+// Copyright (c) 2021-2023 FrostyBee
+// See license.txt or https://mit-license.org/
+#endregion
+
+using FriskyMouse.Drawing.Extensions;
 using FriskyMouse.Drawing.Helpers;
 
 namespace FriskyMouse.Drawing.Ripples
