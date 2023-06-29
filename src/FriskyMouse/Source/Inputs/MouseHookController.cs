@@ -43,7 +43,7 @@ namespace FriskyMouse.Core
                         Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront());
                         break;
                     case MouseButtonTypes.MouseMove:
-                        _highlighter?.MoveSpotlight(hookStruct.pt);                        
+                        _highlighter?.MoveSpotlight(hookStruct.pt);
                         break;
                     case MouseButtonTypes.RightButtonUp:
                         // Fix the issue when the highlighter is no longer top most.                        

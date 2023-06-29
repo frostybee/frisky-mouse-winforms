@@ -45,7 +45,7 @@
                     Primary.Indigo800,
                     Primary.Indigo900,
                     Primary.Indigo500,
-                    Accent.Indigo400,
+                    Accent.Pink200,
                     TextShade.WHITE);
                     break;
                 case ColorSchemeType.Blue:

@@ -12,7 +12,7 @@ namespace FriskyMouse.NativeApi
         public const string KERNEL_32 = "kernel32.dll";
         public const string USER32_DLL = "user32.dll";
         public const string GDI32_DLL = "gdi32.dll";
-               
+
 
         #region USER32 Native Methods
         /// <summary>

@@ -19,6 +19,8 @@
         <Version>1.0.0.1</Version>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <ApplicationIcon>Resources\bee-icon.ico</ApplicationIcon>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
     </PropertyGroup>
 
     <ItemGroup>

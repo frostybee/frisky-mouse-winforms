@@ -4,10 +4,6 @@ namespace MaterialSkin
 {
     public enum ColorSchemeType
     {
-        [Description("Red")]
-        Red,
-        [Description("Pink")]
-        Pink,
         [Description("Purple")]
         Purple,
         [Description("Deep Purple")]
@@ -21,21 +17,25 @@ namespace MaterialSkin
         [Description("Cyan")]
         Cyan,
         [Description("Teal")]
-        Teal,
-        [Description("Green")]
-        Green,
-        [Description("Light Green")]
-        LightGreen,        
-        [Description("Orange")]
-        Orange,
-        [Description("Deep Orange")]
-        DeepOrange,
+        Teal,        
         [Description("Brown")]
         Brown,
         [Description("Grey")]
         Grey,
         [Description("Blue Grey")]
-        BlueGrey
+        BlueGrey,
+        [Description("Green")]
+        Green,
+        [Description("Pink")]
+        Pink,
+        [Description("Light Green")]
+        LightGreen,
+        [Description("Orange")]
+        Orange,
+        [Description("Deep Orange")]
+        DeepOrange,
+        [Description("Red")]
+        Red
     }
 
     public enum TextShade

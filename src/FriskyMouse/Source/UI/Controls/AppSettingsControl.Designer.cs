@@ -100,7 +100,7 @@
             cmbColorScheme.FormattingEnabled = true;
             cmbColorScheme.IntegralHeight = false;
             cmbColorScheme.ItemHeight = 43;
-            cmbColorScheme.Location = new Point(22, 85);
+            cmbColorScheme.Location = new Point(22, 67);
             cmbColorScheme.MaxDropDownItems = 4;
             cmbColorScheme.MouseState = MaterialSkin.MouseState.OUT;
             cmbColorScheme.Name = "cmbColorScheme";

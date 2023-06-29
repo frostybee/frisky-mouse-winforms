@@ -2,6 +2,9 @@
 using FriskyMouse.Settings;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace FriskyMouse.UI
 {
@@ -88,12 +91,19 @@ namespace FriskyMouse.UI
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _decorationController.MainForm = this;
-            _decorationController.BootstrapApp();
-            ctrlHighlighter.UpdateControlsFromSettings();
-            ctrClickDecoration.UpdateControlsFromSettings("Left Click Decoration", DecorationManager.Instance.ClickDecorator, SettingsManager.Settings.LeftClickOptions);
-            ctrLeftClickDecoration.UpdateControlsFromSettings("Right Click Decoration", DecorationManager.Instance.RightClickDecorator, SettingsManager.Settings.RightClickOptions);
-            ctrlAppSettings.UpdateControlsFromSettings();
+            try
+            {
+                _decorationController.MainForm = this;
+                _decorationController.BootstrapApp();
+                ctrlHighlighter.UpdateControlsFromSettings();
+                ctrClickDecoration.UpdateControlsFromSettings("Left Click Decoration", DecorationManager.Instance.ClickDecorator, SettingsManager.Settings.LeftClickOptions);
+                ctrLeftClickDecoration.UpdateControlsFromSettings("Right Click Decoration", DecorationManager.Instance.RightClickDecorator, SettingsManager.Settings.RightClickOptions);
+                ctrlAppSettings.UpdateControlsFromSettings();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);                
+            }
                     
         }
 

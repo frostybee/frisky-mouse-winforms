@@ -52,6 +52,7 @@
             sldShadowDepth = new MaterialSkin.Controls.MaterialSlider();
             sldShadowOpacity = new MaterialSkin.Controls.MaterialSlider();
             groupBox2 = new GroupBox();
+            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             btnOutlineColor = new MaterialSkin.Controls.MaterialButton();
             switchShowOutline = new MaterialSkin.Controls.MaterialSwitch();
@@ -79,7 +80,7 @@
             switchHighlighter.Checked = true;
             switchHighlighter.CheckState = CheckState.Checked;
             switchHighlighter.Depth = 0;
-            switchHighlighter.Location = new Point(315, 0);
+            switchHighlighter.Location = new Point(292, 0);
             switchHighlighter.Margin = new Padding(0);
             switchHighlighter.MouseLocation = new Point(-1, -1);
             switchHighlighter.MouseState = MaterialSkin.MouseState.HOVER;
@@ -216,24 +217,23 @@
             cmboxOutlineStyle.BackColor = Color.FromArgb(255, 255, 255);
             cmboxOutlineStyle.Depth = 0;
             cmboxOutlineStyle.DrawMode = DrawMode.OwnerDrawVariable;
-            cmboxOutlineStyle.DropDownHeight = 174;
+            cmboxOutlineStyle.DropDownHeight = 118;
             cmboxOutlineStyle.DropDownStyle = ComboBoxStyle.DropDownList;
             cmboxOutlineStyle.DropDownWidth = 121;
             cmboxOutlineStyle.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             cmboxOutlineStyle.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cmboxOutlineStyle.FormattingEnabled = true;
-            cmboxOutlineStyle.Hint = "Outline style";
             cmboxOutlineStyle.IntegralHeight = false;
-            cmboxOutlineStyle.ItemHeight = 43;
-            cmboxOutlineStyle.Location = new Point(18, 122);
+            cmboxOutlineStyle.ItemHeight = 29;
+            cmboxOutlineStyle.Location = new Point(118, 131);
             cmboxOutlineStyle.Margin = new Padding(4);
             cmboxOutlineStyle.MaxDropDownItems = 4;
             cmboxOutlineStyle.MouseState = MaterialSkin.MouseState.OUT;
             cmboxOutlineStyle.Name = "cmboxOutlineStyle";
-            cmboxOutlineStyle.Size = new Size(170, 49);
+            cmboxOutlineStyle.Size = new Size(215, 35);
             cmboxOutlineStyle.StartIndex = 0;
             cmboxOutlineStyle.TabIndex = 72;
-            cmboxOutlineStyle.UseAccent = false;
+            cmboxOutlineStyle.UseTallSize = false;
             // 
             // btnResetSettings
             // 
@@ -414,6 +414,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(materialLabel1);
             groupBox2.Controls.Add(materialLabel5);
             groupBox2.Controls.Add(btnOutlineColor);
             groupBox2.Controls.Add(switchShowOutline);
@@ -425,6 +426,18 @@
             groupBox2.Size = new Size(359, 178);
             groupBox2.TabIndex = 97;
             groupBox2.TabStop = false;
+            // 
+            // materialLabel1
+            // 
+            materialLabel1.Depth = 0;
+            materialLabel1.FlatStyle = FlatStyle.Popup;
+            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.Location = new Point(18, 137);
+            materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(93, 19);
+            materialLabel1.TabIndex = 100;
+            materialLabel1.Text = "Outline Style";
             // 
             // materialLabel5
             // 
@@ -623,6 +636,7 @@
         private GroupBox groupBox3;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private Button btnSpotlightColor;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
         //private Button Bt;
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            GraphicsPath graphicsPath1 = new GraphicsPath();
+            GraphicsPath graphicsPath3 = new GraphicsPath();
             lblControlTitle = new MaterialSkin.Controls.MaterialLabel();
             groupBox3 = new GroupBox();
             materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
@@ -193,7 +193,6 @@
             cmbProfilesList.Size = new Size(188, 49);
             cmbProfilesList.StartIndex = 0;
             cmbProfilesList.TabIndex = 76;
-            cmbProfilesList.UseAccent = false;
             // 
             // sldRadiusMultiplier
             // 
@@ -277,7 +276,6 @@
             cmbInterpolationMode.Size = new Size(172, 49);
             cmbInterpolationMode.StartIndex = 0;
             cmbInterpolationMode.TabIndex = 77;
-            cmbInterpolationMode.UseAccent = false;
             // 
             // cmbAnimDirection
             // 
@@ -302,7 +300,6 @@
             cmbAnimDirection.Size = new Size(175, 49);
             cmbAnimDirection.StartIndex = 0;
             cmbAnimDirection.TabIndex = 76;
-            cmbAnimDirection.UseAccent = false;
             // 
             // switchClickDecoration
             // 
@@ -438,8 +435,8 @@
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(5, 25, 5, 5);
-            graphicsPath1.FillMode = FillMode.Alternate;
-            materialCard1.ShadowBorder = graphicsPath1;
+            graphicsPath3.FillMode = FillMode.Alternate;
+            materialCard1.ShadowBorder = graphicsPath3;
             materialCard1.Size = new Size(220, 236);
             materialCard1.TabIndex = 79;
             materialCard1.Title = null;

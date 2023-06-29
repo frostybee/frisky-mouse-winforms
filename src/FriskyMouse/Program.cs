@@ -1,6 +1,7 @@
 using FriskyMouse.Settings;
 using FriskyMouse.NativeApi;
 using FriskyMouse.UI;
+using System.Diagnostics;
 
 namespace FriskyMouse
 {
@@ -54,7 +55,7 @@ namespace FriskyMouse
         {
             SettingsManager.SaveSettings();
             Exception e = (Exception)args.ExceptionObject;
-            MessageBox.Show("Something went wrong: "+e.Message); 
+            MessageBox.Show("Something went wrong: "+e.Message);             
         }
     }
 }
