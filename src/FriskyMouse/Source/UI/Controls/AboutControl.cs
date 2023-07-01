@@ -9,15 +9,14 @@
 */
 #endregion
 
-namespace FriskyMouse.UI.Controls
+namespace FriskyMouse.UI.Controls;
+
+public partial class AboutControl : UserControl
 {
-    public partial class AboutControl : UserControl
+    public AboutControl()
     {
-        public AboutControl()
-        {
-            InitializeComponent();
-            //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-        }
+        InitializeComponent();
+        //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
     }
 }

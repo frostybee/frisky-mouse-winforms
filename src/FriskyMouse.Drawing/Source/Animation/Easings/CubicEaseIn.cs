@@ -10,18 +10,17 @@
 */
 #endregion
 
-namespace FriskyMouse.Drawing.Animation
+namespace FriskyMouse.Drawing.Animation;
+
+/// <summary>
+/// Eases in a <see cref="double"/> value 
+/// using a cubic equation.
+/// </summary>
+public class CubicEaseIn : Easing
 {
-    /// <summary>
-    /// Eases in a <see cref="double"/> value 
-    /// using a cubic equation.
-    /// </summary>
-    public class CubicEaseIn : Easing
+    /// <inheritdoc/>
+    public override double Ease(double progress)
     {
-        /// <inheritdoc/>
-        public override double Ease(double progress)
-        {
-            return progress * progress * progress;
-        }
+        return progress * progress * progress;
     }
 }

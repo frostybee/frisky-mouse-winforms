@@ -10,9 +10,8 @@
 */
 #endregion
 
-namespace FriskyMouse.Drawing
+namespace FriskyMouse.Drawing;
+
+public interface IConstructable
 {
-    public interface IConstructable
-    {
-    }
 }

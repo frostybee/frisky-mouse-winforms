@@ -10,14 +10,13 @@
 */
 #endregion
 
-namespace FriskyMouse.Drawing.Attributes
+namespace FriskyMouse.Drawing.Attributes;
+
+[AttributeUsage(AttributeTargets.Field)]
+public class DefaultSpeedAttribute : Attribute
 {
-    [AttributeUsage(AttributeTargets.Field)]
-    public class DefaultSpeedAttribute : Attribute
-    {
-        public int Speed { get; set; }
-        public DefaultSpeedAttribute(int pSpeed) {
-            Speed = pSpeed;
-        }
+    public int Speed { get; set; }
+    public DefaultSpeedAttribute(int pSpeed) {
+        Speed = pSpeed;
     }
 }

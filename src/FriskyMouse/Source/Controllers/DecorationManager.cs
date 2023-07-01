@@ -12,131 +12,130 @@
 using FriskyMouse.Settings;
 using FriskyMouse.UI;
 
-namespace FriskyMouse.Core
+namespace FriskyMouse.Core;
+
+//TODO: Dispose everything here.
+internal class DecorationManager : IDisposable
 {
-    //TODO: Dispose everything here.
-    internal class DecorationManager : IDisposable
+    private static readonly Lazy<DecorationManager> _instance =
+        new Lazy<DecorationManager>(() => new DecorationManager());        
+    private readonly SettingsWrapper _settings;        
+    private readonly HighlighterController _highlighter;
+    private readonly ClickEffectController _leftClickDecorator;
+    private readonly ClickEffectController _rightClickDecorator;
+    private readonly MouseHookController _mouseHookController;
+    private readonly object _syncLock = new object();
+    private bool _disposed = false;
+
+    private DecorationManager()
     {
-        private static readonly Lazy<DecorationManager> _instance =
-            new Lazy<DecorationManager>(() => new DecorationManager());        
-        private readonly SettingsWrapper _settings;        
-        private readonly HighlighterController _highlighter;
-        private readonly ClickEffectController _leftClickDecorator;
-        private readonly ClickEffectController _rightClickDecorator;
-        private readonly MouseHookController _mouseHookController;
-        private readonly object _syncLock = new object();
-        private bool _disposed = false;
+        _settings = SettingsManager.Settings;
+        _leftClickDecorator = new ClickEffectController(_settings.LeftClickOptions);
+        _rightClickDecorator = new ClickEffectController(_settings.RightClickOptions);
+        _highlighter = new HighlighterController(_settings.HighlighterOptions);
+        _mouseHookController = new MouseHookController(_highlighter, _leftClickDecorator, _rightClickDecorator);
+        //_rightClickDecorator.AnimationCompleted += _rightClickDecorator_AnimationCompleted;
+    }
 
-        private DecorationManager()
+    private void _rightClickDecorator_AnimationCompleted()
+    {            
+        //_highlighter?.BringToFront(AppHelpers.GetCursorPosition());
+    }
+
+    #region Methods
+
+    internal void EnableHighlighter()
+    {            
+        _highlighter.SetHighlighterBitmap(_settings.HighlighterOptions);        
+    }         
+    internal void DisableHighlighter()
+    {
+        // HideSpotlight the layered window.
+        _highlighter.HideSpotlight();
+        if (_settings.HighlighterOptions.Enabled)
         {
-            _settings = SettingsManager.Settings;
-            _leftClickDecorator = new ClickEffectController(_settings.LeftClickOptions);
-            _rightClickDecorator = new ClickEffectController(_settings.RightClickOptions);
-            _highlighter = new HighlighterController(_settings.HighlighterOptions);
-            _mouseHookController = new MouseHookController(_highlighter, _leftClickDecorator, _rightClickDecorator);
-            //_rightClickDecorator.AnimationCompleted += _rightClickDecorator_AnimationCompleted;
-        }
-
-        private void _rightClickDecorator_AnimationCompleted()
-        {            
-            //_highlighter?.BringToFront(AppHelpers.GetCursorPosition());
-        }
-
-        #region Methods
-
-        internal void EnableHighlighter()
-        {            
-            _highlighter.SetHighlighterBitmap(_settings.HighlighterOptions);        
-        }         
-        internal void DisableHighlighter()
+            
+        }            
+    }
+    public void EnableHook()
+    {
+        lock (_syncLock)
         {
+            _mouseHookController?.Install();
+        }
+    }
+    public void DisableHook()
+    {
+        lock (_syncLock)
+        {
+            //TODO: dispose bitmaps
+            _mouseHookController?.Uninstall();
             // HideSpotlight the layered window.
-            _highlighter.HideSpotlight();
-            if (_settings.HighlighterOptions.Enabled)
-            {
-                
-            }            
+            _highlighter?.HideSpotlight();
         }
-        public void EnableHook()
-        {
-            lock (_syncLock)
-            {
-                _mouseHookController?.Install();
-            }
-        }
-        public void DisableHook()
-        {
-            lock (_syncLock)
-            {
-                //TODO: dispose bitmaps
-                _mouseHookController?.Uninstall();
-                // HideSpotlight the layered window.
-                _highlighter?.HideSpotlight();
-            }
-        }
+    }
 
-        internal void ApplyHighlighterSettings()
+    internal void ApplyHighlighterSettings()
+    {
+        // Save the newly edited settings.
+        //SettingsManager.SaveSettings();
+        if (_settings.HighlighterOptions.Enabled)
+        {                
+            EnableHighlighter();
+        }
+    }
+
+    internal void BootstrapApp()
+    {
+        // TODO: add check ==> Is click decorator enabled as well?
+        EnableHook();
+        if (_mouseHookController.Started)
         {
-            // Save the newly edited settings.
-            //SettingsManager.SaveSettings();
             if (_settings.HighlighterOptions.Enabled)
-            {                
+            {
+                // Set the initial coordinates of the spotlight upon starting the application.
+                _highlighter.SetInitialPosition();
                 EnableHighlighter();
             }
         }
-
-        internal void BootstrapApp()
+        else 
         {
-            // TODO: add check ==> Is click decorator enabled as well?
-            EnableHook();
-            if (_mouseHookController.Started)
-            {
-                if (_settings.HighlighterOptions.Enabled)
-                {
-                    // Set the initial coordinates of the spotlight upon starting the application.
-                    _highlighter.SetInitialPosition();
-                    EnableHighlighter();
-                }
-            }
-            else 
-            {
-                // TODO: Failed to install the mouse hook... Raise an error.
-            }                    
-        }        
-        protected virtual void Dispose(bool disposing)
+            // TODO: Failed to install the mouse hook... Raise an error.
+        }                    
+    }        
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
         {
-            if (!_disposed)
-            {
-                if (disposing)
-                {                    
-                    _highlighter?.Dispose();                    
-                    _leftClickDecorator?.Dispose();
-                    _rightClickDecorator?.Dispose();    
-                }
-                _disposed = true;
+            if (disposing)
+            {                    
+                _highlighter?.Dispose();                    
+                _leftClickDecorator?.Dispose();
+                _rightClickDecorator?.Dispose();    
             }
+            _disposed = true;
         }
-
-        public void Dispose()
-        {
-            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
-        }        
-
-        #endregion
-
-        #region Properties
-        /// <summary>
-        /// Gets the single instance of the decoration engine.
-        /// </summary>
-        public static DecorationManager Instance => _instance.Value;        
-        public HighlighterController MouseHighlighter => _highlighter;
-        public ClickEffectController ClickDecorator => _leftClickDecorator;
-        public ClickEffectController RightClickDecorator => _rightClickDecorator;
-
-        public MainForm MainForm { get; internal set; }
-
-        #endregion
     }
+
+    public void Dispose()
+    {
+        // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
+    }        
+
+    #endregion
+
+    #region Properties
+    /// <summary>
+    /// Gets the single instance of the decoration engine.
+    /// </summary>
+    public static DecorationManager Instance => _instance.Value;        
+    public HighlighterController MouseHighlighter => _highlighter;
+    public ClickEffectController ClickDecorator => _leftClickDecorator;
+    public ClickEffectController RightClickDecorator => _rightClickDecorator;
+
+    public MainForm MainForm { get; internal set; }
+
+    #endregion
 }

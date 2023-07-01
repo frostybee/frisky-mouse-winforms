@@ -16,123 +16,118 @@ using FriskyMouse.UI;
 using FriskyMouse.Extensions;
 using FriskyMouse.Settings;
 
-namespace FriskyMouse.Core
+namespace FriskyMouse.Core;
+
+internal class HighlighterController : IDisposable
 {
-    internal class HighlighterController : IDisposable
+    /// <summary>
+    /// The bitmap on which the mouse highlighter is drawn.
+    /// </summary>
+    private Bitmap? _spotlightBitmap;
+    /// <summary>
+    /// The transparent, click-through window used 
+    /// to show the mouse highlighter. 
+    /// </summary>
+    private LayeredWindow _highlighterWindow;
+    private bool _disposed = false;
+    private readonly HighlighterOptions _options;
+    private int _width = 0;
+    private int _height = 0;
+
+    internal HighlighterController(HighlighterOptions options)
     {
-        /// <summary>
-        /// The bitmap on which the mouse highlighter is drawn.
-        /// </summary>
-        private Bitmap? _spotlightBitmap;
-        /// <summary>
-        /// The transparent, click-through window used 
-        /// to show the mouse highlighter. 
-        /// </summary>
-        private LayeredWindow _layeredWindow;
-        private bool _disposed = false;
-        private readonly HighlighterOptions _options;
-        private int _width = 0;
-        private int _height = 0;
+        _highlighterWindow = new LayeredWindow();
+        _options = options;
+    }
 
-        internal HighlighterController(HighlighterOptions options)
-        {
-            _layeredWindow = new LayeredWindow();
-            _options = options;
-        }
+    internal void SetHighlighterBitmap(HighlighterOptions highlighterInfo)
+    {
+        // Clean up any previously generated bitmap.
+        _spotlightBitmap?.Dispose();
+        _spotlightBitmap = DrawingHelper.CreateBitmap(200, 200, Color.Transparent);
+        Graphics graphics = Graphics.FromImage(_spotlightBitmap);
+        graphics.ClearCanvas();
+        Rectangle rect = DrawingHelper.CreateRectangle(200, 200, highlighterInfo.Radius);
+        graphics.DrawHighlighter(rect, highlighterInfo);
+        _width = _spotlightBitmap.Width;
+        _height = _spotlightBitmap.Height;
+        _highlighterWindow.SetBitmap(_spotlightBitmap, highlighterInfo.Opacity);
+        // Set the highlighter's initial position after launching the application or
+        // applying new settings. 
+        MoveSpotlight(AppHelpers.GetCursorPosition());
+        _highlighterWindow.Show();
+        graphics?.Dispose();
+    }
 
-        internal void SetHighlighterBitmap(HighlighterOptions highlighterInfo)
+    /// <summary>
+    /// Moves the highlighter to the specified coordinates.
+    /// </summary>
+    /// <param name="inPoint">A point containing the current X and Y coordinates of the mouse cursor.</param>
+    internal void MoveSpotlight(POINT inPoint)
+    {
+        if (_options.Enabled)
         {
-            // Clean up any previously generated bitmap.
-            _spotlightBitmap?.Dispose();
-            _spotlightBitmap = DrawingHelper.CreateBitmap(200, 200, Color.Transparent);
-            Graphics graphics = Graphics.FromImage(_spotlightBitmap);
-            graphics.Clear(Color.Transparent);
-            Rectangle rect = DrawingHelper.CreateRectangle(200, 200, highlighterInfo.Radius);
-            graphics.DrawHighlighter(rect, highlighterInfo);
-            _width = _spotlightBitmap.Width;
-            _height = _spotlightBitmap.Height;
-            _layeredWindow.SetBitmap(_spotlightBitmap, highlighterInfo.Opacity);
-            // Set the highlighter's initial position after launching the application or
-            // applying new settings. 
-            MoveSpotlight(AppHelpers.GetCursorPosition());
-            _layeredWindow.Show();
-            graphics?.Dispose();
-        }
-
-        /// <summary>
-        /// Moves the highlighter to the specified coordinates.
-        /// </summary>
-        /// <param name="inPoint">A point containing the current X and Y coordinates of the mouse cursor.</param>
-        internal void MoveSpotlight(POINT inPoint)
-        {
-            if (_options.Enabled)
+            if (_spotlightBitmap != null)
             {
-                if (_spotlightBitmap != null)
-                {
-                    /*if (true)
-                    {
-                        Debug.WriteLine("Is TOPMOST: " + _layeredWindow.IsWindowTopMost());
-                    }*/
-                    SetLayeredWindowCoordinates(inPoint);
-                    _layeredWindow.Move();
-                }
+                SetLayeredWindowCoordinates(inPoint);
+                _highlighterWindow.Move();
             }
         }
-        /// <summary>
-        /// Brings the highlighter to the top just in case it got hidden by another application's context/popup menu.
-        /// </summary>
-        /// <param name="inPoint"></param>
-        internal void BringToFront()
+    }
+    /// <summary>
+    /// Brings the highlighter to the top just in case it got hidden by another application's context/popup menu.
+    /// </summary>
+    /// <param name="inPoint"></param>
+    internal void BringToFront()
+    {
+        if (_options.Enabled)
         {
-            if (_options.Enabled)
-            {
-                // Adjust the coordinates of the layered window based on the spotlight's bitmap size.                
-                SetLayeredWindowCoordinates(AppHelpers.GetCursorPosition());
-                _layeredWindow.SetTopMost();
-            }
+            // Adjust the coordinates of the layered window based on the spotlight's bitmap size.                
+            SetLayeredWindowCoordinates(AppHelpers.GetCursorPosition());
+            _highlighterWindow.SetTopMost();
         }
-        /// <summary>
-        /// Repositions the layered window where the cursor is currently pointing on the screen.
-        /// </summary>
-        /// <param name="point">A point containing the X and Y coordinates of the mouse cursor. </param>
-        private void SetLayeredWindowCoordinates(POINT point)
+    }
+    /// <summary>
+    /// Repositions the layered window where the cursor is currently pointing on the screen.
+    /// </summary>
+    /// <param name="point">A point containing the X and Y coordinates of the mouse cursor. </param>
+    private void SetLayeredWindowCoordinates(POINT point)
+    {
+        _highlighterWindow.PositionX = point.X - (_width / 2);
+        _highlighterWindow.PositionY = point.Y - (_height / 2);
+    }
+    internal void SetInitialPosition()
+    {
+        POINT coordinates = AppHelpers.GetCursorPosition();
+        if (coordinates != POINT.Empty)
         {
-            _layeredWindow.PositionX = point.X - (_width / 2);
-            _layeredWindow.PositionY = point.Y - (_height / 2);
+            SetLayeredWindowCoordinates(coordinates);
         }
-        internal void SetInitialPosition()
-        {
-            POINT coordinates = AppHelpers.GetCursorPosition();
-            if (coordinates != POINT.Empty)
-            {
-                SetLayeredWindowCoordinates(coordinates);
-            }
-        }
-        internal void HideSpotlight()
-        {
-            _layeredWindow?.Hide();
-        }
+    }
+    internal void HideSpotlight()
+    {
+        _highlighterWindow?.Hide();
+    }
 
-        protected virtual void Dispose(bool disposing)
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
         {
-            if (!_disposed)
+            if (disposing)
             {
-                if (disposing)
-                {
-                    // Clean up resources.
-                    _spotlightBitmap?.Dispose();
-                    _spotlightBitmap = null;
-                    _layeredWindow?.Dispose();
-                    _layeredWindow = null;
+                // Clean up resources.
+                _spotlightBitmap?.Dispose();
+                _spotlightBitmap = null;
+                _highlighterWindow?.Dispose();
+                _highlighterWindow = null;
 
-                }
-                _disposed = true;
             }
+            _disposed = true;
         }
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+    }
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
     }
 }

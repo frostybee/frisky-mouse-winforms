@@ -10,18 +10,17 @@
 */
 #endregion
 
-namespace FriskyMouse.Drawing.Animation
+namespace FriskyMouse.Drawing.Animation;
+
+/// <summary>
+/// Eases in a <see cref="double"/> value 
+/// using a overshooting cubic function.
+/// </summary>    
+public class BackEaseIn : Easing
 {
-    /// <summary>
-    /// Eases in a <see cref="double"/> value 
-    /// using a overshooting cubic function.
-    /// </summary>    
-    public class BackEaseIn : Easing
+    /// <inheritdoc/>
+    public override double Ease(double p)
     {
-        /// <inheritdoc/>
-        public override double Ease(double p)
-        {
-            return p * (p * p - Math.Sin(p * Math.PI)); 
-        }
+        return p * (p * p - Math.Sin(p * Math.PI)); 
     }
 }

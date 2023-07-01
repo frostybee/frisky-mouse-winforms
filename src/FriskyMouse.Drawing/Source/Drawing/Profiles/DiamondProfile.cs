@@ -10,34 +10,33 @@
 */
 #endregion
 
-namespace FriskyMouse.Drawing.Ripples
+namespace FriskyMouse.Drawing.Ripples;
+
+internal class DiamondProfile : BaseRippleProfile
 {
-    internal class DiamondProfile : BaseRippleProfile
+    private Pen _outlinePen;
+    int _baseRadius = 10; // Needs to be parametrized.
+
+    public DiamondProfile()
     {
-        private Pen _outlinePen;
-        int _baseRadius = 10; // Needs to be parametrized.
+        CreateProfileEntries();
+    }
 
-        public DiamondProfile()
-        {
-            CreateProfileEntries();
-        }
-
-        private void CreateProfileEntries()
-        {
-            _outlinePen = new Pen(Color.DarkBlue, 4);
-            // 1) Make the outer most ripple.
-            AddRipple(
-                new RippleEntry()
-                {
-                    IsExpandable = true,                    
-                    ShapeType = ShapeType.Polygon,
-                    InitialRadius = _baseRadius,
-                    RadiusMultiplier = 2,
-                    OutlinePen = _outlinePen,
-                    IsFilled = false,
-                    PolygonType = PolygonType.Diamond,
-                    IsStyleable = true
-                });            
-        }
+    private void CreateProfileEntries()
+    {
+        _outlinePen = new Pen(Color.DarkBlue, 4);
+        // 1) Make the outer most ripple.
+        AddRipple(
+            new RippleEntry()
+            {
+                IsExpandable = true,                    
+                ShapeType = ShapeType.Polygon,
+                InitialRadius = _baseRadius,
+                RadiusMultiplier = 2,
+                OutlinePen = _outlinePen,
+                IsFilled = false,
+                PolygonType = PolygonType.Diamond,
+                IsStyleable = true
+            });            
     }
 }

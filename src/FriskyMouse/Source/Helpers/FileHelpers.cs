@@ -9,61 +9,60 @@
 */
 #endregion
 
-namespace FriskyMouse.Helpers
+namespace FriskyMouse.Helpers;
+
+public static class FileHelpers
 {
-    public static class FileHelpers
+    public static string GetAbsolutePath()
     {
-        public static string GetAbsolutePath()
-        {
-            return Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory);
-        }
+        return Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory);
+    }
 
-        public static string ExpandFolderVariables(string path, bool supportCustomSpecialFolders = false)
+    public static string ExpandFolderVariables(string path, bool supportCustomSpecialFolders = false)
+    {
+        if (!string.IsNullOrEmpty(path))
         {
-            if (!string.IsNullOrEmpty(path))
+            try
             {
-                try
+                foreach (Environment.SpecialFolder specialFolder in AppHelpers.GetEnums<Environment.SpecialFolder>())
                 {
-                    foreach (Environment.SpecialFolder specialFolder in AppHelpers.GetEnums<Environment.SpecialFolder>())
-                    {
-                        path = path.Replace($"%{specialFolder}%", Environment.GetFolderPath(specialFolder), StringComparison.OrdinalIgnoreCase);
-                    }
+                    path = path.Replace($"%{specialFolder}%", Environment.GetFolderPath(specialFolder), StringComparison.OrdinalIgnoreCase);
+                }
 
-                    path = Environment.ExpandEnvironmentVariables(path);
-                }
-                catch (Exception e)
-                {
-                    DebugHelper.WriteException(e);
-                }
+                path = Environment.ExpandEnvironmentVariables(path);
             }
-
-            return path;
-        }
-
-        public static void CreateDirectory(string directoryPath)
-        {
-            if (!string.IsNullOrEmpty(directoryPath) && !Directory.Exists(directoryPath))
+            catch (Exception e)
             {
-                try
-                {
-                    Directory.CreateDirectory(directoryPath);
-                }
-                catch (Exception e)
-                {
-                    DebugHelper.WriteException(e);
-                    /*MessageBox.Show(Resources.Helpers_CreateDirectoryIfNotExist_Create_failed_ + "\r\n\r\n" + e, "FriskyMouse- " + Resources.Error,
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);*/
-                }
+                DebugHelper.WriteException(e);
             }
         }
 
-        public static void CreateDirectoryFromFilePath(string filePath)
+        return path;
+    }
+
+    public static void CreateDirectory(string directoryPath)
+    {
+        if (!string.IsNullOrEmpty(directoryPath) && !Directory.Exists(directoryPath))
         {
-            if (!string.IsNullOrEmpty(filePath))
+            try
             {
-                string directoryPath = Path.GetDirectoryName(filePath);
-                CreateDirectory(directoryPath);
+                Directory.CreateDirectory(directoryPath);
             }
+            catch (Exception e)
+            {
+                DebugHelper.WriteException(e);
+                /*MessageBox.Show(Resources.Helpers_CreateDirectoryIfNotExist_Create_failed_ + "\r\n\r\n" + e, "FriskyMouse- " + Resources.Error,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);*/
+            }
+        }
+    }
+
+    public static void CreateDirectoryFromFilePath(string filePath)
+    {
+        if (!string.IsNullOrEmpty(filePath))
+        {
+            string directoryPath = Path.GetDirectoryName(filePath);
+            CreateDirectory(directoryPath);
         }
     }
 }

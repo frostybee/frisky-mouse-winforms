@@ -10,18 +10,17 @@
 */
 #endregion
 
-namespace FriskyMouse.Drawing.Animation
+namespace FriskyMouse.Drawing.Animation;
+
+/// <summary>
+/// Eases out a <see cref="double"/> value 
+/// using a quadratic function.
+/// </summary>
+public class QuadraticEaseOut : Easing
 {
-    /// <summary>
-    /// Eases out a <see cref="double"/> value 
-    /// using a quadratic function.
-    /// </summary>
-    public class QuadraticEaseOut : Easing
+    /// <inheritdoc/>
+    public override double Ease(double progress)
     {
-        /// <inheritdoc/>
-        public override double Ease(double progress)
-        {
-            return -(progress * (progress - 2d));
-        }
+        return -(progress * (progress - 2d));
     }
 }
