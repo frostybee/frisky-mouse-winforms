@@ -6,7 +6,7 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
 		<LangVersion>10</LangVersion>
-		<BaseOutputPath>..\..\bin</BaseOutputPath>
+		<BaseOutputPath>..\bin</BaseOutputPath>
 		<Platforms>AnyCPU;x64</Platforms>
 		<StartupObject />
 		<AssemblyTitle>FriskyMouse HelpersLib</AssemblyTitle>

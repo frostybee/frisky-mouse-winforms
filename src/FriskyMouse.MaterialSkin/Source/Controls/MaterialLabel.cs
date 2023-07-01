@@ -38,11 +38,11 @@ namespace MaterialSkin.Controls
         DefaultValue(false)]
         public bool UseAccent { get; set; }
 
-        private MaterialSkinManager.fontType _fontType = MaterialSkinManager.fontType.Body1;
+        private MaterialFontType _fontType = MaterialFontType.Body1;
 
         [Category("Material Skin"),
-        DefaultValue(typeof(MaterialSkinManager.fontType), "Body1")]
-        public MaterialSkinManager.fontType FontType
+        DefaultValue(typeof(MaterialFontType), "Body1")]
+        public MaterialFontType FontType
         {
             get
             {
@@ -58,7 +58,7 @@ namespace MaterialSkin.Controls
 
         public MaterialLabel()
         {
-            FontType = MaterialSkinManager.fontType.Body1;
+            FontType = MaterialFontType.Body1;
             TextAlign = ContentAlignment.TopLeft;
         }
 

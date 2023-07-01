@@ -253,8 +253,8 @@ namespace MaterialSkin.Controls
             );
             UpdateStyles();
             base.BackColor = Color.Transparent;
-            base.Font = SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1);
-            _secondaryFont = SkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
+            base.Font = SkinManager.getFontByType(MaterialFontType.Subtitle1);
+            _secondaryFont = SkinManager.getFontByType(MaterialFontType.Body1);
             SetDefaults();
             ShowBorder = true;
             ShowScrollBar = false;
@@ -315,16 +315,16 @@ namespace MaterialSkin.Controls
                     _itemHeight = 60;
                     _secondaryTextBottomPadding = 10;
                     _primaryTextBottomPadding = 2;
-                    _primaryFont = SkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
-                    _secondaryFont = SkinManager.getFontByType(MaterialSkinManager.fontType.Body2);
+                    _primaryFont = SkinManager.getFontByType(MaterialFontType.Body1);
+                    _secondaryFont = SkinManager.getFontByType(MaterialFontType.Body2);
                 }
                 else
                 {
                     _itemHeight = 72;
                     _secondaryTextBottomPadding = 16;
                     _primaryTextBottomPadding = 4;
-                    _primaryFont = SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1);
-                    _secondaryFont = SkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
+                    _primaryFont = SkinManager.getFontByType(MaterialFontType.Subtitle1);
+                    _secondaryFont = SkinManager.getFontByType(MaterialFontType.Body1);
                 }
             }
             else if (_style == ListBoxStyle.ThreeLine)
@@ -335,15 +335,15 @@ namespace MaterialSkin.Controls
                 {
                     _itemHeight = 76;
                     _secondaryTextBottomPadding = 16;
-                    _primaryFont = SkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
-                    _secondaryFont = SkinManager.getFontByType(MaterialSkinManager.fontType.Body2);
+                    _primaryFont = SkinManager.getFontByType(MaterialFontType.Body1);
+                    _secondaryFont = SkinManager.getFontByType(MaterialFontType.Body2);
                 }
                 else
                 {
                     _itemHeight = 88;
                     _secondaryTextBottomPadding = 12;
-                    _primaryFont = SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1);
-                    _secondaryFont = SkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
+                    _primaryFont = SkinManager.getFontByType(MaterialFontType.Subtitle1);
+                    _secondaryFont = SkinManager.getFontByType(MaterialFontType.Body1);
                 }
             }
             else
@@ -353,8 +353,8 @@ namespace MaterialSkin.Controls
                     _itemHeight = 40;
                 else
                     _itemHeight = 48;
-                _primaryFont = SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1);
-                _secondaryFont = SkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
+                _primaryFont = SkinManager.getFontByType(MaterialFontType.Subtitle1);
+                _secondaryFont = SkinManager.getFontByType(MaterialFontType.Body1);
             }
 
         }

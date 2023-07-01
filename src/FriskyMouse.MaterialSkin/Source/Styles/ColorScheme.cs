@@ -92,6 +92,16 @@ namespace MaterialSkin
                 if (disposing)
                 {
                     // TODO: dispose managed state (managed objects)
+                    PrimaryBrush?.Dispose();
+                    DarkPrimaryBrush?.Dispose();
+                    LightPrimaryBrush?.Dispose();
+                    AccentBrush?.Dispose();
+                    TextBrush?.Dispose();
+                    PrimaryPen.Dispose();
+                    DarkPrimaryPen.Dispose();
+                    LightPrimaryPen.Dispose();
+                    AccentPen.Dispose();
+                    TextPen.Dispose();
                 }
 
                 // TODO: free unmanaged resources (unmanaged objects) and override finalizer
@@ -116,6 +126,6 @@ namespace MaterialSkin
     }
 
     //Color constants
-    
+
 }
 

@@ -130,6 +130,7 @@ public partial class MainForm : MaterialForm
             appNotifyIcon?.Dispose();
             _decorationController?.DisableHook();
             _decorationController?.Dispose();
+            _materialSkinManager.Dispose();
         }
         catch (Exception)
         {

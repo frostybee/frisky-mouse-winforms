@@ -102,7 +102,7 @@ namespace MaterialSkin.Controls
             UseTallSize = true;
             MaxDropDownItems = 4;
 
-            Font = SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle2);
+            Font = SkinManager.getFontByType(MaterialFontType.Subtitle2);
             BackColor = SkinManager.BackgroundColor;
             ForeColor = SkinManager.TextHighEmphasisColor;
             DrawMode = DrawMode.OwnerDrawVariable;
@@ -257,7 +257,7 @@ namespace MaterialSkin.Controls
                 // Draw user text
                 NativeText.DrawTransparentText(
                     Text,
-                    SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle1),
+                    SkinManager.getLogFontByType(MaterialFontType.Subtitle1),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     textRect.Location,
                     textRect.Size,
@@ -328,7 +328,7 @@ namespace MaterialSkin.Controls
             {
                 NativeText.DrawTransparentText(
                 Text,
-                SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1),
+                SkinManager.getFontByType(MaterialFontType.Subtitle1),
                 SkinManager.TextHighEmphasisNoAlphaColor,
                 new Point(e.Bounds.Location.X + SkinManager.FORM_PADDING, e.Bounds.Location.Y),
                 new Size(e.Bounds.Size.Width - SkinManager.FORM_PADDING * 2, e.Bounds.Size.Height),
@@ -378,7 +378,7 @@ namespace MaterialSkin.Controls
                 var itemsList = this.Items.Cast<object>().Select(item => item.ToString());
                 foreach (string s in itemsList)
                 {
-                    int newWidth = NativeText.MeasureLogString(s, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle1)).Width + vertScrollBarWidth + padding;
+                    int newWidth = NativeText.MeasureLogString(s, SkinManager.getLogFontByType(MaterialFontType.Subtitle1)).Width + vertScrollBarWidth + padding;
                     if (w < newWidth) w = newWidth;
                 }
             }

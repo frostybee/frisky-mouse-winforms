@@ -116,7 +116,7 @@ namespace MaterialSkin.Controls
 
             using (NativeTextRenderer NativeText = new NativeTextRenderer(g))
             {
-                NativeText.DrawTransparentText(e.Text, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Body2),
+                NativeText.DrawTransparentText(e.Text, SkinManager.getLogFontByType(MaterialFontType.Body2),
                     e.Item.Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     textRect.Location,
                     textRect.Size,

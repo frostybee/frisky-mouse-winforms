@@ -1309,7 +1309,7 @@ namespace MaterialSkin.Controls
                 preProcessIcons();
             };
 
-            Font = SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1);
+            Font = SkinManager.getFontByType(MaterialFontType.Subtitle1);
 
             baseTextBox = new BaseTextBox
             {
@@ -1452,14 +1452,14 @@ namespace MaterialSkin.Controls
                     Rectangle prefixRect = new Rectangle(
                         _left_padding - _prefix_padding,
                         hasHint && UseTallSize ? (hintRect.Y + hintRect.Height) - 2 : ClientRectangle.Y,
-//                        NativeText.MeasureLogString(_prefixsuffixText, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle1)).Width,
+//                        NativeText.MeasureLogString(_prefixsuffixText, SkinManager.getLogFontByType(MaterialFontType.Subtitle1)).Width,
                         _prefix_padding,
                         hasHint && UseTallSize ? LINE_Y - (hintRect.Y + hintRect.Height) : LINE_Y);
 
                     // Draw Prefix text 
                     NativeText.DrawTransparentText(
                     _prefixsuffixText,
-                    SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle1),
+                    SkinManager.getLogFontByType(MaterialFontType.Subtitle1),
                     Enabled ? SkinManager.TextMediumEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     prefixRect.Location,
                     prefixRect.Size,
@@ -1475,14 +1475,14 @@ namespace MaterialSkin.Controls
                     Rectangle suffixRect = new Rectangle(
                         Width - _right_padding ,
                         hasHint && UseTallSize ? (hintRect.Y + hintRect.Height) - 2 : ClientRectangle.Y,
-                        //NativeText.MeasureLogString(_prefixsuffixText, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING,
+                        //NativeText.MeasureLogString(_prefixsuffixText, SkinManager.getLogFontByType(MaterialFontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING,
                         _suffix_padding,
                         hasHint && UseTallSize ? LINE_Y - (hintRect.Y + hintRect.Height) : LINE_Y);
 
                     // Draw Suffix text 
                     NativeText.DrawTransparentText(
                     _prefixsuffixText,
-                    SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle1),
+                    SkinManager.getLogFontByType(MaterialFontType.Subtitle1),
                     Enabled ? SkinManager.TextMediumEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     suffixRect.Location,
                     suffixRect.Size,
@@ -1860,7 +1860,7 @@ namespace MaterialSkin.Controls
             {
                 using (NativeTextRenderer NativeText = new NativeTextRenderer(CreateGraphics()))
                 {
-                    _prefix_padding = NativeText.MeasureLogString(_prefixsuffixText, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
+                    _prefix_padding = NativeText.MeasureLogString(_prefixsuffixText, SkinManager.getLogFontByType(MaterialFontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
                     _left_padding += _prefix_padding;
                 }
             }
@@ -1871,7 +1871,7 @@ namespace MaterialSkin.Controls
             {
                 using (NativeTextRenderer NativeText = new NativeTextRenderer(CreateGraphics()))
                 {
-                    _suffix_padding = NativeText.MeasureLogString(_prefixsuffixText, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
+                    _suffix_padding = NativeText.MeasureLogString(_prefixsuffixText, SkinManager.getLogFontByType(MaterialFontType.Subtitle1)).Width + PREFIX_SUFFIX_PADDING;
                     _right_padding += _suffix_padding;
                 }
             }

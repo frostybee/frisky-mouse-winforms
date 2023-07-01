@@ -288,7 +288,7 @@ namespace FriskyMouse.UI.Controls
             materialLabel26.AutoSize = true;
             materialLabel26.Depth = 0;
             materialLabel26.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            materialLabel26.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            materialLabel26.FontType = MaterialSkin.MaterialFontType.H5;
             materialLabel26.Location = new Point(20, 4);
             materialLabel26.Margin = new Padding(4, 0, 4, 0);
             materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;

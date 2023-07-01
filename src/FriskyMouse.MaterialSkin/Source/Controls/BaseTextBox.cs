@@ -82,7 +82,7 @@ namespace MaterialSkin.Controls
                 {
                     NativeText.DrawTransparentText(
                     Hint,
-                    SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1),
+                    SkinManager.getFontByType(MaterialFontType.Subtitle1),
                     Enabled ?
                     ColorHelper.RemoveAlpha(SkinManager.TextMediumEmphasisColor, BackColor) : // not focused
                     ColorHelper.RemoveAlpha(SkinManager.TextDisabledOrHintColor, BackColor), // Disabled
@@ -182,7 +182,7 @@ namespace MaterialSkin.Controls
                 {
                     NativeText.DrawTransparentText(
                     Hint,
-                    SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1),
+                    SkinManager.getFontByType(MaterialFontType.Subtitle1),
                     Enabled ?
                     ColorHelper.RemoveAlpha(SkinManager.TextMediumEmphasisColor, BackColor) : // not focused
                     ColorHelper.RemoveAlpha(SkinManager.TextDisabledOrHintColor, BackColor), // Disabled

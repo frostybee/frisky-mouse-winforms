@@ -79,7 +79,7 @@ namespace FriskyMouse.UI.Controls
             lblControlTitle.AutoSize = true;
             lblControlTitle.Depth = 0;
             lblControlTitle.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblControlTitle.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            lblControlTitle.FontType = MaterialSkin.MaterialFontType.H5;
             lblControlTitle.Location = new Point(23, 7);
             lblControlTitle.Margin = new Padding(4, 0, 4, 0);
             lblControlTitle.MouseState = MaterialSkin.MouseState.HOVER;

@@ -93,7 +93,7 @@ namespace MaterialSkin.Controls
             this.Multiline = true;
 
             BorderStyle = BorderStyle.None;
-            Font = SkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
+            Font = SkinManager.getFontByType(MaterialFontType.Body1);
             BackColor = SkinManager.BackgroundColor;
             ForeColor = SkinManager.TextHighEmphasisColor;
             BackColorChanged += (sender, args) => BackColor = SkinManager.BackgroundColor;

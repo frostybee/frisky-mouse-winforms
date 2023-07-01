@@ -159,11 +159,11 @@ namespace MaterialSkin.Controls
             set { _useAccentColor = value; Invalidate(); }
         }
 
-        private MaterialSkinManager.fontType _fontType = MaterialSkinManager.fontType.Body1;
+        private MaterialFontType _fontType = MaterialFontType.Body1;
 
         [Category("Material Skin"),
-        DefaultValue(typeof(MaterialSkinManager.fontType), "Body1")]
-        public MaterialSkinManager.fontType FontType
+        DefaultValue(typeof(MaterialFontType), "Body1")]
+        public MaterialFontType FontType
         {
             get
             {

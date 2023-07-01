@@ -260,7 +260,7 @@ namespace MaterialSkin.Controls
             }
             Color _accentColor = SkinManager.ColorScheme.AccentColor;
             SolidBrush _accentBrush = new SolidBrush(_accentColor);
-            Font font = SkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
+            Font font = SkinManager.getFontByType(MaterialFontType.Body1);
             g.DrawString(MinValue.ToString(), font, _accentBrush, new PointF(0, 0));
             g.DrawString(MaxValue.ToString(), font, _accentBrush,
                 new PointF(Width - g.MeasureString(MaxValue.ToString(), font).Width, 0f));

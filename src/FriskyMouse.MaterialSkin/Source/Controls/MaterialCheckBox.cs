@@ -107,7 +107,7 @@ namespace MaterialSkin.Controls
 
             using (NativeTextRenderer NativeText = new NativeTextRenderer(CreateGraphics()))
             {
-                strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Body1));
+                strSize = NativeText.MeasureLogString(Text, SkinManager.getLogFontByType(MaterialFontType.Body1));
             }
 
             int w = _boxOffset + TEXT_OFFSET + strSize.Width;
@@ -197,7 +197,7 @@ namespace MaterialSkin.Controls
             using (NativeTextRenderer NativeText = new NativeTextRenderer(g))
             {
                 Rectangle textLocation = new Rectangle(_boxOffset + TEXT_OFFSET, 0, Width - (_boxOffset + TEXT_OFFSET), HEIGHT_RIPPLE);
-                NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialSkinManager.fontType.Body1),
+                NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialFontType.Body1),
                     Enabled ? SkinManager.TextHighEmphasisColor : SkinManager.TextDisabledOrHintColor,
                     textLocation.Location,
                     textLocation.Size,

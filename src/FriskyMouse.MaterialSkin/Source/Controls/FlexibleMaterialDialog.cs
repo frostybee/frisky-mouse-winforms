@@ -424,7 +424,7 @@ namespace MaterialSkin.Controls
 
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            FONT = materialSkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
+            FONT = materialSkinManager.getFontByType(MaterialFontType.Body1);
             messageContainer.BackColor = this.BackColor;
         }
 

@@ -283,7 +283,7 @@ namespace MaterialSkin.Controls
             {
                 base.Text = value;
                 if (!String.IsNullOrEmpty(value))
-                    _textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.getFontByType(MaterialSkinManager.fontType.Button));
+                    _textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.getFontByType(MaterialFontType.Button));
                 else
                 {
                     _textSize.Width = 0;
@@ -543,7 +543,7 @@ namespace MaterialSkin.Controls
                 NativeText.DrawMultilineTransparentText(
                     CharacterCasing == CharacterCasingEnum.Upper ? base.Text.ToUpper() : CharacterCasing == CharacterCasingEnum.Lower ? base.Text.ToLower() :
                         CharacterCasing == CharacterCasingEnum.Title ? CultureInfo.CurrentCulture.TextInfo.ToTitleCase(base.Text.ToLower()) : base.Text,
-                    SkinManager.getLogFontByType(MaterialSkinManager.fontType.Button),
+                    SkinManager.getLogFontByType(MaterialFontType.Button),
                     textColor,
                     textRect.Location,
                     textRect.Size,

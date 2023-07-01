@@ -499,7 +499,7 @@ namespace MaterialSkin.Controls
                     (currentTabIndex == _baseTabControl.SelectedIndex ? (_highlightWithAccent ? SkinManager.ColorScheme.AccentColor : SkinManager.ColorScheme.PrimaryColor) : // selected
                     SkinManager.TextHighEmphasisColor));
 
-                IntPtr textFont = SkinManager.getLogFontByType(MaterialSkinManager.fontType.Subtitle2);
+                IntPtr textFont = SkinManager.getLogFontByType(MaterialFontType.Subtitle2);
 
                 Rectangle textRect = _drawerItemRects[currentTabIndex];
                 textRect.X += _baseTabControl.ImageList != null ? drawerItemHeight : (int)(SkinManager.FORM_PADDING * 0.75);

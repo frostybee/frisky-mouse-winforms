@@ -1147,7 +1147,7 @@ namespace MaterialSkin.Controls
             baseTextBox = new BaseTextBox
             {
                 BorderStyle = BorderStyle.None,
-                Font = SkinManager.getFontByType(MaterialSkinManager.fontType.Subtitle1),
+                Font = SkinManager.getFontByType(MaterialFontType.Subtitle1),
                 ForeColor = SkinManager.TextHighEmphasisColor,
                 Multiline = true
             };

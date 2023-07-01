@@ -108,7 +108,7 @@ namespace MaterialSkin.Controls
                 Controls.Add(_cancelButton);
 
             Width = 560;
-            int TextWidth = TextRenderer.MeasureText(_text, SkinManager.getFontByType(MaterialSkinManager.fontType.Body1)).Width;
+            int TextWidth = TextRenderer.MeasureText(_text, SkinManager.getFontByType(MaterialFontType.Body1)).Width;
             int RectWidth = Width - (2 * LEFT_RIGHT_PADDING) - BUTTON_PADDING;
             int RectHeight = ((TextWidth / RectWidth) + 1) * 19;
             Rectangle textRect = new Rectangle(
@@ -120,7 +120,7 @@ namespace MaterialSkin.Controls
             Height = _header_Height + TEXT_TOP_PADDING + textRect.Height + TEXT_BOTTOM_PADDING + 52; //560;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 6, 6));
 
-            int _buttonWidth = ((TextRenderer.MeasureText(ValidationButtonText, SkinManager.getFontByType(MaterialSkinManager.fontType.Button))).Width + 32);
+            int _buttonWidth = ((TextRenderer.MeasureText(ValidationButtonText, SkinManager.getFontByType(MaterialFontType.Button))).Width + 32);
             Rectangle _validationbuttonBounds = new Rectangle((Width) - BUTTON_PADDING - _buttonWidth, Height - BUTTON_PADDING - BUTTON_HEIGHT, _buttonWidth, BUTTON_HEIGHT);
             _validationButton.Width = _validationbuttonBounds.Width;
             _validationButton.Height = _validationbuttonBounds.Height;
@@ -128,7 +128,7 @@ namespace MaterialSkin.Controls
             _validationButton.Left = _validationbuttonBounds.Left;  //Button minimum width management
             _validationButton.Visible = true;
 
-            _buttonWidth = ((TextRenderer.MeasureText(CancelButtonText, SkinManager.getFontByType(MaterialSkinManager.fontType.Button))).Width + 32);
+            _buttonWidth = ((TextRenderer.MeasureText(CancelButtonText, SkinManager.getFontByType(MaterialFontType.Button))).Width + 32);
             Rectangle _cancelbuttonBounds = new Rectangle((_validationbuttonBounds.Left) - BUTTON_PADDING - _buttonWidth, Height - BUTTON_PADDING - BUTTON_HEIGHT, _buttonWidth, BUTTON_HEIGHT);
             _cancelButton.Width = _cancelbuttonBounds.Width;
             _cancelButton.Height = _cancelbuttonBounds.Height;
@@ -217,7 +217,7 @@ namespace MaterialSkin.Controls
                 // Draw header text
                 NativeText.DrawTransparentText(
                     _title,
-                    SkinManager.getLogFontByType(MaterialSkinManager.fontType.H6),
+                    SkinManager.getLogFontByType(MaterialFontType.H6),
                     SkinManager.TextHighEmphasisColor,
                     titleRect.Location,
                     titleRect.Size,
@@ -226,7 +226,7 @@ namespace MaterialSkin.Controls
 
             // Calc text Rect
 
-            int TextWidth = TextRenderer.MeasureText(_text, SkinManager.getFontByType(MaterialSkinManager.fontType.Body1)).Width;
+            int TextWidth = TextRenderer.MeasureText(_text, SkinManager.getFontByType(MaterialFontType.Body1)).Width;
             int RectWidth = Width - (2 * LEFT_RIGHT_PADDING) - BUTTON_PADDING;
             int RectHeight = ((TextWidth / RectWidth) + 1) * 19;
 
@@ -242,7 +242,7 @@ namespace MaterialSkin.Controls
                 // Draw header text
                 NativeText.DrawMultilineTransparentText(
                     _text,
-                    SkinManager.getLogFontByType(MaterialSkinManager.fontType.Body1),
+                    SkinManager.getLogFontByType(MaterialFontType.Body1),
                     SkinManager.TextHighEmphasisColor,
                     textRect.Location,
                     textRect.Size,

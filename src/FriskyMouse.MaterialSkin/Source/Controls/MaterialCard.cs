@@ -49,8 +49,8 @@ namespace MaterialSkin.Controls
         }
 
         public SizeF TitleSize { get { return CreateGraphics().MeasureString(_Text,
-            LargeTitle ? SkinManager.getFontByType(MaterialSkinManager.fontType.RobotoMedium15) 
-                    : SkinManager.getFontByType(MaterialSkinManager.fontType.RobotoMedium)); }
+            LargeTitle ? SkinManager.getFontByType(MaterialFontType.RobotoMedium15) 
+                    : SkinManager.getFontByType(MaterialFontType.RobotoMedium)); }
         }
         public MaterialCard()
         {
@@ -92,7 +92,7 @@ namespace MaterialSkin.Controls
             {
                 g.DrawString(
                _Text,
-               LargeTitle ? SkinManager.getFontByType(MaterialSkinManager.fontType.RobotoMedium15) : SkinManager.getFontByType(MaterialSkinManager.fontType.RobotoMedium),
+               LargeTitle ? SkinManager.getFontByType(MaterialFontType.RobotoMedium15) : SkinManager.getFontByType(MaterialFontType.RobotoMedium),
                SkinManager.ColorScheme.PrimaryBrush,
                new Rectangle(ClientRectangle.X + 10, ClientRectangle.Y + 10, ClientRectangle.Width, (int)TitleSize.Height),
                new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near });

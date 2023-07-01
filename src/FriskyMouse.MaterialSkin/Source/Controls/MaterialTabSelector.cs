@@ -156,7 +156,7 @@ namespace MaterialSkin.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            Font = SkinManager.getFontByType(MaterialSkinManager.fontType.Body1);
+            Font = SkinManager.getFontByType(MaterialFontType.Body1);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -233,7 +233,7 @@ namespace MaterialSkin.Controls
                             CharacterCasing == CustomCharacterCasing.Upper ? tabPage.Text.ToUpper() :
                             CharacterCasing == CustomCharacterCasing.Lower ? tabPage.Text.ToLower() :
                             CharacterCasing == CustomCharacterCasing.Proper ? textInfo.ToTitleCase(tabPage.Text.ToLower()) : tabPage.Text,
-                            SkinManager.getFontByType(MaterialSkinManager.fontType.Body2),
+                            SkinManager.getFontByType(MaterialFontType.Body2),
                             Color.FromArgb(CalculateTextAlpha(currentTabIndex, animationProgress), SkinManager.ColorScheme.TextColor),
                             textLocation.Location,
                             textLocation.Size,
