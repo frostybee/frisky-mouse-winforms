@@ -9,10 +9,10 @@
             {
                 case ColorSchemeType.Red:
                     colorScheme = new ColorScheme(
-                        Primary.Red400,
+                        Primary.Red800,
                         Primary.Red900,
-                        Primary.Red500,
-                        Accent.Red400,
+                        Primary.Red600,
+                        Accent.Red100,
                         TextShade.WHITE);
                     break;
                 case ColorSchemeType.Pink:
@@ -37,7 +37,7 @@
                         Primary.DeepPurple800,
                         Primary.DeepPurple900,
                         Primary.DeepPurple500,
-                        Accent.DeepPurple400,
+                        Accent.DeepPurple200,
                         TextShade.WHITE);
                     break;
                 case ColorSchemeType.Indigo:
@@ -101,7 +101,7 @@
                         Primary.Orange800,
                         Primary.Orange900,
                         Primary.Orange500,
-                        Accent.Orange700,
+                        Accent.Orange200,
                         TextShade.WHITE);
                     break;
                 case ColorSchemeType.DeepOrange:
@@ -109,7 +109,7 @@
                         Primary.DeepOrange800,
                         Primary.DeepOrange900,
                         Primary.DeepOrange500,
-                        Accent.DeepOrange200,
+                        Accent.DeepOrange100,
                         TextShade.WHITE);
                     break;
                 case ColorSchemeType.Brown:

@@ -1,7 +1,12 @@
 ﻿#region License Information (MIT)
-// This code is distributed under the MIT license. 
-// Copyright (c) 2021-2023 FrostyBee
-// See license.txt or https://mit-license.org/
+/* 
+   FriskyMouse - A program that lets you highlight your mouse cursor and decorate your mouse clicks. 
+   Copyright (c) 2021-2023 FrostyBee
+   
+   This program is free software; you can redistribute it and/or
+   modify it under the terms of the MIT license
+   See license.txt or https://mit-license.org/
+*/
 #endregion
 
 namespace FriskyMouse.UI.Controls
@@ -142,12 +147,12 @@ namespace FriskyMouse.UI.Controls
             sldOpacity.Margin = new Padding(2, 3, 2, 3);
             sldOpacity.MouseState = MaterialSkin.MouseState.HOVER;
             sldOpacity.Name = "sldOpacity";
-            sldOpacity.RangeMax = 90;
+            sldOpacity.RangeMax = 95;
             sldOpacity.RangeMin = 1;
             sldOpacity.Size = new Size(315, 40);
             sldOpacity.TabIndex = 4;
             sldOpacity.Text = "Opacity";
-            sldOpacity.ValueMax = 90;
+            sldOpacity.ValueMax = 95;
             sldOpacity.ValueSuffix = "%";
             // 
             // switchFilledSpotlight
@@ -284,7 +289,7 @@ namespace FriskyMouse.UI.Controls
             materialLabel26.Depth = 0;
             materialLabel26.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
             materialLabel26.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            materialLabel26.Location = new Point(23, 4);
+            materialLabel26.Location = new Point(20, 4);
             materialLabel26.Margin = new Padding(4, 0, 4, 0);
             materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel26.Name = "materialLabel26";
@@ -409,13 +414,13 @@ namespace FriskyMouse.UI.Controls
             sldShadowOpacity.Margin = new Padding(2, 3, 2, 3);
             sldShadowOpacity.MouseState = MaterialSkin.MouseState.HOVER;
             sldShadowOpacity.Name = "sldShadowOpacity";
-            sldShadowOpacity.RangeMax = 80;
+            sldShadowOpacity.RangeMax = 95;
             sldShadowOpacity.RangeMin = 1;
             sldShadowOpacity.Size = new Size(315, 40);
             sldShadowOpacity.TabIndex = 95;
             sldShadowOpacity.Text = "Opcaity";
             sldShadowOpacity.Value = 30;
-            sldShadowOpacity.ValueMax = 80;
+            sldShadowOpacity.ValueMax = 95;
             sldShadowOpacity.ValueSuffix = "%";
             // 
             // groupBox2

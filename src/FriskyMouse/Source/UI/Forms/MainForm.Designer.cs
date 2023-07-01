@@ -1,7 +1,12 @@
 ﻿#region License Information (MIT)
-// This code is distributed under the MIT license. 
-// Copyright (c) 2021-2023 FrostyBee
-// See license.txt or https://mit-license.org/
+/* 
+   FriskyMouse - A program that lets you highlight your mouse cursor and decorate your mouse clicks. 
+   Copyright (c) 2021-2023 FrostyBee
+   
+   This program is free software; you can redistribute it and/or
+   modify it under the terms of the MIT license
+   See license.txt or https://mit-license.org/
+*/
 #endregion
 
 namespace FriskyMouse.UI
@@ -89,7 +94,7 @@ namespace FriskyMouse.UI
             mainTabControl.Multiline = true;
             mainTabControl.Name = "mainTabControl";
             mainTabControl.SelectedIndex = 0;
-            mainTabControl.Size = new Size(842, 631);
+            mainTabControl.Size = new Size(749, 631);
             mainTabControl.TabIndex = 0;
             // 
             // tabHighlighter
@@ -101,7 +106,7 @@ namespace FriskyMouse.UI
             tabHighlighter.Location = new Point(4, 31);
             tabHighlighter.Name = "tabHighlighter";
             tabHighlighter.Padding = new Padding(3);
-            tabHighlighter.Size = new Size(834, 596);
+            tabHighlighter.Size = new Size(741, 596);
             tabHighlighter.TabIndex = 0;
             tabHighlighter.Text = "Highlighter";
             // 
@@ -111,7 +116,7 @@ namespace FriskyMouse.UI
             ctrlHighlighter.Location = new Point(3, 3);
             ctrlHighlighter.Margin = new Padding(2, 3, 2, 3);
             ctrlHighlighter.Name = "ctrlHighlighter";
-            ctrlHighlighter.Size = new Size(828, 590);
+            ctrlHighlighter.Size = new Size(735, 590);
             ctrlHighlighter.TabIndex = 2;
             // 
             // materialDrawer
@@ -141,7 +146,7 @@ namespace FriskyMouse.UI
             tabClickDecorator.Location = new Point(4, 31);
             tabClickDecorator.Name = "tabClickDecorator";
             tabClickDecorator.Padding = new Padding(3);
-            tabClickDecorator.Size = new Size(834, 596);
+            tabClickDecorator.Size = new Size(716, 596);
             tabClickDecorator.TabIndex = 1;
             tabClickDecorator.Text = "Click Decorator";
             // 
@@ -151,7 +156,7 @@ namespace FriskyMouse.UI
             ctrClickDecoration.Location = new Point(3, 3);
             ctrClickDecoration.Margin = new Padding(0);
             ctrClickDecoration.Name = "ctrClickDecoration";
-            ctrClickDecoration.Size = new Size(828, 590);
+            ctrClickDecoration.Size = new Size(710, 590);
             ctrClickDecoration.TabIndex = 0;
             // 
             // tabRightClick
@@ -162,7 +167,7 @@ namespace FriskyMouse.UI
             tabRightClick.Location = new Point(4, 31);
             tabRightClick.Name = "tabRightClick";
             tabRightClick.Padding = new Padding(3);
-            tabRightClick.Size = new Size(834, 596);
+            tabRightClick.Size = new Size(716, 596);
             tabRightClick.TabIndex = 4;
             tabRightClick.Text = "Right Click";
             // 
@@ -172,7 +177,7 @@ namespace FriskyMouse.UI
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(828, 590);
+            panel1.Size = new Size(710, 590);
             panel1.TabIndex = 0;
             // 
             // ctrLeftClickDecoration
@@ -190,7 +195,7 @@ namespace FriskyMouse.UI
             tbpSettings.Location = new Point(4, 31);
             tbpSettings.Name = "tbpSettings";
             tbpSettings.Padding = new Padding(3);
-            tbpSettings.Size = new Size(834, 596);
+            tbpSettings.Size = new Size(716, 596);
             tbpSettings.TabIndex = 2;
             tbpSettings.Text = "Settings";
             // 
@@ -210,7 +215,7 @@ namespace FriskyMouse.UI
             tabAboutPage.Margin = new Padding(3, 2, 3, 2);
             tabAboutPage.Name = "tabAboutPage";
             tabAboutPage.Padding = new Padding(3, 2, 3, 2);
-            tabAboutPage.Size = new Size(834, 596);
+            tabAboutPage.Size = new Size(716, 596);
             tabAboutPage.TabIndex = 3;
             tabAboutPage.Text = "About";
             // 
@@ -220,7 +225,7 @@ namespace FriskyMouse.UI
             ctrlAbout.Location = new Point(3, 2);
             ctrlAbout.Margin = new Padding(0);
             ctrlAbout.Name = "ctrlAbout";
-            ctrlAbout.Size = new Size(828, 592);
+            ctrlAbout.Size = new Size(710, 592);
             ctrlAbout.TabIndex = 0;
             // 
             // menuIconList
@@ -269,7 +274,7 @@ namespace FriskyMouse.UI
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
-            ClientSize = new Size(850, 709);
+            ClientSize = new Size(757, 709);
             Controls.Add(mainTabControl);
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = mainTabControl;

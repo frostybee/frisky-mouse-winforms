@@ -1,7 +1,12 @@
 ﻿#region License Information (MIT)
-// This code is distributed under the MIT license. 
-// Copyright (c) 2021-2023 FrostyBee
-// See license.txt or https://mit-license.org/
+/* 
+   FriskyMouse - A program that lets you highlight your mouse cursor and decorate your mouse clicks. 
+   Copyright (c) 2021-2023 FrostyBee
+   
+   This program is free software; you can redistribute it and/or
+   modify it under the terms of the MIT license
+   See license.txt or https://mit-license.org/
+*/
 #endregion
 
 namespace FriskyMouse.UI.Controls
@@ -34,7 +39,7 @@ namespace FriskyMouse.UI.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            GraphicsPath graphicsPath3 = new GraphicsPath();
+            GraphicsPath graphicsPath1 = new GraphicsPath();
             lblControlTitle = new MaterialSkin.Controls.MaterialLabel();
             groupBox3 = new GroupBox();
             materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
@@ -165,7 +170,7 @@ namespace FriskyMouse.UI.Controls
             switchColorTransition.Checked = true;
             switchColorTransition.CheckState = CheckState.Checked;
             switchColorTransition.Depth = 0;
-            switchColorTransition.Location = new Point(18, 178);
+            switchColorTransition.Location = new Point(10, 178);
             switchColorTransition.Margin = new Padding(0);
             switchColorTransition.MouseLocation = new Point(-1, -1);
             switchColorTransition.MouseState = MaterialSkin.MouseState.HOVER;
@@ -441,8 +446,8 @@ namespace FriskyMouse.UI.Controls
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(5, 25, 5, 5);
-            graphicsPath3.FillMode = FillMode.Alternate;
-            materialCard1.ShadowBorder = graphicsPath3;
+            graphicsPath1.FillMode = FillMode.Alternate;
+            materialCard1.ShadowBorder = graphicsPath1;
             materialCard1.Size = new Size(220, 236);
             materialCard1.TabIndex = 79;
             materialCard1.Title = null;

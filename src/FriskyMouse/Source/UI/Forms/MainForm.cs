@@ -1,7 +1,12 @@
 ﻿#region License Information (MIT)
-// This code is distributed under the MIT license. 
-// Copyright (c) 2021-2023 FrostyBee
-// See license.txt or https://mit-license.org/
+/* 
+   FriskyMouse - A program that lets you highlight your mouse cursor and decorate your mouse clicks. 
+   Copyright (c) 2021-2023 FrostyBee
+   
+   This program is free software; you can redistribute it and/or
+   modify it under the terms of the MIT license
+   See license.txt or https://mit-license.org/
+*/
 #endregion
 
 using FriskyMouse.Core;
@@ -30,6 +35,7 @@ namespace FriskyMouse.UI
             _decorationController = DecorationManager.Instance;
             _materialSkinManager = MaterialSkinManager.Instance;
             InitializeControls();
+            //TopMost = true;
         }
 
         private void InitializeControls()
@@ -59,7 +65,7 @@ namespace FriskyMouse.UI
         {
             // Set this to false to disable backcolor enforcing on non-materialSkin components
             // This HAS to be set before the AddFormToManage()
-            _materialSkinManager.EnforceBackcolorOnAllComponents = false;
+            _materialSkinManager.EnforceBackcolorOnAllComponents = true;
             // MaterialSkinManager properties
             _materialSkinManager.AddFormToManage(this);
             _materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -102,15 +108,15 @@ namespace FriskyMouse.UI
                 _decorationController.MainForm = this;
                 _decorationController.BootstrapApp();
                 ctrlHighlighter.UpdateControlsFromSettings();
-                ctrClickDecoration.UpdateControlsFromSettings("Left Click Decoration", DecorationManager.Instance.ClickDecorator, SettingsManager.Settings.LeftClickOptions);
-                ctrLeftClickDecoration.UpdateControlsFromSettings("Right Click Decoration", DecorationManager.Instance.RightClickDecorator, SettingsManager.Settings.RightClickOptions);
+                ctrClickDecoration.UpdateControlsFromSettings("Left Click Indicator", DecorationManager.Instance.ClickDecorator, SettingsManager.Settings.LeftClickOptions);
+                ctrLeftClickDecoration.UpdateControlsFromSettings("Right Click Indicator ", DecorationManager.Instance.RightClickDecorator, SettingsManager.Settings.RightClickOptions);
                 ctrlAppSettings.UpdateControlsFromSettings();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);                
+                MessageBox.Show(ex.Message);
             }
-                    
+
         }
 
         /// <summary>

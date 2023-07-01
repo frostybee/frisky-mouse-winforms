@@ -1,7 +1,12 @@
 ﻿#region License Information (MIT)
-// This code is distributed under the MIT license. 
-// Copyright (c) 2021-2023 FrostyBee
-// See license.txt or https://mit-license.org/
+/* 
+   FriskyMouse - A program that lets you highlight your mouse cursor and decorate your mouse clicks. 
+   Copyright (c) 2021-2023 FrostyBee
+   
+   This program is free software; you can redistribute it and/or
+   modify it under the terms of the MIT license
+   See license.txt or https://mit-license.org/
+*/
 #endregion
 
 using FriskyMouse.NativeApi;
@@ -46,7 +51,7 @@ namespace FriskyMouse.Core
                     case MouseButtonTypes.LeftButtonUp:
                         // Fix the issue when the highlighter is no longer top most.
                         // TODO: lock the involved objects. This is causing an InvalidOperationException.
-                        Task.Delay(200).ContinueWith(t => _highlighter?.BringToFront());
+                        Task.Delay(500).ContinueWith(t => _highlighter?.BringToFront());
                         break;
                     case MouseButtonTypes.MouseMove:
                         _highlighter?.MoveSpotlight(hookStruct.pt);
