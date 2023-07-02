@@ -42,8 +42,10 @@ namespace FriskyMouse.UI.Controls
             splitContainer1 = new SplitContainer();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             panel1 = new Panel();
+            groupBox1 = new GroupBox();
+            materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            switchColoredDrawer = new MaterialSkin.Controls.MaterialSwitch();
             cmbColorScheme = new MaterialSkin.Controls.MaterialComboBox();
-            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             switchChangeTheme = new MaterialSkin.Controls.MaterialSwitch();
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -51,6 +53,7 @@ namespace FriskyMouse.UI.Controls
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             panel1.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -86,9 +89,7 @@ namespace FriskyMouse.UI.Controls
             // 
             // panel1
             // 
-            panel1.Controls.Add(cmbColorScheme);
-            panel1.Controls.Add(materialLabel1);
-            panel1.Controls.Add(switchChangeTheme);
+            panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(materialDivider1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
@@ -96,6 +97,45 @@ namespace FriskyMouse.UI.Controls
             panel1.Name = "panel1";
             panel1.Size = new Size(850, 610);
             panel1.TabIndex = 64;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(materialLabel2);
+            groupBox1.Controls.Add(switchColoredDrawer);
+            groupBox1.Controls.Add(cmbColorScheme);
+            groupBox1.Controls.Add(switchChangeTheme);
+            groupBox1.Location = new Point(23, 26);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(405, 241);
+            groupBox1.TabIndex = 83;
+            groupBox1.TabStop = false;
+            // 
+            // materialLabel2
+            // 
+            materialLabel2.AutoSize = true;
+            materialLabel2.Depth = 0;
+            materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel2.Location = new Point(6, 0);
+            materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel2.Name = "materialLabel2";
+            materialLabel2.Size = new Size(97, 19);
+            materialLabel2.TabIndex = 84;
+            materialLabel2.Text = "Look and feel";
+            // 
+            // switchColoredDrawer
+            // 
+            switchColoredDrawer.AutoSize = true;
+            switchColoredDrawer.Depth = 0;
+            switchColoredDrawer.Location = new Point(17, 101);
+            switchColoredDrawer.Margin = new Padding(0);
+            switchColoredDrawer.MouseLocation = new Point(-1, -1);
+            switchColoredDrawer.MouseState = MaterialSkin.MouseState.HOVER;
+            switchColoredDrawer.Name = "switchColoredDrawer";
+            switchColoredDrawer.Ripple = true;
+            switchColoredDrawer.Size = new Size(162, 47);
+            switchColoredDrawer.TabIndex = 82;
+            switchColoredDrawer.Text = "Colored Drawer";
+            switchColoredDrawer.UseVisualStyleBackColor = true;
             // 
             // cmbColorScheme
             // 
@@ -109,9 +149,10 @@ namespace FriskyMouse.UI.Controls
             cmbColorScheme.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             cmbColorScheme.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cmbColorScheme.FormattingEnabled = true;
+            cmbColorScheme.Hint = "Select Color Scheme";
             cmbColorScheme.IntegralHeight = false;
             cmbColorScheme.ItemHeight = 43;
-            cmbColorScheme.Location = new Point(22, 67);
+            cmbColorScheme.Location = new Point(17, 37);
             cmbColorScheme.MaxDropDownItems = 4;
             cmbColorScheme.MouseState = MaterialSkin.MouseState.OUT;
             cmbColorScheme.Name = "cmbColorScheme";
@@ -119,23 +160,11 @@ namespace FriskyMouse.UI.Controls
             cmbColorScheme.StartIndex = 0;
             cmbColorScheme.TabIndex = 81;
             // 
-            // materialLabel1
-            // 
-            materialLabel1.AutoSize = true;
-            materialLabel1.Depth = 0;
-            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(23, 34);
-            materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel1.Name = "materialLabel1";
-            materialLabel1.Size = new Size(100, 19);
-            materialLabel1.TabIndex = 80;
-            materialLabel1.Text = "Look and Feel";
-            // 
             // switchChangeTheme
             // 
             switchChangeTheme.AutoSize = true;
             switchChangeTheme.Depth = 0;
-            switchChangeTheme.Location = new Point(402, 57);
+            switchChangeTheme.Location = new Point(232, 39);
             switchChangeTheme.Margin = new Padding(0);
             switchChangeTheme.MouseLocation = new Point(-1, -1);
             switchChangeTheme.MouseState = MaterialSkin.MouseState.HOVER;
@@ -145,7 +174,6 @@ namespace FriskyMouse.UI.Controls
             switchChangeTheme.TabIndex = 79;
             switchChangeTheme.Text = "Dark Theme  ";
             switchChangeTheme.UseVisualStyleBackColor = true;
-            switchChangeTheme.CheckedChanged += SwitchChangeTheme_CheckedChanged;
             // 
             // materialDivider1
             // 
@@ -171,7 +199,8 @@ namespace FriskyMouse.UI.Controls
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -182,7 +211,9 @@ namespace FriskyMouse.UI.Controls
         private Panel panel1;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialSwitch switchChangeTheme;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialComboBox cmbColorScheme;
+        private MaterialSkin.Controls.MaterialSwitch switchColoredDrawer;
+        private GroupBox groupBox1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
     }
 }

@@ -112,9 +112,9 @@ namespace FriskyMouse.UI.Controls
             materialLabel3.Location = new Point(13, -3);
             materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel3.Name = "materialLabel3";
-            materialLabel3.Size = new Size(104, 19);
+            materialLabel3.Size = new Size(99, 19);
             materialLabel3.TabIndex = 84;
-            materialLabel3.Text = "Ripple Options";
+            materialLabel3.Text = "Circle Options";
             // 
             // sldOpacityMultiplier
             // 
@@ -275,7 +275,7 @@ namespace FriskyMouse.UI.Controls
             cmbInterpolationMode.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             cmbInterpolationMode.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cmbInterpolationMode.FormattingEnabled = true;
-            cmbInterpolationMode.Hint = "Easing";
+            cmbInterpolationMode.Hint = "Easing Function";
             cmbInterpolationMode.ImeMode = ImeMode.Off;
             cmbInterpolationMode.IntegralHeight = false;
             cmbInterpolationMode.ItemHeight = 43;
@@ -300,7 +300,7 @@ namespace FriskyMouse.UI.Controls
             cmbAnimDirection.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             cmbAnimDirection.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cmbAnimDirection.FormattingEnabled = true;
-            cmbAnimDirection.Hint = "Direction";
+            cmbAnimDirection.Hint = "Animation Direction";
             cmbAnimDirection.IntegralHeight = false;
             cmbAnimDirection.ItemHeight = 43;
             cmbAnimDirection.Location = new Point(18, 71);

@@ -151,7 +151,7 @@ namespace MaterialSkin.Controls
                 Invalidate();
             };
             KeyUp += (sender, args) =>
-            { 
+            {
                 if (Enabled && DropDownStyle == ComboBoxStyle.DropDownList && (args.KeyCode == Keys.Delete || args.KeyCode == Keys.Back))
                 {
                     SelectedIndex = -1;
@@ -274,7 +274,7 @@ namespace MaterialSkin.Controls
                     NativeText.DrawTransparentText(
                     Hint,
                     SkinManager.getTextBoxFontBySize(hintTextSize),
-                    Enabled ? DroppedDown || Focused ? 
+                    Enabled ? DroppedDown || Focused ?
                     SelectedColor : // Focus 
                     SkinManager.TextMediumEmphasisColor : // not focused
                     SkinManager.TextDisabledOrHintColor, // Disabled
@@ -304,7 +304,7 @@ namespace MaterialSkin.Controls
             {
                 g.FillRectangle(SkinManager.BackgroundHoverBrush, e.Bounds);
             }
-            
+
             string Text = "";
             if (!string.IsNullOrWhiteSpace(DisplayMember))
             {

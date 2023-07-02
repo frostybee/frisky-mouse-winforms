@@ -7,8 +7,7 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<BaseOutputPath>..\bin</BaseOutputPath>
-		<Platforms>AnyCPU;x64</Platforms>
-		<LangVersion>10</LangVersion>
+		<Platforms>AnyCPU;x64</Platforms>		
 		<AssemblyVersion>1.0.0.1</AssemblyVersion>
 		<Title>Frisky Mouse by FrostyBee</Title>
 		<PackageId>FriskyMouse</PackageId>
@@ -23,6 +22,8 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
 		<RootNamespace>FriskyMouse</RootNamespace>
+		<Configurations>Debug;Release;Portable</Configurations>
+		<StartupObject>FriskyMouse.Program</StartupObject>
 	</PropertyGroup>
 
 	<ItemGroup>

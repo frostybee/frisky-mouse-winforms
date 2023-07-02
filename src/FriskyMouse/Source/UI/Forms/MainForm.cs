@@ -40,7 +40,7 @@ public partial class MainForm : MaterialForm
         // Form's title.
         Text = "Frisky Mouse";
 
-        mainTabControl.SelectedIndex = 1;
+        mainTabControl.SelectedIndex = 4;
         // Clean up resources on application exit.
         Application.ApplicationExit += Application_ApplicationExit;
         this.Icon = Properties.Resources.bee_icon;
@@ -62,12 +62,12 @@ public partial class MainForm : MaterialForm
     {
         // Set this to false to disable backcolor enforcing on non-materialSkin components
         // This HAS to be set before the AddFormToManage()
-        _materialSkinManager.EnforceBackcolorOnAllComponents = true;
+        _materialSkinManager.EnforceBackcolorOnAllComponents = false;
         // MaterialSkinManager properties
         _materialSkinManager.AddFormToManage(this);
-        _materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+        /*_materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
         _materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700,
-            Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
+            Primary.Indigo100, Accent.Pink200, TextShade.WHITE);*/
     }
 
 

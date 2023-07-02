@@ -16,6 +16,9 @@ namespace FriskyMouse.Drawing.Ripples;
 
 public class RippleProfileOptions
 {
+    public bool IsEnabled { get; set; } = true;
+    public RippleProfileType CurrentRippleProfile { get; set; } = RippleProfileType.Circle;
+
     #region Animation Settings
     public InterpolationType InterpolationType { get; set; } = InterpolationType.Linear;
     public AnimationDirection AnimationDirection { get; set; } = AnimationDirection.In;
@@ -24,12 +27,9 @@ public class RippleProfileOptions
 
     #region Visual Appearance
     public bool CanFadeColor { get; set; } = false;
-    public int InitialOpacity { get; set; } = 100;        
+    public int InitialOpacity { get; set; } = 100;
     public int RadiusMultiplier { get; set; } = 10;
-    public Color FillColor { get; set; } = Color.Yellow;        
+    public Color FillColor { get; set; } = Color.DeepPink;
     public int OpacityMultiplier { get; set; } = 40;
-    #endregion
-    public bool IsEnabled { get; set; } = true;
-    public RippleProfileType CurrentRippleProfile { get; set; } = RippleProfileType.IceCream;
-    
+    #endregion    
 }

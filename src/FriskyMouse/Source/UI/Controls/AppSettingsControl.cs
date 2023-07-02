@@ -29,6 +29,17 @@ public partial class AppSettingsControl : UserControl
         _decorationManager = DecorationManager.Instance;
         _settings = SettingsManager.Settings.ApplicationSettings;
     }
+    private void LoadColorScheme(ColorSchemeType colorScheme)
+    {
+        ColorScheme selectedScheme = ColorSchemeFactory.GetColorScheme(colorScheme);
+        _materialSkinManager.ColorScheme = selectedScheme;
+        _materialSkinManager.Theme = _settings.UseDarkTheme ?
+            MaterialSkinManager.Themes.DARK :
+            MaterialSkinManager.Themes.LIGHT;
+        _decorationManager.MainForm.DrawerUseColors = _settings.UseColoredDrawer;
+        _decorationManager.MainForm?.Invalidate();
+        Invalidate();
+    }
 
     private void CmbColorScheme_SelectedIndexChanged(object? sender, EventArgs e)
     {
@@ -37,19 +48,12 @@ public partial class AppSettingsControl : UserControl
         LoadColorScheme(schemeType);
     }
 
-    private void LoadColorScheme(ColorSchemeType colorScheme)
-    {
-        ColorScheme selectedScheme = ColorSchemeFactory.GetColorScheme(colorScheme);
-        _materialSkinManager.ColorScheme = selectedScheme;
-        _decorationManager.MainForm?.Invalidate();
-        Invalidate();
-    }
-
     private void SwitchChangeTheme_CheckedChanged(object sender, EventArgs e)
     {
         _materialSkinManager.Theme = switchChangeTheme.Checked ?
             MaterialSkinManager.Themes.DARK :
             MaterialSkinManager.Themes.LIGHT;
+        _settings.UseDarkTheme = switchChangeTheme.Checked;
     }
 
     internal void UpdateControlsFromSettings()
@@ -57,7 +61,19 @@ public partial class AppSettingsControl : UserControl
         // Populate the combo box with the list of color scheme descriptions.            
         cmbColorScheme.PopulateFromEnum<ColorSchemeType>();
         cmbColorScheme.SelectedIndex = cmbColorScheme.GetItemIndexByEumValue(_settings.ColorScheme);
+        switchChangeTheme.Checked = _settings.UseDarkTheme;
+        switchColoredDrawer.Checked = _settings.UseColoredDrawer;
+        //-- Events must be added after setting the selected index.
         cmbColorScheme.SelectedIndexChanged += CmbColorScheme_SelectedIndexChanged;
+        switchChangeTheme.CheckedChanged += SwitchChangeTheme_CheckedChanged;
+        switchColoredDrawer.CheckedChanged += SwitchColoredDrawer_CheckedChanged;
         LoadColorScheme(_settings.ColorScheme);
+    }
+
+    private void SwitchColoredDrawer_CheckedChanged(object? sender, EventArgs e)
+    {
+        _settings.UseColoredDrawer = switchColoredDrawer.Checked;
+        _decorationManager.MainForm.DrawerUseColors = _settings.UseColoredDrawer;
+        _decorationManager.MainForm?.Invalidate();
     }
 }

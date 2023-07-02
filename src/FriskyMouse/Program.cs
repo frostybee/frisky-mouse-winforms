@@ -35,14 +35,16 @@ internal static class Program
         {
             try
             {
+#if PORTABLE
+                IsPortable = true;                
+#endif
                 AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-                IsPortable = true;
                 SettingsManager.LoadSettings();
                 // To customize application configuration such as set high DPI settings or default font,
                 // see https://aka.ms/applicationconfiguration.
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(true);
-                Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);                    
+                Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
                 // TODO: add DPI awareness. @see: main project.                     
                 //Application.Run(new Form1());
                 Application.Run(new MainForm());
@@ -65,6 +67,6 @@ internal static class Program
     {
         SettingsManager.SaveSettings();
         Exception e = (Exception)args.ExceptionObject;
-        MessageBox.Show("Something went wrong: "+e.Message);             
+        MessageBox.Show("Something went wrong: " + e.Message);
     }
 }

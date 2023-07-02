@@ -17,7 +17,7 @@ public class HighlighterOptions
 {
     #region Properties        
     public bool Enabled { get; set; } = true;        
-    public int Radius { get; set; } = 25;
+    public int Radius { get; set; } = 15;
     public int Width { get; set; } = 200;
     public int Height { get; set; } = 200;
     public bool IsFilled { get; set; } = true;

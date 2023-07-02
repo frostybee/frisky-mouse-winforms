@@ -425,7 +425,7 @@ namespace MaterialSkin.Controls
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true);
             FormStyle = FormStyles.ActionBar_40;
 
-            Padding = new Padding(PADDING_MINIMUM, STATUS_BAR_HEIGHT+ ACTION_BAR_HEIGHT, PADDING_MINIMUM, PADDING_MINIMUM);      //Keep space for resize by mouse
+            Padding = new Padding(PADDING_MINIMUM, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, PADDING_MINIMUM, PADDING_MINIMUM);      //Keep space for resize by mouse
 
             _clickAnimManager = new AnimationManager()
             {
@@ -833,7 +833,7 @@ namespace MaterialSkin.Controls
             }
             // Double click to maximize
             else if (message == WM.LeftButtonDoubleClick && isOverCaption)
-            { 
+            {
                 Maximized = !Maximized;
             }
             // Treat the Caption as if it was Non-Client
@@ -857,7 +857,7 @@ namespace MaterialSkin.Controls
 
                     // Pass the command as a WM_SYSCOMMAND message
                     SendMessage(Handle, (int)WM.SystemCommand, id, 0);
-                    
+
                     // restore user defined ContextMenuStrip
                     base.ContextMenuStrip = user_cms;
                 }
@@ -1173,7 +1173,7 @@ namespace MaterialSkin.Controls
                 //Form title
                 using (NativeTextRenderer NativeText = new NativeTextRenderer(g))
                 {
-                    Rectangle textLocation = new Rectangle(DrawerTabControl != null ? TITLE_LEFT_PADDING : TITLE_LEFT_PADDING - (ICON_SIZE + (ACTION_BAR_PADDING*2)), STATUS_BAR_HEIGHT, ClientSize.Width, ACTION_BAR_HEIGHT);
+                    Rectangle textLocation = new Rectangle(DrawerTabControl != null ? TITLE_LEFT_PADDING : TITLE_LEFT_PADDING - (ICON_SIZE + (ACTION_BAR_PADDING * 2)), STATUS_BAR_HEIGHT, ClientSize.Width, ACTION_BAR_HEIGHT);
                     NativeText.DrawTransparentText(Text, SkinManager.getLogFontByType(MaterialFontType.H6),
                         SkinManager.ColorScheme.TextColor,
                         textLocation.Location,

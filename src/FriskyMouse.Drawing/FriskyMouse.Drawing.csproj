@@ -4,8 +4,7 @@
 		<OutputType>Library</OutputType>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<UseWindowsForms>true</UseWindowsForms>
-		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-		<LangVersion>10</LangVersion>
+		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>		
 		<BaseOutputPath>..\bin</BaseOutputPath>
 		<Platforms>AnyCPU;x64</Platforms>
 		<StartupObject />
@@ -16,6 +15,7 @@
 		<FileVersion>1.0.0.0</FileVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<RootNamespace>FriskyMouse.Drawing</RootNamespace>
+		<Configurations>Debug;Release;Portable</Configurations>
 	</PropertyGroup>	
 	<ItemGroup>
 		<Compile Remove="Source\Animation\Easings\SpringEasing.cs" />

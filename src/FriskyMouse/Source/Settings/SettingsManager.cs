@@ -21,7 +21,7 @@ internal static class SettingsManager
     public static SettingsWrapper Settings { get; private set; } = new SettingsWrapper();        
     private static readonly string PortablePersonalFolder = FileHelpers.GetAbsolutePath();
     private static readonly string DefaultPersonalFolder =
-        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), Program.ApplicationName);
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Program.ApplicationName);
     private static string SettingsFolder
     {
         get
@@ -30,11 +30,10 @@ internal static class SettingsManager
         }
     }
 
-    private static string ApplicationSettingsFilePath
+    private static string AppSettingsFilePath
     {
         get
         {
-            // TODO: check if it's portable or not.
             if (Program.IsPortable)
             {
                 return Path.Combine(PortablePersonalFolder, SettingsFileName);
@@ -47,7 +46,7 @@ internal static class SettingsManager
         try
         {
             _jsonMutex.WaitOne();
-            string filePath = ApplicationSettingsFilePath;
+            string filePath = AppSettingsFilePath;
             if (!string.IsNullOrEmpty(filePath))
             {
                 LoadDefaultSettings();
@@ -74,7 +73,7 @@ internal static class SettingsManager
 
     public static void LoadSettings()
     {
-        string settingFilePath = ApplicationSettingsFilePath;
+        string settingFilePath = AppSettingsFilePath;
         try
         {
             if (File.Exists(settingFilePath))
