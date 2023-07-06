@@ -9,6 +9,8 @@
 */
 #endregion
 
+using FriskyMouse.Helpers;
+
 namespace FriskyMouse.UI.Controls;
 
 public partial class AboutControl : UserControl
@@ -18,5 +20,13 @@ public partial class AboutControl : UserControl
         InitializeComponent();
         //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+        LoadBuildInfo();
+    }
+    public void LoadBuildInfo()
+    {
+        // TODO: add suffix indicating latest or not up to date.
+        // Maybe add status field? latest, udpate  with latest version info?
+        lblAppVersion.Text = $"Version: {AppHelpers.GetApplicationVersion()}";
+        lblBuildInfo.Text = $"Build: {Program.BuildInfo}";
     }
 }

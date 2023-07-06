@@ -18,12 +18,12 @@
 		<PackageIcon>Resources\bee-icon.png</PackageIcon>
 		<Version>1.0.0.1</Version>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<ApplicationIcon>Resources\bee-icon.ico</ApplicationIcon>
+		<ApplicationIcon>Resources\gaming-mouse-96.ico</ApplicationIcon>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
 		<RootNamespace>FriskyMouse</RootNamespace>
-		<Configurations>Debug;Release;Portable</Configurations>
-		<StartupObject>FriskyMouse.Program</StartupObject>
+		<Configurations>Debug;Release;Portable;SelfContained;MicrosoftStore</Configurations>
+		<StartupObject>FriskyMouse.Program</StartupObject>		
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -48,18 +48,6 @@
 
 	<ItemGroup>
 		<None Remove="bee-icon.ico" />
-		<None Remove="Resources\bee-icon.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="Resources\bee-icon.ico" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<EmbeddedResource Include="Resources\bee-icon.png">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -74,14 +62,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="Resources\bee-icon.ico">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
+		<EditorConfigFiles Remove="D:\Dev\my-repos\FriskyMouse\src\FriskyMouse\.editorconfig" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<EditorConfigFiles Remove="D:\Dev\my-repos\FriskyMouse\src\FriskyMouse\.editorconfig" />
+	  <Content Include="Resources\gaming-mouse-96.ico" />
 	</ItemGroup>
 
 	<ItemGroup>

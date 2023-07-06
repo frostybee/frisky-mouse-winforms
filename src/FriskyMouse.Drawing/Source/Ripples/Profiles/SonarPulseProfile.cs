@@ -30,7 +30,7 @@ public class SonarPulseProfile : BaseRippleProfile
     private void CreateProfileEntries()
     {
         _innerBrush = new SolidBrush(Color.Crimson);
-        _outerPen = new Pen(Color.DeepPink, 4);
+        _outerPen = new Pen(Color.DeepPink, 6);
         _middlePen = new Pen(Color.Yellow, 3);
 
         // 1) Make the outer ripple.

@@ -21,7 +21,7 @@ using FriskyMouse.Extensions;
 
 namespace FriskyMouse.UI.Controls;
 
-public partial class ClickDecorationControl : UserControl
+public partial class ClickIndicatorControl : UserControl
 {
     private readonly ValueAnimator _rippleValueAnimator;
     private ClickEffectController _profileManager;
@@ -31,7 +31,7 @@ public partial class ClickDecorationControl : UserControl
     private Bitmap? _blankCanvas;
     private Graphics? _graphics;
 
-    public ClickDecorationControl()
+    public ClickIndicatorControl()
     {
         InitializeComponent();
         // THE UI scaling ISSUE IS HERE.
@@ -66,6 +66,8 @@ public partial class ClickDecorationControl : UserControl
         lblControlTitle.Text = title;
         _profileManager = profileManager;
         _settings = options;
+        PopulateControls();
+        InitializeDrawingCanvas();
         cmbInterpolationMode.SelectedIndex = cmbInterpolationMode.GetItemIndexByEumValue(_settings.InterpolationType);
         cmbAnimDirection.SelectedIndex = cmbAnimDirection.GetItemIndexByEumValue(_settings.AnimationDirection);
         cmbProfilesList.SelectedIndex = cmbProfilesList.GetItemIndexByEumValue(_settings.CurrentRippleProfile);
@@ -121,12 +123,6 @@ public partial class ClickDecorationControl : UserControl
         StartAnimation();
     }
 
-    protected override void OnLoad(EventArgs e)
-    {
-        PopulateControls();
-        InitializeDrawingCanvas();
-        base.OnLoad(e);
-    }
     private void PopulateControls()
     {
         // Populate the combo box with the ripple profiles descriptions.            

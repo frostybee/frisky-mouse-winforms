@@ -13,12 +13,18 @@
     <FileVersion>2.3.1.0</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Configurations>Debug;Release;Portable</Configurations>
+    <Configurations>Debug;Release;Portable;SelfContained;MicrosoftStore</Configurations>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\bin\Debug\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MicrosoftStore|AnyCPU'">
+    <OutputPath>..\bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SelfContained|AnyCPU'">
     <OutputPath>..\bin\Release\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Portable|AnyCPU'">
@@ -92,9 +98,7 @@
     <Compile Update="Source\Controls\MaterialMultiLineTextBox2.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Source\Controls\MaterialCard.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Update="Source\Controls\MaterialCard.cs" />
     <Compile Update="Source\Controls\MaterialTextBox.cs">
       <SubType>Component</SubType>
     </Compile>

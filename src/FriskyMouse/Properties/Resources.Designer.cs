@@ -71,12 +71,42 @@ namespace FriskyMouse.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Icon bee_icon {
+        internal static System.Drawing.Bitmap apply_checkmark {
             get {
-                object obj = ResourceManager.GetObject("bee_icon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("apply_checkmark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_preview_50 {
+            get {
+                object obj = ResourceManager.GetObject("btn_preview_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_reset_50 {
+            get {
+                object obj = ResourceManager.GetObject("btn_reset_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_stop_50 {
+            get {
+                object obj = ResourceManager.GetObject("btn_stop_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -93,9 +123,59 @@ namespace FriskyMouse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_64 {
+            get {
+                object obj = ResourceManager.GetObject("close_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fill_color_50 {
+            get {
+                object obj = ResourceManager.GetObject("fill_color_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon gaming_mouse_96 {
+            get {
+                object obj = ResourceManager.GetObject("gaming_mouse_96", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap left_click_50 {
             get {
                 object obj = ResourceManager.GetObject("left_click_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paint_palette_50 {
+            get {
+                object obj = ResourceManager.GetObject("paint_palette_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paint_palette_outilned {
+            get {
+                object obj = ResourceManager.GetObject("paint_palette_outilned", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,10 +203,30 @@ namespace FriskyMouse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap show_app {
+            get {
+                object obj = ResourceManager.GetObject("show_app", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap spotlight_cursor_32 {
             get {
                 object obj = ResourceManager.GetObject("spotlight_cursor_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Wall_Pumpkin_Mouse {
+            get {
+                object obj = ResourceManager.GetObject("Wall_Pumpkin_Mouse", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

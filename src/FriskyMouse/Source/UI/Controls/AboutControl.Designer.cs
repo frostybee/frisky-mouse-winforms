@@ -43,8 +43,12 @@ namespace FriskyMouse.UI.Controls
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             panel1 = new Panel();
+            groupBox3 = new GroupBox();
+            materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            lblBuildInfo = new MaterialSkin.Controls.MaterialLabel();
             lblAppVersion = new MaterialSkin.Controls.MaterialLabel();
             groupBox2 = new GroupBox();
+            materialButton1 = new MaterialSkin.Controls.MaterialButton();
             materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             groupBox1 = new GroupBox();
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -54,6 +58,7 @@ namespace FriskyMouse.UI.Controls
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             panel1.SuspendLayout();
+            groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -103,7 +108,7 @@ namespace FriskyMouse.UI.Controls
             // 
             // panel1
             // 
-            panel1.Controls.Add(lblAppVersion);
+            panel1.Controls.Add(groupBox3);
             panel1.Controls.Add(groupBox2);
             panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(materialLabel3);
@@ -113,12 +118,47 @@ namespace FriskyMouse.UI.Controls
             panel1.Size = new Size(871, 619);
             panel1.TabIndex = 0;
             // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(materialLabel5);
+            groupBox3.Controls.Add(lblBuildInfo);
+            groupBox3.Controls.Add(lblAppVersion);
+            groupBox3.Location = new Point(23, 43);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(275, 94);
+            groupBox3.TabIndex = 88;
+            groupBox3.TabStop = false;
+            // 
+            // materialLabel5
+            // 
+            materialLabel5.AutoSize = true;
+            materialLabel5.Depth = 0;
+            materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel5.Location = new Point(15, 0);
+            materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel5.Name = "materialLabel5";
+            materialLabel5.Size = new Size(69, 19);
+            materialLabel5.TabIndex = 87;
+            materialLabel5.Text = "Build Info";
+            // 
+            // lblBuildInfo
+            // 
+            lblBuildInfo.AutoSize = true;
+            lblBuildInfo.Depth = 0;
+            lblBuildInfo.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblBuildInfo.Location = new Point(17, 50);
+            lblBuildInfo.MouseState = MaterialSkin.MouseState.HOVER;
+            lblBuildInfo.Name = "lblBuildInfo";
+            lblBuildInfo.Size = new Size(41, 19);
+            lblBuildInfo.TabIndex = 89;
+            lblBuildInfo.Text = "Build:";
+            // 
             // lblAppVersion
             // 
             lblAppVersion.AutoSize = true;
             lblAppVersion.Depth = 0;
             lblAppVersion.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblAppVersion.Location = new Point(23, 54);
+            lblAppVersion.Location = new Point(15, 27);
             lblAppVersion.MouseState = MaterialSkin.MouseState.HOVER;
             lblAppVersion.Name = "lblAppVersion";
             lblAppVersion.Size = new Size(58, 19);
@@ -127,12 +167,33 @@ namespace FriskyMouse.UI.Controls
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(materialButton1);
             groupBox2.Controls.Add(materialLabel2);
-            groupBox2.Location = new Point(383, 92);
+            groupBox2.Location = new Point(322, 43);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(334, 264);
+            groupBox2.Size = new Size(334, 145);
             groupBox2.TabIndex = 88;
             groupBox2.TabStop = false;
+            // 
+            // materialButton1
+            // 
+            materialButton1.AutoSize = false;
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
+            materialButton1.Depth = 0;
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = Properties.Resources.right_click_50;
+            materialButton1.Location = new Point(15, 33);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.NoAccentTextColor = Color.Empty;
+            materialButton1.Size = new Size(144, 32);
+            materialButton1.TabIndex = 88;
+            materialButton1.Text = "FrostyBee";
+            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = false;
+            materialButton1.UseVisualStyleBackColor = true;
             // 
             // materialLabel2
             // 
@@ -149,7 +210,7 @@ namespace FriskyMouse.UI.Controls
             // groupBox1
             // 
             groupBox1.Controls.Add(materialLabel1);
-            groupBox1.Location = new Point(23, 92);
+            groupBox1.Location = new Point(23, 276);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(334, 264);
             groupBox1.TabIndex = 86;
@@ -195,6 +256,8 @@ namespace FriskyMouse.UI.Controls
             splitContainer1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
@@ -214,5 +277,9 @@ namespace FriskyMouse.UI.Controls
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel lblAppVersion;
+        private GroupBox groupBox3;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialLabel lblBuildInfo;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
     }
 }

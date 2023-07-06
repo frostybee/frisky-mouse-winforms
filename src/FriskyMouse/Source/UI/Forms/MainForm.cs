@@ -13,6 +13,7 @@ using FriskyMouse.Core;
 using FriskyMouse.Settings;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System.Diagnostics;
 
 namespace FriskyMouse.UI;
 
@@ -38,18 +39,17 @@ public partial class MainForm : MaterialForm
     private void InitializeControls()
     {
         // Form's title.
-        Text = "Frisky Mouse";
-
+        Text = "FriskyMouse";
         mainTabControl.SelectedIndex = 4;
         // Clean up resources on application exit.
         Application.ApplicationExit += Application_ApplicationExit;
-        this.Icon = Properties.Resources.bee_icon;
+        this.Icon = Properties.Resources.gaming_mouse_96;
 
         // Handle minimizing main application's window to the system tray.
         this.Resize += MainForm_Resize;
 
         appNotifyIcon.DoubleClick += AppNotifyIcon_DoubleClick;
-        appNotifyIcon.Icon = Properties.Resources.bee_icon;
+        appNotifyIcon.Icon = Properties.Resources.gaming_mouse_96;
         appNotifyIcon.ContextMenuStrip = trayContextMenu;
         //-- Set up the form closing/loading events. They are required for ensuring that 
         // the mouse hooks is properly installed/uninstalled.
@@ -174,8 +174,8 @@ public partial class MainForm : MaterialForm
 
     private void MenuItemAbout_Click(object sender, EventArgs e)
     {
-        // Show the about page. Focus the about tab.
-        //MessageBox.Show("About page!");
+        mainTabControl.SelectedIndex = 4;
+        Restore();
     }
 
     private void MenuItemExit_Click(object sender, EventArgs e)

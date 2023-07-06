@@ -20,10 +20,11 @@ internal static class Program
     /// <summary>
     /// A named system-wide mutex used to ensure that only one instance of this application runs at once. 
     /// </summary>
-    private static string _mutexName = "FriskybeesAreTheBest";
+    private static string _mutexName = "FriskybeesAreTheBests";
     private static readonly Mutex _mutex = new Mutex(true, _mutexName);
     public static readonly uint WM_SHOW_MAIN_WINDOW = NativeMethods.RegisterWindowMessage("WM_SHOW_MAIN_WINDOW");
-    public static bool IsPortable { get; private set; }
+    public static bool IsPortable { get; private set; } = false;
+    public static string BuildInfo { get; private set; } = "Release";
     public const string ApplicationName = "FriskyMouse";
     /// <summary>
     ///  The main entry point for the application.
@@ -31,14 +32,21 @@ internal static class Program
     [STAThread]
     static void Main()
     {
-        if (_mutex.WaitOne(TimeSpan.Zero, true))
-        {
-            try
+        try
+        {            
+            if (_mutex.WaitOne(TimeSpan.Zero, true))
             {
+
 #if PORTABLE
                 IsPortable = true;                
+                BuildInfo = "Portable";
+#elif MICROSOFTSTORE
+            BuildInfo = "Microsoft Store";
+#elif SELFCONTAINED
+            IsPortable = true;
+            BuildInfo = "Self contained";
 #endif
-                AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+                //AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
                 SettingsManager.LoadSettings();
                 // To customize application configuration such as set high DPI settings or default font,
                 // see https://aka.ms/applicationconfiguration.
@@ -51,15 +59,15 @@ internal static class Program
 
                 _mutex.ReleaseMutex();
             }
-            catch (Exception e)
+            else
             {
-                MessageBox.Show(e.Message);
+                // Send a message to the application's main window so that it gets shown to the user. 
+                NativeMethods.SendMessage((IntPtr)SpecialWindowHandles.HWND_BROADCAST, WM_SHOW_MAIN_WINDOW, IntPtr.Zero, IntPtr.Zero);
             }
         }
-        else
+        catch (Exception e)
         {
-            // Send a message to the application's main window so that it gets shown to the user. 
-            NativeMethods.SendMessage((IntPtr)SpecialWindowHandles.HWND_BROADCAST, WM_SHOW_MAIN_WINDOW, IntPtr.Zero, IntPtr.Zero);
+            MessageBox.Show(e.Message);
         }
     }
 

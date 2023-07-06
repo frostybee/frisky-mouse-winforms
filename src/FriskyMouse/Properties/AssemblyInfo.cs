@@ -15,7 +15,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FriskyMouse")]
+[assembly: AssemblyTitle("Frisky Mouse")]
 [assembly: AssemblyDescription("Your presentation companion.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FrostyBee")]
@@ -23,8 +23,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("FrostyBee Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyVersion("1.0.1")]
-[assembly: AssemblyFileVersion("1.0.1")]
+[assembly: AssemblyVersion("1.0.4")]
+[assembly: AssemblyFileVersion("1.0.4")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from

@@ -11,7 +11,7 @@
 
 namespace FriskyMouse.UI.Controls
 {
-    partial class ClickDecorationControl
+    partial class ClickIndicatorControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -55,7 +55,6 @@ namespace FriskyMouse.UI.Controls
             cmbInterpolationMode = new MaterialSkin.Controls.MaterialComboBox();
             cmbAnimDirection = new MaterialSkin.Controls.MaterialComboBox();
             switchClickDecoration = new MaterialSkin.Controls.MaterialSwitch();
-            btnStopAnimation = new MaterialSkin.Controls.MaterialButton();
             btnPreview = new MaterialSkin.Controls.MaterialButton();
             pcbRipplePreview = new PictureBox();
             splitContainer1 = new SplitContainer();
@@ -84,9 +83,9 @@ namespace FriskyMouse.UI.Controls
             lblControlTitle.Margin = new Padding(4, 0, 4, 0);
             lblControlTitle.MouseState = MaterialSkin.MouseState.HOVER;
             lblControlTitle.Name = "lblControlTitle";
-            lblControlTitle.Size = new Size(226, 29);
+            lblControlTitle.Size = new Size(211, 29);
             lblControlTitle.TabIndex = 62;
-            lblControlTitle.Text = "Left Click Decoration";
+            lblControlTitle.Text = "Left Click Indecator";
             // 
             // groupBox3
             // 
@@ -100,7 +99,7 @@ namespace FriskyMouse.UI.Controls
             groupBox3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox3.Location = new Point(23, 13);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(400, 229);
+            groupBox3.Size = new Size(394, 231);
             groupBox3.TabIndex = 78;
             groupBox3.TabStop = false;
             // 
@@ -109,7 +108,7 @@ namespace FriskyMouse.UI.Controls
             materialLabel3.AutoSize = true;
             materialLabel3.Depth = 0;
             materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel3.Location = new Point(13, -3);
+            materialLabel3.Location = new Point(13, -1);
             materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel3.Name = "materialLabel3";
             materialLabel3.Size = new Size(99, 19);
@@ -121,7 +120,7 @@ namespace FriskyMouse.UI.Controls
             sldOpacityMultiplier.Depth = 0;
             sldOpacityMultiplier.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             sldOpacityMultiplier.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            sldOpacityMultiplier.Location = new Point(18, 135);
+            sldOpacityMultiplier.Location = new Point(18, 127);
             sldOpacityMultiplier.MouseState = MaterialSkin.MouseState.HOVER;
             sldOpacityMultiplier.Name = "sldOpacityMultiplier";
             sldOpacityMultiplier.RangeMax = 95;
@@ -136,10 +135,10 @@ namespace FriskyMouse.UI.Controls
             // btnFillColor
             // 
             btnFillColor.FlatStyle = FlatStyle.Flat;
-            btnFillColor.Location = new Point(322, 47);
+            btnFillColor.Location = new Point(130, 173);
             btnFillColor.Margin = new Padding(2, 3, 2, 3);
             btnFillColor.Name = "btnFillColor";
-            btnFillColor.Size = new Size(44, 31);
+            btnFillColor.Size = new Size(48, 33);
             btnFillColor.TabIndex = 89;
             btnFillColor.Text = "...";
             btnFillColor.UseVisualStyleBackColor = true;
@@ -151,13 +150,13 @@ namespace FriskyMouse.UI.Controls
             btnColorPicker.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
             btnColorPicker.Depth = 0;
             btnColorPicker.HighEmphasis = true;
-            btnColorPicker.Icon = null;
-            btnColorPicker.Location = new Point(226, 44);
+            btnColorPicker.Icon = Properties.Resources.fill_color_50;
+            btnColorPicker.Location = new Point(19, 171);
             btnColorPicker.Margin = new Padding(4, 6, 4, 6);
             btnColorPicker.MouseState = MaterialSkin.MouseState.HOVER;
             btnColorPicker.Name = "btnColorPicker";
             btnColorPicker.NoAccentTextColor = Color.Empty;
-            btnColorPicker.Size = new Size(90, 36);
+            btnColorPicker.Size = new Size(105, 37);
             btnColorPicker.TabIndex = 88;
             btnColorPicker.Text = "Color...";
             btnColorPicker.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -170,15 +169,15 @@ namespace FriskyMouse.UI.Controls
             switchColorTransition.Checked = true;
             switchColorTransition.CheckState = CheckState.Checked;
             switchColorTransition.Depth = 0;
-            switchColorTransition.Location = new Point(10, 178);
+            switchColorTransition.Location = new Point(213, 167);
             switchColorTransition.Margin = new Padding(0);
             switchColorTransition.MouseLocation = new Point(-1, -1);
             switchColorTransition.MouseState = MaterialSkin.MouseState.HOVER;
             switchColorTransition.Name = "switchColorTransition";
             switchColorTransition.Ripple = true;
-            switchColorTransition.Size = new Size(196, 47);
+            switchColorTransition.Size = new Size(134, 47);
             switchColorTransition.TabIndex = 79;
-            switchColorTransition.Text = "Enable Color Fading";
+            switchColorTransition.Text = "Fade Color ";
             switchColorTransition.UseVisualStyleBackColor = true;
             // 
             // cmbProfilesList
@@ -196,12 +195,12 @@ namespace FriskyMouse.UI.Controls
             cmbProfilesList.Hint = "Select Profile:";
             cmbProfilesList.IntegralHeight = false;
             cmbProfilesList.ItemHeight = 43;
-            cmbProfilesList.Location = new Point(18, 35);
+            cmbProfilesList.Location = new Point(18, 31);
             cmbProfilesList.Margin = new Padding(4);
             cmbProfilesList.MaxDropDownItems = 4;
             cmbProfilesList.MouseState = MaterialSkin.MouseState.OUT;
             cmbProfilesList.Name = "cmbProfilesList";
-            cmbProfilesList.Size = new Size(188, 49);
+            cmbProfilesList.Size = new Size(336, 49);
             cmbProfilesList.StartIndex = 0;
             cmbProfilesList.TabIndex = 76;
             // 
@@ -210,7 +209,7 @@ namespace FriskyMouse.UI.Controls
             sldRadiusMultiplier.Depth = 0;
             sldRadiusMultiplier.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             sldRadiusMultiplier.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            sldRadiusMultiplier.Location = new Point(18, 94);
+            sldRadiusMultiplier.Location = new Point(18, 84);
             sldRadiusMultiplier.MouseState = MaterialSkin.MouseState.HOVER;
             sldRadiusMultiplier.Name = "sldRadiusMultiplier";
             sldRadiusMultiplier.RangeMax = 25;
@@ -229,9 +228,9 @@ namespace FriskyMouse.UI.Controls
             groupBox2.Controls.Add(cmbInterpolationMode);
             groupBox2.Controls.Add(cmbAnimDirection);
             groupBox2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox2.Location = new Point(23, 253);
+            groupBox2.Location = new Point(23, 263);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(400, 132);
+            groupBox2.Size = new Size(394, 132);
             groupBox2.TabIndex = 75;
             groupBox2.TabStop = false;
             // 
@@ -240,7 +239,7 @@ namespace FriskyMouse.UI.Controls
             materialLabel1.AutoSize = true;
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(13, 2);
+            materialLabel1.Location = new Point(13, 0);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new Size(133, 19);
@@ -279,7 +278,7 @@ namespace FriskyMouse.UI.Controls
             cmbInterpolationMode.ImeMode = ImeMode.Off;
             cmbInterpolationMode.IntegralHeight = false;
             cmbInterpolationMode.ItemHeight = 43;
-            cmbInterpolationMode.Location = new Point(213, 71);
+            cmbInterpolationMode.Location = new Point(211, 71);
             cmbInterpolationMode.Margin = new Padding(4);
             cmbInterpolationMode.MaxDropDownItems = 4;
             cmbInterpolationMode.MouseState = MaterialSkin.MouseState.OUT;
@@ -308,7 +307,7 @@ namespace FriskyMouse.UI.Controls
             cmbAnimDirection.MaxDropDownItems = 4;
             cmbAnimDirection.MouseState = MaterialSkin.MouseState.OUT;
             cmbAnimDirection.Name = "cmbAnimDirection";
-            cmbAnimDirection.Size = new Size(175, 49);
+            cmbAnimDirection.Size = new Size(187, 49);
             cmbAnimDirection.StartIndex = 0;
             cmbAnimDirection.TabIndex = 76;
             // 
@@ -329,39 +328,20 @@ namespace FriskyMouse.UI.Controls
             switchClickDecoration.Text = "On";
             switchClickDecoration.UseVisualStyleBackColor = true;
             // 
-            // btnStopAnimation
-            // 
-            btnStopAnimation.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnStopAnimation.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnStopAnimation.Depth = 0;
-            btnStopAnimation.HighEmphasis = true;
-            btnStopAnimation.Icon = null;
-            btnStopAnimation.Location = new Point(459, 292);
-            btnStopAnimation.Margin = new Padding(4, 6, 4, 6);
-            btnStopAnimation.MouseState = MaterialSkin.MouseState.HOVER;
-            btnStopAnimation.Name = "btnStopAnimation";
-            btnStopAnimation.NoAccentTextColor = Color.Empty;
-            btnStopAnimation.Size = new Size(64, 36);
-            btnStopAnimation.TabIndex = 10;
-            btnStopAnimation.Text = "Stop";
-            btnStopAnimation.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnStopAnimation.UseAccentColor = true;
-            btnStopAnimation.UseVisualStyleBackColor = true;
-            btnStopAnimation.Click += BtnStopAnimation_Click;
-            // 
             // btnPreview
             // 
+            btnPreview.AutoSize = false;
             btnPreview.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnPreview.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btnPreview.Depth = 0;
             btnPreview.HighEmphasis = true;
-            btnPreview.Icon = null;
-            btnPreview.Location = new Point(570, 292);
+            btnPreview.Icon = Properties.Resources.btn_preview_50;
+            btnPreview.Location = new Point(520, 271);
             btnPreview.Margin = new Padding(4, 6, 4, 6);
             btnPreview.MouseState = MaterialSkin.MouseState.HOVER;
             btnPreview.Name = "btnPreview";
             btnPreview.NoAccentTextColor = Color.Empty;
-            btnPreview.Size = new Size(83, 36);
+            btnPreview.Size = new Size(122, 37);
             btnPreview.TabIndex = 9;
             btnPreview.Text = "Preview";
             btnPreview.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -394,7 +374,7 @@ namespace FriskyMouse.UI.Controls
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(panel1);
-            splitContainer1.Size = new Size(813, 534);
+            splitContainer1.Size = new Size(799, 534);
             splitContainer1.SplitterDistance = 55;
             splitContainer1.SplitterWidth = 2;
             splitContainer1.TabIndex = 2;
@@ -413,7 +393,6 @@ namespace FriskyMouse.UI.Controls
             // panel1
             // 
             panel1.Controls.Add(materialLabel2);
-            panel1.Controls.Add(btnStopAnimation);
             panel1.Controls.Add(btnPreview);
             panel1.Controls.Add(materialCard1);
             panel1.Controls.Add(groupBox2);
@@ -421,7 +400,7 @@ namespace FriskyMouse.UI.Controls
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(813, 477);
+            panel1.Size = new Size(799, 477);
             panel1.TabIndex = 3;
             // 
             // materialLabel2
@@ -429,7 +408,7 @@ namespace FriskyMouse.UI.Controls
             materialLabel2.AutoSize = true;
             materialLabel2.Depth = 0;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(439, 13);
+            materialLabel2.Location = new Point(436, 4);
             materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
             materialLabel2.Size = new Size(56, 19);
@@ -442,7 +421,7 @@ namespace FriskyMouse.UI.Controls
             materialCard1.Depth = 0;
             materialCard1.Elevation = 5;
             materialCard1.LargeTitle = false;
-            materialCard1.Location = new Point(433, 35);
+            materialCard1.Location = new Point(430, 26);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(5, 25, 5, 5);
@@ -452,13 +431,13 @@ namespace FriskyMouse.UI.Controls
             materialCard1.TabIndex = 79;
             materialCard1.Title = null;
             // 
-            // ClickDecorationControl
+            // ClickIndicatorControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(splitContainer1);
-            Name = "ClickDecorationControl";
-            Size = new Size(879, 614);
+            Name = "ClickIndicatorControl";
+            Size = new Size(945, 614);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -477,7 +456,6 @@ namespace FriskyMouse.UI.Controls
 
         #endregion
         private MaterialSkin.Controls.MaterialSwitch switchClickDecoration;
-        private MaterialSkin.Controls.MaterialButton btnStopAnimation;
         private MaterialSkin.Controls.MaterialButton btnPreview;
         private MaterialSkin.Controls.MaterialSlider sldRadiusMultiplier;
         private PictureBox pcbRipplePreview;

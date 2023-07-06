@@ -193,10 +193,10 @@ namespace FriskyMouse.UI.Controls
             // btnOutlineColorPicker
             // 
             btnOutlineColorPicker.FlatStyle = FlatStyle.Flat;
-            btnOutlineColorPicker.Location = new Point(118, 38);
+            btnOutlineColorPicker.Location = new Point(129, 37);
             btnOutlineColorPicker.Margin = new Padding(2, 3, 2, 3);
             btnOutlineColorPicker.Name = "btnOutlineColorPicker";
-            btnOutlineColorPicker.Size = new Size(44, 31);
+            btnOutlineColorPicker.Size = new Size(48, 33);
             btnOutlineColorPicker.TabIndex = 85;
             btnOutlineColorPicker.Text = "...";
             btnOutlineColorPicker.UseVisualStyleBackColor = true;
@@ -204,17 +204,18 @@ namespace FriskyMouse.UI.Controls
             // 
             // btnApplySettings
             // 
+            btnApplySettings.AutoSize = false;
             btnApplySettings.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnApplySettings.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btnApplySettings.Depth = 0;
             btnApplySettings.HighEmphasis = true;
-            btnApplySettings.Icon = null;
-            btnApplySettings.Location = new Point(536, 258);
+            btnApplySettings.Icon = Properties.Resources.apply_checkmark;
+            btnApplySettings.Location = new Point(523, 258);
             btnApplySettings.Margin = new Padding(4, 6, 4, 6);
             btnApplySettings.MouseState = MaterialSkin.MouseState.HOVER;
             btnApplySettings.Name = "btnApplySettings";
             btnApplySettings.NoAccentTextColor = Color.Empty;
-            btnApplySettings.Size = new Size(67, 36);
+            btnApplySettings.Size = new Size(89, 37);
             btnApplySettings.TabIndex = 9;
             btnApplySettings.Text = "Apply";
             btnApplySettings.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -248,17 +249,18 @@ namespace FriskyMouse.UI.Controls
             // 
             // btnResetSettings
             // 
+            btnResetSettings.AutoSize = false;
             btnResetSettings.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnResetSettings.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btnResetSettings.Depth = 0;
             btnResetSettings.HighEmphasis = true;
-            btnResetSettings.Icon = null;
+            btnResetSettings.Icon = Properties.Resources.btn_reset_50;
             btnResetSettings.Location = new Point(403, 258);
             btnResetSettings.Margin = new Padding(4, 6, 4, 6);
             btnResetSettings.MouseState = MaterialSkin.MouseState.HOVER;
             btnResetSettings.Name = "btnResetSettings";
             btnResetSettings.NoAccentTextColor = Color.Empty;
-            btnResetSettings.Size = new Size(65, 36);
+            btnResetSettings.Size = new Size(89, 37);
             btnResetSettings.TabIndex = 10;
             btnResetSettings.Text = "Reset";
             btnResetSettings.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -332,7 +334,7 @@ namespace FriskyMouse.UI.Controls
             // 
             materialLabel6.Depth = 0;
             materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel6.Location = new Point(7, -2);
+            materialLabel6.Location = new Point(13, -2);
             materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel6.Name = "materialLabel6";
             materialLabel6.Size = new Size(75, 28);
@@ -342,10 +344,10 @@ namespace FriskyMouse.UI.Controls
             // btnCurrentShadowColor
             // 
             btnCurrentShadowColor.FlatStyle = FlatStyle.Flat;
-            btnCurrentShadowColor.Location = new Point(118, 34);
+            btnCurrentShadowColor.Location = new Point(129, 34);
             btnCurrentShadowColor.Margin = new Padding(2, 3, 2, 3);
             btnCurrentShadowColor.Name = "btnCurrentShadowColor";
-            btnCurrentShadowColor.Size = new Size(44, 33);
+            btnCurrentShadowColor.Size = new Size(48, 33);
             btnCurrentShadowColor.TabIndex = 90;
             btnCurrentShadowColor.Text = "...";
             btnCurrentShadowColor.UseVisualStyleBackColor = true;
@@ -357,13 +359,13 @@ namespace FriskyMouse.UI.Controls
             btnShadow.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
             btnShadow.Depth = 0;
             btnShadow.HighEmphasis = true;
-            btnShadow.Icon = null;
-            btnShadow.Location = new Point(18, 32);
+            btnShadow.Icon = Properties.Resources.paint_palette_outilned;
+            btnShadow.Location = new Point(18, 30);
             btnShadow.Margin = new Padding(4, 6, 4, 6);
             btnShadow.MouseState = MaterialSkin.MouseState.HOVER;
             btnShadow.Name = "btnShadow";
             btnShadow.NoAccentTextColor = Color.Empty;
-            btnShadow.Size = new Size(90, 36);
+            btnShadow.Size = new Size(105, 37);
             btnShadow.TabIndex = 91;
             btnShadow.Text = "Color...";
             btnShadow.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -378,7 +380,7 @@ namespace FriskyMouse.UI.Controls
             switchShadow.CheckState = CheckState.Checked;
             switchShadow.Depth = 0;
             switchShadow.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            switchShadow.Location = new Point(179, 27);
+            switchShadow.Location = new Point(187, 25);
             switchShadow.Margin = new Padding(0);
             switchShadow.MouseLocation = new Point(-1, -1);
             switchShadow.MouseState = MaterialSkin.MouseState.HOVER;
@@ -454,7 +456,7 @@ namespace FriskyMouse.UI.Controls
             // 
             materialLabel5.Depth = 0;
             materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel5.Location = new Point(7, -3);
+            materialLabel5.Location = new Point(13, -3);
             materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel5.Name = "materialLabel5";
             materialLabel5.Size = new Size(75, 19);
@@ -468,13 +470,13 @@ namespace FriskyMouse.UI.Controls
             btnOutlineColor.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
             btnOutlineColor.Depth = 0;
             btnOutlineColor.HighEmphasis = true;
-            btnOutlineColor.Icon = null;
-            btnOutlineColor.Location = new Point(18, 35);
+            btnOutlineColor.Icon = Properties.Resources.paint_palette_outilned;
+            btnOutlineColor.Location = new Point(18, 36);
             btnOutlineColor.Margin = new Padding(4, 6, 4, 6);
             btnOutlineColor.MouseState = MaterialSkin.MouseState.HOVER;
             btnOutlineColor.Name = "btnOutlineColor";
             btnOutlineColor.NoAccentTextColor = Color.Empty;
-            btnOutlineColor.Size = new Size(90, 36);
+            btnOutlineColor.Size = new Size(105, 37);
             btnOutlineColor.TabIndex = 87;
             btnOutlineColor.Text = "Color...";
             btnOutlineColor.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -488,7 +490,7 @@ namespace FriskyMouse.UI.Controls
             switchShowOutline.Checked = true;
             switchShowOutline.CheckState = CheckState.Checked;
             switchShowOutline.Depth = 0;
-            switchShowOutline.Location = new Point(179, 31);
+            switchShowOutline.Location = new Point(187, 31);
             switchShowOutline.Margin = new Padding(0);
             switchShowOutline.MouseLocation = new Point(-1, -1);
             switchShowOutline.MouseState = MaterialSkin.MouseState.HOVER;
@@ -519,7 +521,7 @@ namespace FriskyMouse.UI.Controls
             materialLabel4.Depth = 0;
             materialLabel4.FlatStyle = FlatStyle.Popup;
             materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel4.Location = new Point(7, -1);
+            materialLabel4.Location = new Point(13, -1);
             materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel4.Name = "materialLabel4";
             materialLabel4.Size = new Size(75, 19);
@@ -529,10 +531,10 @@ namespace FriskyMouse.UI.Controls
             // btnSpotlightColor
             // 
             btnSpotlightColor.FlatStyle = FlatStyle.Flat;
-            btnSpotlightColor.Location = new Point(118, 39);
+            btnSpotlightColor.Location = new Point(129, 39);
             btnSpotlightColor.Margin = new Padding(2, 3, 2, 3);
             btnSpotlightColor.Name = "btnSpotlightColor";
-            btnSpotlightColor.Size = new Size(44, 31);
+            btnSpotlightColor.Size = new Size(48, 33);
             btnSpotlightColor.TabIndex = 99;
             btnSpotlightColor.Text = "...";
             btnSpotlightColor.UseVisualStyleBackColor = true;
@@ -544,13 +546,13 @@ namespace FriskyMouse.UI.Controls
             btnFillColor.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btnFillColor.Depth = 0;
             btnFillColor.HighEmphasis = true;
-            btnFillColor.Icon = null;
+            btnFillColor.Icon = Properties.Resources.fill_color_50;
             btnFillColor.Location = new Point(18, 35);
             btnFillColor.Margin = new Padding(4, 6, 4, 6);
             btnFillColor.MouseState = MaterialSkin.MouseState.HOVER;
             btnFillColor.Name = "btnFillColor";
             btnFillColor.NoAccentTextColor = Color.Empty;
-            btnFillColor.Size = new Size(90, 36);
+            btnFillColor.Size = new Size(105, 37);
             btnFillColor.TabIndex = 78;
             btnFillColor.Text = "Fill...";
             btnFillColor.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;

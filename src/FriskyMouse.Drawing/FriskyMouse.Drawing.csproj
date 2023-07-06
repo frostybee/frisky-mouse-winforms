@@ -15,7 +15,7 @@
 		<FileVersion>1.0.0.0</FileVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<RootNamespace>FriskyMouse.Drawing</RootNamespace>
-		<Configurations>Debug;Release;Portable</Configurations>
+		<Configurations>Debug;Release;Portable;SelfContained;MicrosoftStore</Configurations>
 	</PropertyGroup>	
 	<ItemGroup>
 		<Compile Remove="Source\Animation\Easings\SpringEasing.cs" />
