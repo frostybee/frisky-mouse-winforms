@@ -5,8 +5,9 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	  <BaseOutputPath>..\bin</BaseOutputPath>
     <AssemblyTitle>FriskyMouse.MaterialSkin</AssemblyTitle>
-    <Description>Google%27s Material Design on your windows forms</Description>
+    <Description>Google's Material Design on your windows forms</Description>
     <Product>FriskyMouse.MaterialSkin</Product>
     <Copyright>Copyright Leonardo C Bottaro © 2021</Copyright>
     <AssemblyVersion>2.3.1.0</AssemblyVersion>
@@ -14,21 +15,6 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <ImplicitUsings>enable</ImplicitUsings>
     <Configurations>Debug;Release;Portable;SelfContained;MicrosoftStore</Configurations>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\bin\Debug\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\bin\Release\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MicrosoftStore|AnyCPU'">
-    <OutputPath>..\bin\Release\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SelfContained|AnyCPU'">
-    <OutputPath>..\bin\Release\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Portable|AnyCPU'">
-    <OutputPath>..\bin\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

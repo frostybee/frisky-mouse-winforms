@@ -12,9 +12,9 @@
 		<Title>Frisky Mouse by FrostyBee</Title>
 		<PackageId>FriskyMouse</PackageId>
 		<Authors>FrostyBee</Authors>
-		<Company />
-		<Product>FriskyMouse</Product>
-		<Copyright>FrostyBee</Copyright>
+		<Company />		
+		<Product>FriskyMouse</Product>		
+		<Copyright>Copyright FrostyBee © 2023</Copyright>
 		<PackageIcon>Resources\bee-icon.png</PackageIcon>
 		<Version>1.0.0.1</Version>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -24,7 +24,14 @@
 		<RootNamespace>FriskyMouse</RootNamespace>
 		<Configurations>Debug;Release;Portable;SelfContained;MicrosoftStore</Configurations>
 		<StartupObject>FriskyMouse.Program</StartupObject>		
+		<ApplicationUseCompatibleTextRendering>true</ApplicationUseCompatibleTextRendering>
+		<ApplicationVisualStyles>true</ApplicationVisualStyles>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <AdditionalFiles Remove="app.manifest" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\FriskyMouse.Drawing\FriskyMouse.Drawing.csproj" />
@@ -67,6 +74,12 @@
 
 	<ItemGroup>
 	  <Content Include="Resources\gaming-mouse-96.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="app.manifest">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>

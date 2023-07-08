@@ -12,6 +12,7 @@
 using FriskyMouse.NativeApi;
 using MaterialSkin.Controls;
 using FriskyMouse.Extensions;
+using System.Diagnostics;
 
 namespace FriskyMouse.Helpers;
 
@@ -112,8 +113,19 @@ public static class AppHelpers
         return initialColor;
     }
 
-    internal static void UpdateSwitchText(MaterialSwitch materialSwitch)
+    internal static void OpenURL(string website)
     {
-        materialSwitch.Text = (materialSwitch.Checked) ? "On" : "Off";
+        try
+        {
+            Process myProcess = new Process();
+            // true is the default, but it is important not to set it to false
+            myProcess.StartInfo.UseShellExecute = true;
+            myProcess.StartInfo.FileName = website;
+            myProcess.Start();
+        }
+        catch (Exception e)
+        {
+            Debug.WriteLine(e.Message);
+        }
     }
 }

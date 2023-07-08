@@ -273,11 +273,8 @@ namespace FriskyMouse.UI
             mnExit.Click += MenuItemExit_Click;
             // 
             // MainForm
-            // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
-            AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.White;
-            ClientSize = new Size(757, 709);
+            //             
+            BackColor = Color.White;            
             Controls.Add(mainTabControl);
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = mainTabControl;

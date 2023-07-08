@@ -34,9 +34,10 @@ public partial class ClickIndicatorControl : UserControl
     public ClickIndicatorControl()
     {
         InitializeComponent();
+        this.DisableAutoScaleMode(664, 693);
         // THE UI scaling ISSUE IS HERE.
         //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+        //AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         DoubleBuffered = true;
         _currentProfile = new FilledSonarPulseProfile();
         _rippleValueAnimator = new ValueAnimator()
@@ -77,7 +78,7 @@ public partial class ClickIndicatorControl : UserControl
         btnFillColor.BackColor = _settings.FillColor;
         sldRadiusMultiplier.Value = _settings.RadiusMultiplier;
         sldOpacityMultiplier.Value = _settings.OpacityMultiplier;
-        AppHelpers.UpdateSwitchText(switchClickDecoration);
+        switchClickDecoration.UpdateSwitchText();
         //--> 
         LoadRipplesProfile();
         InitControlsEvents();
@@ -180,7 +181,7 @@ public partial class ClickIndicatorControl : UserControl
     private void SwitchClickDecoration_CheckedChanged(object sender, EventArgs e)
     {
         _settings.IsEnabled = switchClickDecoration.Checked;
-        AppHelpers.UpdateSwitchText(switchClickDecoration);
+        switchClickDecoration.UpdateSwitchText();
     }
     private void CmbProfilesList_SelectedIndexChanged(object sender, EventArgs e)
     {

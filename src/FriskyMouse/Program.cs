@@ -51,7 +51,7 @@ internal static class Program
                 // To customize application configuration such as set high DPI settings or default font,
                 // see https://aka.ms/applicationconfiguration.
                 Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(true);
+                Application.SetCompatibleTextRenderingDefault(false);                
                 Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
                 // TODO: add DPI awareness. @see: main project.                     
                 //Application.Run(new Form1());

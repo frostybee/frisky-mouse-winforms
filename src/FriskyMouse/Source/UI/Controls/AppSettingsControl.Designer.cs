@@ -61,6 +61,7 @@ namespace FriskyMouse.UI.Controls
             splitContainer1.Location = new Point(3, 3);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
+            splitContainer1.SplitterWidth = 2;
             // 
             // splitContainer1.Panel1
             // 
@@ -187,12 +188,9 @@ namespace FriskyMouse.UI.Controls
             materialDivider1.Text = "materialDivider1";
             // 
             // AppSettingsControl
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            //             
             Controls.Add(splitContainer1);
-            Name = "AppSettingsControl";
-            Size = new Size(871, 672);
+            Name = "AppSettingsControl";            
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);

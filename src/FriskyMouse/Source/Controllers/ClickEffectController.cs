@@ -15,6 +15,7 @@ using FriskyMouse.Drawing.Ripples;
 using FriskyMouse.UI;
 using FriskyMouse.Extensions;
 using System.Drawing.Imaging;
+using FriskyMouse.NativeApi;
 
 namespace FriskyMouse.Core;
 
@@ -107,7 +108,7 @@ internal class ClickEffectController: IDisposable
         //AnimationCompleted?.Invoke();
     }
 
-    internal void ShowRipplesAt(int x, int y)
+    internal void ShowRipplesAt(POINT coordinates)
     {
         if (_settings.IsEnabled)
         {
@@ -118,7 +119,7 @@ internal class ClickEffectController: IDisposable
             if (!_animationManager.IsAnimating())
             {
                 _currentRipplesProfile.ResetColorOpacity();
-                _highlighterWindow.Move(x, y);
+                _highlighterWindow.Move(coordinates.X, coordinates.Y);
                 //_highlighterWindow.Move(x + 1, y + 1);
                 _highlighterWindow.Show();
                 StartAnimation();

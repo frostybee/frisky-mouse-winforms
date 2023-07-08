@@ -9,8 +9,10 @@
 */
 #endregion
 
+using MaterialSkin.Controls;
 using System.ComponentModel;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace FriskyMouse.Extensions;
 
@@ -33,5 +35,19 @@ public static class Extensions
     public static int WeekOfYear(this DateTime dateTime)
     {
         return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(dateTime, CalendarWeekRule.FirstDay, DayOfWeek.Monday);
+    }
+
+    public static void UpdateSwitchText(this MaterialSwitch materialSwitch)
+    {
+        materialSwitch.Text = (materialSwitch.Checked) ? "On" : "Off";
+    }
+
+    public static void DisableAutoScaleMode(this UserControl control, int width, int height)
+    {
+        // Make the GUI ignore the DPI setting
+        control.Font = new Font(control.Font.Name, 8.25f * 96f / control.CreateGraphics().DpiX,control.Font.Style,control.Font.Unit, control.Font.GdiCharSet, control.Font.GdiVerticalFont);
+        //control.AutoScaleDimensions = new SizeF(96F, 96F);
+        control.AutoScaleMode = AutoScaleMode.None;
+        control.Size = new Size(width, height);
     }
 }

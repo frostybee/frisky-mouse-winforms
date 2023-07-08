@@ -9,7 +9,9 @@
 */
 #endregion
 
+using FriskyMouse.Helpers;
 using FriskyMouse.NativeApi;
+using System.Runtime;
 using System.Runtime.InteropServices;
 
 namespace FriskyMouse.Core;
@@ -41,12 +43,14 @@ internal class MouseHookController : GlobalMouseHook
             return NativeMethods.CallNextHookEx(_mouseHookHandle, nCode, wParam, lParam);
         }
         if (nCode >= 0)
-        {
+        {            
             MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
+            POINT cursorPos = AppHelpers.GetCursorPosition();
             switch (messageType)
             {
                 case MouseButtonTypes.LeftButtonDown:
-                    _clickDecorator.ShowRipplesAt(hookStruct.pt.X, hookStruct.pt.Y);
+                    _clickDecorator.ShowRipplesAt(hookStruct.pt);
+                    //_clickDecorator.ShowRipplesAt(cursorPos);
                     break;
                 case MouseButtonTypes.LeftButtonUp:
                     // Fix the issue when the highlighter is no longer top most.
@@ -54,13 +58,17 @@ internal class MouseHookController : GlobalMouseHook
                     Task.Delay(500).ContinueWith(t => _highlighter?.BringToFront());
                     break;
                 case MouseButtonTypes.MouseMove:
+                    //POINT cursorPos = AppHelpers.GetCursorPosition();
+                    //_highlighter?.MoveSpotlight(cursorPos);
                     _highlighter?.MoveSpotlight(hookStruct.pt);
+
                     break;
                 case MouseButtonTypes.RightButtonUp:
                     // Fix the issue when the highlighter is no longer top most.                        
                     Task.Delay(400).ContinueWith(t => _highlighter?.BringToFront());
-                    //Task.Delay(200).ContinueWith(t => _rightClickDecorator?.SetTopMost(hookStruct.pt.X, hookStruct.pt.Y));
-                    _rightClickDecorator.ShowRipplesAt(hookStruct.pt.X, hookStruct.pt.Y);
+                    //Task.Delay(200).ContinueWith(t => _rightClickDecorator?.SetTopMost(hookStruct.pt.X, hookStruct.pt.Y));                    
+                    _rightClickDecorator.ShowRipplesAt(hookStruct.pt);
+                    //_rightClickDecorator.ShowRipplesAt(cursorPos);
                     //_options.BringToFront(hookStruct.pt);
                     /*_leftClickDecorator?.DecorateLeftSingleClick(new RawMouseEvents
                     {

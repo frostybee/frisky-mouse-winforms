@@ -10,6 +10,7 @@
 #endregion
 
 using FriskyMouse.Core;
+using FriskyMouse.Extensions;
 using FriskyMouse.Settings;
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -24,10 +25,14 @@ public partial class MainForm : MaterialForm
 
     public MainForm()
     {
+        //this.AutoScaleDimensions = new SizeF(10f, 13f);
         InitializeComponent();
+        // Make the GUI ignore the DPI setting
+        Font = new Font(Font.Name, 8.25f * 96f / CreateGraphics().DpiX, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont);
+        this.AutoScaleMode = AutoScaleMode.None;
+        Size = new Size(757, 709);        
         // TODO: find the best value to auto-scale with.
-        this.AutoScaleMode = AutoScaleMode.Dpi;
-        this.AutoScaleDimensions = new SizeF(96f, 96f);
+        //Font = new Font(Font.Name, 8.25f * 96f / CreateGraphics().DpiX, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont);        
         DoubleBuffered = true;
         // Initialize the global managers.
         _decorationController = DecorationManager.Instance;
@@ -43,17 +48,17 @@ public partial class MainForm : MaterialForm
         mainTabControl.SelectedIndex = 4;
         // Clean up resources on application exit.
         Application.ApplicationExit += Application_ApplicationExit;
-        this.Icon = Properties.Resources.gaming_mouse_96;
+        Icon = Properties.Resources.gaming_mouse_96;
 
         // Handle minimizing main application's window to the system tray.
-        this.Resize += MainForm_Resize;
+        Resize += MainForm_Resize;
 
         appNotifyIcon.DoubleClick += AppNotifyIcon_DoubleClick;
         appNotifyIcon.Icon = Properties.Resources.gaming_mouse_96;
         appNotifyIcon.ContextMenuStrip = trayContextMenu;
         //-- Set up the form closing/loading events. They are required for ensuring that 
         // the mouse hooks is properly installed/uninstalled.
-        this.Load += MainForm_Load;
+        Load += MainForm_Load;
 
         SetUpMaterialForm();
     }

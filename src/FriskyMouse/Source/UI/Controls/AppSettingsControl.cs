@@ -11,6 +11,7 @@
 
 using FriskyMouse.Core;
 using FriskyMouse.Drawing.Extensions;
+using FriskyMouse.Extensions;
 using FriskyMouse.Settings;
 using MaterialSkin;
 
@@ -24,6 +25,7 @@ public partial class AppSettingsControl : UserControl
     public AppSettingsControl()
     {
         InitializeComponent();
+        this.DisableAutoScaleMode(664, 693);
         // Initialize MaterialSkinManager
         _materialSkinManager = MaterialSkinManager.Instance;
         _decorationManager = DecorationManager.Instance;

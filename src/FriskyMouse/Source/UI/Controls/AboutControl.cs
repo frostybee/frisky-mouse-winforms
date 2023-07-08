@@ -9,6 +9,7 @@
 */
 #endregion
 
+using FriskyMouse.Extensions;
 using FriskyMouse.Helpers;
 
 namespace FriskyMouse.UI.Controls;
@@ -18,8 +19,7 @@ public partial class AboutControl : UserControl
     public AboutControl()
     {
         InitializeComponent();
-        //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+        this.DisableAutoScaleMode(664, 693);        
         LoadBuildInfo();
     }
     public void LoadBuildInfo()
@@ -28,5 +28,28 @@ public partial class AboutControl : UserControl
         // Maybe add status field? latest, udpate  with latest version info?
         lblAppVersion.Text = $"Version: {AppHelpers.GetApplicationVersion()}";
         lblBuildInfo.Text = $"Build: {Program.BuildInfo}";
+    }
+
+    private void BtnWebstie_Click(object sender, EventArgs e)
+    {
+        string website = "https://friskymouse.github.io";
+        AppHelpers.OpenURL(website);
+    }
+
+    private void BtnDeveloper_Click(object sender, EventArgs e)
+    {
+        string website = "https://github.com/frostybee";
+        AppHelpers.OpenURL(website);
+    }
+
+    private void BtnLicense_Click(object sender, EventArgs e)
+    {
+        string website = "https://github.com/friskymouse/frisky-mouse/blob/main/LICENSE";
+        AppHelpers.OpenURL(website);
+    }
+
+    private void BtnDonate_Click(object sender, EventArgs e)
+    {
+
     }
 }

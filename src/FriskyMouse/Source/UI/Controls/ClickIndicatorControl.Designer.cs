@@ -120,7 +120,7 @@ namespace FriskyMouse.UI.Controls
             sldOpacityMultiplier.Depth = 0;
             sldOpacityMultiplier.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             sldOpacityMultiplier.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            sldOpacityMultiplier.Location = new Point(18, 127);
+            sldOpacityMultiplier.Location = new Point(18, 124);
             sldOpacityMultiplier.MouseState = MaterialSkin.MouseState.HOVER;
             sldOpacityMultiplier.Name = "sldOpacityMultiplier";
             sldOpacityMultiplier.RangeMax = 95;
@@ -135,7 +135,7 @@ namespace FriskyMouse.UI.Controls
             // btnFillColor
             // 
             btnFillColor.FlatStyle = FlatStyle.Flat;
-            btnFillColor.Location = new Point(130, 173);
+            btnFillColor.Location = new Point(152, 175);
             btnFillColor.Margin = new Padding(2, 3, 2, 3);
             btnFillColor.Name = "btnFillColor";
             btnFillColor.Size = new Size(48, 33);
@@ -151,12 +151,12 @@ namespace FriskyMouse.UI.Controls
             btnColorPicker.Depth = 0;
             btnColorPicker.HighEmphasis = true;
             btnColorPicker.Icon = Properties.Resources.fill_color_50;
-            btnColorPicker.Location = new Point(19, 171);
+            btnColorPicker.Location = new Point(19, 173);
             btnColorPicker.Margin = new Padding(4, 6, 4, 6);
             btnColorPicker.MouseState = MaterialSkin.MouseState.HOVER;
             btnColorPicker.Name = "btnColorPicker";
             btnColorPicker.NoAccentTextColor = Color.Empty;
-            btnColorPicker.Size = new Size(105, 37);
+            btnColorPicker.Size = new Size(127, 37);
             btnColorPicker.TabIndex = 88;
             btnColorPicker.Text = "Color...";
             btnColorPicker.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -169,7 +169,7 @@ namespace FriskyMouse.UI.Controls
             switchColorTransition.Checked = true;
             switchColorTransition.CheckState = CheckState.Checked;
             switchColorTransition.Depth = 0;
-            switchColorTransition.Location = new Point(213, 167);
+            switchColorTransition.Location = new Point(232, 34);
             switchColorTransition.Margin = new Padding(0);
             switchColorTransition.MouseLocation = new Point(-1, -1);
             switchColorTransition.MouseState = MaterialSkin.MouseState.HOVER;
@@ -200,7 +200,7 @@ namespace FriskyMouse.UI.Controls
             cmbProfilesList.MaxDropDownItems = 4;
             cmbProfilesList.MouseState = MaterialSkin.MouseState.OUT;
             cmbProfilesList.Name = "cmbProfilesList";
-            cmbProfilesList.Size = new Size(336, 49);
+            cmbProfilesList.Size = new Size(210, 49);
             cmbProfilesList.StartIndex = 0;
             cmbProfilesList.TabIndex = 76;
             // 
@@ -433,11 +433,9 @@ namespace FriskyMouse.UI.Controls
             // 
             // ClickIndicatorControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(splitContainer1);
             Name = "ClickIndicatorControl";
-            Size = new Size(945, 614);
+            Size = new Size(833, 582);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);

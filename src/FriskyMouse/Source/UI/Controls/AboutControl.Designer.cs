@@ -48,9 +48,17 @@ namespace FriskyMouse.UI.Controls
             lblBuildInfo = new MaterialSkin.Controls.MaterialLabel();
             lblAppVersion = new MaterialSkin.Controls.MaterialLabel();
             groupBox2 = new GroupBox();
-            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            btnDonate = new MaterialSkin.Controls.MaterialButton();
+            materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            btnLicense = new MaterialSkin.Controls.MaterialButton();
+            materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            btnWebstie = new MaterialSkin.Controls.MaterialButton();
+            materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            btnDeveloper = new MaterialSkin.Controls.MaterialButton();
             materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             groupBox1 = new GroupBox();
+            richTextBox1 = new RichTextBox();
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -68,6 +76,7 @@ namespace FriskyMouse.UI.Controls
             splitContainer1.Location = new Point(0, 0);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
+            splitContainer1.SplitterWidth = 2;
             // 
             // splitContainer1.Panel1
             // 
@@ -77,8 +86,8 @@ namespace FriskyMouse.UI.Controls
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(panel1);
-            splitContainer1.Size = new Size(871, 674);
-            splitContainer1.SplitterDistance = 51;
+            splitContainer1.Size = new Size(803, 629);
+            splitContainer1.SplitterDistance = 47;            
             splitContainer1.TabIndex = 66;
             // 
             // materialDivider1
@@ -115,7 +124,7 @@ namespace FriskyMouse.UI.Controls
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(871, 619);
+            panel1.Size = new Size(803, 578);
             panel1.TabIndex = 0;
             // 
             // groupBox3
@@ -123,9 +132,9 @@ namespace FriskyMouse.UI.Controls
             groupBox3.Controls.Add(materialLabel5);
             groupBox3.Controls.Add(lblBuildInfo);
             groupBox3.Controls.Add(lblAppVersion);
-            groupBox3.Location = new Point(23, 43);
+            groupBox3.Location = new Point(400, 41);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(275, 94);
+            groupBox3.Size = new Size(215, 94);
             groupBox3.TabIndex = 88;
             groupBox3.TabStop = false;
             // 
@@ -134,7 +143,7 @@ namespace FriskyMouse.UI.Controls
             materialLabel5.AutoSize = true;
             materialLabel5.Depth = 0;
             materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel5.Location = new Point(15, 0);
+            materialLabel5.Location = new Point(15, -3);
             materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel5.Name = "materialLabel5";
             materialLabel5.Size = new Size(69, 19);
@@ -146,7 +155,7 @@ namespace FriskyMouse.UI.Controls
             lblBuildInfo.AutoSize = true;
             lblBuildInfo.Depth = 0;
             lblBuildInfo.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblBuildInfo.Location = new Point(17, 50);
+            lblBuildInfo.Location = new Point(17, 53);
             lblBuildInfo.MouseState = MaterialSkin.MouseState.HOVER;
             lblBuildInfo.Name = "lblBuildInfo";
             lblBuildInfo.Size = new Size(41, 19);
@@ -167,40 +176,164 @@ namespace FriskyMouse.UI.Controls
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(materialButton1);
+            groupBox2.Controls.Add(btnDonate);
+            groupBox2.Controls.Add(materialLabel8);
+            groupBox2.Controls.Add(btnLicense);
+            groupBox2.Controls.Add(materialLabel7);
+            groupBox2.Controls.Add(btnWebstie);
+            groupBox2.Controls.Add(materialLabel6);
+            groupBox2.Controls.Add(materialLabel4);
+            groupBox2.Controls.Add(btnDeveloper);
             groupBox2.Controls.Add(materialLabel2);
-            groupBox2.Location = new Point(322, 43);
+            groupBox2.Location = new Point(23, 41);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(334, 145);
+            groupBox2.Size = new Size(357, 199);
             groupBox2.TabIndex = 88;
             groupBox2.TabStop = false;
             // 
-            // materialButton1
+            // btnDonate
             // 
-            materialButton1.AutoSize = false;
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = Properties.Resources.right_click_50;
-            materialButton1.Location = new Point(15, 33);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(144, 32);
-            materialButton1.TabIndex = 88;
-            materialButton1.Text = "FrostyBee";
-            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            btnDonate.AutoSize = false;
+            btnDonate.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnDonate.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            btnDonate.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
+            btnDonate.Depth = 0;
+            btnDonate.HighEmphasis = true;
+            btnDonate.Icon = Properties.Resources.btn_paypal_94;
+            btnDonate.Location = new Point(97, 144);
+            btnDonate.Margin = new Padding(4, 6, 4, 6);
+            btnDonate.MouseState = MaterialSkin.MouseState.HOVER;
+            btnDonate.Name = "btnDonate";
+            btnDonate.NoAccentTextColor = Color.Empty;
+            btnDonate.Size = new Size(249, 32);
+            btnDonate.TabIndex = 97;
+            btnDonate.Text = "PayPal ";
+            btnDonate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            btnDonate.UseAccentColor = false;
+            btnDonate.UseVisualStyleBackColor = true;
+            btnDonate.Click += BtnDonate_Click;
+            // 
+            // materialLabel8
+            // 
+            materialLabel8.AutoSize = true;
+            materialLabel8.Depth = 0;
+            materialLabel8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel8.Location = new Point(15, 152);
+            materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel8.Name = "materialLabel8";
+            materialLabel8.Size = new Size(56, 19);
+            materialLabel8.TabIndex = 96;
+            materialLabel8.Text = "Donate:";
+            // 
+            // btnLicense
+            // 
+            btnLicense.AutoSize = false;
+            btnLicense.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnLicense.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            btnLicense.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
+            btnLicense.Depth = 0;
+            btnLicense.HighEmphasis = true;
+            btnLicense.Icon = Properties.Resources.btn_link_64;
+            btnLicense.Location = new Point(97, 105);
+            btnLicense.Margin = new Padding(4, 6, 4, 6);
+            btnLicense.MouseState = MaterialSkin.MouseState.HOVER;
+            btnLicense.Name = "btnLicense";
+            btnLicense.NoAccentTextColor = Color.Empty;
+            btnLicense.Size = new Size(249, 32);
+            btnLicense.TabIndex = 95;
+            btnLicense.Text = "MIT (open the link for more info)";
+            btnLicense.TextAlign = ContentAlignment.MiddleLeft;
+            btnLicense.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            btnLicense.UseAccentColor = true;
+            btnLicense.UseVisualStyleBackColor = true;
+            btnLicense.Click += BtnLicense_Click;
+            // 
+            // materialLabel7
+            // 
+            materialLabel7.AutoSize = true;
+            materialLabel7.Depth = 0;
+            materialLabel7.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel7.Location = new Point(15, 113);
+            materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel7.Name = "materialLabel7";
+            materialLabel7.Size = new Size(59, 19);
+            materialLabel7.TabIndex = 94;
+            materialLabel7.Text = "License:";
+            // 
+            // btnWebstie
+            // 
+            btnWebstie.AutoSize = false;
+            btnWebstie.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnWebstie.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            btnWebstie.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
+            btnWebstie.Depth = 0;
+            btnWebstie.HighEmphasis = true;
+            btnWebstie.Icon = Properties.Resources.btn_link_64;
+            btnWebstie.Location = new Point(97, 26);
+            btnWebstie.Margin = new Padding(4, 6, 4, 6);
+            btnWebstie.MouseState = MaterialSkin.MouseState.HOVER;
+            btnWebstie.Name = "btnWebstie";
+            btnWebstie.NoAccentTextColor = Color.Empty;
+            btnWebstie.Size = new Size(249, 32);
+            btnWebstie.TabIndex = 93;
+            btnWebstie.Text = "https://friskymouse.github.io";
+            btnWebstie.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            btnWebstie.UseAccentColor = false;
+            btnWebstie.UseVisualStyleBackColor = true;
+            btnWebstie.Click += BtnWebstie_Click;
+            // 
+            // materialLabel6
+            // 
+            materialLabel6.AutoSize = true;
+            materialLabel6.Depth = 0;
+            materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel6.Location = new Point(15, 73);
+            materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel6.Name = "materialLabel6";
+            materialLabel6.Size = new Size(75, 19);
+            materialLabel6.TabIndex = 92;
+            materialLabel6.Text = "Developer:";
+            // 
+            // materialLabel4
+            // 
+            materialLabel4.AutoSize = true;
+            materialLabel4.Depth = 0;
+            materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel4.Location = new Point(15, 34);
+            materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel4.Name = "materialLabel4";
+            materialLabel4.Size = new Size(61, 19);
+            materialLabel4.TabIndex = 90;
+            materialLabel4.Text = "Website:";
+            // 
+            // btnDeveloper
+            // 
+            btnDeveloper.AutoSize = false;
+            btnDeveloper.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnDeveloper.CharacterCasing = MaterialSkin.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            btnDeveloper.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Dense;
+            btnDeveloper.Depth = 0;
+            btnDeveloper.HighEmphasis = true;
+            btnDeveloper.Icon = Properties.Resources.btn_link_64;
+            btnDeveloper.Location = new Point(97, 65);
+            btnDeveloper.Margin = new Padding(4, 6, 4, 6);
+            btnDeveloper.MouseState = MaterialSkin.MouseState.HOVER;
+            btnDeveloper.Name = "btnDeveloper";
+            btnDeveloper.NoAccentTextColor = Color.Empty;
+            btnDeveloper.Size = new Size(249, 32);
+            btnDeveloper.TabIndex = 88;
+            btnDeveloper.Text = "https://github.com/frostybee";
+            btnDeveloper.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            btnDeveloper.UseAccentColor = false;
+            btnDeveloper.UseVisualStyleBackColor = true;
+            btnDeveloper.Click += BtnDeveloper_Click;
             // 
             // materialLabel2
             // 
             materialLabel2.AutoSize = true;
             materialLabel2.Depth = 0;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(15, 0);
+            materialLabel2.Location = new Point(15, -4);
             materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
             materialLabel2.Size = new Size(39, 19);
@@ -209,19 +342,28 @@ namespace FriskyMouse.UI.Controls
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(richTextBox1);
             groupBox1.Controls.Add(materialLabel1);
-            groupBox1.Location = new Point(23, 276);
+            groupBox1.Location = new Point(23, 255);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(334, 264);
+            groupBox1.Size = new Size(357, 156);
             groupBox1.TabIndex = 86;
             groupBox1.TabStop = false;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(10, 29);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(336, 107);
+            richTextBox1.TabIndex = 88;
+            richTextBox1.Text = "- Icons set: https://icons8.com/\n- Material Skin 2 (and original developers): https://github.com/leocb/MaterialSkin";
             // 
             // materialLabel1
             // 
             materialLabel1.AutoSize = true;
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(15, 0);
+            materialLabel1.Location = new Point(15, -2);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new Size(50, 19);
@@ -242,13 +384,10 @@ namespace FriskyMouse.UI.Controls
             materialLabel3.Text = "FriskyMouse";
             // 
             // AboutControl
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            //             
             Controls.Add(splitContainer1);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "AboutControl";
-            Size = new Size(941, 725);
+            Name = "AboutControl";            
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
@@ -280,6 +419,14 @@ namespace FriskyMouse.UI.Controls
         private GroupBox groupBox3;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel lblBuildInfo;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton btnDeveloper;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private MaterialSkin.Controls.MaterialButton btnWebstie;
+        private MaterialSkin.Controls.MaterialButton btnLicense;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private MaterialSkin.Controls.MaterialButton btnDonate;
+        private RichTextBox richTextBox1;
     }
 }

@@ -1245,6 +1245,7 @@ namespace MaterialSkin.Controls
         {
             MouseWheelRedirector = new MouseWheelRedirector();
             SetStyle(ControlStyles.Selectable | ControlStyles.OptimizedDoubleBuffer | ControlStyles.EnableNotifyMessage, true);
+            AutoScaleMode = AutoScaleMode.None;
         }
 
         public void Attach(Control control)

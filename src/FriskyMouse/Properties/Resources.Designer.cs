@@ -83,6 +83,26 @@ namespace FriskyMouse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_link_64 {
+            get {
+                object obj = ResourceManager.GetObject("btn_link_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_paypal_94 {
+            get {
+                object obj = ResourceManager.GetObject("btn_paypal_94", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_preview_50 {
             get {
                 object obj = ResourceManager.GetObject("btn_preview_50", resourceCulture);

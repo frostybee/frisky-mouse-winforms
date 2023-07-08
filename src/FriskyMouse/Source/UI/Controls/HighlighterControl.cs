@@ -25,9 +25,10 @@ public partial class HighlighterControl : UserControl
 
     public HighlighterControl()
     {
-        InitializeComponent();
+        InitializeComponent();        
+        this.DisableAutoScaleMode(664, 693);
         //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+        //AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         _decorationManager = DecorationManager.Instance;
         _settings = SettingsManager.Settings.HighlighterOptions;
     }
@@ -78,7 +79,7 @@ public partial class HighlighterControl : UserControl
         //--             
         InitControlsEvents();
         UpdateOutlineSettings();
-        AppHelpers.UpdateSwitchText(switchHighlighter);
+        switchHighlighter.UpdateSwitchText();
         pboxPreview.Invalidate();
     }
 
@@ -90,7 +91,7 @@ public partial class HighlighterControl : UserControl
     private void SwitchHighlighter_CheckedChanged(object sender, EventArgs e)
     {
         _settings.Enabled = switchHighlighter.Checked;
-        AppHelpers.UpdateSwitchText(switchHighlighter);
+        switchHighlighter.UpdateSwitchText();
         if (switchHighlighter.Checked)
         {
             _decorationManager.EnableHighlighter();

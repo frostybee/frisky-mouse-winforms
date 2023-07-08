@@ -312,7 +312,7 @@ namespace FriskyMouse.UI.Controls
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(765, 609);
+            panel1.Size = new Size(638, 609);
             panel1.TabIndex = 64;
             // 
             // groupBox3
@@ -576,6 +576,7 @@ namespace FriskyMouse.UI.Controls
             splitContainer1.Location = new Point(3, 3);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
+            splitContainer1.SplitterWidth = 2;
             // 
             // splitContainer1.Panel1
             // 
@@ -586,18 +587,15 @@ namespace FriskyMouse.UI.Controls
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(panel1);
-            splitContainer1.Size = new Size(765, 660);
+            splitContainer1.Size = new Size(638, 660);
             splitContainer1.SplitterDistance = 47;
             splitContainer1.TabIndex = 65;
             // 
             // HighlighterControl
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
-            AutoScaleMode = AutoScaleMode.Dpi;
             Controls.Add(splitContainer1);
             Margin = new Padding(2, 3, 2, 3);
-            Name = "HighlighterControl";
-            Size = new Size(831, 693);
+            Name = "HighlighterControl";            
             materialCard1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pboxPreview).EndInit();
             panel1.ResumeLayout(false);
