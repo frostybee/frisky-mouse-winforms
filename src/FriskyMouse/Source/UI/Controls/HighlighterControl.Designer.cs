@@ -39,7 +39,7 @@ namespace FriskyMouse.UI.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            GraphicsPath graphicsPath1 = new GraphicsPath();
+            GraphicsPath graphicsPath2 = new GraphicsPath();
             colorDialog1 = new ColorDialog();
             switchHighlighter = new MaterialSkin.Controls.MaterialSwitch();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
@@ -108,12 +108,12 @@ namespace FriskyMouse.UI.Controls
             materialCard1.Depth = 0;
             materialCard1.Elevation = 5;
             materialCard1.LargeTitle = false;
-            materialCard1.Location = new Point(394, 32);
+            materialCard1.Location = new Point(392, 32);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(5, 25, 5, 5);
-            graphicsPath1.FillMode = FillMode.Alternate;
-            materialCard1.ShadowBorder = graphicsPath1;
+            graphicsPath2.FillMode = FillMode.Alternate;
+            materialCard1.ShadowBorder = graphicsPath2;
             materialCard1.Size = new Size(218, 217);
             materialCard1.TabIndex = 82;
             materialCard1.Title = null;
@@ -132,7 +132,7 @@ namespace FriskyMouse.UI.Controls
             materialLabel2.AutoSize = true;
             materialLabel2.Depth = 0;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(403, 6);
+            materialLabel2.Location = new Point(401, 6);
             materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
             materialLabel2.Size = new Size(56, 19);
@@ -210,7 +210,7 @@ namespace FriskyMouse.UI.Controls
             btnApplySettings.Depth = 0;
             btnApplySettings.HighEmphasis = true;
             btnApplySettings.Icon = Properties.Resources.apply_checkmark;
-            btnApplySettings.Location = new Point(523, 258);
+            btnApplySettings.Location = new Point(521, 258);
             btnApplySettings.Margin = new Padding(4, 6, 4, 6);
             btnApplySettings.MouseState = MaterialSkin.MouseState.HOVER;
             btnApplySettings.Name = "btnApplySettings";
@@ -255,7 +255,7 @@ namespace FriskyMouse.UI.Controls
             btnResetSettings.Depth = 0;
             btnResetSettings.HighEmphasis = true;
             btnResetSettings.Icon = Properties.Resources.btn_reset_50;
-            btnResetSettings.Location = new Point(403, 258);
+            btnResetSettings.Location = new Point(401, 258);
             btnResetSettings.Margin = new Padding(4, 6, 4, 6);
             btnResetSettings.MouseState = MaterialSkin.MouseState.HOVER;
             btnResetSettings.Name = "btnResetSettings";
@@ -312,7 +312,7 @@ namespace FriskyMouse.UI.Controls
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(638, 609);
+            panel1.Size = new Size(638, 611);
             panel1.TabIndex = 64;
             // 
             // groupBox3
@@ -324,7 +324,7 @@ namespace FriskyMouse.UI.Controls
             groupBox3.Controls.Add(sldShadowDepth);
             groupBox3.Controls.Add(sldShadowOpacity);
             groupBox3.FlatStyle = FlatStyle.Flat;
-            groupBox3.Location = new Point(23, 386);
+            groupBox3.Location = new Point(19, 386);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(359, 165);
             groupBox3.TabIndex = 98;
@@ -434,7 +434,7 @@ namespace FriskyMouse.UI.Controls
             groupBox2.Controls.Add(btnOutlineColorPicker);
             groupBox2.Controls.Add(sldOutlineWidth);
             groupBox2.Controls.Add(cmboxOutlineStyle);
-            groupBox2.Location = new Point(23, 194);
+            groupBox2.Location = new Point(19, 194);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(359, 178);
             groupBox2.TabIndex = 97;
@@ -456,7 +456,7 @@ namespace FriskyMouse.UI.Controls
             // 
             materialLabel5.Depth = 0;
             materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel5.Location = new Point(13, -3);
+            materialLabel5.Location = new Point(13, -2);
             materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel5.Name = "materialLabel5";
             materialLabel5.Size = new Size(75, 19);
@@ -510,7 +510,7 @@ namespace FriskyMouse.UI.Controls
             groupBox1.Controls.Add(sldOpacity);
             groupBox1.Controls.Add(switchFilledSpotlight);
             groupBox1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(23, 10);
+            groupBox1.Location = new Point(19, 10);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(359, 169);
             groupBox1.TabIndex = 96;
@@ -521,7 +521,7 @@ namespace FriskyMouse.UI.Controls
             materialLabel4.Depth = 0;
             materialLabel4.FlatStyle = FlatStyle.Popup;
             materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel4.Location = new Point(13, -1);
+            materialLabel4.Location = new Point(13, 0);
             materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel4.Name = "materialLabel4";
             materialLabel4.Size = new Size(75, 19);
@@ -576,7 +576,6 @@ namespace FriskyMouse.UI.Controls
             splitContainer1.Location = new Point(3, 3);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
-            splitContainer1.SplitterWidth = 2;
             // 
             // splitContainer1.Panel1
             // 
@@ -589,13 +588,15 @@ namespace FriskyMouse.UI.Controls
             splitContainer1.Panel2.Controls.Add(panel1);
             splitContainer1.Size = new Size(638, 660);
             splitContainer1.SplitterDistance = 47;
+            splitContainer1.SplitterWidth = 2;
             splitContainer1.TabIndex = 65;
             // 
             // HighlighterControl
             // 
             Controls.Add(splitContainer1);
             Margin = new Padding(2, 3, 2, 3);
-            Name = "HighlighterControl";            
+            Name = "HighlighterControl";
+            Size = new Size(679, 699);
             materialCard1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pboxPreview).EndInit();
             panel1.ResumeLayout(false);

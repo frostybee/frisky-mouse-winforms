@@ -30,7 +30,9 @@ public partial class MainForm : MaterialForm
         // Make the GUI ignore the DPI setting
         Font = new Font(Font.Name, 8.25f * 96f / CreateGraphics().DpiX, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont);
         this.AutoScaleMode = AutoScaleMode.None;
-        Size = new Size(757, 709);        
+        Size = new Size(900, 900);
+        MaximumSize = new System.Drawing.Size(1000, 950);
+        this.StartPosition = FormStartPosition.CenterScreen;
         // TODO: find the best value to auto-scale with.
         //Font = new Font(Font.Name, 8.25f * 96f / CreateGraphics().DpiX, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont);        
         DoubleBuffered = true;
@@ -38,7 +40,15 @@ public partial class MainForm : MaterialForm
         _decorationController = DecorationManager.Instance;
         _materialSkinManager = MaterialSkinManager.Instance;
         InitializeControls();
+        SizeChanged += MainForm_SizeChanged;
         //TopMost = true;
+    }
+
+    private void MainForm_SizeChanged(object? sender, EventArgs e)
+    {
+        // Fix the drawer dimensions.
+        Debug.WriteLine("Main form resized....");
+        base.RefreshDrawerControl();
     }
 
     private void InitializeControls()
@@ -162,13 +172,23 @@ public partial class MainForm : MaterialForm
         TopMost = false;
         BringToFront();
     }
-
+    uint WM_DPICHANGED = 0x02E0;
     protected override void WndProc(ref Message inMessage)
     {
+
         if (inMessage.Msg == Program.WM_SHOW_MAIN_WINDOW)
         {
             Restore();
         }
+        if (inMessage.Msg == WM_DPICHANGED)
+        {
+            // TODO: resize the window here. 
+            //Size = new Size(1000, 950);
+            //MessageBox.Show("Dpi Changed");
+            Invalidate();
+            base.Invalidate();  
+        }
+
         base.WndProc(ref inMessage);
     }
 

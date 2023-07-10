@@ -61,7 +61,6 @@ namespace FriskyMouse.UI.Controls
             splitContainer1.Location = new Point(3, 3);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
-            splitContainer1.SplitterWidth = 2;
             // 
             // splitContainer1.Panel1
             // 
@@ -70,8 +69,9 @@ namespace FriskyMouse.UI.Controls
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(panel1);
-            splitContainer1.Size = new Size(850, 646);
-            splitContainer1.SplitterDistance = 32;
+            splitContainer1.Size = new Size(483, 329);
+            splitContainer1.SplitterDistance = 36;
+            splitContainer1.SplitterWidth = 2;
             splitContainer1.TabIndex = 66;
             // 
             // materialLabel26
@@ -96,7 +96,7 @@ namespace FriskyMouse.UI.Controls
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(850, 610);
+            panel1.Size = new Size(483, 291);
             panel1.TabIndex = 64;
             // 
             // groupBox1
@@ -107,7 +107,7 @@ namespace FriskyMouse.UI.Controls
             groupBox1.Controls.Add(switchChangeTheme);
             groupBox1.Location = new Point(23, 26);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(405, 241);
+            groupBox1.Size = new Size(392, 163);
             groupBox1.TabIndex = 83;
             groupBox1.TabStop = false;
             // 
@@ -127,7 +127,7 @@ namespace FriskyMouse.UI.Controls
             // 
             switchColoredDrawer.AutoSize = true;
             switchColoredDrawer.Depth = 0;
-            switchColoredDrawer.Location = new Point(17, 101);
+            switchColoredDrawer.Location = new Point(17, 100);
             switchColoredDrawer.Margin = new Padding(0);
             switchColoredDrawer.MouseLocation = new Point(-1, -1);
             switchColoredDrawer.MouseState = MaterialSkin.MouseState.HOVER;
@@ -165,7 +165,7 @@ namespace FriskyMouse.UI.Controls
             // 
             switchChangeTheme.AutoSize = true;
             switchChangeTheme.Depth = 0;
-            switchChangeTheme.Location = new Point(232, 39);
+            switchChangeTheme.Location = new Point(235, 39);
             switchChangeTheme.Margin = new Padding(0);
             switchChangeTheme.MouseLocation = new Point(-1, -1);
             switchChangeTheme.MouseState = MaterialSkin.MouseState.HOVER;
@@ -188,9 +188,10 @@ namespace FriskyMouse.UI.Controls
             materialDivider1.Text = "materialDivider1";
             // 
             // AppSettingsControl
-            //             
+            // 
             Controls.Add(splitContainer1);
-            Name = "AppSettingsControl";            
+            Name = "AppSettingsControl";
+            Size = new Size(643, 417);
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);

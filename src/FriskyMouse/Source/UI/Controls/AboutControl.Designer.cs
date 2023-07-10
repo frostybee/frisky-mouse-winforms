@@ -43,6 +43,8 @@ namespace FriskyMouse.UI.Controls
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
             panel1 = new Panel();
+            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            richTextBox1 = new RichTextBox();
             groupBox3 = new GroupBox();
             materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             lblBuildInfo = new MaterialSkin.Controls.MaterialLabel();
@@ -57,9 +59,6 @@ namespace FriskyMouse.UI.Controls
             materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             btnDeveloper = new MaterialSkin.Controls.MaterialButton();
             materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            groupBox1 = new GroupBox();
-            richTextBox1 = new RichTextBox();
-            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -68,7 +67,6 @@ namespace FriskyMouse.UI.Controls
             panel1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -76,7 +74,6 @@ namespace FriskyMouse.UI.Controls
             splitContainer1.Location = new Point(0, 0);
             splitContainer1.Name = "splitContainer1";
             splitContainer1.Orientation = Orientation.Horizontal;
-            splitContainer1.SplitterWidth = 2;
             // 
             // splitContainer1.Panel1
             // 
@@ -86,8 +83,9 @@ namespace FriskyMouse.UI.Controls
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(panel1);
-            splitContainer1.Size = new Size(803, 629);
-            splitContainer1.SplitterDistance = 47;            
+            splitContainer1.Size = new Size(678, 578);
+            splitContainer1.SplitterDistance = 43;
+            splitContainer1.SplitterWidth = 2;
             splitContainer1.TabIndex = 66;
             // 
             // materialDivider1
@@ -117,22 +115,45 @@ namespace FriskyMouse.UI.Controls
             // 
             // panel1
             // 
+            panel1.Controls.Add(materialLabel1);
+            panel1.Controls.Add(richTextBox1);
             panel1.Controls.Add(groupBox3);
             panel1.Controls.Add(groupBox2);
-            panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(materialLabel3);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(803, 578);
+            panel1.Size = new Size(678, 533);
             panel1.TabIndex = 0;
+            // 
+            // materialLabel1
+            // 
+            materialLabel1.AutoSize = true;
+            materialLabel1.Depth = 0;
+            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.Location = new Point(23, 264);
+            materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(50, 19);
+            materialLabel1.TabIndex = 87;
+            materialLabel1.Text = "Credits";
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.BorderStyle = BorderStyle.FixedSingle;
+            richTextBox1.Enabled = false;
+            richTextBox1.Location = new Point(23, 286);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(336, 107);
+            richTextBox1.TabIndex = 88;
+            richTextBox1.Text = "- Icons set: https://icons8.com/\n- Material Skin 2 (and original developers): https://github.com/leocb/MaterialSkin";
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(materialLabel5);
             groupBox3.Controls.Add(lblBuildInfo);
             groupBox3.Controls.Add(lblAppVersion);
-            groupBox3.Location = new Point(400, 41);
+            groupBox3.Location = new Point(400, 49);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(215, 94);
             groupBox3.TabIndex = 88;
@@ -185,7 +206,7 @@ namespace FriskyMouse.UI.Controls
             groupBox2.Controls.Add(materialLabel4);
             groupBox2.Controls.Add(btnDeveloper);
             groupBox2.Controls.Add(materialLabel2);
-            groupBox2.Location = new Point(23, 41);
+            groupBox2.Location = new Point(23, 49);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(357, 199);
             groupBox2.TabIndex = 88;
@@ -207,9 +228,9 @@ namespace FriskyMouse.UI.Controls
             btnDonate.NoAccentTextColor = Color.Empty;
             btnDonate.Size = new Size(249, 32);
             btnDonate.TabIndex = 97;
-            btnDonate.Text = "PayPal ";
-            btnDonate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            btnDonate.UseAccentColor = false;
+            btnDonate.Text = "with PayPal ";
+            btnDonate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnDonate.UseAccentColor = true;
             btnDonate.UseVisualStyleBackColor = true;
             btnDonate.Click += BtnDonate_Click;
             // 
@@ -340,43 +361,13 @@ namespace FriskyMouse.UI.Controls
             materialLabel2.TabIndex = 87;
             materialLabel2.Text = "Links";
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(richTextBox1);
-            groupBox1.Controls.Add(materialLabel1);
-            groupBox1.Location = new Point(23, 255);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(357, 156);
-            groupBox1.TabIndex = 86;
-            groupBox1.TabStop = false;
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.Location = new Point(10, 29);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(336, 107);
-            richTextBox1.TabIndex = 88;
-            richTextBox1.Text = "- Icons set: https://icons8.com/\n- Material Skin 2 (and original developers): https://github.com/leocb/MaterialSkin";
-            // 
-            // materialLabel1
-            // 
-            materialLabel1.AutoSize = true;
-            materialLabel1.Depth = 0;
-            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(15, -2);
-            materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel1.Name = "materialLabel1";
-            materialLabel1.Size = new Size(50, 19);
-            materialLabel1.TabIndex = 87;
-            materialLabel1.Text = "Credits";
-            // 
             // materialLabel3
             // 
             materialLabel3.AutoSize = true;
             materialLabel3.Depth = 0;
             materialLabel3.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
             materialLabel3.FontType = MaterialSkin.MaterialFontType.H5;
-            materialLabel3.Location = new Point(23, -1);
+            materialLabel3.Location = new Point(23, 5);
             materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel3.Name = "materialLabel3";
             materialLabel3.Size = new Size(136, 29);
@@ -384,10 +375,11 @@ namespace FriskyMouse.UI.Controls
             materialLabel3.Text = "FriskyMouse";
             // 
             // AboutControl
-            //             
+            // 
             Controls.Add(splitContainer1);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "AboutControl";            
+            Name = "AboutControl";
+            Size = new Size(681, 578);
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
@@ -399,8 +391,6 @@ namespace FriskyMouse.UI.Controls
             groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -411,7 +401,6 @@ namespace FriskyMouse.UI.Controls
         private Panel panel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
-        private GroupBox groupBox1;
         private GroupBox groupBox2;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;

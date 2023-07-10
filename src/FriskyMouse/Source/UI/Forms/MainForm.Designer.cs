@@ -75,7 +75,7 @@ namespace FriskyMouse.UI
             // 
             mnAbout.Image = Properties.Resources.about_50;
             mnAbout.Name = "mnAbout";
-            mnAbout.Size = new Size(111, 26);
+            mnAbout.Size = new Size(117, 26);
             mnAbout.Text = "About";
             mnAbout.Click += MenuItemAbout_Click;
             // 
@@ -95,7 +95,7 @@ namespace FriskyMouse.UI
             mainTabControl.Multiline = true;
             mainTabControl.Name = "mainTabControl";
             mainTabControl.SelectedIndex = 0;
-            mainTabControl.Size = new Size(749, 631);
+            mainTabControl.Size = new Size(671, 537);
             mainTabControl.TabIndex = 0;
             // 
             // tabHighlighter
@@ -107,17 +107,18 @@ namespace FriskyMouse.UI
             tabHighlighter.Location = new Point(4, 31);
             tabHighlighter.Name = "tabHighlighter";
             tabHighlighter.Padding = new Padding(3);
-            tabHighlighter.Size = new Size(741, 596);
+            tabHighlighter.Size = new Size(663, 502);
             tabHighlighter.TabIndex = 0;
             tabHighlighter.Text = "Highlighter";
             // 
             // ctrlHighlighter
             // 
             ctrlHighlighter.Dock = DockStyle.Fill;
+            ctrlHighlighter.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             ctrlHighlighter.Location = new Point(3, 3);
             ctrlHighlighter.Margin = new Padding(2, 3, 2, 3);
             ctrlHighlighter.Name = "ctrlHighlighter";
-            ctrlHighlighter.Size = new Size(735, 590);
+            ctrlHighlighter.Size = new Size(657, 496);
             ctrlHighlighter.TabIndex = 2;
             // 
             // materialDrawer
@@ -147,17 +148,18 @@ namespace FriskyMouse.UI
             tabClickDecorator.Location = new Point(4, 31);
             tabClickDecorator.Name = "tabClickDecorator";
             tabClickDecorator.Padding = new Padding(3);
-            tabClickDecorator.Size = new Size(741, 596);
+            tabClickDecorator.Size = new Size(663, 502);
             tabClickDecorator.TabIndex = 1;
             tabClickDecorator.Text = "Left Click";
             // 
             // ctrClickDecoration
             // 
             ctrClickDecoration.Dock = DockStyle.Fill;
+            ctrClickDecoration.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             ctrClickDecoration.Location = new Point(3, 3);
             ctrClickDecoration.Margin = new Padding(0);
             ctrClickDecoration.Name = "ctrClickDecoration";
-            ctrClickDecoration.Size = new Size(735, 590);
+            ctrClickDecoration.Size = new Size(657, 496);
             ctrClickDecoration.TabIndex = 0;
             // 
             // tabRightClick
@@ -168,7 +170,7 @@ namespace FriskyMouse.UI
             tabRightClick.Location = new Point(4, 31);
             tabRightClick.Name = "tabRightClick";
             tabRightClick.Padding = new Padding(3);
-            tabRightClick.Size = new Size(741, 596);
+            tabRightClick.Size = new Size(663, 502);
             tabRightClick.TabIndex = 4;
             tabRightClick.Text = "Right Click";
             // 
@@ -178,11 +180,12 @@ namespace FriskyMouse.UI
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(735, 590);
+            panel1.Size = new Size(657, 496);
             panel1.TabIndex = 0;
             // 
             // ctrLeftClickDecoration
             // 
+            ctrLeftClickDecoration.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             ctrLeftClickDecoration.Location = new Point(0, 1);
             ctrLeftClickDecoration.Name = "ctrLeftClickDecoration";
             ctrLeftClickDecoration.Size = new Size(831, 587);
@@ -196,12 +199,13 @@ namespace FriskyMouse.UI
             tbpSettings.Location = new Point(4, 31);
             tbpSettings.Name = "tbpSettings";
             tbpSettings.Padding = new Padding(3);
-            tbpSettings.Size = new Size(741, 596);
+            tbpSettings.Size = new Size(663, 502);
             tbpSettings.TabIndex = 2;
             tbpSettings.Text = "Settings";
             // 
             // ctrlAppSettings
             // 
+            ctrlAppSettings.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             ctrlAppSettings.Location = new Point(0, 3);
             ctrlAppSettings.Name = "ctrlAppSettings";
             ctrlAppSettings.Size = new Size(732, 594);
@@ -216,17 +220,18 @@ namespace FriskyMouse.UI
             tabAboutPage.Margin = new Padding(3, 2, 3, 2);
             tabAboutPage.Name = "tabAboutPage";
             tabAboutPage.Padding = new Padding(3, 2, 3, 2);
-            tabAboutPage.Size = new Size(741, 596);
+            tabAboutPage.Size = new Size(663, 502);
             tabAboutPage.TabIndex = 3;
             tabAboutPage.Text = "About";
             // 
             // ctrlAbout
             // 
             ctrlAbout.Dock = DockStyle.Fill;
+            ctrlAbout.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             ctrlAbout.Location = new Point(3, 2);
             ctrlAbout.Margin = new Padding(0);
             ctrlAbout.Name = "ctrlAbout";
-            ctrlAbout.Size = new Size(735, 592);
+            ctrlAbout.Size = new Size(657, 498);
             ctrlAbout.TabIndex = 0;
             // 
             // menuIconList
@@ -254,13 +259,13 @@ namespace FriskyMouse.UI
             trayContextMenu.ImageScalingSize = new Size(20, 20);
             trayContextMenu.Items.AddRange(new ToolStripItem[] { mnShow, mnAbout, mnExit });
             trayContextMenu.Name = "trayContextMenu";
-            trayContextMenu.Size = new Size(112, 82);
+            trayContextMenu.Size = new Size(118, 82);
             // 
             // mnShow
             // 
             mnShow.Image = Properties.Resources.show_app;
             mnShow.Name = "mnShow";
-            mnShow.Size = new Size(111, 26);
+            mnShow.Size = new Size(117, 26);
             mnShow.Text = "Restore";
             mnShow.Click += MenuItemShow_Click;
             // 
@@ -268,13 +273,16 @@ namespace FriskyMouse.UI
             // 
             mnExit.Image = Properties.Resources.close_64;
             mnExit.Name = "mnExit";
-            mnExit.Size = new Size(111, 26);
+            mnExit.Size = new Size(117, 26);
             mnExit.Text = "Exit";
             mnExit.Click += MenuItemExit_Click;
             // 
             // MainForm
-            //             
-            BackColor = Color.White;            
+            // 
+            AutoScaleMode = AutoScaleMode.None;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BackColor = Color.White;
+            ClientSize = new Size(679, 615);
             Controls.Add(mainTabControl);
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = mainTabControl;

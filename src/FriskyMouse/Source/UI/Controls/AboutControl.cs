@@ -19,7 +19,7 @@ public partial class AboutControl : UserControl
     public AboutControl()
     {
         InitializeComponent();
-        this.DisableAutoScaleMode(664, 693);        
+        this.DisableAutoScaleMode(664, 693);
         LoadBuildInfo();
     }
     public void LoadBuildInfo()
@@ -32,24 +32,25 @@ public partial class AboutControl : UserControl
 
     private void BtnWebstie_Click(object sender, EventArgs e)
     {
-        string website = "https://friskymouse.github.io";
-        AppHelpers.OpenURL(website);
+        string websiteURL = "https://friskymouse.github.io";
+        AppHelpers.OpenURL(websiteURL);
     }
 
     private void BtnDeveloper_Click(object sender, EventArgs e)
     {
-        string website = "https://github.com/frostybee";
-        AppHelpers.OpenURL(website);
+        string websiteURL = "https://github.com/frostybee";
+        AppHelpers.OpenURL(websiteURL);
     }
 
     private void BtnLicense_Click(object sender, EventArgs e)
     {
-        string website = "https://github.com/friskymouse/frisky-mouse/blob/main/LICENSE";
-        AppHelpers.OpenURL(website);
+        string websiteURL = "https://github.com/friskymouse/frisky-mouse/blob/main/LICENSE";
+        AppHelpers.OpenURL(websiteURL);
     }
 
     private void BtnDonate_Click(object sender, EventArgs e)
     {
-
+        string websiteURL = "https://www.paypal.com/donate/?hosted_button_id=DM3VTBCY22KLS";
+        AppHelpers.OpenURL(websiteURL);
     }
 }

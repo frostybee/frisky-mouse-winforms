@@ -25,7 +25,7 @@ public partial class HighlighterControl : UserControl
 
     public HighlighterControl()
     {
-        InitializeComponent();        
+        InitializeComponent();
         this.DisableAutoScaleMode(664, 693);
         //AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
         //AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

@@ -47,10 +47,10 @@ namespace MaterialSkin.Controls
 
                 _drawerShowIconsWhenHidden = value;
 
-                if (drawerControl == null) return;
+                if (_drawerControl == null) return;
 
-                drawerControl.ShowIconsWhenHidden = _drawerShowIconsWhenHidden;
-                drawerControl.Refresh();
+                _drawerControl.ShowIconsWhenHidden = _drawerShowIconsWhenHidden;
+                _drawerControl.Refresh();
             }
         }
 
@@ -61,14 +61,14 @@ namespace MaterialSkin.Controls
         public bool DrawerAutoHide
         {
             get => _drawerAutoHide;
-            set => drawerControl.AutoHide = _drawerAutoHide = value;
+            set => _drawerControl.AutoHide = _drawerAutoHide = value;
         }
 
         [Category("Drawer")]
         public bool DrawerAutoShow
         {
             get => _drawerAutoShow;
-            set => drawerControl.AutoShow = _drawerAutoShow = value;
+            set => _drawerControl.AutoShow = _drawerAutoShow = value;
         }
 
         [Category("Drawer")]
@@ -85,9 +85,9 @@ namespace MaterialSkin.Controls
                 _drawerIsOpen = value;
 
                 if (value)
-                    drawerControl?.Show();
+                    _drawerControl?.Show();
                 else
-                    drawerControl?.Hide();
+                    _drawerControl?.Hide();
             }
         }
 
@@ -101,10 +101,10 @@ namespace MaterialSkin.Controls
 
                 _drawerUseColors = value;
 
-                if (drawerControl == null) return;
+                if (_drawerControl == null) return;
 
-                drawerControl.UseColors = value;
-                drawerControl.Refresh();
+                _drawerControl.UseColors = value;
+                _drawerControl.Refresh();
             }
         }
 
@@ -118,10 +118,10 @@ namespace MaterialSkin.Controls
 
                 _drawerHighlightWithAccent = value;
 
-                if (drawerControl == null) return;
+                if (_drawerControl == null) return;
 
-                drawerControl.HighlightWithAccent = value;
-                drawerControl.Refresh();
+                _drawerControl.HighlightWithAccent = value;
+                _drawerControl.Refresh();
             }
         }
 
@@ -135,10 +135,10 @@ namespace MaterialSkin.Controls
 
                 _backgroundWithAccent = value;
 
-                if (drawerControl == null) return;
+                if (_drawerControl == null) return;
 
-                drawerControl.BackgroundWithAccent = value;
-                drawerControl.Refresh();
+                _drawerControl.BackgroundWithAccent = value;
+                _drawerControl.Refresh();
             }
         }
 
@@ -400,7 +400,7 @@ namespace MaterialSkin.Controls
         private bool _drawerUseColors;
         private bool _drawerHighlightWithAccent;
         private bool _backgroundWithAccent;
-        private MaterialDrawer drawerControl = new MaterialDrawer();
+        private MaterialDrawer _drawerControl = new MaterialDrawer();
         private AnimationManager _drawerShowHideAnimManager;
         private readonly AnimationManager _clickAnimManager;
 
@@ -418,7 +418,8 @@ namespace MaterialSkin.Controls
             DrawerIndicatorWidth = 0;
             DrawerHighlightWithAccent = true;
             DrawerBackgroundWithAccent = false;
-
+            Font = new Font(Font.Name, 8.25f * 96f / CreateGraphics().DpiX, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont);
+            AutoScaleMode = AutoScaleMode.None;
             FormBorderStyle = FormBorderStyle.None;
             Sizable = true;
             DoubleBuffered = true;
@@ -442,7 +443,13 @@ namespace MaterialSkin.Controls
                 AddDrawerOverlayForm();
             };
         }
-
+        public void RefreshDrawerControl()
+        {              
+            //_drawerControl.Height = height;
+            _drawerControl.Invalidate();            
+            Invalidate();
+            
+        }
         #region Private Methods
         protected void AddDrawerOverlayForm()
         {
@@ -497,21 +504,21 @@ namespace MaterialSkin.Controls
             drawerForm.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
 
             // Add drawer to overlay form
-            drawerForm.Controls.Add(drawerControl);
-            drawerControl.Location = new Point(0, 0);
-            drawerControl.Size = new Size(DrawerWidth, H);
-            drawerControl.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom);
-            drawerControl.BaseTabControl = DrawerTabControl;
-            drawerControl.ShowIconsWhenHidden = true;
+            drawerForm.Controls.Add(_drawerControl);
+            _drawerControl.Location = new Point(0, 0);
+            _drawerControl.Size = new Size(DrawerWidth, H);
+            _drawerControl.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom);
+            _drawerControl.BaseTabControl = DrawerTabControl;
+            _drawerControl.ShowIconsWhenHidden = true;
 
             // Init Options
-            drawerControl.IsOpen = DrawerIsOpen;
-            drawerControl.ShowIconsWhenHidden = DrawerShowIconsWhenHidden;
-            drawerControl.AutoHide = DrawerAutoHide;
-            drawerControl.AutoShow = DrawerAutoShow;
-            drawerControl.IndicatorWidth = DrawerIndicatorWidth;
-            drawerControl.HighlightWithAccent = DrawerHighlightWithAccent;
-            drawerControl.BackgroundWithAccent = DrawerBackgroundWithAccent;
+            _drawerControl.IsOpen = DrawerIsOpen;
+            _drawerControl.ShowIconsWhenHidden = DrawerShowIconsWhenHidden;
+            _drawerControl.AutoHide = DrawerAutoHide;
+            _drawerControl.AutoShow = DrawerAutoShow;
+            _drawerControl.IndicatorWidth = DrawerIndicatorWidth;
+            _drawerControl.HighlightWithAccent = DrawerHighlightWithAccent;
+            _drawerControl.BackgroundWithAccent = DrawerBackgroundWithAccent;
 
             // Changing colors or theme
             SkinManager.ThemeChanged += sender =>
@@ -547,26 +554,26 @@ namespace MaterialSkin.Controls
             // Close when click outside menu
             drawerOverlay.Click += (sender, e) =>
             {
-                drawerControl.Hide();
+                _drawerControl.Hide();
             };
 
             //Resize form when mouse over drawer
-            drawerControl.MouseDown += (sender, e) =>
+            _drawerControl.MouseDown += (sender, e) =>
             {
                 ResizeForm(_resizeDir);
             };
 
             // Animation and visibility
-            drawerControl.DrawerBeginOpen += (sender) =>
+            _drawerControl.DrawerBeginOpen += (sender) =>
             {
                 _drawerShowHideAnimManager.StartNewAnimation(AnimationDirection.In);
             };
 
-            drawerControl.DrawerBeginClose += (sender) =>
+            _drawerControl.DrawerBeginClose += (sender) =>
             {
                 _drawerShowHideAnimManager.StartNewAnimation(AnimationDirection.Out);
             };
-            drawerControl.CursorUpdate += (sender, drawerCursor) =>
+            _drawerControl.CursorUpdate += (sender, drawerCursor) =>
             {
                 if (Sizable && !Maximized)
                 {
@@ -591,13 +598,13 @@ namespace MaterialSkin.Controls
 
             originalPadding = Padding;
 
-            drawerControl.DrawerShowIconsWhenHiddenChanged += FixFormPadding;
+            _drawerControl.DrawerShowIconsWhenHiddenChanged += FixFormPadding;
             FixFormPadding(this);
 
             // Fix Closing the Drawer or Overlay form with Alt+F4 not exiting the app
             drawerOverlay.FormClosed += TerminateOnClose;
             drawerForm.FormClosed += TerminateOnClose;
-            drawerForm.Attach(drawerControl);
+            drawerForm.Attach(_drawerControl);
         }
 
         private void TerminateOnClose(object sender, FormClosedEventArgs e)
@@ -607,8 +614,8 @@ namespace MaterialSkin.Controls
 
         private void FixFormPadding(object sender)
         {
-            if (drawerControl.ShowIconsWhenHidden)
-                Padding = new Padding(Padding.Left < drawerControl.MinWidth ? drawerControl.MinWidth : Padding.Left, originalPadding.Top, originalPadding.Right, originalPadding.Bottom);
+            if (_drawerControl.ShowIconsWhenHidden)
+                Padding = new Padding(Padding.Left < _drawerControl.MinWidth ? _drawerControl.MinWidth : Padding.Left, originalPadding.Top, originalPadding.Right, originalPadding.Bottom);
             else
                 Padding = new Padding(PADDING_MINIMUM, originalPadding.Top, originalPadding.Right, originalPadding.Bottom);
         }
@@ -763,7 +770,7 @@ namespace MaterialSkin.Controls
                     break;
             }
 
-            Padding = new Padding(_drawerShowIconsWhenHidden ? drawerControl.MinWidth : PADDING_MINIMUM, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Padding.Right, Padding.Bottom);
+            Padding = new Padding(_drawerShowIconsWhenHidden ? _drawerControl.MinWidth : PADDING_MINIMUM, STATUS_BAR_HEIGHT + ACTION_BAR_HEIGHT, Padding.Right, Padding.Bottom);
             originalPadding = Padding;
 
             if (DrawerTabControl != null)
@@ -826,7 +833,7 @@ namespace MaterialSkin.Controls
             // Drawer
             if (DrawerTabControl != null && (message == WM.LeftButtonDown || message == WM.LeftButtonDoubleClick) && _drawerIconRect.Contains(cursorPos))
             {
-                drawerControl.Toggle();
+                _drawerControl.Toggle();
                 _clickAnimManager.SetProgress(0);
                 _clickAnimManager.StartNewAnimation(AnimationDirection.In);
                 _animationSource = cursorPos;
@@ -1234,6 +1241,7 @@ namespace MaterialSkin.Controls
 
         [DllImport("user32.dll")]
         private static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+        
         #endregion
     }
 

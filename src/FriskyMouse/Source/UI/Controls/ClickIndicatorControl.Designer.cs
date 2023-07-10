@@ -97,7 +97,7 @@ namespace FriskyMouse.UI.Controls
             groupBox3.Controls.Add(cmbProfilesList);
             groupBox3.Controls.Add(sldRadiusMultiplier);
             groupBox3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox3.Location = new Point(23, 13);
+            groupBox3.Location = new Point(19, 13);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(394, 231);
             groupBox3.TabIndex = 78;
@@ -228,7 +228,7 @@ namespace FriskyMouse.UI.Controls
             groupBox2.Controls.Add(cmbInterpolationMode);
             groupBox2.Controls.Add(cmbAnimDirection);
             groupBox2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox2.Location = new Point(23, 263);
+            groupBox2.Location = new Point(19, 263);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(394, 132);
             groupBox2.TabIndex = 75;
@@ -336,7 +336,7 @@ namespace FriskyMouse.UI.Controls
             btnPreview.Depth = 0;
             btnPreview.HighEmphasis = true;
             btnPreview.Icon = Properties.Resources.btn_preview_50;
-            btnPreview.Location = new Point(520, 271);
+            btnPreview.Location = new Point(515, 271);
             btnPreview.Margin = new Padding(4, 6, 4, 6);
             btnPreview.MouseState = MaterialSkin.MouseState.HOVER;
             btnPreview.Name = "btnPreview";
@@ -408,7 +408,7 @@ namespace FriskyMouse.UI.Controls
             materialLabel2.AutoSize = true;
             materialLabel2.Depth = 0;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(436, 4);
+            materialLabel2.Location = new Point(431, 4);
             materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
             materialLabel2.Size = new Size(56, 19);
@@ -421,7 +421,7 @@ namespace FriskyMouse.UI.Controls
             materialCard1.Depth = 0;
             materialCard1.Elevation = 5;
             materialCard1.LargeTitle = false;
-            materialCard1.Location = new Point(430, 26);
+            materialCard1.Location = new Point(425, 26);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(5, 25, 5, 5);

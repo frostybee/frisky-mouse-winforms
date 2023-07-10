@@ -14,8 +14,8 @@
 		<Authors>FrostyBee</Authors>
 		<Company />		
 		<Product>FriskyMouse</Product>		
-		<Copyright>Copyright FrostyBee © 2023</Copyright>
-		<PackageIcon>Resources\bee-icon.png</PackageIcon>
+		<Copyright>Copyright FrostyBee © 2023</Copyright>		
+		<PackageIcon>Resources\bee-icon.png</PackageIcon>		
 		<Version>1.0.0.1</Version>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<ApplicationIcon>Resources\gaming-mouse-96.ico</ApplicationIcon>

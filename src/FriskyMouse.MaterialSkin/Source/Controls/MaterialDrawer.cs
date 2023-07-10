@@ -311,7 +311,7 @@ namespace MaterialSkin.Controls
         public MaterialDrawer()
         {
             SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
-            Height = 120;
+            Height = 320;
             Width = 250;
             IndicatorWidth = 0;
             _isOpen = false;

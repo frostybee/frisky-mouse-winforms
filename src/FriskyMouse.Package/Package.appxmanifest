@@ -7,12 +7,12 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="1e027485-85bc-4222-b45b-41b98481b0ea"
+    Name="f1bbbd81-b880-4ef7-b44e-8b9631a2e1af"
     Publisher="CN=Sleiman"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>FriskyMouse.Installer</DisplayName>
+    <DisplayName>FriskyMouse.Package</DisplayName>
     <PublisherDisplayName>Sleiman</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="FriskyMouse.Installer"
-        Description="FriskyMouse.Installer"
+        DisplayName="FriskyMouse.Package"
+        Description="FriskyMouse.Package"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
