@@ -2,36 +2,16 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFrameworks>net7.0-windows</TargetFrameworks>
+		<TargetFramework>net7.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<BaseOutputPath>..\bin</BaseOutputPath>
-		<Platforms>AnyCPU;x64</Platforms>		
-		<AssemblyVersion>1.0.0.1</AssemblyVersion>
-		<Title>Frisky Mouse by FrostyBee</Title>
-		<PackageId>FriskyMouse</PackageId>
-		<Authors>FrostyBee</Authors>
-		<Company />		
-		<Product>FriskyMouse</Product>		
-		<Copyright>Copyright FrostyBee © 2023</Copyright>		
-		<PackageIcon>Resources\bee-icon.png</PackageIcon>		
-		<Version>1.0.0.1</Version>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<ApplicationIcon>Resources\gaming-mouse-96.ico</ApplicationIcon>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
-		<RootNamespace>FriskyMouse</RootNamespace>
+		<BaseOutputPath>..\bin</BaseOutputPath>
+		<BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<Configurations>Debug;Release;Portable;SelfContained;MicrosoftStore</Configurations>
-		<StartupObject>FriskyMouse.Program</StartupObject>		
-		<ApplicationUseCompatibleTextRendering>true</ApplicationUseCompatibleTextRendering>
-		<ApplicationVisualStyles>true</ApplicationVisualStyles>
-		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
-
-	<ItemGroup>
-	  <AdditionalFiles Remove="app.manifest" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\FriskyMouse.Drawing\FriskyMouse.Drawing.csproj" />
@@ -39,51 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Update="Properties\Resources.Designer.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Resources.resx</DependentUpon>
-		</Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-		<EmbeddedResource Update="Properties\Resources.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Remove="bee-icon.ico" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Resource Include="bee-icon.ico">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</Resource>
-	</ItemGroup>
-
-	<ItemGroup>
 		<Using Include="System.Drawing.Drawing2D" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<EditorConfigFiles Remove="D:\Dev\my-repos\FriskyMouse\src\FriskyMouse\.editorconfig" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Include="Resources\gaming-mouse-96.ico" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Include="app.manifest">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="D:\Dev\my-repos\FriskyMouse\src\FriskyMouse\.editorconfig" />
 	</ItemGroup>
 
 </Project>
