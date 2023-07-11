@@ -11,10 +11,11 @@
     <Product>FriskyMouse.MaterialSkin</Product>
     <Copyright>Copyright Leonardo C Bottaro © 2021</Copyright>
     <AssemblyVersion>2.3.1.0</AssemblyVersion>
-    <FileVersion>2.3.1.0</FileVersion>
+    <FileVersion>2.3.1.0</FileVersion>    
     <NeutralLanguage>en-US</NeutralLanguage>
     <ImplicitUsings>enable</ImplicitUsings>
     <Configurations>Debug;Release;Portable;SelfContained;MicrosoftStore</Configurations>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

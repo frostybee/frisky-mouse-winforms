@@ -30,8 +30,9 @@ public partial class MainForm : MaterialForm
         // Make the GUI ignore the DPI setting
         Font = new Font(Font.Name, 8.25f * 96f / CreateGraphics().DpiX, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont);
         this.AutoScaleMode = AutoScaleMode.None;
-        Size = new Size(900, 900);
+        Size = new Size(750, 750);
         MaximumSize = new System.Drawing.Size(1000, 950);
+        //MinimumSize = new System.Drawing.Size(800, 800);
         this.StartPosition = FormStartPosition.CenterScreen;
         // TODO: find the best value to auto-scale with.
         //Font = new Font(Font.Name, 8.25f * 96f / CreateGraphics().DpiX, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont);        
@@ -55,7 +56,7 @@ public partial class MainForm : MaterialForm
     {
         // Form's title.
         Text = "FriskyMouse";
-        mainTabControl.SelectedIndex = 4;
+        mainTabControl.SelectedIndex = 0;
         // Clean up resources on application exit.
         Application.ApplicationExit += Application_ApplicationExit;
         Icon = Properties.Resources.gaming_mouse_96;

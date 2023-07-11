@@ -11,7 +11,42 @@
 		<BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<Configurations>Debug;Release;Portable;SelfContained;MicrosoftStore</Configurations>
+    <Platforms>AnyCPU</Platforms>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <StartupObject>FriskyMouse.Program</StartupObject>
+  </PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Portable|AnyCPU'">
+	  <Optimize>True</Optimize>
 	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Portable|x64'">
+	  <Optimize>True</Optimize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SelfContained|AnyCPU'">
+	  <Optimize>True</Optimize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SelfContained|x64'">
+	  <Optimize>True</Optimize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MicrosoftStore|AnyCPU'">
+	  <Optimize>True</Optimize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MicrosoftStore|x64'">
+	  <Optimize>True</Optimize>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="app.manifest" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="app.manifest" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\FriskyMouse.Drawing\FriskyMouse.Drawing.csproj" />

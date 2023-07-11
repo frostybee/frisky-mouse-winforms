@@ -7,13 +7,13 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="f1bbbd81-b880-4ef7-b44e-8b9631a2e1af"
-    Publisher="CN=Sleiman"
-    Version="1.0.0.0" />
+    Name="8168FrostyBee.FriskyMouse"
+    Publisher="CN=A09D9444-6C59-45FB-9975-D37DB1755B31"
+    Version="0.1.0.0" />
 
   <Properties>
-    <DisplayName>FriskyMouse.Package</DisplayName>
-    <PublisherDisplayName>Sleiman</PublisherDisplayName>
+    <DisplayName>FriskyMouse</DisplayName>
+    <PublisherDisplayName>FrostyBee</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
@@ -23,20 +23,21 @@
   </Dependencies>
 
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="en-US"/>
+    <Resource uap:Scale="100"/>
   </Resources>
 
   <Applications>
-    <Application Id="App"
-      Executable="$targetnametoken$.exe"
+    <Application Id="FriskyMouse"
+      Executable="FriskyMouse.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="FriskyMouse.Package"
+        DisplayName="Frisky Mouse"
         Description="FriskyMouse.Package"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png"  Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
         <uap:SplashScreen Image="Images\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
