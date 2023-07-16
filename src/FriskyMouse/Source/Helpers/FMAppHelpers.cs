@@ -1,7 +1,8 @@
 ﻿#region License Information (MIT)
 /* 
-   FriskyMouse - A program that lets you highlight your mouse cursor and decorate your mouse clicks. 
-   Copyright (c) 2021-2023 FrostyBee
+   FriskyMouse - A utility application for Windows OS that lets you highlight your mouse cursor 
+   and decorate your mouse clicks. 
+   Copyright (c) 2021-present FrostyBee
    
    This program is free software; you can redistribute it and/or
    modify it under the terms of the MIT license
@@ -10,13 +11,12 @@
 #endregion
 
 using FriskyMouse.NativeApi;
-using MaterialSkin.Controls;
 using FriskyMouse.Extensions;
 using System.Diagnostics;
 
 namespace FriskyMouse.Helpers;
 
-public static class AppHelpers
+public static class FMAppHelpers
 {
 
     public static readonly Version OSVersion = Environment.OSVersion.Version;
@@ -38,7 +38,7 @@ public static class AppHelpers
 
     public static string GetApplicationVersion(bool includeRevision = false)
     {
-        Version version = typeof(AppHelpers).Assembly.GetName().Version; 
+        Version version = typeof(FMAppHelpers).Assembly.GetName().Version; 
         string result = $"{version.Major}.{version.Minor}.{version.Build}";
         if (includeRevision)
         {

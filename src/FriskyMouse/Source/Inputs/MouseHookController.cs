@@ -1,7 +1,8 @@
 ﻿#region License Information (MIT)
 /* 
-   FriskyMouse - A program that lets you highlight your mouse cursor and decorate your mouse clicks. 
-   Copyright (c) 2021-2023 FrostyBee
+   FriskyMouse - A utility application for Windows OS that lets you highlight your mouse cursor 
+   and decorate your mouse clicks. 
+   Copyright (c) 2021-present FrostyBee
    
    This program is free software; you can redistribute it and/or
    modify it under the terms of the MIT license
@@ -11,7 +12,6 @@
 
 using FriskyMouse.Helpers;
 using FriskyMouse.NativeApi;
-using System.Runtime;
 using System.Runtime.InteropServices;
 
 namespace FriskyMouse.Core;
@@ -45,7 +45,7 @@ internal class MouseHookController : GlobalMouseHook
         if (nCode >= 0)
         {            
             MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
-            POINT cursorPos = AppHelpers.GetCursorPosition();
+            POINT cursorPos = FMAppHelpers.GetCursorPosition();
             switch (messageType)
             {
                 case MouseButtonTypes.LeftButtonDown:
@@ -58,7 +58,7 @@ internal class MouseHookController : GlobalMouseHook
                     Task.Delay(500).ContinueWith(t => _highlighter?.BringToFront());
                     break;
                 case MouseButtonTypes.MouseMove:
-                    //POINT cursorPos = AppHelpers.GetCursorPosition();
+                    //POINT cursorPos = FMAppHelpers.GetCursorPosition();
                     //_highlighter?.MoveSpotlight(cursorPos);
                     _highlighter?.MoveSpotlight(hookStruct.pt);
 

@@ -1,6 +1,5 @@
 ﻿using FriksyMouse.MaterialSkin.Properties;
 using MaterialSkin.Controls;
-using System.Diagnostics;
 using System.Drawing.Text;
 using System.Runtime.InteropServices;
 

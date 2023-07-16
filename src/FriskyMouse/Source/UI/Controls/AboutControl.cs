@@ -1,7 +1,8 @@
 ﻿#region License Information (MIT)
 /* 
-   FriskyMouse - A program that lets you highlight your mouse cursor and decorate your mouse clicks. 
-   Copyright (c) 2021-2023 FrostyBee
+   FriskyMouse - A utility application for Windows OS that lets you highlight your mouse cursor 
+   and decorate your mouse clicks. 
+   Copyright (c) 2021-present FrostyBee
    
    This program is free software; you can redistribute it and/or
    modify it under the terms of the MIT license
@@ -26,31 +27,27 @@ public partial class AboutControl : UserControl
     {
         // TODO: add suffix indicating latest or not up to date.
         // Maybe add status field? latest, udpate  with latest version info?
-        lblAppVersion.Text = $"Version: {AppHelpers.GetApplicationVersion()}";
+        lblAppVersion.Text = $"Version: {FMAppHelpers.GetApplicationVersion()}";
         lblBuildInfo.Text = $"Build: {Program.BuildInfo}";
     }
 
     private void BtnWebstie_Click(object sender, EventArgs e)
     {
-        string websiteURL = "https://friskymouse.github.io";
-        AppHelpers.OpenURL(websiteURL);
+        FMAppHelpers.OpenURL(FMAppLinks.WebsiteURL);
     }
 
     private void BtnDeveloper_Click(object sender, EventArgs e)
     {
-        string websiteURL = "https://github.com/frostybee";
-        AppHelpers.OpenURL(websiteURL);
+        FMAppHelpers.OpenURL(FMAppLinks.DeveloperURL);
     }
 
     private void BtnLicense_Click(object sender, EventArgs e)
     {
-        string websiteURL = "https://github.com/friskymouse/frisky-mouse/blob/main/LICENSE";
-        AppHelpers.OpenURL(websiteURL);
+        FMAppHelpers.OpenURL(FMAppLinks.LicenseURL);
     }
 
     private void BtnDonate_Click(object sender, EventArgs e)
     {
-        string websiteURL = "https://www.paypal.com/donate/?hosted_button_id=DM3VTBCY22KLS";
-        AppHelpers.OpenURL(websiteURL);
+        FMAppHelpers.OpenURL(FMAppLinks.DonationURL);
     }
 }

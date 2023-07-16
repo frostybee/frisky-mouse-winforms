@@ -1,7 +1,8 @@
 ﻿#region License Information (MIT)
 /* 
-   FriskyMouse - A program that lets you highlight your mouse cursor and decorate your mouse clicks. 
-   Copyright (c) 2021-2023 FrostyBee
+   FriskyMouse - A utility application for Windows OS that lets you highlight your mouse cursor 
+   and decorate your mouse clicks. 
+   Copyright (c) 2021-present FrostyBee
    
    This program is free software; you can redistribute it and/or
    modify it under the terms of the MIT license
@@ -16,7 +17,6 @@ using FriskyMouse.Drawing.Animation;
 using FriskyMouse.Drawing.Ripples;
 using FriskyMouse.Drawing.Extensions;
 using FriskyMouse.Drawing.Helpers;
-using FriskyMouse.Helpers;
 using FriskyMouse.Extensions;
 
 namespace FriskyMouse.UI.Controls;
@@ -117,7 +117,7 @@ public partial class ClickIndicatorControl : UserControl
     }
     private void BtnColorPicker_Click(object? sender, EventArgs e)
     {
-        Color selectedColor = Helpers.AppHelpers.GetUserSelectedColor(_settings.FillColor);
+        Color selectedColor = Helpers.FMAppHelpers.GetUserSelectedColor(_settings.FillColor);
         _settings.FillColor = selectedColor;
         btnFillColor.BackColor = selectedColor;
         _currentProfile?.UpdateRipplesStyle(_settings);

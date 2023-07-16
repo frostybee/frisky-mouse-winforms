@@ -1,7 +1,8 @@
 ﻿#region License Information (MIT)
 /* 
-   FriskyMouse - A program that lets you highlight your mouse cursor and decorate your mouse clicks. 
-   Copyright (c) 2021-2023 FrostyBee
+   FriskyMouse - A utility application for Windows OS that lets you highlight your mouse cursor 
+   and decorate your mouse clicks. 
+   Copyright (c) 2021-present FrostyBee
    
    This program is free software; you can redistribute it and/or
    modify it under the terms of the MIT license
@@ -54,7 +55,7 @@ internal class HighlighterController : IDisposable
         _highlighterWindow.SetBitmap(_spotlightBitmap, highlighterInfo.Opacity);
         // Set the highlighter's initial position after launching the application or
         // applying new settings. 
-        MoveSpotlight(AppHelpers.GetCursorPosition());
+        MoveSpotlight(FMAppHelpers.GetCursorPosition());
         _highlighterWindow.Show();
         graphics?.Dispose();
     }
@@ -83,7 +84,7 @@ internal class HighlighterController : IDisposable
         if (_options.Enabled)
         {
             // Adjust the coordinates of the layered window based on the spotlight's bitmap size.                
-            SetLayeredWindowCoordinates(AppHelpers.GetCursorPosition());
+            SetLayeredWindowCoordinates(FMAppHelpers.GetCursorPosition());
             _highlighterWindow.SetTopMost();
         }
     }
@@ -98,7 +99,7 @@ internal class HighlighterController : IDisposable
     }
     internal void SetInitialPosition()
     {
-        POINT coordinates = AppHelpers.GetCursorPosition();
+        POINT coordinates = FMAppHelpers.GetCursorPosition();
         if (coordinates != POINT.Empty)
         {
             SetLayeredWindowCoordinates(coordinates);
