@@ -44,6 +44,7 @@ public partial class MainForm : MaterialForm
         InitializeControls();
         SizeChanged += MainForm_SizeChanged;
         //TopMost = true;
+        
     }
 
     private void MainForm_SizeChanged(object? sender, EventArgs e)
@@ -60,13 +61,13 @@ public partial class MainForm : MaterialForm
         mainTabControl.SelectedIndex = 0;
         // Clean up resources on application exit.
         Application.ApplicationExit += Application_ApplicationExit;
-        Icon = Properties.Resources.gaming_mouse_96;
+        Icon = Properties.Resources.FriskyMouseIcon;
 
         // Handle minimizing main application's window to the system tray.
         Resize += MainForm_Resize;
 
         appNotifyIcon.DoubleClick += AppNotifyIcon_DoubleClick;
-        appNotifyIcon.Icon = Properties.Resources.gaming_mouse_96;
+        appNotifyIcon.Icon = Properties.Resources.FriskyMouseIcon;
         appNotifyIcon.ContextMenuStrip = trayContextMenu;
         //-- Set up the form closing/loading events. They are required for ensuring that 
         // the mouse hooks is properly installed/uninstalled.

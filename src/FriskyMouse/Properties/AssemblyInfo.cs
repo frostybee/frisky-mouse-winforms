@@ -21,11 +21,11 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FrostyBee")]
 [assembly: AssemblyProduct("FriskyMouse")]
-[assembly: AssemblyCopyright("FrostyBee Copyright ©  2023")]
+[assembly: AssemblyCopyright("FrostyBee Copyright ©  2022-present")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyVersion("0.1.0")]
-[assembly: AssemblyFileVersion("0.1.0")]
+[assembly: AssemblyVersion("0.1.2")]
+[assembly: AssemblyFileVersion("0.1.2")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from

@@ -8,9 +8,9 @@ FriskyMouse does not collect any data of any kind, including personally identifi
 
 FriskyMouse saves its settings locally to a file on your computer. It does not upload any kind of data to any server. 
 
-FriskyMosue checks for updates at startup, and between intervals using GitHub API. FriskyMouse might download the updates from GitHub when the user permits it.
+FriskyMouse checks for updates at startup, and between intervals using GitHub API. FriskyMouse might download the updates from GitHub when the user permits it.
 
-FriskyMosue implements GitHub API Services to support detecting new updates. You may wish to read the Privacy Policy of third-party services we currently use:
+FriskyMouse implements GitHub API Services to support detecting new updates. You may wish to read the Privacy Policy of third-party services we currently use:
 - [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
 
 ## Links to Other Websites

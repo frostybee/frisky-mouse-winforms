@@ -20,14 +20,14 @@ public partial class ErrorForm : Form
 {
     public bool IsUnhandledException { get; private set; }
     public string LogFilePath { get; private set; }
-    public ErrorForm(Exception error, string bugReportPath) : this(error.Message, error.ToString())
-    {
+    public ErrorForm(Exception error, string bugReportPath) : this(error.Message, error.ToString())   {
     }
 
     public ErrorForm(string errorTitle, string errorMessage, bool unhandledException = true)
     {
         InitializeComponent();
-
+        Font = new Font(Font.Name, 8.25f * 96f / CreateGraphics().DpiX, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont);
+        this.AutoScaleMode = AutoScaleMode.None;
 
         IsUnhandledException = unhandledException;
 

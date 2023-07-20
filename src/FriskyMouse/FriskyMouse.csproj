@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<ApplicationIcon>Resources\gaming-mouse-96.ico</ApplicationIcon>
+		<ApplicationIcon>Resources\FriskyMouse-Icon.ico</ApplicationIcon>
 		<BaseOutputPath>..\bin</BaseOutputPath>
 		<BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -43,10 +43,14 @@
 
 	<ItemGroup>
 	  <None Remove="app.manifest" />
+	  <None Remove="Resources\FriskyMouse-Icon.ico" />
+	  <None Remove="Resources\FriskyMouseIcon.ico" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="app.manifest" />
+	  <EmbeddedResource Include="Resources\FriskyMouse-Icon.ico" />
+	  <EmbeddedResource Include="Resources\FriskyMouseIcon.ico" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -106,8 +106,7 @@ partial class ErrorForm
         // ErrorForm
         // 
         AcceptButton = btnContinue;
-        resources.ApplyResources(this, "$this");
-        AutoScaleMode = AutoScaleMode.Dpi;
+        resources.ApplyResources(this, "$this");        
         BackColor = SystemColors.Window;
         Controls.Add(lblErrorMessage);
         Controls.Add(flpMenu);

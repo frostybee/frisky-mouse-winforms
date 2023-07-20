@@ -112,9 +112,9 @@ namespace FriskyMouse.UI.Controls
             materialLabel3.Location = new Point(13, -1);
             materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel3.Name = "materialLabel3";
-            materialLabel3.Size = new Size(99, 19);
+            materialLabel3.Size = new Size(104, 19);
             materialLabel3.TabIndex = 84;
-            materialLabel3.Text = "Circle Options";
+            materialLabel3.Text = "Ripple Options";
             // 
             // sldOpacityMultiplier
             // 
