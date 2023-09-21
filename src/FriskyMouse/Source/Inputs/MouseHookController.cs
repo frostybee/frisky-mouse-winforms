@@ -45,7 +45,7 @@ internal class MouseHookController : GlobalMouseHook
         if (nCode >= 0)
         {            
             MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
-            POINT cursorPos = FMAppHelpers.GetCursorPosition();
+            //POINT cursorPos = FMAppHelper.GetCursorPosition();
             switch (messageType)
             {
                 case MouseButtonTypes.LeftButtonDown:
@@ -58,7 +58,7 @@ internal class MouseHookController : GlobalMouseHook
                     Task.Delay(500).ContinueWith(t => _highlighter?.BringToFront());
                     break;
                 case MouseButtonTypes.MouseMove:
-                    //POINT cursorPos = FMAppHelpers.GetCursorPosition();
+                    //POINT cursorPos = FMAppHelper.GetCursorPosition();
                     //_highlighter?.MoveSpotlight(cursorPos);
                     _highlighter?.MoveSpotlight(hookStruct.pt);
 

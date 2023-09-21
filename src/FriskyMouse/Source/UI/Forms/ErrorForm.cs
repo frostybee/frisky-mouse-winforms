@@ -48,7 +48,7 @@ public partial class ErrorForm : Form
 
     private void btnSendBugReport_Click(object sender, EventArgs e)
     {
-        FMAppHelpers.OpenURL(FMAppLinks.GitHubIssuesURL);
+        FMAppHelper.OpenURL(FMAppLinks.GitHubIssuesURL);
     }
 
     private void btnContinue_Click(object sender, EventArgs e)

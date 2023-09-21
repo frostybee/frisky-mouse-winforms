@@ -117,7 +117,7 @@ public partial class ClickIndicatorControl : UserControl
     }
     private void BtnColorPicker_Click(object? sender, EventArgs e)
     {
-        Color selectedColor = Helpers.FMAppHelpers.GetUserSelectedColor(_settings.FillColor);
+        Color selectedColor = Helpers.FMAppHelper.GetUserSelectedColor(_settings.FillColor);
         _settings.FillColor = selectedColor;
         btnFillColor.BackColor = selectedColor;
         _currentProfile?.UpdateRipplesStyle(_settings);

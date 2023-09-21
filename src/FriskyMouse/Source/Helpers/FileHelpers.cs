@@ -25,7 +25,7 @@ public static class FileHelpers
         {
             try
             {
-                foreach (Environment.SpecialFolder specialFolder in FMAppHelpers.GetEnums<Environment.SpecialFolder>())
+                foreach (Environment.SpecialFolder specialFolder in FMAppHelper.GetEnums<Environment.SpecialFolder>())
                 {
                     path = path.Replace($"%{specialFolder}%", Environment.GetFolderPath(specialFolder), StringComparison.OrdinalIgnoreCase);
                 }

@@ -32,19 +32,15 @@ public partial class MainForm : MaterialForm
         this.AutoScaleMode = AutoScaleMode.None;
         Size = new Size(750, 750);
         MaximumSize = new System.Drawing.Size(1000, 950);
-        //MinimumSize = new System.Drawing.Size(800, 800);
+        ///MinimumSize = new System.Drawing.Size(800, 800);
         this.StartPosition = FormStartPosition.CenterScreen;
         CenterToScreen();
-        // TODO: find the best value to auto-scale with.
-        //Font = new Font(Font.Name, 8.25f * 96f / CreateGraphics().DpiX, Font.Style, Font.Unit, Font.GdiCharSet, Font.GdiVerticalFont);        
         DoubleBuffered = true;
         // Initialize the global managers.
         _decorationController = DecorationManager.Instance;
         _materialSkinManager = MaterialSkinManager.Instance;
         InitializeControls();
-        SizeChanged += MainForm_SizeChanged;
-        //TopMost = true;
-        
+        SizeChanged += MainForm_SizeChanged;       
     }
 
     private void MainForm_SizeChanged(object? sender, EventArgs e)
@@ -126,12 +122,22 @@ public partial class MainForm : MaterialForm
             ctrClickDecoration.UpdateControlsFromSettings("Left Click Indicator", DecorationManager.Instance.ClickDecorator, SettingsManager.Settings.LeftClickOptions);
             ctrLeftClickDecoration.UpdateControlsFromSettings("Right Click Indicator ", DecorationManager.Instance.RightClickDecorator, SettingsManager.Settings.RightClickOptions);
             ctrlAppSettings.UpdateControlsFromSettings();
+            mainTabControl.Selecting += MainTabControl_Selecting;
         }
         catch (Exception ex)
         {
             MessageBox.Show(ex.Message);
         }
 
+    }
+
+    private void MainTabControl_Selecting(object? sender, TabControlCancelEventArgs e)
+    {
+        //TabPage current = (sender as TabControl).SelectedTab;
+        if (mainTabControl.SelectedIndex == 4)
+        {            
+            ctrlAbout.CheckForUpdate();            
+        }        
     }
 
     /// <summary>

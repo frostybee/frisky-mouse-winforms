@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net7.0-windows7.0</TargetFramework>
+		<TargetFramework>net7.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -14,7 +14,7 @@
     <Platforms>AnyCPU</Platforms>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <StartupObject>FriskyMouse.Program</StartupObject>
-    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>    
   </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Portable|AnyCPU'">
@@ -51,6 +51,10 @@
 	  <EmbeddedResource Include="app.manifest" />
 	  <EmbeddedResource Include="Resources\FriskyMouse-Icon.ico" />
 	  <EmbeddedResource Include="Resources\FriskyMouseIcon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Octokit" Version="7.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>

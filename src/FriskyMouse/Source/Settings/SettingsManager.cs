@@ -52,7 +52,7 @@ internal static class SettingsManager
             {
                 LoadDefaultSettings();
                 Settings.ApplicationSettings.ApplicationName = Program.ApplicationName;
-                Settings.ApplicationSettings.Version = FMAppHelpers.GetApplicationVersion();
+                Settings.ApplicationSettings.Version = FMAppHelper.GetApplicationVersion();
                 // Create the directory that will hold the settings file if it doesn't exist.
                 FileHelpers.CreateDirectoryFromFilePath(filePath);
                 FileStream createStream = File.Create(filePath);

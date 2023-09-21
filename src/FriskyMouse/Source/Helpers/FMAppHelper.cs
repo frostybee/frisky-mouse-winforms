@@ -16,7 +16,7 @@ using System.Diagnostics;
 
 namespace FriskyMouse.Helpers;
 
-public static class FMAppHelpers
+public static class FMAppHelper
 {
 
     public static readonly Version OSVersion = Environment.OSVersion.Version;
@@ -36,9 +36,14 @@ public static class FMAppHelpers
         return GetEnums<T>()[i];
     }
 
+    public static Version GetCurrentAppVersion()
+    {
+        Version version = typeof(FMAppHelper).Assembly.GetName().Version;
+        return version;
+    }
     public static string GetApplicationVersion(bool includeRevision = false)
     {
-        Version version = typeof(FMAppHelpers).Assembly.GetName().Version; 
+        Version version = typeof(FMAppHelper).Assembly.GetName().Version;
         string result = $"{version.Major}.{version.Minor}.{version.Build}";
         if (includeRevision)
         {
@@ -101,15 +106,15 @@ public static class FMAppHelpers
             // Allows the user to get help. (The default is false.)
             ShowHelp = true,
             // Sets the initial color select to the current text color.
-            Color = initialColor                              
+            Color = initialColor
         };
-        
+
         // Update the text box color if the user clicks OK 
         if (colorPicker.ShowDialog() == DialogResult.OK)
         {
-            return colorPicker.Color;                
+            return colorPicker.Color;
         }
-        colorPicker?.Dispose(); 
+        colorPicker?.Dispose();
         return initialColor;
     }
 

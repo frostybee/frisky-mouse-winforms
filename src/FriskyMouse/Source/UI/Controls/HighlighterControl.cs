@@ -168,21 +168,21 @@ public partial class HighlighterControl : UserControl
 
     private void BtnFillColor_Click(object sender, EventArgs e)
     {
-        Color selectedColor = Helpers.FMAppHelpers.GetUserSelectedColor(_settings.FillColor);
+        Color selectedColor = Helpers.FMAppHelper.GetUserSelectedColor(_settings.FillColor);
         _settings.FillColor = selectedColor;
         btnSpotlightColor.BackColor = selectedColor;
         UpdateHighlighterPreview();
     }
     private void BtnStrokeColor_Click(object sender, EventArgs e)
     {
-        Color selectedColor = Helpers.FMAppHelpers.GetUserSelectedColor(_settings.OutlineColor);
+        Color selectedColor = Helpers.FMAppHelper.GetUserSelectedColor(_settings.OutlineColor);
         _settings.OutlineColor = selectedColor;
         UpdateHighlighterPreview();
         btnOutlineColorPicker.BackColor = selectedColor;
     }
     private void BtnShadow_Click(object sender, EventArgs e)
     {
-        Color selectedColor = Helpers.FMAppHelpers.GetUserSelectedColor(_settings.ShadowColor);
+        Color selectedColor = Helpers.FMAppHelper.GetUserSelectedColor(_settings.ShadowColor);
         _settings.ShadowColor = selectedColor;
         btnCurrentShadowColor.BackColor = selectedColor;
         UpdateHighlighterPreview();

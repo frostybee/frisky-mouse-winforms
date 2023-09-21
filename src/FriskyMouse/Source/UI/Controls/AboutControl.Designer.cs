@@ -47,6 +47,7 @@ namespace FriskyMouse.UI.Controls
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             richTextBox1 = new RichTextBox();
             groupBox3 = new GroupBox();
+            lblLatestVersion = new MaterialSkin.Controls.MaterialLabel();
             materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             lblBuildInfo = new MaterialSkin.Controls.MaterialLabel();
             lblAppVersion = new MaterialSkin.Controls.MaterialLabel();
@@ -151,14 +152,27 @@ namespace FriskyMouse.UI.Controls
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(lblLatestVersion);
             groupBox3.Controls.Add(materialLabel5);
             groupBox3.Controls.Add(lblBuildInfo);
             groupBox3.Controls.Add(lblAppVersion);
             groupBox3.Location = new Point(400, 49);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(215, 94);
+            groupBox3.Size = new Size(220, 121);
             groupBox3.TabIndex = 88;
             groupBox3.TabStop = false;
+            // 
+            // lblLatestVersion
+            // 
+            lblLatestVersion.AutoSize = true;
+            lblLatestVersion.Depth = 0;
+            lblLatestVersion.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblLatestVersion.Location = new Point(15, 56);
+            lblLatestVersion.MouseState = MaterialSkin.MouseState.HOVER;
+            lblLatestVersion.Name = "lblLatestVersion";
+            lblLatestVersion.Size = new Size(104, 19);
+            lblLatestVersion.TabIndex = 90;
+            lblLatestVersion.Text = "Latest version:";
             // 
             // materialLabel5
             // 
@@ -177,7 +191,7 @@ namespace FriskyMouse.UI.Controls
             lblBuildInfo.AutoSize = true;
             lblBuildInfo.Depth = 0;
             lblBuildInfo.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblBuildInfo.Location = new Point(17, 53);
+            lblBuildInfo.Location = new Point(15, 85);
             lblBuildInfo.MouseState = MaterialSkin.MouseState.HOVER;
             lblBuildInfo.Name = "lblBuildInfo";
             lblBuildInfo.Size = new Size(41, 19);
@@ -192,9 +206,9 @@ namespace FriskyMouse.UI.Controls
             lblAppVersion.Location = new Point(15, 27);
             lblAppVersion.MouseState = MaterialSkin.MouseState.HOVER;
             lblAppVersion.Name = "lblAppVersion";
-            lblAppVersion.Size = new Size(58, 19);
+            lblAppVersion.Size = new Size(111, 19);
             lblAppVersion.TabIndex = 88;
-            lblAppVersion.Text = "Version:";
+            lblAppVersion.Text = "Current version:";
             // 
             // groupBox2
             // 
@@ -418,5 +432,6 @@ namespace FriskyMouse.UI.Controls
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private MaterialSkin.Controls.MaterialButton btnDonate;
         private RichTextBox richTextBox1;
+        private MaterialSkin.Controls.MaterialLabel lblLatestVersion;
     }
 }

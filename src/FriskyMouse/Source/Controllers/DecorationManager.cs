@@ -40,7 +40,7 @@ internal class DecorationManager : IDisposable
 
     private void _rightClickDecorator_AnimationCompleted()
     {            
-        //_highlighter?.BringToFront(FMAppHelpers.GetCursorPosition());
+        //_highlighter?.BringToFront(FMAppHelper.GetCursorPosition());
     }
 
     #region Methods

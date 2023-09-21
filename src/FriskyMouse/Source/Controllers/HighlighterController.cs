@@ -55,7 +55,7 @@ internal class HighlighterController : IDisposable
         _highlighterWindow.SetBitmap(_spotlightBitmap, highlighterInfo.Opacity);
         // Set the highlighter's initial position after launching the application or
         // applying new settings. 
-        MoveSpotlight(FMAppHelpers.GetCursorPosition());
+        MoveSpotlight(FMAppHelper.GetCursorPosition());
         _highlighterWindow.Show();
         graphics?.Dispose();
     }
@@ -84,7 +84,7 @@ internal class HighlighterController : IDisposable
         if (_options.Enabled)
         {
             // Adjust the coordinates of the layered window based on the spotlight's bitmap size.                
-            SetLayeredWindowCoordinates(FMAppHelpers.GetCursorPosition());
+            SetLayeredWindowCoordinates(FMAppHelper.GetCursorPosition());
             _highlighterWindow.SetTopMost();
         }
     }
@@ -99,7 +99,7 @@ internal class HighlighterController : IDisposable
     }
     internal void SetInitialPosition()
     {
-        POINT coordinates = FMAppHelpers.GetCursorPosition();
+        POINT coordinates = FMAppHelper.GetCursorPosition();
         if (coordinates != POINT.Empty)
         {
             SetLayeredWindowCoordinates(coordinates);
